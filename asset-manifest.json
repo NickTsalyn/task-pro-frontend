@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/task-pro-frontend/static/css/main.e3f95ea7.css",
-    "main.js": "/task-pro-frontend/static/js/main.455437a2.js",
+    "main.js": "/task-pro-frontend/static/js/main.09335aed.js",
     "static/media/welcome.png": "/task-pro-frontend/static/media/welcome.6370c83571764935d58b.png",
     "static/media/icons.svg": "/task-pro-frontend/static/media/icons.d44cf1e046fba03c93b53e0c943217e9.svg",
     "static/media/poppins-v20-latin-600.woff2": "/task-pro-frontend/static/media/poppins-v20-latin-600.91145014c0350c248ed2.woff2",
@@ -9,10 +9,10 @@
     "static/media/poppins-v20-latin-500.woff2": "/task-pro-frontend/static/media/poppins-v20-latin-500.08491d3f7fe7ae88ef44.woff2",
     "index.html": "/task-pro-frontend/index.html",
     "main.e3f95ea7.css.map": "/task-pro-frontend/static/css/main.e3f95ea7.css.map",
-    "main.455437a2.js.map": "/task-pro-frontend/static/js/main.455437a2.js.map"
+    "main.09335aed.js.map": "/task-pro-frontend/static/js/main.09335aed.js.map"
   },
   "entrypoints": [
     "static/css/main.e3f95ea7.css",
-    "static/js/main.455437a2.js"
+    "static/js/main.09335aed.js"
   ]
 }
