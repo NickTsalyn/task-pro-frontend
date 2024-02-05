@@ -5,6 +5,7 @@ import {
   HideBtn,
   IconEye,
   IconPlus,
+  IconUser,
   ModalWrap,
   ProfileFotoBox,
   StyledField,
@@ -44,7 +45,10 @@ export const EditProfileModal = () => {
     <ModalWrap>
       <TitleModal>Edit profile</TitleModal>
       <ProfileFotoBox>
-        <img src={userAvatar} alt="user-avatar" />
+        <IconUser>
+          <use xlinkHref={`${sprite}#icon-user`}></use>
+        </IconUser>
+        {/* <img src={userAvatar} alt="user-avatar" /> */}
         <SvgPlusBox>
           <IconPlus>
             <use xlinkHref={`${sprite}#icon-plus`}></use>

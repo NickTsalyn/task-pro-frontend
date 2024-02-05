@@ -45,6 +45,14 @@ export const SvgPlusBox = styled.div`
   align-items: center;
 `;
 
+export const IconUser = styled.svg`
+  width: 68px;
+  height: 68px;
+  stroke-width: 0;
+  stroke: ${props => props.theme.colors.darkTextColor};
+  fill: #ecedfd;
+  /* margin-right: ${p => p.theme.spacing(4)}; */
+`;
 export const IconPlus = styled.svg`
   width: 10px;
   height: 10px;
