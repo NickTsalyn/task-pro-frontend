@@ -15,8 +15,7 @@ import sprite from '../../images/icons.svg';
 import { NavLink } from 'react-router-dom';
 
 export const Welcome = () => {
-  return (
-    
+  return (    
       <Container>
         <StyledImg src={welcomImg} alt="welcome-img" />
         <LogoWrapper>
@@ -35,7 +34,6 @@ export const Welcome = () => {
         <NavLink to="/auth/login">
           <LoginBtn>Log In</LoginBtn>
         </NavLink>
-      </Container>
-    
+      </Container>    
   );
 };

@@ -84,10 +84,13 @@ export const StyledLabel = styled.label`
 `;
 
 export const MessageError = styled(ErrorMessage)`
-  position: absolute;
-  left: 0;
-  bottom: -14px;
-  color: #c04d4d;
-  font-size: 10px;
+  margin-top: 3px;
   padding-left: 14px;
+  color: #c04d4d;
+  font-size: 12px;
+`;
+export const StyledInputContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
 `;

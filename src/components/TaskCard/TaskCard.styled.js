@@ -6,10 +6,9 @@ export const TaskContainer = styled.div`
     gap: 14px;
     width: 335px;
     height: 154px;
-    margin: 0;
+    margin: 0 ;
     background-color: ${p => p.theme.colors.white};
-    border-radius: ${p => p.theme.radius.m};
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    border-radius: ${p => p.theme.radius.m};    
 `;
 
 export const PrioritySeeContainer = styled.div`
@@ -29,8 +28,7 @@ export const MainContainer = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-family: 'Poppins';
-  font-style: normal;
+    
   margin: 0;
   margin-bottom: ${p => p.theme.spacing(2)};
   font-weight: 600;

@@ -6,11 +6,11 @@ export const WelcomeWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     rgba(196, 196, 196, 0) 25%,
     #bedbb0 92.19%
-  );
+  ); */
 `;
 export const FormContainer = styled.div`
   width: calc(100%-84px);

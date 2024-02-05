@@ -1,10 +1,16 @@
 import { CardListItem } from "components/CardListItem/CardListItem";
+import { ButtonAddCard, CardListStyled, CardListWrapper } from "./CardList.styled";
 
 export const CardList = () => {
     return(
-        <ul>
+        <CardListWrapper>
+        <CardListStyled>
             <CardListItem/>
-            <>ButtonAddAnotherCard</>
-        </ul>
+            {/* <CardListItem/>
+            <CardListItem/>
+            <CardListItem/>             */}
+        </CardListStyled>
+        <ButtonAddCard type="button">AddAnotherCard</ButtonAddCard>
+        </CardListWrapper>
     )
 };

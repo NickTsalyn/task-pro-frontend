@@ -4,10 +4,10 @@ import { PrioritySeeContainer, CardPriorityDeadline,
   DeadlineContainer, Bell, Buttons, TextContainer, Svg, 
   Btn, MenuCard, SubTitle, CirclePriority, TextPriority, 
   PriorityContainer, MainContainer, TextDate, ButtonsContainer, SvgBell, DescriptionContainer } from "./TaskCard.styled";
-import sprite from "../../../images/icons.svg";
+import sprite from "../../images/icons.svg";
 
 
-export const TaskCard = (props) => {
+export const TaskCard = () => {
    
     
 
