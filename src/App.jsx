@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 
 import HomePage from 'Pages/HomePage';
-import { ScreensPage } from 'Pages/ScreensPage';
+// import { ScreensPage } from 'Pages/ScreensPage';
 import WelcomePage from 'Pages/WelcomePage';
 
 import Auth from 'components/Auth/Auth';
@@ -46,14 +46,20 @@ export const App = () => {
           />
         </Route>
       </Route>
-      <Route
+      {/* <Route
         path="/home"
         element={
           <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
         }
       >
         <Route path="/home/:boardName" element={<ScreensPage />} />
-      </Route>
+      </Route> */}
+      <Route
+        path="/home"
+        element={
+          <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
+        }
+      />
     </Routes>
   );
 };

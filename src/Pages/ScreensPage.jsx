@@ -7,14 +7,11 @@ import { ScreensPageWrapper } from './ScreensPage.styled';
 export const ScreensPage = () => {
   return (
     <>
-    <ScreensPageWrapper>
-      <HeaderDashboard/>    
-      <ColumnList/>
-      <button>ButtonAddAnotherColumn</button>
-    </ScreensPageWrapper>
-    
-    
+      <ScreensPageWrapper>
+        <HeaderDashboard />
+        <ColumnList />
+        <button>ButtonAddAnotherColumn</button>
+      </ScreensPageWrapper>
     </>
-    
-  )
-}
+  );
+};
