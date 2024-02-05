@@ -33,7 +33,7 @@ const editFormSchema = Yup.object().shape({
     .required('No password provided.'),
 });
 
-export const EditProfileModal = () => {
+export const EditProfileModal = ({onCloseModal}) => {
   // const dispatch = useDispatch();
   // const handleSubmit = objCredentials => {
   //   return dispatch();
@@ -49,7 +49,7 @@ export const EditProfileModal = () => {
     <ModalWrap>
       <TitleModal>Edit profile</TitleModal>
 
-      <CLoseButton>
+      <CLoseButton onClick={onCloseModal}>
         <IconClose>
           <use xlinkHref={`${sprite}#icon-x-close`}></use>
         </IconClose>

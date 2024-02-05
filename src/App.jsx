@@ -22,6 +22,7 @@ export const App = () => {
           <Route path="login" element={<LogInForm/>} />
         </Route>
       </Route>       
+      <Route path="/home" element={<HomePage />}></Route>
         <Route 
           path="/home" 
           element={
