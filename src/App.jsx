@@ -1,5 +1,5 @@
 import { HomePage } from 'Pages/HomePage';
-import WelcomePage  from 'Pages/WelcomePage';
+import WelcomePage from 'Pages/WelcomePage';
 import Auth from 'components/Auth/Auth';
 import { HomeLayout, WelcomeLayout } from 'components/Layout/Layout';
 import { PrivateRoute } from 'components/PrivateRoute';
@@ -15,15 +15,12 @@ export const App = () => {
           <Route path="register" element={<RegisterForm />} />
           <Route path="login" element={<>login</>} />
         </Route>
-        </Route> 
-      <Route path="/home"  element={<HomeLayout />} >
-        <Route path="/home" element={
-            <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
-          } >
+      </Route>
+      <Route path="/home" element={<HomeLayout />}>
+        <Route path="/home" element={<HomePage />}>
           <Route path="/home/:boardName" />
         </Route>
       </Route>
-      
     </Routes>
   );
 };
