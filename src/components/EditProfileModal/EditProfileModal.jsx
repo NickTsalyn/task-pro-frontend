@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import {
+  AddButton,
   Button,
+  CLoseButton,
   ErrMessage,
   HideBtn,
+  IconClose,
   IconEye,
   IconPlus,
   IconUser,
+  // ImageUser,
   ModalWrap,
   ProfileFotoBox,
   StyledField,
@@ -15,7 +19,7 @@ import {
   TitleModal,
 } from './EditProfileModal.styled.js';
 import sprite from '../../images/icons.svg';
-import userAvatar from '../../img/Vector.png';
+// import userAvatar from '../../img/Vector.png';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
@@ -44,16 +48,23 @@ export const EditProfileModal = () => {
   return (
     <ModalWrap>
       <TitleModal>Edit profile</TitleModal>
+
+      <CLoseButton>
+        <IconClose>
+          <use xlinkHref={`${sprite}#icon-x-close`}></use>
+        </IconClose>
+      </CLoseButton>
       <ProfileFotoBox>
         <IconUser>
           <use xlinkHref={`${sprite}#icon-user`}></use>
         </IconUser>
-        {/* <img src={userAvatar} alt="user-avatar" /> */}
-        <SvgPlusBox>
+        {/* зробити рендер за умовою */}
+        {/* <ImageUser src={userAvatar} alt="user-avatar" /> */}
+        <AddButton>
           <IconPlus>
             <use xlinkHref={`${sprite}#icon-plus`}></use>
           </IconPlus>
-        </SvgPlusBox>
+        </AddButton>
       </ProfileFotoBox>
 
       <Formik

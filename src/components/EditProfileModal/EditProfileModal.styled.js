@@ -4,11 +4,38 @@ import styled from 'styled-components';
 export const ModalWrap = styled.div`
   border-radius: ${props => props.theme.radius.m};
   width: 335px;
-  height: 440px;
+  /* height: 440px; */
   padding: 24px;
 
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
   background: #fcfcfc;
+
+  position: relative;
+`;
+export const CLoseButton = styled.button`
+  width: 18px;
+  height: 18px;
+  border: none;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  background: transparent;
+`;
+export const IconClose = styled.svg`
+  width: 18px;
+  height: 18px;
+  border: none;
+  padding: 0;
+
+  stroke: ${props => props.theme.colors.darkTextColor};
+  stroke-width: 1.5px;
 `;
 
 export const TitleModal = styled.h4`
@@ -27,7 +54,7 @@ export const ProfileFotoBox = styled.div`
   position: relative;
 `;
 
-export const SvgPlusBox = styled.div`
+export const AddButton = styled.button`
   width: 24px;
   height: 24px;
 
@@ -49,9 +76,17 @@ export const IconUser = styled.svg`
   width: 68px;
   height: 68px;
   stroke-width: 0;
-  stroke: ${props => props.theme.colors.darkTextColor};
-  fill: #ecedfd;
-  /* margin-right: ${p => p.theme.spacing(4)}; */
+
+  --color2: ${props => props.theme.colors.white};
+  --color1: #ecedfd;
+`;
+export const ImageUser = styled.img`
+  width: 68px;
+  height: 68px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 export const IconPlus = styled.svg`
   width: 10px;
