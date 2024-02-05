@@ -1,3 +1,5 @@
+
+import { Header } from 'components/Header/Header';
 import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
@@ -10,7 +12,8 @@ const HomeWrapper = styled.div`
 export default function HomePage () {
   return (    
       <HomeWrapper>    
-        <div>HeaderHomePage</div>( шапка HomePage)
+        <Header/>
+        {/* <div>HeaderHomePage</div>( шапка HomePage) */}
         <div>Sidebar</div>
         <Suspense fallback={null}>
           <Outlet />
