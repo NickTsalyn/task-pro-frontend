@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const ModalWrap = styled.div`
   box-sizing: border-box;
   border-radius: ${props => props.theme.radius.m};
+
   width: 335px;
   padding: ${p => p.theme.spacing(6)};
 
@@ -106,10 +107,6 @@ export const StyledForm = styled(Form)`
   width: 100%;
   gap: 14px;
   margin: 0 auto;
-  /* 
-  @media only screen and (min-width: 768px) {
-    min-width: 352px;
-  } */
 `;
 
 export const StyledLabel = styled.label`

@@ -15,24 +15,20 @@ import {
   StyledField,
   StyledForm,
   StyledLabel,
-  SvgPlusBox,
   TitleModal,
 } from './EditProfileModal.styled.js';
 import sprite from '../../images/icons.svg';
-// import userAvatar from '../../img/Vector.png';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 const editFormSchema = Yup.object().shape({
   name: Yup.string().min(3, 'To short').max(30, 'To long'),
-  email: Yup.string()
-    .email('Please enter a valid email address')
-    .required('Required'),
+  email: Yup.string().email('Please enter a valid email address'),
+
   password: Yup.string()
     .min(5, 'The password should be at least 5 characters long')
-    .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
-    .required('No password provided.'),
+    .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
 });
 
 export const EditProfileModal = ({ onCloseModal }) => {
@@ -47,11 +43,11 @@ export const EditProfileModal = ({ onCloseModal }) => {
     setShowPassword(!showPassword);
   };
 
-  const Upload = () => (
-    <label>
-      <input type="file" />
-    </label>
-  );
+  // const Upload = () => (
+  //   <label>
+  //     <input type="file" />
+  //   </label>
+  // );
 
   return (
     <ModalWrap>
