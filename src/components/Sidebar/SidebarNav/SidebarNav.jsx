@@ -12,6 +12,7 @@ import {
   StyledText,
 } from './SidebarNav.styled';
 import { logout } from 'redux/auth/operations';
+import { AddBoard } from 'components/boardModals/addBoard';
 
 export const SidebarNav = () => {
   const dispatch = useDispatch();
@@ -24,11 +25,7 @@ export const SidebarNav = () => {
         {' '}
         <StyledCreateBtn>
           Create a new board
-          <StyledCreateBtnIconWrapper>
-            <StyledSVGPlus>
-              <use xlinkHref={`${sprite}#icon-plus`}></use>
-            </StyledSVGPlus>
-          </StyledCreateBtnIconWrapper>
+          <AddBoard/>
         </StyledCreateBtn>
       </StyledCreateBtnWrapper>
 

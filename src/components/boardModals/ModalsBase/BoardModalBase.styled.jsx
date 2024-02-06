@@ -7,9 +7,9 @@ export const StyledModal = styled(Modal)`
     height: fit-content;
     max-height: 433px;
     max-width: 350px;
-    background-color: rgba(21, 21, 21, 1);
+    background-color: ${props => props.theme.colors.white};
     border-radius: 8px;
-    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0 0 4px ${props => props.theme.colors.shadowColor});
     transform: translateY(50px);
     transition: transform 0.3s;
 `
@@ -33,11 +33,11 @@ export const CloseButton = styled.button`
 export const CloseSVG = styled.svg`
     width: 18px;
     height: 18px;
-    stroke: white;
+    stroke: ${props => props.theme.colors.darkTextColor};
 `
 
 export const BigHeader = styled.p`
-    color: white;
+    color: ${props => props.theme.colors.darkTextColor};
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
@@ -49,29 +49,30 @@ export const TitleInput = styled.input`
     height: 49px;
     max-width: 302px;
     background-color: transparent;
-    border: 1px rgba(190, 219, 176, 0.4) solid;
+    border: 1px ${props => props.theme.violetColors.accentColor} solid;
     border-radius: 8px;
     padding: 0 18px;
-    color: rgba(255, 255, 255, 1);
+    color: ${props => props.theme.colors.darkTextColor};
     font-family: inherit;
     line-height: 21px;
     letter-spacing: 0.02em;
     outline: none;
+    opacity: 0.4;
 
     &::placeholder {
-        color: rgba(255, 255, 255, 0.4);
+        color: ${props => props.theme.colors.darkTextColor};
         font-family: inherit;
         line-height: 21px;
         letter-spacing: 0.02em;
     }
 
     &:hover, &:focus {
-        border-color: rgba(190, 219, 176, 1);
+        opacity: 1;
     }
 `
 
 export const SmallHeader = styled.p`
-    color: white;
+    color: ${props => props.theme.colors.darkTextColor};
     line-height: 21px;
     letter-spacing: 0.02em;
     letter-spacing: -2%;
@@ -92,12 +93,12 @@ export const Radio = styled.input`
     display: none;
 
     &:checked + svg {
-        stroke: white;
+        stroke: ${props => props.theme.colors.darkTextColor};
         cursor: default;
     }
 
     &:checked + span {
-        border-color: white;
+        border-color: ${props => props.theme.colors.darkTextColor};
         cursor: default;
     }
 `
@@ -105,7 +106,7 @@ export const Radio = styled.input`
 export const IconSVG = styled.svg`
     display: inline-block;
     vertical-align: middle;
-    stroke: rgba(255, 255, 255, 0.5);
+    stroke: ${props => props.theme.colors.greyIconColor};
     cursor: pointer;
     fill: transparent;
     width: 18px;
@@ -115,7 +116,7 @@ export const IconSVG = styled.svg`
 export const FuturePic = styled.span`
     display: inline-block;
     vertical-align: middle;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: ${props => props.theme.colors.shadowColor};
     border: 1px transparent solid;
     cursor: pointer;
     border-radius: 8px;
@@ -127,9 +128,11 @@ export const SubmitButton = styled.button`
     display: flex;
     max-width: 100%;
     height: 49px;
+    color: ${props => props.theme.colors.white};
     border-radius: 8px;
+    border-color: transparent;
     font-weight: 500;
-    background-color: rgba(190, 219, 176, 1);
+    background-color: ${props => props.theme.violetColors.accentColor};
     font-family: inherit;
     font-size: 14px;
     line-height: 21px;
@@ -141,14 +144,14 @@ export const SubmitButton = styled.button`
     margin-top: 16px;
 
     &:hover {
-        background-color: rgba(157, 200, 136, 1);
+        background-color: ${props => props.theme.violetColors.hoverViolet};
     }
 
     & > span {
         display: flex;
         width: 28px;
         height: 28px;
-        background-color: rgba(22, 22, 22, 1);
+        background-color: ${props => props.theme.colors.white};
         border-radius: 8px;
         justify-content: center;
         align-items: center;
@@ -157,6 +160,6 @@ export const SubmitButton = styled.button`
     & > span > svg {
         width: 14px;
         height: 14px;
-        stroke: white;
+        stroke: ${props => props.theme.colors.darkTextColor};
     }
 `

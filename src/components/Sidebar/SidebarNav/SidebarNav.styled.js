@@ -47,7 +47,7 @@ display: flex;
 /* justify-content: space-between; */
 `
 
-export const StyledCreateBtnIconWrapper = styled.span`
+export const StyledCreateBtnIconWrapper = styled.button`
 width: 40px;
 height: 36px;
 border-radius: 6px;
