@@ -25,15 +25,17 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 
 const editFormSchema = Yup.object().shape({
-  name: Yup.string().min(2, 'To short').max(15, 'To long'),
-  email: Yup.string().email('Please enter a valid email').required('Required'),
+  name: Yup.string().min(3, 'To short').max(30, 'To long'),
+  email: Yup.string()
+    .email('Please enter a valid email address')
+    .required('Required'),
   password: Yup.string()
-    .min(5, 'Password is too short - should be 5 chars minimum.')
+    .min(5, 'The password should be at least 5 characters long')
     .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
     .required('No password provided.'),
 });
 
-export const EditProfileModal = ({onCloseModal}) => {
+export const EditProfileModal = ({ onCloseModal }) => {
   // const dispatch = useDispatch();
   // const handleSubmit = objCredentials => {
   //   return dispatch();
@@ -44,6 +46,12 @@ export const EditProfileModal = ({onCloseModal}) => {
   const onShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
+  const Upload = () => (
+    <label>
+      <input type="file" />
+    </label>
+  );
 
   return (
     <ModalWrap>
@@ -86,7 +94,7 @@ export const EditProfileModal = ({onCloseModal}) => {
               name="name"
               placeholder="Enter username"
             ></StyledField>
-            <ErrMessage component="span" name="email" />
+            <ErrMessage component="span" name="name" />
           </StyledLabel>
 
           <StyledLabel htmlFor="email">

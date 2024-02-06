@@ -2,15 +2,19 @@ import { ErrorMessage, Form, Field } from 'formik';
 import styled from 'styled-components';
 
 export const ModalWrap = styled.div`
+  box-sizing: border-box;
   border-radius: ${props => props.theme.radius.m};
   width: 335px;
-  /* height: 440px; */
-  padding: 24px;
+  padding: ${p => p.theme.spacing(6)};
 
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
-  background: #fcfcfc;
+  background-color: #fcfcfc;
 
   position: relative;
+
+  @media only screen and (min-width: 768px) {
+    width: 400px;
+  }
 `;
 export const CLoseButton = styled.button`
   width: 18px;
@@ -26,7 +30,7 @@ export const CLoseButton = styled.button`
   top: 14px;
   right: 14px;
 
-  background: transparent;
+  background-color: transparent;
 `;
 export const IconClose = styled.svg`
   width: 18px;
@@ -41,16 +45,17 @@ export const IconClose = styled.svg`
 export const TitleModal = styled.h4`
   font-weight: 500;
   font-size: 18px;
+  line-height: 1.5;
   letter-spacing: -0.02em;
   color: ${props => props.theme.colors.darkTextColor};
-  margin-bottom: 24px;
+  margin-bottom: ${p => p.theme.spacing(6)};
 `;
 
 export const ProfileFotoBox = styled.div`
   width: 68px;
   height: 78px;
 
-  margin: 0 auto 14px;
+  margin: 0 auto ${p => p.theme.spacing(3.5)};
   position: relative;
 `;
 
@@ -60,7 +65,7 @@ export const AddButton = styled.button`
 
   border: 0;
   border-radius: ${props => props.theme.radius.s};
-  background: #ecedfd;
+  background-color: #ecedfd;
 
   position: absolute;
   top: 50%;
@@ -93,18 +98,17 @@ export const IconPlus = styled.svg`
   height: 10px;
 
   stroke: ${props => props.theme.colors.darkTextColor};
-  /* margin-right: ${p => p.theme.spacing(4)}; */
 `;
 
 export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  width: 287px;
+  width: 100%;
   gap: 14px;
   margin: 0 auto;
-
-  /* :nth-last-child(2) {
-    margin-bottom: 10px;
+  /* 
+  @media only screen and (min-width: 768px) {
+    min-width: 352px;
   } */
 `;
 
@@ -115,13 +119,14 @@ export const StyledLabel = styled.label`
 export const StyledField = styled(Field)`
   border: 1px solid ${props => props.theme.violetColors.accentColor};
   border-radius: ${props => props.theme.radius.m};
-  padding: 14px 38px 14px 18px;
+  padding: ${p => p.theme.spacing(3.5)} ${p => p.theme.spacing(9.5)}
+    ${p => p.theme.spacing(3.5)} ${p => p.theme.spacing(4.5)};
   opacity: 0.4;
   outline: none;
   width: 100%;
   height: 49px;
 
-  background: inherit;
+  background-color: inherit;
   color: ${props => props.theme.colors.darkTextColor};
 
   &:focus {
@@ -139,8 +144,9 @@ export const Button = styled.button`
 
   font-weight: 500;
   width: 100%;
-  padding: 14px 18px;
-  margin-top: 10px;
+  padding: ${p => p.theme.spacing(3.5)} ${p => p.theme.spacing(4.5)};
+  margin-top: ${p => p.theme.spacing(2.5)};
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     background-color: ${props => props.theme.violetColors.hoverViolet};
@@ -176,9 +182,9 @@ export const IconEye = styled.svg`
   stroke: ${props => props.theme.colors.darkTextColor};
   opacity: 0.4;
   stroke-width: 1.3px;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     stroke: ${props => props.theme.violetColors.hoverViolet};
   }
-  /* margin-right: ${p => p.theme.spacing(4)}; */
 `;
