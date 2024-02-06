@@ -40,7 +40,8 @@ export const LogInForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleTogglePassword = () => {
+  const handleTogglePassword = e => {
+    e.preventDefault();
     setShowPassword(!showPassword);
   };
   const onSubmit = (values, { resetForm }) => {
