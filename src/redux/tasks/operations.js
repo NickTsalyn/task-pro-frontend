@@ -15,14 +15,14 @@ export const fetchTitle = createAsyncThunk(
         }
     }
 );
-
+// 
 
 // add card 
 
 export const addTask = createAsyncThunk(
-    "tasks/addTask", async function ({ title, description }, thunkAPI) {
+    "tasks/addTask", async({ title, description, priority, deadline }, thunkAPI) => {
         try {
-            const response = await axios.post("/:columnId/addTask", { title, description });
+            const response = await axios.post("/addTask", { title, description, priority, deadline });
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
