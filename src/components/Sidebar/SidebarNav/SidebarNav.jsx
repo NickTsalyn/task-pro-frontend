@@ -1,4 +1,4 @@
-import { NeedHelp } from 'components/NeedHelp/NeedHelp';
+import { HelpApp } from 'components/HelpApp/HelpApp';
 import sprite from '../../../images/icons.svg';
 import { BoardList } from '../BoardList/BoardList';
 import {
@@ -17,7 +17,6 @@ export const SidebarNav = () => {
       <StyledText>My boards</StyledText>
 
       <StyledCreateBtnWrapper>
-        {' '}
         <StyledCreateBtn>
           Create a new board
           <StyledCreateBtnIconWrapper>
@@ -29,8 +28,8 @@ export const SidebarNav = () => {
       </StyledCreateBtnWrapper>
 
       <BoardList />
-
-      <NeedHelp />
+      
+      <HelpApp />
 
       <StyledLogoutBtn>
         <StyledSVGLogout>
