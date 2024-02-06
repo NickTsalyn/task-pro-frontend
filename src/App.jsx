@@ -14,6 +14,7 @@ import { useAuth } from 'hooks';
 import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
 import { RestrictedRoute } from 'RestrictedRoute';
+import { ScreensPage } from 'Pages/ScreensPage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route path="home/:boardName" element={<ScreensPage />} />
         <Route index element={<WelcomePage />} />
         <Route path="auth/:id" element={<Auth />}>
           <Route

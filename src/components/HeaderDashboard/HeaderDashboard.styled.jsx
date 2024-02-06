@@ -5,6 +5,7 @@ export const Icon = styled.svg`
   width: 18px;
   height: 18px;
   fill: red;
+  color: red;
   transition: all 250ms linear;
   fill: transparent;
 `;
@@ -180,4 +181,17 @@ export const ModalForm = styled(Form)`
   width: 100%;
   display: flex;
   flex-direction: column;
+`;
+
+export const FilterSVG = styled.svg`
+  fill: rgba(22, 22, 22, 0.8);
+  opacity: 0.4;
+  cursor: pointer;
+
+  width: 18px;
+  height: 18px;
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
 `;
