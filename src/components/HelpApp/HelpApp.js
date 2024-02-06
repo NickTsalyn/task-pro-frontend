@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
- export const HelpContainer = styled.div` 
+ export const HelpContainer = styled.div`
  box-sizing: border-box; 
  display:flex;
  flex-wrap: wrap;
