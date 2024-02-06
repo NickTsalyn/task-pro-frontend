@@ -22,7 +22,7 @@ export const fetchTitle = createAsyncThunk(
 export const addTask = createAsyncThunk(
     "tasks/addTask", async function ({ title, description }, thunkAPI) {
         try {
-            const response = await axios.post("/tasks", { title, description });
+            const response = await axios.post("/:columnId/addTask", { title, description });
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
