@@ -10,6 +10,8 @@ import './fonts/poppins-v20-latin-regular.woff2';
 import './fonts/poppins-v20-latin-500.woff2';
 import './fonts/poppins-v20-latin-600.woff2';
 import { persistor, store } from 'redux/store';
+import { Toaster } from 'react-hot-toast';
+import { toastStyles } from 'ToasterOptions';
 
 const theme = {
   colors: {
@@ -19,7 +21,7 @@ const theme = {
     greyTextColor: 'rgba(255, 255, 255, 0.3)',
     greyIconColor: 'rgba(22, 22, 22, 0.5)',
     lightGreen: '#bedbb0',
-    green:'#9dc888',
+    green: '#9dc888',
     darkBgn: '#151515',
     darkInputBgn: '#1f1f1f',
     shadowColor: 'rgba(22, 22, 22, 0.08)',
@@ -31,14 +33,15 @@ const theme = {
     hoverViolet: '#7b7ede', //hover button
     lightViolet: '#b8bcfd', //button +
     violet: '#979cea', //hover button +
-    helpBlockColor: 'rgba(236, 237, 253, 0.4)'
+    helpBlockColor: 'rgba(236, 237, 253, 0.4)',
   },
-  priorityColors: { // task's priority colors
+  priorityColors: {
+    // task's priority colors
     low: '#8FA1D0', //low priority
-    medium:'E09CB5', //medium priority
+    medium: 'E09CB5', //medium priority
     // high:'BEDBB0', // high priority=colors.lightGreen
     without: 'rgba(22, 22, 22, 0.3)', //without priority
-    },
+  },
   radius: {
     s: '6px', //button +
     m: '8px',
@@ -53,7 +56,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <PersistGate persistor={persistor}>
         <BrowserRouter basename="task-pro-frontend">
           <ThemeProvider theme={theme}>
-            <App></App>
+            <Toaster toastOptions={toastStyles} />
+            <App />
           </ThemeProvider>
         </BrowserRouter>
       </PersistGate>
