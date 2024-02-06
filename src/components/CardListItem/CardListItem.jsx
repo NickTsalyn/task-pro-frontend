@@ -1,12 +1,12 @@
 import { TaskCard } from "components/TaskCard/TaskCard";
 
 export const CardListItem = () => {
-    // const cards = [];
+    // const tasks = [];
     return(
         <>
-          {/* {cards.map(card => */}
+          {/* {tasks.map(tasks => */}
             <li >
-             {/* key={card.id} */}
+             {/* key={task.id} */}
                 <TaskCard/>                 
             </li>
           {/* ) }   */}
