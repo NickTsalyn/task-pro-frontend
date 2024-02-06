@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
 import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
-import { RestrictedRoute } from 'RestrictedRoute';
+import { RestrictedRoute } from 'components/RestrictedRoute';
 
 export const App = () => {
   const dispatch = useDispatch();

@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const BurgerMenuWrapper = styled.div`
+display: flex;
+`
+
 export const StyledBurgerMenu = styled.button`
   width: 24px;
   height: 24px;
@@ -8,8 +12,10 @@ export const StyledBurgerMenu = styled.button`
   display: flex;
   justify-content: center;
   margin: auto 0;
+  margin-left: 20px;
   margin-right: auto;
   padding: 0;
+  display: ${props => (props.isOpen ? 'none' : 'flex')};
 
   @media screen and (min-width: 768px) {
     width: 32px;

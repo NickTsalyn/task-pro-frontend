@@ -47,7 +47,8 @@ const RegisterForm = () => {
   const dispatch = useDispatch();
   const loading = useSelector(selectIsLoading);
   const [showPassword, setShowPassword] = useState(false);
-  const handleTogglePassword = () => {
+  const handleTogglePassword = e => {
+    e.preventDefault();
     setShowPassword(!showPassword);
   };
   const onSubmit = (values, { resetForm }) => {

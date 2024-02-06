@@ -2,16 +2,17 @@ import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
   /* min-width: 320px; */
-  max-width: 335px;
+  width: 320px;
   height: 60px;
   display: flex;
+  justify-content: space-between;
   padding: 0 20px 0 0;
   /* padding: ${p => p.theme.spacing(3.5)} ${p => p.theme.spacing(5)}; */
 
   margin: 0 auto;
 
   @media screen and (min-width: 768px) {
-    max-width: 704px;
+    width: 768px;
 
     padding: 0 32px 0 0;
     /* padding: ${p => p.theme.spacing(4.5)} ${p => p.theme.spacing(8)}; */
@@ -19,7 +20,7 @@ export const StyledHeader = styled.header`
   }
 
   @media screen and (min-width: 1440px) {
-    max-width: 1132px;
+    width: 1440px;
 
     height: 68px;
     padding: 0 24px 0 0;
@@ -34,3 +35,7 @@ display: flex;
 justify-content: space-between;
 `
 
+export const StyledHeaderItemWrapper = styled.div`
+display: flex;
+margin-left: auto;
+`
