@@ -1,4 +1,8 @@
-// import { NeedHelp } from 'components/NeedHelp/needhelp';
+// needhelp
+import React, { useState } from 'react';
+import HelpApp from "components/HelpApp/HelpApp.jsx"
+import { NeedHelpModal } from 'components/NeedHelpModal/NeedHelpModal.jsx';
+
 import { useDispatch } from 'react-redux';
 import sprite from '../../../images/icons.svg';
 import { BoardList } from '../BoardList/BoardList';
@@ -15,6 +19,15 @@ import { logout } from 'redux/auth/operations';
 import { AddBoard } from 'components/boardModals/addBoard';
 
 export const SidebarNav = () => {
+  // ******  модалка для helpapp
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+// ***********************
   const dispatch = useDispatch();
 
   return (
@@ -32,6 +45,8 @@ export const SidebarNav = () => {
       <BoardList />
 
       {/* <NeedHelp/> */}
+      <HelpApp openModal={openModal} />
+      {isModalOpen && <NeedHelpModal onClose={closeModal} />}
 
       <StyledLogoutBtn type="button" onClick={() => dispatch(logout())}>
         <StyledSVGLogout>
