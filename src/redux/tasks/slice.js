@@ -5,8 +5,13 @@ const tasksSlise = createSlice ({
     name: "tasks",
     initialState: {
         tasks: [],
-        // isLoading: false,
+        priority: [],
+        deadline: [],
+        column: true,
+        owner: true,
+        isLoading: false,
         error: null,
+        filter: '',
         },
        
  reducers: {
