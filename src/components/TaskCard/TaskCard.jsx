@@ -14,7 +14,7 @@ import { PrioritySeeContainer, CardPriorityDeadline,
 export const TaskCard = ({ task: { id, title, description } }) => {
   const dispatch = useDispatch();
   const toEditTask = (taskId, updatedData) => {
-    dispatch(editTask({ id: taskId, updatedData }));
+    dispatch(editTask({ id: taskId, ...updatedData }));
   };
   const toDeleteTask = taskId => {
     dispatch(deleteTask(taskId));
