@@ -72,7 +72,7 @@ export const HelpButton = styled.button`
   font-size: 1.7em;
   
   position: absolute;
-  top: 0%
+  top: 0%;
   left: 0%;
   transform: translate(-10%, -10%); 
   `;

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https:/task-pro-backend-a1c2.onrender.com';
+axios.defaults.baseURL = 'https://task-pro-backend-a1c2.onrender.com';
 
 // Utility to add JWT
 
@@ -57,7 +57,7 @@ export const refreshUser = createAsyncThunk(
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
     if (persistedToken === null) {
-      return thunkAPI.rejectWithValue('Unable to frtch user');
+      return thunkAPI.rejectWithValue('Unable to fetch user');
     }
     try {
       setAuthHeader(persistedToken);

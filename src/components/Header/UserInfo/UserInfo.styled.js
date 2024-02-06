@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
 export const StyledUserInfo = styled.div`
+height: 32px;
   padding: 0;
   display: flex;
   gap: ${p => p.theme.spacing(2)};
+  margin: auto 0;
+
   margin-left: ${p => p.theme.spacing(3.5)};
 `;
 

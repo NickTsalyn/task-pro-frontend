@@ -1,35 +1,59 @@
-
 import { Route, Routes } from 'react-router-dom';
 
 import HomePage from 'Pages/HomePage';
 import { ScreensPage } from 'Pages/ScreensPage';
-import WelcomePage  from 'Pages/WelcomePage';
+import WelcomePage from 'Pages/WelcomePage';
 
 import Auth from 'components/Auth/Auth';
-import { Layout} from 'components/Layout/Layout';
+import { Layout } from 'components/Layout/Layout';
 import { LogInForm } from 'components/LogInForm/LogInForm';
 import { PrivateRoute } from 'components/PrivateRoute';
 import RegisterForm from 'components/Register/RegisterForm';
-
+import { useDispatch } from 'react-redux';
+import { useAuth } from 'hooks';
+import { useEffect } from 'react';
+import { refreshUser } from 'redux/auth/operations';
+import { RestrictedRoute } from 'components/RestrictedRoute';
 
 export const App = () => {
-  return (
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<WelcomePage />} />
         <Route path="auth/:id" element={<Auth />}>
-          <Route path="register" element={<RegisterForm />} />
-          <Route path="login" element={<LogInForm/>} />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute
+                redirectTo="/home"
+                component={<RegisterForm />}
+              />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute redirectTo="/home" component={<LogInForm />} />
+            }
+          />
         </Route>
-      </Route>       
-      <Route path="/home" element={<HomePage />}></Route>
-        <Route 
-          path="/home" 
-          element={
-          <PrivateRoute  redirectTo="/auth/login" component={<HomePage />} />
-         }>
-          <Route path="/home/:boardName" element={<ScreensPage/>}/>
-        </Route> 
+      </Route>
+      <Route
+        path="/home"
+        element={
+          <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
+        }
+      >
+        <Route path="/home/:boardName" element={<ScreensPage />} />
+      </Route>
     </Routes>
   );
 };

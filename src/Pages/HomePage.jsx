@@ -3,6 +3,7 @@ import { Header } from 'components/Header/Header';
 import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
+import { Loader } from 'components/Loader/Loader';
 
 const HomeWrapper = styled.div`
   min-height: 100vh;
@@ -13,8 +14,7 @@ export default function HomePage () {
   return (    
       <HomeWrapper>    
         <Header/>
-        {/* <div>HeaderHomePage</div>( шапка HomePage) */}
-        <div>Sidebar</div>
+        <Loader/>           
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>    
