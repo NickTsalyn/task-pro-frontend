@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useDispatch } from "react-redux";
 import { AddColumnModal } from '../ColumnModal/AddColumnModal/AddColumnModal';
 import { EditColumnModal } from '../ColumnModal/EditColumnModal/EditColumnModal';
 import sprite from '../../images/icons.svg';
+import {addColumn, deleteColumn, editColumn} from '../../redux/columns/operations'
 
 import {
   Main,
@@ -16,14 +18,45 @@ import {
   StyledSvgDarkPlus,
 } from '../Button/AddColumnButton.styled';
 
-export const AddColumnButton = () => {
+export const AddColumnButton = ({columnId}) => {
   const [modalAddColumnIsOpen, setModalAddColumnIsOpen] = useState(false);
   const [modalEditColumnIsOpen, setModalEditColumnIsOpen] = useState(false);
+  const [editColumnValue, setEditColumnValue] = useState('');
 
-  const handlerTitleColumn = evt => {
+  const dispatch = useDispatch();
+
+  const handlerAddColumn = evt => {
     evt.preventDefault();
+    const inputValue = evt.target.title.value.trim();
+    if (inputValue !== '') {
+      const newColumn = {
+        title: inputValue,
+      };
+      dispatch(addColumn(newColumn));
+      setModalAddColumnIsOpen(false);
+      return;
+    }
+    return;
   };
 
+  const handlerValue = ({ target }) => setEditColumnValue(target.value);
+
+  const handlerEditColumn = (evt) => {
+    evt.preventDefault();
+    const updatedTitle = evt.target.elements.title.value;
+  
+    if (updatedTitle.trim() !== '') {
+      dispatch(editColumn({ id: columnId, title: updatedTitle }));
+      setModalEditColumnIsOpen(false);
+      return;
+    };
+    return
+  }  
+
+  const handlerDeleteColumn = columnId => {
+    dispatch(deleteColumn(columnId));
+  };
+ 
   return (
     <Main>
       <Section>
@@ -55,7 +88,7 @@ export const AddColumnButton = () => {
         >
           <div>
             <AddColumnTitle>Add column</AddColumnTitle>
-            <form onSubmit={handlerTitleColumn}>
+            <form onSubmit={handlerAddColumn}>
               <AddColumnInput
                 type="text"
                 name="title"
@@ -63,7 +96,7 @@ export const AddColumnButton = () => {
                 autoFocus
               />
 
-              <AddColumnBtn type="submit">
+              <AddColumnBtn type="submit" >
                 <IconWhiteWrap>
                   <StyledSvgDarkPlus>
                     <use xlinkHref={`${sprite}#icon-plus`}></use>
@@ -82,14 +115,16 @@ export const AddColumnButton = () => {
         >
           <div>
             <AddColumnTitle>Edit column</AddColumnTitle>
-            <form onSubmit={handlerTitleColumn}>
+            <form onSubmit={handlerEditColumn}>
               <AddColumnInput
                 type="text"
                 name="title"
                 placeholder="To Do"
+                value={editColumnValue}
+                onChange={handlerValue}
                 autoFocus
               />
-              <AddColumnBtn type="submit">
+              <AddColumnBtn type="submit" >
                 <IconWhiteWrap>
                   <StyledSvgDarkPlus>
                     <use xlinkHref={`${sprite}#icon-plus`}></use>

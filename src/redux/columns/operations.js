@@ -7,7 +7,7 @@ const instance = axios.create({
 
 
   export const addColumn = createAsyncThunk(
-    'addColumn',
+    'columns/addColumn',
     async ({ title, owner }, thunkAPI) => {
         try {
             const { data } = await instance.post(`api/column/add`, {
@@ -23,7 +23,7 @@ const instance = axios.create({
 );
   
   export const deleteColumn = createAsyncThunk(
-    'deleteColumn',
+    'columns/deleteColumn',
     async (columnId, thunkAPI) => {
       try {
         const { data } = await instance.delete(`api/column/delete/${columnId}`);
@@ -36,7 +36,7 @@ const instance = axios.create({
   );
   
   export const editColumn = createAsyncThunk(
-    'editColumn',
+    'columns/editColumn',
     async ({ columnId, title }, thunkAPI) => {
       try {
         const { data } = await instance.put(`api/column/edit/${columnId}`, { title });
@@ -51,7 +51,7 @@ const instance = axios.create({
   
 
   export const getAllColumns = createAsyncThunk(
-    'getAllColumns',
+    'columns/getAllColumns',
     async (_, thunkAPI) => {
         try {
             const { data } = await instance.get(`api/column`);
@@ -65,7 +65,7 @@ const instance = axios.create({
   
 
   export const getColumnById = createAsyncThunk(
-    'getColumnById',
+    'columns/getColumnById',
     async (columnId, thunkAPI) => {
         try {
             const { data } = await instance.get(`api/column/${columnId}`);
