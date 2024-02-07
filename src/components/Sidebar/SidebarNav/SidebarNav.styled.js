@@ -40,7 +40,7 @@ width: 100%;
 font-weight: 500;
 line-height: 1.5;
 text-align: start;
-font-size: 14px;
+
 color: rgb(255, 255, 255);
 padding: 0;
 display: flex;

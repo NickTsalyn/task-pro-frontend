@@ -6,7 +6,7 @@ export const StyledHeader = styled.header`
   height: 60px;
   display: flex;
   justify-content: space-between;
-  padding: 0 20px 0 0;
+  padding: 0 20px ;
   /* padding: ${p => p.theme.spacing(3.5)} ${p => p.theme.spacing(5)}; */
 
   margin: 0 auto;

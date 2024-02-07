@@ -34,7 +34,6 @@ export const SidebarNav = () => {
       <StyledText>My boards</StyledText>
 
       <StyledCreateBtnWrapper>
-        {' '}
         <StyledCreateBtn>
           Create a new board
           <StyledCreateBtnIconWrapper>
@@ -47,7 +46,6 @@ export const SidebarNav = () => {
 
       <BoardList />
 
-      {/* <NeedHelp/> */}
       <HelpApp openModal={openModal} />
       {isModalOpen && <NeedHelpModal onClose={closeModal} />}
 
