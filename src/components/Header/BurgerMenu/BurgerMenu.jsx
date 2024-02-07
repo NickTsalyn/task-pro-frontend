@@ -6,7 +6,7 @@ import { Sidebar } from 'components/Sidebar/Sidebar';
 export const BurgerMenu = () => {
   const [isOpen, setOpen] = useState(false);
   const burgerMenuRef = useRef(null);
-  const sidebarRef = useRef(null)
+  const sidebarRef = useRef(null);
 
   const hendleOpenSidebar = () => {
     setOpen(!isOpen);

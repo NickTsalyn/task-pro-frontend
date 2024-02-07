@@ -1,26 +1,29 @@
 import sprite from '../../../images/icons.svg';
-import { StyledBoardListdBtn, StyledSVGPensil,  StyledSVGTrash, StyledSidebarText } from './BoardListItem.styled';
+import { StyledBoardItem, StyledBoardList, StyledBoardListdBtn, StyledBtnWrapper, StyledSVGPensil,  StyledSVGTrash, StyledSidebarText } from './BoardListItem.styled';
 
 export const BoardListItem = ({board}) => {
     return (
     
-        <div>
+        <StyledBoardList>
       <img src="" alt="" />
-       <StyledSidebarText>Board name</StyledSidebarText>
+       <StyledBoardItem>Board name</StyledBoardItem>
 
-       <div> 
+       <StyledBtnWrapper> 
+
         <StyledBoardListdBtn>
        <StyledSVGPensil>
             <use xlinkHref={`${sprite}#icon-pencil-01`}></use>
           </StyledSVGPensil>
        </StyledBoardListdBtn>
+
        <StyledBoardListdBtn>
        <StyledSVGTrash>
             <use xlinkHref={`${sprite}#icon-trash-04`}></use>
           </StyledSVGTrash>
        </StyledBoardListdBtn>
-       </div>
-      
-      </div>
+
+       </StyledBtnWrapper>
+      <span></span>
+      </StyledBoardList>
     )
     }

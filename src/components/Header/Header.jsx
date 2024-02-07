@@ -25,8 +25,6 @@ export const Header = () => {
 
     <StyledHeaderWrapper>
       { isWideScreen && <Sidebar/>}
-      {/* {<Sidebar/>} */}
-      
         <StyledHeader>
       <BurgerMenu />
       <StyledHeaderItemWrapper>

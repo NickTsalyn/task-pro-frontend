@@ -10,7 +10,6 @@ export const Sidebar = forwardRef((props, ref) => {
        <Logo/>
        <SidebarNav/>
       </StyledSidebar>
-     
-    
+      
     );
   });
