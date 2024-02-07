@@ -1,14 +1,14 @@
 import sprite from '../../images/icons.svg';
 import { useState } from 'react';
 import {
-  DefaultRadioBtn,
+  // DefaultRadioBtn,
   FilterSVG,
-  Icon,
-  Label,
-  LabelItem,
-  LabetlText,
-  RadioBtnWrapper,
-  Wrapper,
+  // Icon,
+  // Label,
+  // LabelItem,
+  // LabetlText,
+  // RadioBtnWrapper,
+  // Wrapper,
 } from './HeaderDashboard.styled';
 import { Field, Form, Formik } from 'formik';
 import Modal from 'react-modal';
@@ -22,7 +22,7 @@ export const HeaderDashboard = () => {
   const filtersPriority = useSelector(state => state.project.filtersPriority);
   // togglePriority;
   const [open, setOpen] = useState(false);
-  const [selectedLabel, setSelectedLabel] = useState('');
+  // const [selectedLabel, setSelectedLabel] = useState('');
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   // імпортувати назву проекта
