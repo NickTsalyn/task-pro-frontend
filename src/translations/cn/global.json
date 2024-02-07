@@ -1,79 +1,81 @@
-
 {
-    "welcomePage": {
+  "welcomePage": {
     "welcome": {
-    "text": "通过Task Pro激发您的生产力，掌控您的任务 - 不要等待，立即实现您的目标！",
-    "registration": "注册",
-    "login": "登录"
+      "text": "通过Task Pro激发您的生产力，掌控您的任务 - 不要等待，立即实现您的目标！",
+      "registration": "注册",
+      "login": "登录"
     },
     "registration": {
-    "name": "输入您的姓名",
-    "email": "输入您的电子邮件",
-    "password": "创建密码",
-    "button": "立即注册"
+      "name": "输入您的姓名",
+      "email": "输入您的电子邮件",
+      "password": "创建密码",
+      "button": "立即注册"
     },
     "login": {
-    "name": "输入您的姓名",
-    "email": "输入您的电子邮件",
-    "button": "立即登录"
+      "password": "确认密码",
+      "email": "输入您的电子邮件",
+      "button": "立即登录"
     }
-    },
-    "screenPage": {
+  },
+  "screenPage": {
     "static": {
-    "theme": "主题",
-    "my-boards": "我的看板",
-    "addBoard": "创建新看板",
-    "help": "如果您在使用TaskPro时需要帮助，请查看我们的支持资源或与我们的客户支持团队联系。",
-    "needHelp": "需要帮助",
-    "logout": "登出",
-    "message": "在开始项目之前，创建一个看板是至关重要的，以可视化和跟踪所有必要的任务和里程碑。该看板是组织工作流程并确保团队成员之间有效协作的强大工具。",
-    "filters": "筛选器",
-    "priority": {
-    "without": "无优先级",
-    "low": "低",
-    "medium": "中",
-    "high": "高"
-    }
+      "theme": "主题",
+      "my-boards": "我的看板",
+      "addBoard": "创建新看板",
+      "help": "如果您需要协助",
+      "help2": "，请查阅我们的支持资源或联系我们的客户支持团队。",
+      "needHelp": "需要帮助",
+      "logout": "登出",
+      "message1": "在开始项目之前，这是至关重要的 ",
+      "message2": "创建一个看板 ",
+      "message3": "以可视化和跟踪所有必要的任务和里程碑。这个看板是组织工作流程和确保团队成员之间有效协作的强大工具。",
+      "filters": "筛选器",
+      "priority": {
+        "without": "无优先级",
+        "low": "低",
+        "medium": "中",
+        "high": "高"
+      }
     },
     "render": {
-    "addColumn": "添加另一列",
-    "addCard": "添加另一张卡片",
-    "modal": {
-    "board": {
-    "titleNew": "新看板",
-    "titleEdit": "编辑看板",
-    "icons": "图标",
-    "backgr": "背景",
-    "add-btn": "创建",
-    "edit-btn": "编辑"
-    },
-    "help": {
-    "title": "需要帮助",
-    "email": "电子邮件地址",
-    "text": "评论"
-    },
-    "card": {
-    "title": "添加卡片",
-    "cardTitle": "标题",
-    "descr": "描述",
-    "color": "标签颜色",
-    "deadline": "最后期限",
-    "addBtn": "添加",
-    "editBtn": "编辑"
-    },
-    "column": {
-    "addTitle": "添加列",
-    "editTitle": "编辑列",
-    "input": "标题",
-    "btn": "添加"
-    },
-    "profile": {
-    "title": "编辑个人资料",
-    "name": "输入您的姓名",
-    "email": "输入您的电子邮件",
-    "password": "输入您的密码"
+      "addColumn": "添加另一列",
+      "addCard": "添加另一张卡片",
+      "modal": {
+        "board": {
+          "titleNew": "新看板",
+          "titleEdit": "编辑看板",
+          "icons": "图标",
+          "backgr": "背景",
+          "add-btn": "创建",
+          "edit-btn": "编辑"
+        },
+        "help": {
+          "title": "需要帮助",
+          "email": "电子邮件地址",
+          "text": "评论"
+        },
+        "card": {
+          "title": "添加卡片",
+          "cardTitle": "标题",
+          "descr": "描述",
+          "color": "标签颜色",
+          "deadline": "最后期限",
+          "addBtn": "添加",
+          "editBtn": "编辑"
+        },
+        "column": {
+          "addTitle": "添加列",
+          "editTitle": "编辑列",
+          "input": "标题",
+          "btn": "添加"
+        },
+        "profile": {
+          "title": "编辑个人资料",
+          "name": "输入您的姓名",
+          "email": "输入您的电子邮件",
+          "password": "输入您的密码"
+        }
+      }
     }
-    }
-    }
-    }
-    }
+  }
+}

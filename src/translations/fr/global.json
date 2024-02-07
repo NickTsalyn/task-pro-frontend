@@ -12,7 +12,7 @@
       "button": "Inscrivez-vous maintenant"
     },
     "login": {
-      "name": "Entrez votre nom",
+      "password": "Confirmer le mot de passe",
       "email": "Entrez votre adresse e-mail",
       "button": "Connectez-vous maintenant"
     }
@@ -22,10 +22,13 @@
       "theme": "Thème",
       "my-boards": "Mes tableaux",
       "addBoard": "Créer un nouveau tableau",
-      "help": "Si vous avez besoin d'aide avec TaskPro, consultez nos ressources d'assistance ou contactez notre équipe de support client.",
+      "help": "Si vous avez besoin d'aide avec",
+      "help2": ", consultez nos ressources d'assistance ou contactez notre équipe d'assistance client.",
       "needHelp": "Besoin d'aide",
       "logout": "Se déconnecter",
-      "message": "Avant de commencer votre projet, il est essentiel de créer un tableau pour visualiser et suivre toutes les tâches et étapes nécessaires. Ce tableau sert d'outil puissant pour organiser le flux de travail et assurer une collaboration efficace entre les membres de l'équipe.",
+      "message1": "Avant de commencer votre projet, il est essentiel ",
+      "message2": "de créer un tableau ",
+      "message3": "pour visualiser et suivre toutes les tâches et étapes nécessaires. Ce tableau sert d'outil puissant pour organiser le flux de travail et assurer une collaboration efficace entre les membres de l'équipe.",
       "filters": "Filtres",
       "priority": {
         "without": "Sans priorité",

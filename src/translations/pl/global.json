@@ -1,78 +1,80 @@
 {
-    "welcomePage": {
-      "welcome": {
-        "text": "Nadaj swojej produktywności dodatkowy impuls i przejmij kontrolę nad zadaniami dzięki Task Pro - Nie czekaj, zacznij osiągać swoje cele teraz!",
-        "login": "Zaloguj się"
-      },
-      "registration": {
-        "name": "Wprowadź swoje imię",
-        "email": "Wprowadź swój adres email",
-        "password": "Utwórz hasło",
-        "button": "Zarejestruj się"
-      },
-      "login": {
-        "name": "Wprowadź swoje imię",
-        "email": "Wprowadź swój adres email",
-        "button": "Zaloguj się"
+  "welcomePage": {
+    "welcome": {
+      "text": "Nadaj swojej produktywności dodatkowy impuls i przejmij kontrolę nad zadaniami dzięki Task Pro - Nie czekaj, zacznij osiągać swoje cele teraz!",
+      "login": "Zaloguj się"
+    },
+    "registration": {
+      "name": "Wprowadź swoje imię",
+      "email": "Wprowadź swój adres email",
+      "password": "Utwórz hasło",
+      "button": "Zarejestruj się"
+    },
+    "login": {
+      "password": "Potwierdź hasło",
+      "email": "Wprowadź swój adres email",
+      "button": "Zaloguj się"
+    }
+  },
+  "screenPage": {
+    "static": {
+      "theme": "Motyw",
+      "my-boards": "Moje tablice",
+      "addBoard": "Utwórz nową tablicę",
+      "help": "Jeśli potrzebujesz pomocy z",
+      "help2": ", sprawdź nasze zasoby wsparcia lub skontaktuj się z naszym zespołem obsługi klienta.",
+      "needHelp": "Potrzebujesz pomocy?",
+      "logout": "Log Out",
+      "message1": "Przed rozpoczęciem projektu jest niezbędne",
+      "message2": "utworzenie tablicy",
+      "message3": "w celu wizualizacji i śledzenia wszystkich niezbędnych zadań i kamieni milowych. Ta tablica pełni rolę potężnego narzędzia do organizacji pracy i zapewnienia efektywnej współpracy między członkami zespołu.",
+      "filters": "Filtry",
+      "priority": {
+        "without": "Bez priorytetu",
+        "low": "Niski",
+        "medium": "Średni",
+        "high": "Wysoki"
       }
     },
-    "screenPage": {
-      "static": {
-        "theme": "Motyw",
-        "my-boards": "Moje tablice",
-        "addBoard": "Utwórz nową tablicę",
-        "help": "Jeśli potrzebujesz pomocy z TaskPro, skorzystaj z naszych zasobów wsparcia lub skontaktuj się z naszym zespołem obsługi klienta.",
-        "needHelp": "Potrzebujesz pomocy?",
-        "logout": "Log Out",
-        "message": "Przed rozpoczęciem projektu istotne jest utworzenie tablicy wizualizującej i śledzącej wszystkie niezbędne zadania i kamienie milowe. Ta tablica stanowi potężne narzędzie do organizacji przepływu pracy i zapewnienia efektywnej współpracy między członkami zespołu.",
-        "filters": "Filtry",
-        "priority": {
-          "without": "Bez priorytetu",
-          "low": "Niski",
-          "medium": "Średni",
-          "high": "Wysoki"
-        }
-      },
-      "render": {
-        "addColumn": "Dodaj kolejną kolumnę",
-        "addCard": "Dodaj kolejną kartę",
-        "modal": {
-          "board": {
-            "titleNew": "Nowa tablica",
-            "titleEdit": "Edytuj tablicę",
-            "icons": "Ikony",
-            "backgr": "Tło",
-            "add-btn": "Stwórz",
-            "edit-btn": "Edytuj"
-          },
-          "help": {
-            "title": "Potrzebujesz pomocy",
-            "email": "Adres email",
-            "text": "Komentarz"
-          },
-          "card": {
-            "title": "Dodaj kartę",
-            "cardTitle": "Tytuł",
-            "descr": "Opis",
-            "color": "Kolor etykiety",
-            "deadline": "Termin wykonania",
-            "addBtn": "Dodaj",
-            "editBtn": "Edytuj"
-          },
-          "column": {
-            "addTitle": "Dodaj kolumnę",
-            "editTitle": "Edytuj kolumnę",
-            "input": "Tytuł",
-            "btn": "Dodaj"
-          },
-          "profile": {
-            "title": "Edytuj profil",
-            "name": "Wprowadź swoje imię",
-            "email": "Wprowadź swój adres email",
-            "password": "Wprowadź swoje hasło"
-          }
+    "render": {
+      "addColumn": "Dodaj kolejną kolumnę",
+      "addCard": "Dodaj kolejną kartę",
+      "modal": {
+        "board": {
+          "titleNew": "Nowa tablica",
+          "titleEdit": "Edytuj tablicę",
+          "icons": "Ikony",
+          "backgr": "Tło",
+          "add-btn": "Stwórz",
+          "edit-btn": "Edytuj"
+        },
+        "help": {
+          "title": "Potrzebujesz pomocy",
+          "email": "Adres email",
+          "text": "Komentarz"
+        },
+        "card": {
+          "title": "Dodaj kartę",
+          "cardTitle": "Tytuł",
+          "descr": "Opis",
+          "color": "Kolor etykiety",
+          "deadline": "Termin wykonania",
+          "addBtn": "Dodaj",
+          "editBtn": "Edytuj"
+        },
+        "column": {
+          "addTitle": "Dodaj kolumnę",
+          "editTitle": "Edytuj kolumnę",
+          "input": "Tytuł",
+          "btn": "Dodaj"
+        },
+        "profile": {
+          "title": "Edytuj profil",
+          "name": "Wprowadź swoje imię",
+          "email": "Wprowadź swój adres email",
+          "password": "Wprowadź swoje hasło"
         }
       }
     }
   }
-  
+}

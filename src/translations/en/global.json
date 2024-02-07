@@ -12,7 +12,7 @@
       "button": "Register Now"
     },
     "login": {
-      "name": "Enter your name",
+      "password": "Confirm a password",
       "email": "Enter your email",
       "button": "Log In Now"
     }
@@ -22,10 +22,13 @@
       "theme": "Theme",
       "my-boards": "My boards",
       "addBoard": "Create a new board",
-      "help": "If you need help with TaskPro, check out our support resources or reach out to our customer support team.",
+      "help": "If you need help with ",
+      "help2": ", check out our support resources or reach out to our customer support team.",
       "needHelp": "Need help",
       "logout": "Log Out",
-      "message": "Before starting your project, it is essential to create a board to visualize and track all the necessary tasks and milestones. This board serves as a powerful tool to organize the workflow and ensure effective collaboration among team members.",
+      "message1": "Before starting your project, it is essential ",
+      "message2": "to create a board ",
+      "message3": "to visualize and track all the necessary tasks and milestones. This board serves as a powerful tool to organize the workflow and ensure effective collaboration among team members.",
       "filters": "Filters",
       "priority": {
         "without": "Without priority",
