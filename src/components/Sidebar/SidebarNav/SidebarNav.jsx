@@ -20,10 +20,12 @@ import {
 } from './SidebarNav.styled';
 import { logout } from 'redux/auth/operations';
 import { AddBoard } from 'components/boardModals/addBoard';
+import { useNavigate } from 'react-router-dom';
 
 export const SidebarNav = () => {
   // ******  модалка для helpapp
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate()
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -32,6 +34,12 @@ export const SidebarNav = () => {
   };
   // ***********************
   const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(logout())
+    
+    navigate('/')
+  }
 
   return (
     <SidebarWrapper>
@@ -50,7 +58,7 @@ export const SidebarNav = () => {
         <HelpApp openModal={openModal} />
         {isModalOpen && <NeedHelpModal onClose={closeModal} />}
 
-        <StyledLogoutBtn type="button" onClick={() => dispatch(logout())}>
+        <StyledLogoutBtn type="button" onClick={handleClick}>
           <StyledSVGLogout>
             <use xlinkHref={`${sprite}#icon-login`}></use>
           </StyledSVGLogout>

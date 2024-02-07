@@ -5,7 +5,7 @@ import {
   StyledUserBtn,
 } from './UserInfo.styled';
 import photo from '../../../img/welcome.png';
-import {  useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Modal from 'react-modal';
 import { useState } from 'react';
@@ -15,7 +15,7 @@ import '../../EditProfileModal/EditModal.css';
 Modal.setAppElement('#root');
 
 export const UserInfo = () => {
-const dispatch = useDispatch();
+// const dispatch = useDispatch();
 
 const userName = useSelector(state => state.auth.user);
 
