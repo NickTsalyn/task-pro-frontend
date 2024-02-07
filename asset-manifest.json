@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/task-pro-frontend/static/css/main.80c5dc84.css",
-    "main.js": "/task-pro-frontend/static/js/main.8f970093.js",
-    "static/js/234.80367851.chunk.js": "/task-pro-frontend/static/js/234.80367851.chunk.js",
-    "static/js/667.5cb0e1ac.chunk.js": "/task-pro-frontend/static/js/667.5cb0e1ac.chunk.js",
+    "main.js": "/task-pro-frontend/static/js/main.00b36a65.js",
+    "static/js/234.46aa84f2.chunk.js": "/task-pro-frontend/static/js/234.46aa84f2.chunk.js",
+    "static/js/667.390d7bb0.chunk.js": "/task-pro-frontend/static/js/667.390d7bb0.chunk.js",
     "static/js/748.2c76f4bc.chunk.js": "/task-pro-frontend/static/js/748.2c76f4bc.chunk.js",
     "static/media/flower.png": "/task-pro-frontend/static/media/flower.52ac3474d4db6a9d74ba.png",
     "static/media/welcome.png": "/task-pro-frontend/static/media/welcome.6370c83571764935d58b.png",
@@ -13,13 +13,13 @@
     "static/media/poppins-v20-latin-500.woff2": "/task-pro-frontend/static/media/poppins-v20-latin-500.08491d3f7fe7ae88ef44.woff2",
     "index.html": "/task-pro-frontend/index.html",
     "main.80c5dc84.css.map": "/task-pro-frontend/static/css/main.80c5dc84.css.map",
-    "main.8f970093.js.map": "/task-pro-frontend/static/js/main.8f970093.js.map",
-    "234.80367851.chunk.js.map": "/task-pro-frontend/static/js/234.80367851.chunk.js.map",
-    "667.5cb0e1ac.chunk.js.map": "/task-pro-frontend/static/js/667.5cb0e1ac.chunk.js.map",
+    "main.00b36a65.js.map": "/task-pro-frontend/static/js/main.00b36a65.js.map",
+    "234.46aa84f2.chunk.js.map": "/task-pro-frontend/static/js/234.46aa84f2.chunk.js.map",
+    "667.390d7bb0.chunk.js.map": "/task-pro-frontend/static/js/667.390d7bb0.chunk.js.map",
     "748.2c76f4bc.chunk.js.map": "/task-pro-frontend/static/js/748.2c76f4bc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.80c5dc84.css",
-    "static/js/main.8f970093.js"
+    "static/js/main.00b36a65.js"
   ]
 }
