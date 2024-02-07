@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logOut } from 'redux/auth/operations';
-import { getAllColumns, getColumnById, addColumn, deleteColumn, editColumn } from './operations'; 
+import {
+  getAllColumns,
+  addColumn,
+  deleteColumn,
+  editColumn,
+} from './operations';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -13,16 +17,15 @@ const handleRejected = (state, action) => {
 
 const initialState = {
   columns: [],
+  owner: true,
   isLoading: false,
-  error: null
+  error: null,
 };
 
 const columnSlice = createSlice({
   name: 'columns',
   initialState,
-//   reducers: {
-    
-//   },
+
   extraReducers: builder => {
     builder
       .addCase(getAllColumns.pending, handlePending)
@@ -45,7 +48,8 @@ const columnSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const index = state.columns.findIndex(
-          item => item._id === action.payload._id
+          // item => item._id === action.payload._id
+          column => column.id === action.payload.id
         );
         state.columns.splice(index, 1);
       })
@@ -54,19 +58,14 @@ const columnSlice = createSlice({
       .addCase(editColumn.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const { _id, title } = action.payload;
-        const columnIndex = state.columns.findIndex(
-          item => item._id === _id
-        );
+        // const { _id, title } = action.payload;
+        const { id, title } = action.payload;
+        // const columnIndex = state.columns.findIndex(item => item._id === _id);
+        const columnIndex = state.columns.findIndex(column => column.id === id);
         state.columns[columnIndex].title = title;
-      })
-      
-      .addCase(logOut.fulfilled, state => {
-        state.columns = [];
-        state.error = null;
-        state.isLoading = false;
       });
-  }
+  },
 });
 
-export default columnSlice.reducer;
+// export default columnSlice.reducer;
+export const columnReducer = columnSlice.reducer;

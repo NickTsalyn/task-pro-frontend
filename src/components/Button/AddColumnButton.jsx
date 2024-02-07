@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 import { AddColumnModal } from '../ColumnModal/AddColumnModal/AddColumnModal';
 import { EditColumnModal } from '../ColumnModal/EditColumnModal/EditColumnModal';
 import sprite from '../../images/icons.svg';
-import {addColumn, deleteColumn, editColumn} from '../../redux/columns/operations'
+import {
+  addColumn,
+  deleteColumn,
+  editColumn,
+} from '../../redux/columns/operations';
 
 import {
   Main,
@@ -18,7 +22,7 @@ import {
   StyledSvgDarkPlus,
 } from '../Button/AddColumnButton.styled';
 
-export const AddColumnButton = ({columnId}) => {
+export const AddColumnButton = ({ columnId }) => {
   const [modalAddColumnIsOpen, setModalAddColumnIsOpen] = useState(false);
   const [modalEditColumnIsOpen, setModalEditColumnIsOpen] = useState(false);
   const [editColumnValue, setEditColumnValue] = useState('');
@@ -41,22 +45,32 @@ export const AddColumnButton = ({columnId}) => {
 
   const handlerValue = ({ target }) => setEditColumnValue(target.value);
 
-  const handlerEditColumn = (evt) => {
+  const handlerEditColumn = evt => {
     evt.preventDefault();
     const updatedTitle = evt.target.elements.title.value;
-  
+
     if (updatedTitle.trim() !== '') {
       dispatch(editColumn({ id: columnId, title: updatedTitle }));
       setModalEditColumnIsOpen(false);
       return;
-    };
-    return
-  }  
+    }
+    return;
+  };
 
   const handlerDeleteColumn = columnId => {
     dispatch(deleteColumn(columnId));
   };
- 
+
+
+  // export const handlerColumn = ({ column: { id, title, owner } }) => {
+  // const dispatch = useDispatch();
+  // const handlerEditColumn = (columnId, updatedData) => {
+  //   dispatch(editColumn({ id: columnId, ...updatedData }));
+  // };
+  // const handlerDeleteColumn = columnId => {
+  //   dispatch(deleteColumn(columnId));
+  // };
+
   return (
     <Main>
       <Section>
@@ -96,7 +110,7 @@ export const AddColumnButton = ({columnId}) => {
                 autoFocus
               />
 
-              <AddColumnBtn type="submit" >
+              <AddColumnBtn type="submit">
                 <IconWhiteWrap>
                   <StyledSvgDarkPlus>
                     <use xlinkHref={`${sprite}#icon-plus`}></use>
@@ -124,7 +138,7 @@ export const AddColumnButton = ({columnId}) => {
                 onChange={handlerValue}
                 autoFocus
               />
-              <AddColumnBtn type="submit" >
+              <AddColumnBtn type="submit">
                 <IconWhiteWrap>
                   <StyledSvgDarkPlus>
                     <use xlinkHref={`${sprite}#icon-plus`}></use>
