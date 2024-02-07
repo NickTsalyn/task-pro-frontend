@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-hot-toast';
 
 import {
   register,
   login,
   refreshUser,
-  // logout,
-
-  // updateAvatar,
+  logout,
+  updateAvatar,
 } from './operations';
 
 const initialState = {
@@ -18,6 +18,7 @@ const initialState = {
   isError: false,
   errorMessage: null,
 };
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -38,6 +39,7 @@ const authSlice = createSlice({
       const errorMessage = action.payload;
       if (errorMessage === 'Email in use') {
         state.errorMessage = errorMessage;
+        toast.error(state.errorMessage);
       } else {
         state.isError = true;
       }
@@ -56,7 +58,22 @@ const authSlice = createSlice({
     [login.rejected](state, action) {
       state.isLoading = false;
       state.errorMessage = action.payload;
+      toast.error(state.errorMessage);
       state.isError = true;
+    },
+    [logout.pending](state) {
+      state.isLoading = true;
+    },
+    [logout.fulfilled](state) {
+      state.isLoading = false;
+      state.user = { name: null, email: null, avatar: null };
+      state.token = null;
+      state.isLoggedIn = false;
+    },
+    [logout.rejected](state, action) {
+      state.isError = true;
+      state.errorMessage = action.payload;
+      toast.error(state.errorMessage);
     },
     [refreshUser.pending](state) {
       state.isRefreshing = true;
@@ -68,6 +85,21 @@ const authSlice = createSlice({
     },
     [refreshUser.rejected](state) {
       state.isRefreshing = false;
+    },
+    [updateAvatar.pending](state) {
+      state.isLoading = true;
+      state.isError = false;
+      state.errorMessage = null;
+    },
+    [updateAvatar.fulfilled](state, action) {
+      state.user.avatar = action.payload.avatar;
+      state.isLoading = false;
+    },
+    [updateAvatar.rejected](state, action) {
+      state.isLoading = false;
+      state.isError = true;
+      state.errorMessage = action.payload;
+      toast.error(state.errorMessage);
     },
   },
 });

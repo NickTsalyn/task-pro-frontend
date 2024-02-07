@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const StyledSidebarNavWrapper = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+`
 
 export const StyledText = styled.p`
   /* min-width: 320px; */
@@ -25,6 +30,7 @@ export const StyledCreateBtnWrapper = styled.div`
 padding: 14px 0;
 border-top: 1px solid rgba(255, 255, 255, 0.1);
 border-bottom:  1px solid rgba(255, 255, 255, 0.1);
+margin-bottom: 40px;
 `
 
 export const StyledCreateBtn = styled.button`
@@ -34,7 +40,7 @@ width: 100%;
 font-weight: 500;
 line-height: 1.5;
 text-align: start;
-/* font-size: 14px; */
+font-size: 14px;
 color: rgb(255, 255, 255);
 padding: 0;
 display: flex;

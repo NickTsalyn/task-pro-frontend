@@ -1,12 +1,12 @@
 import sprite from '../../../images/icons.svg';
-import { StyledBoardListdBtn, StyledSVGPensil, StyledSVGTrash } from './BoardListItem.styled';
+import { StyledBoardListdBtn, StyledSVGPensil,  StyledSVGTrash, StyledSidebarText } from './BoardListItem.styled';
 
 export const BoardListItem = ({board}) => {
     return (
     
         <div>
       <img src="" alt="" />
-       <p>Board name</p>
+       <StyledSidebarText>Board name</StyledSidebarText>
 
        <div> 
         <StyledBoardListdBtn>

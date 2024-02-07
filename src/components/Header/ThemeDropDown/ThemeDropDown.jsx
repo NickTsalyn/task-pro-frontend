@@ -17,14 +17,30 @@ const customStyles = {
     backgroundColor: '#fff',
     color: 'rgba(22, 22, 22, 0.8)',
     // color: state.isFocused ? 'var(--accent)' : 'var(--text)',
-    border: 'none',
+    border: 'none ' ,
     boxShadow:  'none',
     cursor: 'none',
     display: 'flex',
     // margin: 'auto 0px',
-    padding: '0'
+    padding: '14px 0 ',
+    // @media screen and (min-width: 1440px) {
+    // padding: '18px 0'
+    // }
+    // marginTop: '20px'
 // borderRadius: ' 1px solid rgba(236, 237, 253, 0.4)'
   }),
+  input: (provided, state) => ({
+    ...provided,
+    border: 'none',
+    outline: 'none',
+  }),
+  dropdownIndicator: (provided) => ({
+    ...provided,
+    '&::before': {
+      content: 'none',  // Встановлюємо вміст на none для псевдоелемента ::before
+    },
+  }),
+
   option: (provided, state) => ({
     ...provided,
     backgroundColor: '#fff',
