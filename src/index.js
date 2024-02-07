@@ -23,6 +23,7 @@ const theme = {
     darkBgn: '#151515',
     darkInputBgn: '#1f1f1f',
     shadowColor: 'rgba(22, 22, 22, 0.08)',
+    colorFilterSVG:""
   },
   violetColors: {
     //кольори для VioletTheme
