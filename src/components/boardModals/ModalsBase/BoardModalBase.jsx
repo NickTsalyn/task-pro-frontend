@@ -19,8 +19,8 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
     function close() {
         onCloseModal()
         setTitle('')
-        setIcon('icon-Project')
-        setBackground('0')
+        setIcon('')
+        setBackground('')
     }
 
     function sub(event) {
