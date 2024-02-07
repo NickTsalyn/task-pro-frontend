@@ -1,0 +1,81 @@
+{
+  "welcomePage": {
+    "welcome": {
+      "text": "Steigern Sie Ihre Produktivität und übernehmen Sie die Kontrolle über Ihre Aufgaben mit Task Pro - Warten Sie nicht, beginnen Sie jetzt, Ihre Ziele zu erreichen!",
+      "registration": "Registrierung",
+      "login": "Anmelden"
+    },
+    "registration": {
+      "name": "Geben Sie Ihren Namen ein",
+      "email": "Geben Sie Ihre E-Mail-Adresse ein",
+      "password": "Erstellen Sie ein Passwort",
+      "button": "Jetzt registrieren"
+    },
+    "login": {
+      "password": "Passwort bestätigen",
+      "email": "Geben Sie Ihre E-Mail-Adresse ein",
+      "button": "Jetzt einloggen"
+    }
+  },
+  "screenPage": {
+    "static": {
+      "theme": "Thema",
+      "my-boards": "Meine Boards",
+      "addBoard": "Neues Board erstellen",
+      "help": "Wenn Sie Hilfe mit",
+      "help2": "benötigen, werfen Sie einen Blick auf unsere Support-Ressourcen oder wenden Sie sich an unser Kundensupport-Team.",
+      "needHelp": "Hilfe benötigt",
+      "logout": "Abmelden",
+      "message1": "Bevor Sie Ihr Projekt starten, ist es unerlässlich, ",
+      "message2": "ein Board zu erstellen, ",
+      "message3": "um alle notwendigen Aufgaben und Meilensteine zu visualisieren und zu verfolgen. Dieses Board dient als leistungsstolles Werkzeug zur Organisation des Arbeitsablaufs und zur Sicherstellung einer effektiven Zusammenarbeit zwischen Teammitgliedern.",
+      "filters": "Filter",
+      "priority": {
+        "without": "Ohne Priorität",
+        "low": "Niedrig",
+        "medium": "Mittel",
+        "high": "Hoch"
+      }
+    },
+    "render": {
+      "addColumn": "Füge eine weitere Spalte hinzu",
+      "addCard": "Füge eine weitere Karte hinzu",
+      "modal": {
+        "board": {
+          "titleNew": "Neues Board",
+          "titleEdit": "Board bearbeiten",
+          "icons": "Symbole",
+          "backgr": "Hintergrund",
+          "add-btn": "Erstellen",
+          "edit-btn": "Bearbeiten"
+        },
+        "help": {
+          "title": "Hilfe benötigt",
+          "email": "E-Mail-Adresse",
+          "text": "Kommentar"
+        },
+        "card": {
+          "title": "Karte hinzufügen",
+          "cardTitle": "Titel",
+          "descr": "Beschreibung",
+          "color": "Label-Farbe",
+          "deadline": "Frist",
+          "addBtn": "Hinzufügen",
+          "editBtn": "Bearbeiten"
+        },
+        "column": {
+          "addTitle": "Spalte hinzufügen",
+          "editTitle": "Spalte bearbeiten",
+          "input": "Titel",
+          "btn": "Hinzufügen"
+        },
+        "profile": {
+          "title": "Profil bearbeiten",
+          "name": "Geben Sie Ihren Namen ein",
+          "email": "Geben Sie Ihre E-Mail-Adresse ein",
+          "password": "Geben Sie Ihr Passwort ein"
+        }
+      }
+    }
+  }
+}

@@ -17,6 +17,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { login } from 'redux/auth/operations';
+import { useTranslation } from 'react-i18next';
 
 const LogInSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email!').required('Email is required!'),
@@ -38,6 +39,7 @@ const initialValues = {
 export const LogInForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const {t} = useTranslation('global')
   const [showPassword, setShowPassword] = useState(false);
 
   const handleTogglePassword = e => {
@@ -70,7 +72,7 @@ export const LogInForm = () => {
               id="email"
               name="email"
               autoComplete="off"
-              placeholder="Enter your email"
+              placeholder={t('welcomePage.login.email')}
             />
             <MessageError name="email" component="div" />
           </StyledLabel>
@@ -80,7 +82,7 @@ export const LogInForm = () => {
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 name="password"
-                placeholder="Confirm a password"
+                placeholder={t('welcomePage.login.password')}
                 autoComplete="off"
               />
 
@@ -93,7 +95,7 @@ export const LogInForm = () => {
             <MessageError name="password" component="div" />
           </StyledLabel>
         </InputContainer>
-        <LogInBtn type="submit">Log In Now</LogInBtn>
+        <LogInBtn type="submit">{t('welcomePage.login.button')}</LogInBtn>
       </FormContainer>
     </Formik>
   );

@@ -4,6 +4,7 @@ import { StyledHeader, StyledHeaderItemWrapper, StyledHeaderWrapper } from './He
 import { ThemeDropDown } from './ThemeDropDown/ThemeDropDown';
 import { UserInfo } from './UserInfo/UserInfo';
 import { useEffect, useState } from 'react';
+import { SelectLanguage } from 'components/SelectLanguage/SelectLanguage';
 
 export const Header = () => {
   // const isWideScreen = window.innerWidth >= 1440;
@@ -29,6 +30,7 @@ export const Header = () => {
       <BurgerMenu />
       <StyledHeaderItemWrapper>
         <ThemeDropDown />
+        <SelectLanguage/>
       <UserInfo />
       </StyledHeaderItemWrapper>
       
