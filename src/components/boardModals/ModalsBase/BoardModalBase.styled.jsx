@@ -9,8 +9,7 @@ export const StyledModal = styled(Modal)`
     max-width: 350px;
     background-color: ${props => props.theme.colors.white};
     border-radius: 8px;
-    filter: drop-shadow(0 0 4px ${props => props.theme.colors.shadowColor});
-    transform: translateY(50px);
+    box-shadow: 0px 4px 16px 0px ${props => props.theme.colors.greyIconColor};
     transition: transform 0.3s;
 `
 

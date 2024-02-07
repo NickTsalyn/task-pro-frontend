@@ -5,8 +5,8 @@ import './BoardModalBase.css'
 
 export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, SubmitForm }) => {
     const [title, setTitle] = useState(info.title || '')
-    const [icon, setIcon] = useState(info.icon)
-    const [background, setBackground] = useState(info.background)
+    const [icon, setIcon] = useState(info.icon || 'icon-Project')
+    const [background, setBackground] = useState(info.background || '0')
 
     const Icons = [{value: 'icon-Project'}, {value: 'icon-star-04'}, {value: 'icon-loading-03'}, {value: 'icon-puzzle-piece-02'},
                    {value: 'icon-container'}, {value: 'icon-lightning-02'}, {value: 'icon-colors'}, {value: 'icon-hexagon-01'}]
@@ -19,8 +19,8 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
     function close() {
         onCloseModal()
         setTitle('')
-        setIcon('')
-        setBackground('')
+        setIcon('icon-Project')
+        setBackground('0')
     }
 
     function sub(event) {

@@ -40,11 +40,7 @@ export const SidebarNav = () => {
         <StyledCreateBtnWrapper>
           <StyledCreateBtn>
             Create a new board
-            <StyledCreateBtnIconWrapper>
-              <StyledSVGPlus>
-                <use xlinkHref={`${sprite}#icon-plus`}></use>
-              </StyledSVGPlus>
-            </StyledCreateBtnIconWrapper>
+            <AddBoard />
           </StyledCreateBtn>
         </StyledCreateBtnWrapper>
         <BoardList />
