@@ -42,7 +42,7 @@ const theme = {
     medium: 'E09CB5', //medium priority
     // high:'BEDBB0', // high priority=colors.lightGreen
     without: 'rgba(22, 22, 22, 0.3)', //without priority
-  },
+  },  
   radius: {
     s: '6px', //button +
     m: '8px',

@@ -17,6 +17,7 @@ const initialState = {
   isLoading: false,
   isError: false,
   errorMessage: null,
+  themeName: "violet"
 };
 
 const authSlice = createSlice({
