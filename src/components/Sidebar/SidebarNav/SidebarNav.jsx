@@ -13,7 +13,7 @@ import {
   StyledCreateBtnWrapper,
   StyledItemWrapper,
   StyledLogoutBtn,
-  StyledNavItems,
+ 
   StyledSVGLogout,
   StyledSVGPlus,
   StyledText,
@@ -35,7 +35,8 @@ export const SidebarNav = () => {
   return (
     <SidebarWrapper>
       <StyledText>My boards</StyledText>
-      <StyledNavItems>
+
+      {/* <StyledNavItems> */}
         <StyledCreateBtnWrapper>
           <StyledCreateBtn>
             Create a new board
@@ -47,7 +48,7 @@ export const SidebarNav = () => {
           </StyledCreateBtn>
         </StyledCreateBtnWrapper>
         <BoardList />
-      </StyledNavItems>
+      {/* </StyledNavItems> */}
 
       <StyledItemWrapper>
         <HelpApp openModal={openModal} />
@@ -60,6 +61,7 @@ export const SidebarNav = () => {
           Log out
         </StyledLogoutBtn>
       </StyledItemWrapper>
+
     </SidebarWrapper>
   );
 };

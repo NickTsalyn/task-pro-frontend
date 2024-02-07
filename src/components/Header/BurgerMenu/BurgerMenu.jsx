@@ -9,11 +9,13 @@ export const BurgerMenu = () => {
   const sidebarRef = useRef(null);
 
   const hendleOpenSidebar = () => {
+    console.log('Opening sidebar');
     setOpen(!isOpen);
   };
 
   useEffect(() => {
-
+    console.log('burgerMenuRef:', burgerMenuRef.current);
+    console.log('sidebarRef:', sidebarRef.current);
 const handleClickClose = (event) => {
     if (
       burgerMenuRef.current && !burgerMenuRef.current.contains(event.target) && 
@@ -27,7 +29,7 @@ const handleClickClose = (event) => {
 
     return () => 
       document.removeEventListener('click', handleClickClose);
-  }, []);
+  }, [burgerMenuRef, sidebarRef]);
 
   return (
     <BurgerMenuWrapper>
@@ -36,7 +38,7 @@ const handleClickClose = (event) => {
           <use xlinkHref={`${sprite}#icon-menu-01`}></use>
         </StyledSVGBurger>
       </StyledBurgerMenu>
-      {isOpen && (< Sidebar ref={sidebarRef}/>)}
+      {isOpen && <Sidebar ref={sidebarRef}/>}
     </BurgerMenuWrapper>
   );
 };
