@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const SidebarWrapper = styled.div`
+display: flex;
+flex-direction: column;
+
+`
+
 export const StyledSidebarNavWrapper = styled.div`
 display: flex;
 flex-direction: column;
@@ -40,7 +46,7 @@ width: 100%;
 font-weight: 500;
 line-height: 1.5;
 text-align: start;
-font-size: 14px;
+
 color: rgb(255, 255, 255);
 padding: 0;
 display: flex;
@@ -87,4 +93,19 @@ export const StyledSVGLogout = styled.svg`
   /* background-color:white; */
   width: 32px;
   height: 32px;
+  
+`;
+
+
+export const StyledItemWrapper = styled.div`
+display: flex;
+flex-direction: column;
+margin-top: auto;
+align-items: end;
+`;
+
+export const StyledNavItems = styled.div`
+display: flex;
+flex-direction: column;
+
 `;

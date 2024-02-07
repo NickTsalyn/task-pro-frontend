@@ -5,6 +5,7 @@ import {
   StyledUserBtn,
 } from './UserInfo.styled';
 import photo from '../../../img/welcome.png';
+import {  useDispatch, useSelector } from 'react-redux';
 
 import Modal from 'react-modal';
 import { useState } from 'react';
@@ -14,18 +15,23 @@ import '../../EditProfileModal/EditModal.css';
 Modal.setAppElement('#root');
 
 export const UserInfo = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const dispatch = useDispatch();
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+const userName = useSelector(state => state.auth.user);
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+
+const [isModalOpen, setIsModalOpen] = useState(false);
+
+const openModal = () => {
+  setIsModalOpen(true);
+};
+
+const closeModal = () => {
+  setIsModalOpen(false);
+};
   return (
     <StyledUserInfo>
-      <StyledUserName>Ivetta</StyledUserName>
+      <StyledUserName>{userName.name}</StyledUserName>
       <StyledUserBtn type="button" onClick={openModal}>
         <StyledUserPhoto src={photo} alt="user_photo" width={32} height={32} />
       </StyledUserBtn>
