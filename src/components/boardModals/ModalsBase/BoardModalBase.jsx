@@ -4,7 +4,7 @@ import { StyledModal, Form, CloseButton, CloseSVG, BigHeader, TitleInput, SmallH
 import './BoardModalBase.css'
 
 export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, SubmitForm }) => {
-    const [title, setTitle] = useState(info.title)
+    const [title, setTitle] = useState(info.title || '')
     const [icon, setIcon] = useState(info.icon)
     const [background, setBackground] = useState(info.background)
 
@@ -26,6 +26,9 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
     function sub(event) {
         event.preventDefault()
         SubmitForm({title, icon, background})
+        setTitle('')
+        setIcon('')
+        setBackground('')
     }
 
     function handleChange(e) {
