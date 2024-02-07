@@ -18,17 +18,17 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
 
     function close() {
         onCloseModal()
-        setTitle('')
-        setIcon('')
-        setBackground('')
+        setTitle(info.title)
+        setIcon(info.icon)
+        setBackground(info.background)
     }
 
     function sub(event) {
         event.preventDefault()
         SubmitForm({title, icon, background})
-        setTitle('')
-        setIcon('icon-Project')
-        setBackground('0')
+        setTitle(info.title)
+        setIcon(info.icon)
+        setBackground(info.background)
     }
 
     function handleChange(e) {

@@ -1,16 +1,34 @@
 import sprite from '../../../images/icons.svg';
 import { StyledBoardItem, StyledBoardList, StyledBoardListdBtn, StyledBtnWrapper, StyledSVGPensil,  StyledSVGTrash,  } from './BoardListItem.styled';
+//import { useDispatch } from "react-redux"
+import { useState } from 'react';
+import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase';
 
-export const BoardListItem = ({board}) => {
-    return (
-    
+export const BoardListItem = ({ board }) => {
+  //const dispatch = useDispatch()
+  const [isModalOpen, setOpenModal] = useState(false);
+
+  function CloseModal() {
+    setOpenModal(false);
+  }
+
+  function OpenModal() {
+    setOpenModal(true);
+  }
+
+  function SubmitForm(info) {
+    console.log(info);
+    setOpenModal(false);
+  }
+
+  return (
         <StyledBoardList>
-      <img src="" alt="" />
-       <StyledBoardItem type='button'>Board name</StyledBoardItem>
+      
+       <StyledBoardItem type='button'>{board.title}</StyledBoardItem>
 
        <StyledBtnWrapper> 
 
-        <StyledBoardListdBtn type='button'>
+        <StyledBoardListdBtn onClick={OpenModal} type='button'>
        <StyledSVGPensil>
             <use xlinkHref={`${sprite}#icon-pencil-01`}></use>
           </StyledSVGPensil>
@@ -24,6 +42,13 @@ export const BoardListItem = ({board}) => {
 
        </StyledBtnWrapper>
       <span></span>
+      <BoardModalBase
+        isModalOpen={isModalOpen}
+        info={board}
+        onCloseModal={CloseModal}
+        action={'edit'}
+        SubmitForm={SubmitForm}
+      />
       </StyledBoardList>
-    )
-    }
+  )
+}
