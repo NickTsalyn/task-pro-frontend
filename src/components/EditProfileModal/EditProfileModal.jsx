@@ -17,10 +17,13 @@ import {
   StyledLabel,
   TitleModal,
 } from './EditProfileModal.styled.js';
+
 import sprite from '../../images/icons.svg';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-// import { useDispatch } from 'react-redux';
+
+import { useDispatch } from 'react-redux';
+import { updateAvatar } from 'redux/auth/operations.js';
 
 const editFormSchema = Yup.object().shape({
   name: Yup.string().min(3, 'To short').max(30, 'To long'),
@@ -32,10 +35,10 @@ const editFormSchema = Yup.object().shape({
 });
 
 export const EditProfileModal = ({ onCloseModal }) => {
-  // const dispatch = useDispatch();
-  // const handleSubmit = objCredentials => {
-  //   return dispatch();
-  // };
+  const dispatch = useDispatch();
+  const handleSubmit = credentials => {
+    return dispatch(updateAvatar(credentials));
+  };
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -76,15 +79,16 @@ export const EditProfileModal = ({ onCloseModal }) => {
           name: '',
           email: '',
           password: '',
+          file: '',
         }}
         validationSchema={editFormSchema}
-        // onSubmit={(values, actions) => {
-        //   handleSubmit(values);
-        //   actions.resetForm();
-        // }}
+        onSubmit={(values, actions) => {
+          handleSubmit(values);
+          actions.resetForm();
+        }}
       >
         <StyledForm>
-          <StyledLabel htmlFor="email">
+          <StyledLabel htmlFor="name">
             <StyledField
               type="text"
               name="name"
@@ -100,6 +104,17 @@ export const EditProfileModal = ({ onCloseModal }) => {
               placeholder="Enter email"
             ></StyledField>
             <ErrMessage component="span" name="email" />
+          </StyledLabel>
+
+          <StyledLabel htmlFor="file">
+            <StyledField
+              type="file"
+              name="file"
+              placeholder="Push file"
+            ></StyledField>
+
+            <ErrMessage component="span" name="email" />
+          {/* <img src={this.state.file} alt="" /> */}
           </StyledLabel>
 
           <StyledLabel htmlFor="password">
