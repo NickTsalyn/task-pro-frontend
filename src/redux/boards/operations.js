@@ -26,9 +26,9 @@ export const addBoard = createAsyncThunk(
 )
 
 export const editBoard = createAsyncThunk(
-    'boards/editBoard', async ({ id, updetedBoard }, thunkAPI) => {
+    'boards/editBoard', async ({ id, updatedBoard }, thunkAPI) => {
         try {
-            const res = await axios.put(`/boards/${id}`, updetedBoard)
+            const res = await axios.put(`/boards/${id}`, updatedBoard)
             return res.data
         } catch(error) {
             return thunkAPI.rejectWithValue(error.message)
