@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const BurgerMenuWrapper = styled.div`
-display: flex;
-`
+  display: flex;
+`;
 
 export const StyledBurgerMenu = styled.button`
   width: 24px;

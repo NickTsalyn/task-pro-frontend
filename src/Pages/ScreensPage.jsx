@@ -7,14 +7,11 @@ import { ScreensPageWrapper } from './ScreensPage.styled';
 export default function ScreensPage () {
   return (
     <>
-    <ScreensPageWrapper>
-      <HeaderDashboard/>    
-      <ColumnList/>
-      <button>ButtonAddAnotherColumn</button>
-    </ScreensPageWrapper>
-    
-    
+      <ScreensPageWrapper>
+        <HeaderDashboard />
+        <ColumnList />
+        <button>ButtonAddAnotherColumn</button>
+      </ScreensPageWrapper>
     </>
-    
-  )
-}
+  );
+};
