@@ -5,9 +5,15 @@ export const Container = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 335px;
+ 
+  width: 100%;
+  max-width: 335px;
 
   text-align: center;
+
+  @media only screen and (min-width: 375px) {
+    min-width: 335px;
+  }
 
   @media only screen and (min-width: 768px) {
     width: 473px;
@@ -55,13 +61,13 @@ export const StyledH1 = styled.h1`
 `;
 export const StyledText = styled.p`
   font-size: 14px;
-  line-height: 1.28571;
+  line-height: 1.29;
   letter-spacing: -0.02em;
   text-align: center;
   margin: 0 auto ${p=> p.theme.spacing(12)};
 `;
 export const RegistrationBtn = styled.button`
-  width: 335px;
+  width: 100%;
   padding: ${p=> p.theme.spacing(3.5)} 0px;
   justify-content: center;
   align-items: center;

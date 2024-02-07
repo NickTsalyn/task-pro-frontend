@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-hot-toast';
 
 import {
   register,
@@ -17,6 +18,7 @@ const initialState = {
   isError: false,
   errorMessage: null,
 };
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -37,6 +39,7 @@ const authSlice = createSlice({
       const errorMessage = action.payload;
       if (errorMessage === 'Email in use') {
         state.errorMessage = errorMessage;
+        toast.error(state.errorMessage);
       } else {
         state.isError = true;
       }
@@ -55,6 +58,7 @@ const authSlice = createSlice({
     [login.rejected](state, action) {
       state.isLoading = false;
       state.errorMessage = action.payload;
+      toast.error(state.errorMessage);
       state.isError = true;
     },
     [logout.pending](state) {
@@ -69,6 +73,7 @@ const authSlice = createSlice({
     [logout.rejected](state, action) {
       state.isError = true;
       state.errorMessage = action.payload;
+      toast.error(state.errorMessage);
     },
     [refreshUser.pending](state) {
       state.isRefreshing = true;
@@ -94,6 +99,7 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.isError = true;
       state.errorMessage = action.payload;
+      toast.error(state.errorMessage);
     },
   },
 });
