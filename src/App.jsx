@@ -32,7 +32,6 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<WelcomePage />} />
-        <Route path="home/:boardName" element={<ScreensPage />} />
         <Route path="auth/:id" element={<AuthPage />}>
           <Route
             path="register"

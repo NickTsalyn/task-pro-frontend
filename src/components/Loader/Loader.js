@@ -1,7 +1,7 @@
-// import { Bars } from "react-loader-spinner";
-// import styled from "styled-components";
+import { Bars } from "react-loader-spinner";
+import styled from "styled-components";
 
-// export const Loader = () => {
+export const Loader = () => {
 
     const LoaderWrapper = styled.div`
     position: fixed;
