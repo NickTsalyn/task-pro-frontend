@@ -4,17 +4,14 @@ import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
 import { ColumnList } from 'components/ColumnList/ColumnList';
 import { ScreensPageWrapper } from './ScreensPage.styled';
 
-export const ScreensPage = () => {
+export default function ScreensPage () {
   return (
     <>
-    <ScreensPageWrapper>
-      <HeaderDashboard/>    
-      <ColumnList/>
-      <button>ButtonAddAnotherColumn</button>
-    </ScreensPageWrapper>
-    
-    
+      <ScreensPageWrapper>
+        <HeaderDashboard />
+        <ColumnList />
+        <button>ButtonAddAnotherColumn</button>
+      </ScreensPageWrapper>
     </>
-    
-  )
-}
+  );
+};
