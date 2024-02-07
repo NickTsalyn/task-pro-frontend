@@ -2,9 +2,9 @@ import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import { selectIsLoading } from 'redux/auth/selectors';
+// import { selectIsLoading } from 'redux/auth/selectors';
 import {
   FormContainer,
   InputContainer,
@@ -47,7 +47,7 @@ const RegisterForm = () => {
   const {t} = useTranslation('global')
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const loading = useSelector(selectIsLoading);
+  // const loading = useSelector(selectIsLoading);
   const [showPassword, setShowPassword] = useState(false);
   const handleTogglePassword = e => {
     e.preventDefault();
