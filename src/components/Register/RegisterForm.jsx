@@ -2,9 +2,9 @@ import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import { selectIsLoading } from 'redux/auth/selectors';
+// import { selectIsLoading } from 'redux/auth/selectors';
 import {
   FormContainer,
   InputContainer,
@@ -19,6 +19,7 @@ import {
 
 import { useNavigate } from 'react-router-dom';
 import sprite from '../../images/icons.svg';
+import { useTranslation } from 'react-i18next';
 
 const RegisterSchema = Yup.object().shape({
   name: Yup.string()
@@ -43,9 +44,10 @@ const initialValues = {
 };
 
 const RegisterForm = () => {
+  const {t} = useTranslation('global')
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const loading = useSelector(selectIsLoading);
+  // const loading = useSelector(selectIsLoading);
   const [showPassword, setShowPassword] = useState(false);
   const handleTogglePassword = e => {
     e.preventDefault();
@@ -77,7 +79,7 @@ const RegisterForm = () => {
               type="text"
               id="name"
               name="name"
-              placeholder="Enter your name"
+              placeholder={t('welcomePage.registration.name')}
               autoComplete="off"
             />
             <MessageError name="name" component="div" />
@@ -88,7 +90,7 @@ const RegisterForm = () => {
               type="email"
               id="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder={t('welcomePage.registration.email')}
               autoComplete="off"
             />
             <MessageError name="email" component="div" />
@@ -100,7 +102,7 @@ const RegisterForm = () => {
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 name="password"
-                placeholder="Create a password"
+                placeholder={t('welcomePage.registration.password')}
                 autoComplete="off"
               />
 
@@ -114,7 +116,8 @@ const RegisterForm = () => {
           </StyledLabel>
         </InputContainer>
         <RegisterInBtn type="submit">
-          {loading ? 'waiting' : 'Register Now'}
+          {/* {loading ? 'waiting' : 'Register Now'} */}
+          {t('welcomePage.registration.button')}
         </RegisterInBtn>
       </FormContainer>
     </Formik>

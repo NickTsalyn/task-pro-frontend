@@ -10,16 +10,18 @@ import {
   WelcomeWrapper,
 } from './Auth.styled';
 import { LogInForm } from 'components/LogInForm/LogInForm';
+import { useTranslation } from 'react-i18next';
 
 const Auth = () => {
   const { id } = useParams();
+  const {t} = useTranslation('global')
 
   return (
     <WelcomeWrapper>
       <FormContainer>
         <LinkWrapper>
-          <AuthLinks to="/auth/register">Registration</AuthLinks>
-          <AuthLinks to="/auth/login">Log In</AuthLinks>
+          <AuthLinks to="/auth/register">{t('welcomePage.welcome.registration')}</AuthLinks>
+          <AuthLinks to="/auth/login">{t('welcomePage.welcome.login')}</AuthLinks>
         </LinkWrapper>
 
         {id === 'login' && <LogInForm />}

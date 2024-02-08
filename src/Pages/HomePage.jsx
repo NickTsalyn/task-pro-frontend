@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import {  Text, TextA } from './HomePage.styled';
+import { useTranslation } from 'react-i18next';
 // import { Loader } from 'components/Loader/Loader';
 
 const HomeWrapper = styled.div`
@@ -10,11 +11,15 @@ const HomeWrapper = styled.div`
   margin: 0 auto;
 `;
 
+
+
 export default function HomePage() {
+  const { t } = useTranslation('global');
+
   return (
     <HomeWrapper>
       <Header />
-      <Text>Before starting your project, it is essential <TextA>to create a board</TextA> to visualize and track all the necessary tasks and milestones. This board serves as a powerful tool to organize the workflow and ensure effective collaboration among team members.</Text>
+      <Text>{t('screenPage.static.message1')}<TextA>{t('screenPage.static.message2')}</TextA>{t('screenPage.static.message3')}</Text>
       {/* <Loader/>            */}
       <Suspense fallback={null}>
           <Outlet />
