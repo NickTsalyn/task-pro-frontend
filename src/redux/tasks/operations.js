@@ -15,7 +15,9 @@ export const fetchTitle = createAsyncThunk(
         }
     }
 );
-// 
+
+
+
 
 // add card 
 
@@ -30,8 +32,18 @@ export const addTask = createAsyncThunk(
     }
 );
 
-// edit column
-
+// get taskId
+export const getTask = createAsyncThunk(
+    "tasks/getTask", async ({ id }, thunkAPI) => {
+        try {
+            const tasks = await thunkAPI.get(`/tasks/${id}`);
+            const task = tasks.find(task => task.id === id);
+            return task;
+        } catch(error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+)
 
 
 //  edit card
@@ -58,3 +70,4 @@ export const deleteTask = createAsyncThunk(
     }
 );
 
+// edit column
