@@ -38,29 +38,6 @@ border-top: 1px solid rgba(255, 255, 255, 0.1);
 border-bottom:  1px solid rgba(255, 255, 255, 0.1);
 margin-bottom: 40px;
 `
-
-export const StyledCreateBtn = styled.button`
-border: none;
-background-color: transparent;
-width: 100%;
-font-weight: 500;
-line-height: 1.5;
-text-align: start;
-
-color: rgb(255, 255, 255);
-padding: 0;
-display: flex;
-/* justify-content: space-between; */
-`
-
-export const StyledCreateBtnIconWrapper = styled.span`
-width: 40px;
-height: 36px;
-border-radius: 6px;
-background-color: rgb(184, 188, 253);
-margin-left: 96px;
-
-`
 export const StyledLogoutBtn = styled.button`
 border: none;
 background-color: transparent;
@@ -77,15 +54,6 @@ align-items: center;
 /* margin: auto 0; */
 margin-top: 24px;
 `
-
-export const StyledSVGPlus = styled.svg`
-  fill: ${p => p.theme.violetColors.accentColor};
-  stroke: rgb(255, 255, 255);
-  /* background-color:white; */
-  width: 20px;
-  height: 20px;
-  padding: 8px 10px;
-`;
 
 export const StyledSVGLogout = styled.svg`
   fill: transparent;
