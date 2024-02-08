@@ -17,6 +17,7 @@ const handleRejected = (state, action) => {
 
 const initialState = {
   columns: [],
+  dashbord: true,
   owner: true,
   isLoading: false,
   error: null,
@@ -52,6 +53,7 @@ const columnSlice = createSlice({
           column => column.id === action.payload.id
         );
         state.columns.splice(index, 1);
+       
       })
       .addCase(editColumn.pending, handlePending)
       .addCase(editColumn.rejected, handleRejected)
@@ -63,6 +65,7 @@ const columnSlice = createSlice({
         // const columnIndex = state.columns.findIndex(item => item._id === _id);
         const columnIndex = state.columns.findIndex(column => column.id === id);
         state.columns[columnIndex].title = title;
+        
       });
   },
 });

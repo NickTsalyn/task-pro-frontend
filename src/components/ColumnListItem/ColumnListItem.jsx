@@ -1,16 +1,19 @@
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 
 import { CardList } from 'components/CardList/CardList';
 import sprite from '../../images/icons.svg';
-import {
-  deleteColumn,
-  editColumn,
-} from '../../redux/columns/operations';
+import { deleteColumn, editColumn } from '../../redux/columns/operations';
 
-import { ColumnHeader, ColumnTitle, ColumnWrapper, EditBlock, EditButton, EditSVG } from "./ColumnListItem.styled";
+import {
+  ColumnHeader,
+  ColumnTitle,
+  ColumnWrapper,
+  EditBlock,
+  EditButton,
+  EditSVG,
+} from './ColumnListItem.styled';
 
 export const ColumnListItem = ({ column: { id, title, owner } }) => {
-
   const dispatch = useDispatch();
   const handlerEditColumn = (columnId, updatedData) => {
     dispatch(editColumn({ id: columnId, ...updatedData }));
@@ -22,7 +25,7 @@ export const ColumnListItem = ({ column: { id, title, owner } }) => {
   // const dispatch = useDispatch();
   // const items = useSelector(selectColumns);
   // const columns = [];
-  const title = ' Column Title';
+  // const title = ' Column Title';
 
   return (
     <ColumnWrapper>
