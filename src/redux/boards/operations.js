@@ -28,7 +28,7 @@ export const addBoard = createAsyncThunk(
 export const editBoard = createAsyncThunk(
     'boards/editBoard', async ({ id, updatedBoard }, thunkAPI) => {
         try {
-            const res = await axios.put(`/README.pl.mdapi/boards/${id}`, updatedBoard)
+            const res = await axios.put(`/api/boards/${id}`, updatedBoard)
             return res.data
         } catch(error) {
             return thunkAPI.rejectWithValue(error.message)
