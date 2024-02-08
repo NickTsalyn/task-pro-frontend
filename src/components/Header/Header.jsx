@@ -1,9 +1,10 @@
 import { Sidebar } from 'components/Sidebar/Sidebar';
-import { BurgerSidebar } from './BurgerMenu/BurgerMenu';
+import { BurgerMenu,  } from './BurgerMenu/BurgerMenu';
 import { StyledHeader, StyledHeaderItemWrapper, StyledHeaderWrapper } from './Header.styled';
 import { ThemeDropDown } from './ThemeDropDown/ThemeDropDown';
 import { UserInfo } from './UserInfo/UserInfo';
 import { useEffect, useState } from 'react';
+import { SelectLanguage } from 'components/SelectLanguage/SelectLanguage';
 
 export const Header = () => {
   // const isWideScreen = window.innerWidth >= 1440;
@@ -25,12 +26,11 @@ export const Header = () => {
 
     <StyledHeaderWrapper>
       { isWideScreen && <Sidebar/>}
-      {/* {<Sidebar/>} */}
-      
         <StyledHeader>
-      <BurgerSidebar />
+      <BurgerMenu />
       <StyledHeaderItemWrapper>
         <ThemeDropDown />
+        <SelectLanguage/>
       <UserInfo />
       </StyledHeaderItemWrapper>
       

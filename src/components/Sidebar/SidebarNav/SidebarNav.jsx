@@ -1,62 +1,68 @@
 // needhelp
 import React, { useState } from 'react';
-import HelpApp from "components/HelpApp/HelpApp.jsx"
+import HelpApp from 'components/HelpApp/HelpApp.jsx';
 import { NeedHelpModal } from 'components/NeedHelpModal/NeedHelpModal.jsx';
 
 import { useDispatch } from 'react-redux';
 import sprite from '../../../images/icons.svg';
 import { BoardList } from '../BoardList/BoardList';
 import {
-  StyledCreateBtn,
-  StyledCreateBtnIconWrapper,
+  SidebarWrapper,
   StyledCreateBtnWrapper,
+  StyledItemWrapper,
   StyledLogoutBtn,
+ 
   StyledSVGLogout,
-  StyledSVGPlus,
   StyledText,
 } from './SidebarNav.styled';
 import { logout } from 'redux/auth/operations';
+import { AddBoard } from 'components/boardModals/addBoard';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const SidebarNav = () => {
   // ******  модалка для helpapp
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate()
   const openModal = () => {
     setIsModalOpen(true);
   };
   const closeModal = () => {
     setIsModalOpen(false);
   };
-// ***********************
+  // ***********************
   const dispatch = useDispatch();
 
+  const handleClick = () => {
+    dispatch(logout())
+    
+    navigate('/')
+  }
+
+  const {t} = useTranslation('global')
+
   return (
-    <div>
-      <StyledText>My boards</StyledText>
+    <SidebarWrapper>
+      <StyledText>{t('screenPage.static.my-boards')}</StyledText>
+      {/* <StyledNavItems> */}
+        <StyledCreateBtnWrapper>
+          <AddBoard />
+        </StyledCreateBtnWrapper>
+        <BoardList />
+      {/* </StyledNavItems> */}
 
-      <StyledCreateBtnWrapper>
-        {' '}
-        <StyledCreateBtn>
-          Create a new board
-          <StyledCreateBtnIconWrapper>
-            <StyledSVGPlus>
-              <use xlinkHref={`${sprite}#icon-plus`}></use>
-            </StyledSVGPlus>
-          </StyledCreateBtnIconWrapper>
-        </StyledCreateBtn>
-      </StyledCreateBtnWrapper>
+      <StyledItemWrapper>
+        <HelpApp openModal={openModal} />
+        {isModalOpen && <NeedHelpModal onClose={closeModal} />}
 
-      <BoardList />
+        <StyledLogoutBtn type="button" onClick={handleClick}>
+          <StyledSVGLogout>
+            <use xlinkHref={`${sprite}#icon-login`}></use>
+          </StyledSVGLogout>
+          {t('screenPage.static.logout')}
+        </StyledLogoutBtn>
+      </StyledItemWrapper>
 
-      {/* <NeedHelp/> */}
-      <HelpApp openModal={openModal} />
-      {isModalOpen && <NeedHelpModal onClose={closeModal} />}
-
-      <StyledLogoutBtn type="button" onClick={() => dispatch(logout())}>
-        <StyledSVGLogout>
-          <use xlinkHref={`${sprite}#icon-login`}></use>
-        </StyledSVGLogout>
-        Log out
-      </StyledLogoutBtn>
-    </div>
+    </SidebarWrapper>
   );
 };

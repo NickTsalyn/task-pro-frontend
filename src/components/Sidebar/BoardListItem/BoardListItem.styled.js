@@ -1,16 +1,27 @@
 import styled from "styled-components";
 
-export const StyledSidebarText = styled.p`
+export const StyledBoardList = styled.div`
+display: flex;
+/* justify-content: space-between; */
+padding: 20px 14px;
+margin: 0 auto;
+
+`;
+
+export const StyledBoardItem = styled.button`
+border: none;
+background: transparent;
 font-weight: 500;
 line-height: 1.5;
 text-align: start;
-font-size: 14px;
+padding: 0;
 color: rgb(255, 255, 255);
 `;
 
 export const StyledSVGPensil = styled.svg`
   fill:transparent;
-  stroke: ${p => p.theme.colors.greyIconColor};
+  stroke: rgba(255, 255, 255, 0.5);
+
   /* background-color:white; */
   width: 16px;
   height: 16px;
@@ -19,9 +30,9 @@ export const StyledSVGPensil = styled.svg`
 
 export const StyledSVGTrash = styled.svg`
   fill: transparent;
-  stroke: ${p => p.theme.colors.greyIconColor};
+  stroke: rgba(255, 255, 255, 0.5);
   /* background-color:white; */
-  width: 16x;
+  width: 16px;
   height: 16px;
 
 `;
@@ -30,6 +41,15 @@ export const StyledBoardListdBtn = styled.button`
 border: none;
 background-color: transparent;
 display: flex;
-/* margin: auto 0; */
+/* width: 16px;
+height: 16px; */
+margin: 0;
+padding: 0;
 
+`
+export const StyledBtnWrapper = styled.div`
+display: flex;
+align-items: center;
+gap: 8px;
+margin-left: auto;
 `

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import sprite from 'images/icons.svg'
 import { StyledModal, Form, CloseButton, CloseSVG, BigHeader, TitleInput, SmallHeader, List, Radio, IconSVG, FuturePic, SubmitButton } from './BoardModalBase.styled'
+import './BoardModalBase.css'
 
 export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, SubmitForm }) => {
     const [title, setTitle] = useState(info.title)
@@ -17,12 +18,17 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
 
     function close() {
         onCloseModal()
-        setTitle('')
+        setTitle(info.title)
+        setIcon(info.icon)
+        setBackground(info.background)
     }
 
     function sub(event) {
         event.preventDefault()
         SubmitForm({title, icon, background})
+        setTitle(info.title)
+        setIcon(info.icon)
+        setBackground(info.background)
     }
 
     function handleChange(e) {
@@ -32,24 +38,8 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
     return (
         <StyledModal
             isOpen={isModalOpen}
-            style={{
-                overlay: {
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                    padding: '40px 10px 40px 10px',
-                    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                    overflow: 'hidden',
-                    overflowY: 'auto',
-                    transition: 'opacity 0.3s',
-                }
-              }}
-            onRequestClose={onCloseModal}
+            overlayClassName={'modal-overlay'}
+            onRequestClose={close}
             ariaHideApp={false}
         >
             <CloseButton onClick={close}>
@@ -94,8 +84,8 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
                                 value={Background.value}
                                 checked={Background.value === background ? true : false}
                                 onChange={() => setBackground(Background.value)}>
-                            <FuturePic></FuturePic>
                             </Radio>
+                            <FuturePic></FuturePic>
                         </label>
                     ))}
                 </List>
