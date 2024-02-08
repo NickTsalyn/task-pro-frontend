@@ -7,7 +7,7 @@ axios.defaults.baseURL = 'https://task-pro-backend-a1c2.onrender.com';
 export const fetchTitle = createAsyncThunk(
     "tasks/fetchAll", async(_, thunkAPI) => {
         try {
-            const response = await axios.get("/tasks");
+            const response = await axios.get("/api/tasks");
             return response.data;
         }
         catch (error){
@@ -24,7 +24,7 @@ export const fetchTitle = createAsyncThunk(
 export const addTask = createAsyncThunk(
     "tasks/addTask", async({ title, description, priority, deadline }, thunkAPI) => {
         try {
-            const response = await axios.post("/addTask", { title, description, priority, deadline });
+            const response = await axios.post("/api/addTask", { title, description, priority, deadline });
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
@@ -36,7 +36,7 @@ export const addTask = createAsyncThunk(
 export const getTask = createAsyncThunk(
     "tasks/getTask", async ({ id }, thunkAPI) => {
         try {
-            const tasks = await thunkAPI.get(`/tasks/${id}`);
+            const tasks = await thunkAPI.get(`/api/tasks/${id}`);
             const task = tasks.find(task => task.id === id);
             return task;
         } catch(error) {
@@ -51,7 +51,7 @@ export const getTask = createAsyncThunk(
 export const editTask = createAsyncThunk(
     "tasks/editTask", async ({ id, updatedData }, thunkAPI) => {
         try {
-            const response = await axios.put(`/tasks/${id}`, updatedData);
+            const response = await axios.patch(`/api/tasks/${id}`, updatedData);
             return response.data;
         } catch(error) {
         return thunkAPI.rejectWithValue(error.message)}
@@ -62,7 +62,7 @@ export const editTask = createAsyncThunk(
 export const deleteTask = createAsyncThunk(
     "tasks/deleteTask", async (Id, thunkAPI) => {
         try {
-            const response = await axios.delete(`/tasks/${Id}`);
+            const response = await axios.delete(`/api/tasks/${Id}`);
             return response.data;
         } catch(error) {
             return thunkAPI.rejectWithValue(error.message);
