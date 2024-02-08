@@ -6,4 +6,4 @@ export const selectUser = state => state.auth.user;
 
 export const selectIsRefreshing = state => state.auth.isRefreshing;
 
-export const selectedThemeName = state => state.auth.themeName;
+export const selectedTheme = state => state.auth.theme;

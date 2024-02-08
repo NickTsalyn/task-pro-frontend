@@ -7,6 +7,7 @@ import {
   refreshUser,
   logout,
   updateAvatar,
+  changeTheme
 } from './operations';
 
 const initialState = {
@@ -17,7 +18,7 @@ const initialState = {
   isLoading: false,
   isError: false,
   errorMessage: null,
-  themeName: "violet"
+  theme: "light"
 };
 
 const authSlice = createSlice({
@@ -102,6 +103,9 @@ const authSlice = createSlice({
       state.errorMessage = action.payload;
       toast.error(state.errorMessage);
     },
+    [changeTheme.fulfilled](state, action){//ЗМІНА ТЕМИ
+      state.theme = action.payload.theme;      
+    }
   },
 });
 

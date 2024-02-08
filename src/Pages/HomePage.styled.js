@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const HomeWrapper = styled.div`
+  min-height: 100vh;
+  margin: 0 auto;
+`;
+
 export const Text = styled.p`  
   margin: 258px 20px 0;
   font-size: 12px;

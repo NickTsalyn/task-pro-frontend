@@ -31,8 +31,10 @@ import global_pl from './translations/pl/global.json'
 import global_ro from './translations/ro/global.json'
 import global_tr from './translations/tr/global.json'
 import global_ua from './translations/ua/global.json'
+import { getTheme } from 'components/themes';
 
 const theme = {
+  selectedThemeColors: getTheme(),
   colors: {
     //кольори для реєстрації і логіну
     white: '#fff',
@@ -59,7 +61,7 @@ const theme = {
     // task's priority colors
     low: '#8FA1D0', //low priority
     medium: 'E09CB5', //medium priority
-    // high:'BEDBB0', // high priority=colors.lightGreen
+    high:'BEDBB0', // high priority=colors.lightGreen
     without: 'rgba(22, 22, 22, 0.3)', //without priority
   },  
   radius: {
