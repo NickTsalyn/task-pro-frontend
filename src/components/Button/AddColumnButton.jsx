@@ -48,7 +48,7 @@ export const AddColumnButton = () => {
           Edit Column
         </ModalShowButton>
 
-        <AddColumnModal
+        {/* <AddColumnModal
           isOpen={modalAddColumnIsOpen}
           onClose={() => setModalAddColumnIsOpen(false)}
           submitButton="Add"
@@ -73,7 +73,7 @@ export const AddColumnButton = () => {
               </AddColumnBtn>
             </form>
           </div>
-        </AddColumnModal>
+        </AddColumnModal> */}
 
         <EditColumnModal
           isOpen={modalEditColumnIsOpen}
