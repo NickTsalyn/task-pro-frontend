@@ -1,0 +1,81 @@
+{
+  "welcomePage": {
+    "welcome": {
+      "text": "Potenzia la tua produttività e prendi il controllo dei tuoi compiti con Task Pro - Non aspettare, inizia a raggiungere i tuoi obiettivi ora!",
+      "registration": "Registrazione",
+      "login": "Accedi"
+    },
+    "registration": {
+      "name": "Inserisci il tuo nome",
+      "email": "Inserisci la tua email",
+      "password": "Crea una password",
+      "button": "Registrati ora"
+    },
+    "login": {
+      "password": "Conferma password",
+      "email": "Inserisci la tua email",
+      "button": "Accedi ora"
+    }
+  },
+  "screenPage": {
+    "static": {
+      "theme": "Tema",
+      "my-boards": "I miei bachechi",
+      "addBoard": "Crea un nuovo bacheche",
+      "help": "Se hai bisogno di aiuto con",
+      "help2": ", consulta le nostre risorse di supporto o contatta il nostro team di assistenza clienti.",
+      "needHelp": "Hai bisogno di aiuto",
+      "logout": "Esci",
+      "message1": "Prima di iniziare il tuo progetto, è essenziale ",
+      "message2": "creare una bacheca ",
+      "message3": "per visualizzare e tracciare tutte le attività e le tappe necessarie. Questa bacheca serve come uno strumento potente per organizzare il flusso di lavoro e garantire una collaborazione efficace tra i membri del team.",
+      "filters": "Filtri",
+      "priority": {
+        "without": "Senza priorità",
+        "low": "Bassa",
+        "medium": "Media",
+        "high": "Alta"
+      }
+    },
+    "render": {
+      "addColumn": "Aggiungi un'altra colonna",
+      "addCard": "Aggiungi un'altra scheda",
+      "modal": {
+        "board": {
+          "titleNew": "Nuova bacheca",
+          "titleEdit": "Modifica bacheca",
+          "icons": "Icone",
+          "backgr": "Sfondo",
+          "add-btn": "Crea",
+          "edit-btn": "Modifica"
+        },
+        "help": {
+          "title": "Hai bisogno di aiuto",
+          "email": "Indirizzo email",
+          "text": "Commento"
+        },
+        "card": {
+          "title": "Aggiungi scheda",
+          "cardTitle": "Titolo",
+          "descr": "Descrizione",
+          "color": "Colore etichetta",
+          "deadline": "Scadenza",
+          "addBtn": "Aggiungi",
+          "editBtn": "Modifica"
+        },
+        "column": {
+          "addTitle": "Aggiungi colonna",
+          "editTitle": "Modifica colonna",
+          "input": "Titolo",
+          "btn": "Aggiungi"
+        },
+        "profile": {
+          "title": "Modifica profilo",
+          "name": "Inserisci il tuo nome",
+          "email": "Inserisci la tua email",
+          "password": "Inserisci la tua password"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "welcomePage": {
+    "welcome": {
+      "text": "Incrementează-ți productivitatea și preia controlul asupra sarcinilor cu Task Pro - Nu aștepta, începe să-ți atingi acum obiectivele!",
+      "registration": "Înregistrare",
+      "login": "Autentificare"
+    },
+    "registration": {
+      "name": "Introdu numele tău",
+      "email": "Introdu adresa ta de email",
+      "password": "Creează o parolă",
+      "button": "Înregistrează-te acum"
+    },
+    "login": {
+      "password": "Confirmați parola",
+      "email": "Introdu adresa ta de email",
+      "button": "Autentifică-te acum"
+    }
+  },
+  "screenPage": {
+    "static": {
+      "theme": "Temă",
+      "my-boards": "Bordurile mele",
+      "addBoard": "Creează un nou bord",
+      "help": "Dacă aveți nevoie de ajutor cu",
+      "help2": ", consultați resursele noastre de suport sau luați legătura cu echipa noastră de asistență pentru clienți.",
+      "needHelp": "Ai nevoie de ajutor",
+      "logout": "Deconectare",
+      "message1": "Înainte de a începe proiectul, este esențial",
+      "message2": "să creați o tablă",
+      "message3": "pentru a vizualiza și urmări toate sarcinile și etapele necesare. Această tablă servește ca un instrument puternic pentru organizarea fluxului de lucru și asigurarea colaborării eficiente între membrii echipei.",
+      "filters": "Filtre",
+      "priority": {
+        "without": "Fără prioritate",
+        "low": "Scăzută",
+        "medium": "Medie",
+        "high": "Ridicată"
+      }
+    },
+    "render": {
+      "addColumn": "Adaugă o altă coloană",
+      "addCard": "Adaugă o altă carte",
+      "modal": {
+        "board": {
+          "titleNew": "Bord Nou",
+          "titleEdit": "Editează Bordul",
+          "icons": "Icoane",
+          "backgr": "Fundal",
+          "add-btn": "Creează",
+          "edit-btn": "Editează"
+        },
+        "help": {
+          "title": "Ai nevoie de ajutor",
+          "email": "Adresa ta de email",
+          "text": "Comentariu"
+        },
+        "card": {
+          "title": "Adaugă o carte",
+          "cardTitle": "Titlu",
+          "descr": "Descriere",
+          "color": "Culoarea etichetei",
+          "deadline": "Termen limită",
+          "addBtn": "Adaugă",
+          "editBtn": "Editează"
+        },
+        "column": {
+          "addTitle": "Adaugă o coloană",
+          "editTitle": "Editează coloana",
+          "input": "Titlu",
+          "btn": "Adaugă"
+        },
+        "profile": {
+          "title": "Editează Profilul",
+          "name": "Introdu numele tău",
+          "email": "Introdu adresa ta de email",
+          "password": "Introdu parola ta"
+        }
+      }
+    }
+  }
+}
