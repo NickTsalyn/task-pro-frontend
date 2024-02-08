@@ -2,6 +2,7 @@ import * as React from "react";
 import { useDispatch } from "react-redux";
 import sprite from "../../images/icons.svg";
 import { deleteTask, editTask } from "redux/tasks/operations";
+import toast, { Toaster } from 'react-hot-toast';
 
 import { PrioritySeeContainer, CardPriorityDeadline, 
   TaskContainer, Title, Text, Line, ToDoContainer, 
@@ -13,12 +14,63 @@ import { PrioritySeeContainer, CardPriorityDeadline,
 
 export const TaskCard = ({ task: { id, title, description } }) => {
   const dispatch = useDispatch();
-  const toEditTask = (taskId, updatedData) => {
-    dispatch(editTask({ id: taskId, ...updatedData }));
+
+  // const toEditTask = (taskId, updatedData) => {
+  //   dispatch(editTask({ id: taskId, updatedData }));
+  //   successToaster();
+  // };
+
+  // const toDeleteTask = taskId => {
+  //   dispatch(deleteTask(taskId));
+  //   successToaster();
+  // };
+
+  const toEditTask = async (taskId, updatedData) => {
+    try {
+      await dispatch(editTask({ id: taskId, updatedData }));
+      successToaster();
+    } catch (error) {
+      errorToaster(error.message);
+    }
   };
-  const toDeleteTask = taskId => {
-    dispatch(deleteTask(taskId));
+
+  const toDeleteTask = async (taskId) => {
+    try {
+      await dispatch(deleteTask(taskId));
+      successToaster();
+    } catch (error) {
+      errorToaster(error.message);
+    }
   };
+
+
+  const successToaster = () => {
+    toast.success("It's success! Congratulations!", {
+      position: "top-right",
+      duration: 4000,
+      style: {
+        background: "green",
+        color: "#fff",
+      },
+    });
+  };
+
+  const errorToaster = (error) => {toast.error(`Ooops.... It's ${error} error`, {
+    position: "top-right",
+    duration: 4000,
+    style: {
+      background: "red",
+      color: "#fff",
+    },
+  
+  });}
+  // const errorToaster = (error) => {
+  //   toast.error(`Error: ${error}`, {
+  //     position: "top-right",
+  //     duration: 4000,
+  
+  //   });
+  // };
 
 
 
@@ -84,6 +136,9 @@ export const TaskCard = ({ task: { id, title, description } }) => {
         </MenuCard>
 
       </MainContainer>
+
+      <Toaster />
+
     </TaskContainer>
   );
 }
