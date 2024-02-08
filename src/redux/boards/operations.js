@@ -6,7 +6,7 @@ axios.defaults.baseURL = 'https://task-pro-backend-a1c2.onrender.com'
 export const fetchBoards = createAsyncThunk(
     'boards/fetchAll', async (_, thunkAPI) => {
         try {
-            const res = await axios.get('/api/boards')
+            const res = await axios.get('api/boards')
             return res.data
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message)
@@ -17,7 +17,7 @@ export const fetchBoards = createAsyncThunk(
 export const addBoard = createAsyncThunk(
     'boards/addBoard', async (board, thunkAPI) => {
         try {
-            const res = await axios.post('/api/boards/add', board)
+            const res = await axios.post('api/boards/add', board)
             return res.data
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message)
@@ -28,7 +28,7 @@ export const addBoard = createAsyncThunk(
 export const editBoard = createAsyncThunk(
     'boards/editBoard', async ({ id, updatedBoard }, thunkAPI) => {
         try {
-            const res = await axios.put(`/README.pl.mdapi/boards/${id}`, updatedBoard)
+            const res = await axios.put(`/api/boards/${id}`, updatedBoard)
             return res.data
         } catch(error) {
             return thunkAPI.rejectWithValue(error.message)
