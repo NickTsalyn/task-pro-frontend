@@ -1,0 +1,81 @@
+{
+  "welcomePage": {
+    "welcome": {
+      "text": "Potencia tu productividad y toma el control de tus tareas con Task Pro - No esperes, ¡comienza a alcanzar tus objetivos ahora!",
+      "registration": "Registro",
+      "login": "Iniciar sesión"
+    },
+    "registration": {
+      "name": "Ingresa tu nombre",
+      "email": "Ingresa tu correo electrónico",
+      "password": "Crea una contraseña",
+      "button": "Registrarse ahora"
+    },
+    "login": {
+      "password": "Confirmar contraseña",
+      "email": "Ingresa tu correo electrónico",
+      "button": "Iniciar sesión ahora"
+    }
+  },
+  "screenPage": {
+    "static": {
+      "theme": "Tema",
+      "my-boards": "Mis tableros",
+      "addBoard": "Crear un nuevo tablero",
+      "help": "Si necesitas ayuda con",
+      "help2": ", consulta nuestros recursos de soporte o ponte en contacto con nuestro equipo de soporte al cliente.",
+      "needHelp": "Necesitas ayuda",
+      "logout": "Cerrar sesión",
+      "message1": "Antes de comenzar su proyecto, es esencial ",
+      "message2": "crear un tablero ",
+      "message3": "para visualizar y seguir todas las tareas y hitos necesarios. Este tablero sirve como una herramienta poderosa para organizar el flujo de trabajo y garantizar una colaboración efectiva entre los miembros del equipo.",
+      "filters": "Filtros",
+      "priority": {
+        "without": "Sin prioridad",
+        "low": "Baja",
+        "medium": "Media",
+        "high": "Alta"
+      }
+    },
+    "render": {
+      "addColumn": "Agregar otra columna",
+      "addCard": "Agregar otra tarjeta",
+      "modal": {
+        "board": {
+          "titleNew": "Nuevo Tablero",
+          "titleEdit": "Editar Tablero",
+          "icons": "Iconos",
+          "backgr": "Fondo",
+          "add-btn": "Crear",
+          "edit-btn": "Editar"
+        },
+        "help": {
+          "title": "Necesitas ayuda",
+          "email": "Dirección de correo electrónico",
+          "text": "Comentario"
+        },
+        "card": {
+          "title": "Agregar tarjeta",
+          "cardTitle": "Título",
+          "descr": "Descripción",
+          "color": "Color de la etiqueta",
+          "deadline": "Fecha límite",
+          "addBtn": "Agregar",
+          "editBtn": "Editar"
+        },
+        "column": {
+          "addTitle": "Agregar columna",
+          "editTitle": "Editar columna",
+          "input": "Título",
+          "btn": "Agregar"
+        },
+        "profile": {
+          "title": "Editar perfil",
+          "name": "Ingresa tu nombre",
+          "email": "Ingresa tu correo electrónico",
+          "password": "Ingresa tu contraseña"
+        }
+      }
+    }
+  }
+}

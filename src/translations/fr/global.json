@@ -1,0 +1,81 @@
+{
+  "welcomePage": {
+    "welcome": {
+      "text": "Optimisez votre productivité et prenez le contrôle de vos tâches avec Task Pro - N'attendez pas, commencez à atteindre vos objectifs dès maintenant !",
+      "registration": "Inscription",
+      "login": "Connexion"
+    },
+    "registration": {
+      "name": "Entrez votre nom",
+      "email": "Entrez votre adresse e-mail",
+      "password": "Créez un mot de passe",
+      "button": "Inscrivez-vous maintenant"
+    },
+    "login": {
+      "password": "Confirmer le mot de passe",
+      "email": "Entrez votre adresse e-mail",
+      "button": "Connectez-vous maintenant"
+    }
+  },
+  "screenPage": {
+    "static": {
+      "theme": "Thème",
+      "my-boards": "Mes tableaux",
+      "addBoard": "Créer un nouveau tableau",
+      "help": "Si vous avez besoin d'aide avec",
+      "help2": ", consultez nos ressources d'assistance ou contactez notre équipe d'assistance client.",
+      "needHelp": "Besoin d'aide",
+      "logout": "Se déconnecter",
+      "message1": "Avant de commencer votre projet, il est essentiel ",
+      "message2": "de créer un tableau ",
+      "message3": "pour visualiser et suivre toutes les tâches et étapes nécessaires. Ce tableau sert d'outil puissant pour organiser le flux de travail et assurer une collaboration efficace entre les membres de l'équipe.",
+      "filters": "Filtres",
+      "priority": {
+        "without": "Sans priorité",
+        "low": "Faible",
+        "medium": "Moyenne",
+        "high": "Élevée"
+      }
+    },
+    "render": {
+      "addColumn": "Ajouter une autre colonne",
+      "addCard": "Ajouter une autre carte",
+      "modal": {
+        "board": {
+          "titleNew": "Nouveau tableau",
+          "titleEdit": "Modifier le tableau",
+          "icons": "Icônes",
+          "backgr": "Arrière-plan",
+          "add-btn": "Créer",
+          "edit-btn": "Éditer"
+        },
+        "help": {
+          "title": "Besoin d'aide",
+          "email": "Adresse e-mail",
+          "text": "Commentaire"
+        },
+        "card": {
+          "title": "Ajouter une carte",
+          "cardTitle": "Titre",
+          "descr": "Description",
+          "color": "Couleur de l'étiquette",
+          "deadline": "Date limite",
+          "addBtn": "Ajouter",
+          "editBtn": "Éditer"
+        },
+        "column": {
+          "addTitle": "Ajouter une colonne",
+          "editTitle": "Modifier la colonne",
+          "input": "Titre",
+          "btn": "Ajouter"
+        },
+        "profile": {
+          "title": "Modifier le profil",
+          "name": "Entrez votre nom",
+          "email": "Entrez votre adresse e-mail",
+          "password": "Entrez votre mot de passe"
+        }
+      }
+    }
+  }
+}
