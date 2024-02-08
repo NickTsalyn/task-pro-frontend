@@ -58,8 +58,8 @@ const theme = {
   priorityColors: {
     // task's priority colors
     low: '#8FA1D0', //low priority
-    medium: 'E09CB5', //medium priority
-    // high:'BEDBB0', // high priority=colors.lightGreen
+    medium: '#E09CB5', //medium priority
+    high:'#BEDBB0', // high priority=colors.lightGreen
     without: 'rgba(22, 22, 22, 0.3)', //without priority
   },
   radius: {
