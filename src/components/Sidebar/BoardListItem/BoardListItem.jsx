@@ -1,11 +1,9 @@
 import sprite from '../../../images/icons.svg';
 import { StyledBoardItem, StyledBoardList, StyledBoardListdBtn, StyledBtnWrapper, StyledSVGPensil,  StyledSVGTrash,  } from './BoardListItem.styled';
-//import { useDispatch } from "react-redux"
 import { useState } from 'react';
 import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase';
 
 export const BoardListItem = ({ board }) => {
-  //const dispatch = useDispatch()
   const [isModalOpen, setOpenModal] = useState(false);
 
   function CloseModal() {

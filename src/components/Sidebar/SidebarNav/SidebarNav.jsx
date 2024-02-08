@@ -8,14 +8,11 @@ import sprite from '../../../images/icons.svg';
 import { BoardList } from '../BoardList/BoardList';
 import {
   SidebarWrapper,
-  StyledCreateBtn,
-  StyledCreateBtnIconWrapper,
   StyledCreateBtnWrapper,
   StyledItemWrapper,
   StyledLogoutBtn,
  
   StyledSVGLogout,
-  StyledSVGPlus,
   StyledText,
 } from './SidebarNav.styled';
 import { logout } from 'redux/auth/operations';
@@ -46,10 +43,7 @@ export const SidebarNav = () => {
       <StyledText>My boards</StyledText>
       {/* <StyledNavItems> */}
         <StyledCreateBtnWrapper>
-          <StyledCreateBtn>
-            Create a new board
-            <AddBoard />
-          </StyledCreateBtn>
+          <AddBoard />
         </StyledCreateBtnWrapper>
         <BoardList />
       {/* </StyledNavItems> */}

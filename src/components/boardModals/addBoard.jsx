@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+//import { useDispatch } from "react-redux"
 import { AddBoardButton } from './addBoardButton/addBoardButton'
 import { BoardModalBase } from './ModalsBase/BoardModalBase'
 
 export const AddBoard = () => {
+    //const dispatch = useDispatch()
     const [isModalOpen, setOpenModal] = useState(false)
 
     function CloseModal() {

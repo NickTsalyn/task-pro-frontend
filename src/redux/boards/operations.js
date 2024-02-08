@@ -3,10 +3,17 @@ import axios from 'axios'
 
 axios.defaults.baseURL = 'https://task-pro-backend-a1c2.onrender.com'
 
+const setAuthHeader = token => {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`
+}
+
 export const fetchBoards = createAsyncThunk(
     'boards/fetchAll', async (_, thunkAPI) => {
+        const state = thunkAPI.getState()
+        const persistedToken = state.auth.token
+        setAuthHeader(persistedToken)
         try {
-            const res = await axios.get('/boards')
+            const res = await axios.get('api/boards')
             return res.data
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message)
@@ -17,7 +24,7 @@ export const fetchBoards = createAsyncThunk(
 export const addBoard = createAsyncThunk(
     'boards/addBoard', async (board, thunkAPI) => {
         try {
-            const res = await axios.post('/boards', board)
+            const res = await axios.post('api/boards', board)
             return res.data
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message)
@@ -28,7 +35,7 @@ export const addBoard = createAsyncThunk(
 export const editBoard = createAsyncThunk(
     'boards/editBoard', async ({ id, updatedBoard }, thunkAPI) => {
         try {
-            const res = await axios.put(`/boards/${id}`, updatedBoard)
+            const res = await axios.put(`api/boards/${id}`, updatedBoard)
             return res.data
         } catch(error) {
             return thunkAPI.rejectWithValue(error.message)
@@ -39,7 +46,7 @@ export const editBoard = createAsyncThunk(
 export const deleteBoard = createAsyncThunk(
     'boards/deleteBoard', async (id, thunkAPI) => {
         try {
-            const res = await axios.delete(`/boards/${id}`)
+            const res = await axios.delete(`api/boards/${id}`)
             return res.data
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message)
