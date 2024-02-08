@@ -8,21 +8,17 @@ import sprite from '../../../images/icons.svg';
 import { BoardList } from '../BoardList/BoardList';
 import {
   SidebarWrapper,
-  StyledCreateBtn,
-  StyledCreateBtnIconWrapper,
   StyledCreateBtnWrapper,
   StyledItemWrapper,
   StyledLogoutBtn,
  
   StyledSVGLogout,
-  StyledSVGPlus,
   StyledText,
 } from './SidebarNav.styled';
 import { logout } from 'redux/auth/operations';
+import { AddBoard } from 'components/boardModals/addBoard';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-
-
 
 export const SidebarNav = () => {
   // ******  модалка для helpapp
@@ -48,17 +44,9 @@ export const SidebarNav = () => {
   return (
     <SidebarWrapper>
       <StyledText>{t('screenPage.static.my-boards')}</StyledText>
-
       {/* <StyledNavItems> */}
         <StyledCreateBtnWrapper>
-          <StyledCreateBtn>
-            {t('screenPage.static.addBoard')}
-            <StyledCreateBtnIconWrapper>
-              <StyledSVGPlus>
-                <use xlinkHref={`${sprite}#icon-plus`}></use>
-              </StyledSVGPlus>
-            </StyledCreateBtnIconWrapper>
-          </StyledCreateBtn>
+          <AddBoard />
         </StyledCreateBtnWrapper>
         <BoardList />
       {/* </StyledNavItems> */}
