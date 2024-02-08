@@ -27,27 +27,19 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Loader/>
+    <Loader />
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<WelcomePage />} />
-        <Route path="auth/:id" element={<AuthPage />}>
-          <Route
-            path="register"
-            element={
-              <RestrictedRoute
-                redirectTo="/home"
-                component={<RegisterForm />}
-              />
-            }
-          />
-          <Route
-            path="login"
-            element={
-              <RestrictedRoute redirectTo="/home" component={<LogInForm />} />
-            }
-          />
+        <Route
+          path="auth/:id"
+          element={
+            <RestrictedRoute redirectTo="/home" component={<AuthPage />} />
+          }
+        >
+          <Route path="register" element={<RegisterForm />} />
+          <Route path="login" element={<LogInForm />} />
         </Route>
       </Route>
       <Route
@@ -56,7 +48,7 @@ export const App = () => {
           <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
         }
       >
-        <Route path='/home' component={<HomePage/>}/>
+        <Route path="/home" component={<HomePage />} />
         <Route path="/home/:boardName" element={<ScreensPage />} />
       </Route>
     </Routes>
