@@ -130,6 +130,7 @@ export const StyledField = styled(Field)`
     opacity: 1;
   }
   box-sizing: border-box;
+  display: inline;
 `;
 
 export const Button = styled.button`
@@ -185,10 +186,3 @@ export const IconEye = styled.svg`
     stroke: ${props => props.theme.violetColors.hoverViolet};
   }
 `;
-
-export const BtnFile = styled.styled(Field)`
-  width: 68px;
-  height: 78px;
-
-  margin: 0 auto ${p => p.theme.spacing(3.5)};
-`

@@ -83,7 +83,7 @@ export const updateAvatar = createAsyncThunk(
 
       setAuthHeader(persistedToken);
 
-      const res = await axios.patchForm('/api/users/avatar', credentials, );
+      const res = await axios.patchForm('/api/users/avatar', credentials);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);

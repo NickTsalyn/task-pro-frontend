@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   AddButton,
   Button,
@@ -19,6 +19,8 @@ import {
 } from './EditProfileModal.styled.js';
 
 import sprite from '../../images/icons.svg';
+import { PreviewAvatar } from './PreviewAvatar/PreviewAvatar.jsx';
+
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -41,16 +43,11 @@ export const EditProfileModal = ({ onCloseModal }) => {
   };
 
   const [showPassword, setShowPassword] = useState(false);
-
   const onShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  // const Upload = () => (
-  //   <label>
-  //     <input type="file" />
-  //   </label>
-  // );
+  const fileRef = useRef(null);
 
   return (
     <ModalWrap>
@@ -61,25 +58,13 @@ export const EditProfileModal = ({ onCloseModal }) => {
           <use xlinkHref={`${sprite}#icon-x-close`}></use>
         </IconClose>
       </CLoseButton>
-      <ProfileFotoBox>
-        <IconUser>
-          <use xlinkHref={`${sprite}#icon-user`}></use>
-        </IconUser>
-        {/* зробити рендер за умовою */}
-        {/* <ImageUser src={userAvatar} alt="user-avatar" /> */}
-        <AddButton>
-          <IconPlus>
-            <use xlinkHref={`${sprite}#icon-plus`}></use>
-          </IconPlus>
-        </AddButton>
-      </ProfileFotoBox>
 
       <Formik
         initialValues={{
           name: '',
           email: '',
           password: '',
-          file: '',
+          file: null,
         }}
         validationSchema={editFormSchema}
         onSubmit={(values, actions) => {
@@ -87,52 +72,66 @@ export const EditProfileModal = ({ onCloseModal }) => {
           actions.resetForm();
         }}
       >
-        <StyledForm>
-          <StyledLabel htmlFor="name">
-            <StyledField
-              type="text"
-              name="name"
-              placeholder="Enter username"
-            ></StyledField>
-            <ErrMessage component="span" name="name" />
-          </StyledLabel>
+        {({ values, setFieldValue }) => (
+          <StyledForm>
+            <ProfileFotoBox>
+              <input
+                hidden
+                ref={fileRef}
+                type="file"
+                onChange={e => {
+                  setFieldValue('file', e.target.files[0]);
+                }}
+              />
+              {values.file ? (
+                <PreviewAvatar file={values.file} />
+              ) : (
+                <IconUser>
+                  <use xlinkHref={`${sprite}#icon-user`}></use>
+                </IconUser>
+              )}
+              <AddButton type="button" onClick={() => fileRef.current.click()}>
+                <IconPlus>
+                  <use xlinkHref={`${sprite}#icon-plus`}></use>
+                </IconPlus>
+              </AddButton>
+            </ProfileFotoBox>
 
-          <StyledLabel htmlFor="email">
-            <StyledField
-              type="email"
-              name="email"
-              placeholder="Enter email"
-            ></StyledField>
-            <ErrMessage component="span" name="email" />
-          </StyledLabel>
+            <StyledLabel htmlFor="name">
+              <StyledField
+                type="text"
+                name="name"
+                placeholder="Enter username"
+              ></StyledField>
+              <ErrMessage component="span" name="name" />
+            </StyledLabel>
 
-          <StyledLabel htmlFor="file">
-            <StyledField
-              type="file"
-              name="file"
-              placeholder="Push file"
-            ></StyledField>
+            <StyledLabel htmlFor="email">
+              <StyledField
+                type="email"
+                name="email"
+                placeholder="Enter email"
+              ></StyledField>
+              <ErrMessage component="span" name="email" />
+            </StyledLabel>
 
-            <ErrMessage component="span" name="email" />
-          {/* <img src={this.state.file} alt="" /> */}
-          </StyledLabel>
+            <StyledLabel htmlFor="password">
+              <StyledField
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                placeholder="Enter password"
+              ></StyledField>
+              <ErrMessage component="span" name="password" />
+              <HideBtn type="button" onClick={onShowPassword}>
+                <IconEye>
+                  <use xlinkHref={`${sprite}#icon-eye`}></use>
+                </IconEye>
+              </HideBtn>
+            </StyledLabel>
 
-          <StyledLabel htmlFor="password">
-            <StyledField
-              type={showPassword ? 'text' : 'password'}
-              name="password"
-              placeholder="Enter password"
-            ></StyledField>
-            <ErrMessage component="span" name="password" />
-            <HideBtn type="button " onClick={onShowPassword}>
-              <IconEye>
-                <use xlinkHref={`${sprite}#icon-eye`}></use>
-              </IconEye>
-            </HideBtn>
-          </StyledLabel>
-
-          <Button type="submit">Send</Button>
-        </StyledForm>
+            <Button type="submit">Send</Button>
+          </StyledForm>
+        )}
       </Formik>
     </ModalWrap>
   );
