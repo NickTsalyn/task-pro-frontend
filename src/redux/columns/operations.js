@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-
 axios.defaults.baseURL = 'https://task-pro-backend-a1c2.onrender.com';
 
 //get all columns
@@ -59,3 +58,16 @@ export const deleteColumn = createAsyncThunk(
     }
   }
 );
+
+// get column by id
+// export const getColumnById = createAsyncThunk(
+//   'columns/getColumnById',
+//   async (id, thunkAPI) => {
+//     try {
+//       const response = await axios.get(`api/columns/${id}`);
+//       return response.data;;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );

@@ -17,8 +17,7 @@ const handleRejected = (state, action) => {
 
 const initialState = {
   columns: [],
-  dashbord: true,
-  owner: true,
+  bordId: '',
   isLoading: false,
   error: null,
 };
