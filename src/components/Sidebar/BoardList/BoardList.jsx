@@ -11,16 +11,18 @@ export const BoardList = () => {
   useEffect(() => {
     dispatch(fetchBoards())
   }, [dispatch])
-
-  /*const boards = [{id: '12415', title: 'ala', icon: 'icon-colors', background: '4'}, {id: '32985', title: 'Board', icon: 'icon-container', background: '13'}]*/
   
   return (
-    <ul>
-    {boards.map(board => (
-      <li key={board.id}>
-        <BoardListItem board={board} />
-      </li>
-    ))}
-  </ul>
+    <>
+    {boards.length > 0 && (
+      <ul>
+        {boards.map(board => (
+          <li key={board.id}>
+            <BoardListItem board={board} />
+          </li>
+        ))}
+      </ul>
+    )}
+    </>
   )
 }
