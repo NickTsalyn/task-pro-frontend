@@ -14,6 +14,7 @@ import { authReducer } from './auth/slice';
 import { projectReducer } from './project/projectSlice';
 import { boardsReducer } from './boards/boardsSlice'
 
+import { columnReducer} from './columns/slice'
 
 const persistConfig = {
   key: 'auth',
@@ -28,6 +29,7 @@ export const store = configureStore({
     auth: persistedAuthReducer,
     project: projectReducer,
     boards: boardsReducer,
+    columns: columnReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
