@@ -3,15 +3,13 @@ import React from 'react';
 import { HelpContainer, HelpImage, HelpButton, HelpText, ButtonText, IconContainer, TaskProLink} from './HelpApp.styled.js';
 import flowerImage from './../../images/flower.png';
 import { CiCircleQuestion } from "react-icons/ci";
-import { useTranslation } from 'react-i18next';
 
 const HelpApp = ({ openModal }) => {
-  const {t} = useTranslation('global')
   return (
     <HelpContainer>
       <HelpImage src={flowerImage} alt="flower" />
       <HelpText>
-        {t('screenPage.static.help')} <TaskProLink href="#">TaskPro </TaskProLink>{t('screenPage.static.help2')}
+        If you need help with <TaskProLink href="#">TaskPro</TaskProLink>, check out our support resources or reach out to our customer support team.
       </HelpText>
       <HelpButton onClick={openModal}>
       <IconContainer>
@@ -19,7 +17,7 @@ const HelpApp = ({ openModal }) => {
         </IconContainer>
       </HelpButton>
      
-      <ButtonText onClick={openModal}>{t('screenPage.static.needHelp')}</ButtonText>
+      <ButtonText onClick={openModal}>Need help?</ButtonText>
     </HelpContainer>
   );
 }; 
@@ -27,10 +25,11 @@ export default HelpApp;
 // icon-help-circle
 
 /**
-import { NeedHelp } from 'components/needhelp/needhelp';
-import { NeedHelpModal } from 'components/needhelp/needHelpModal';
+import React, { useState } from 'react';
+import HelpApp from "components/HelpApp/HelpApp.jsx"
+import { NeedHelpModal } from 'components/NeedHelpModal/NeedHelpModal.jsx';
  begin
-  const [isModalOpen, setIsModalOpen] = useState(false);
+ const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -41,8 +40,6 @@ import { NeedHelpModal } from 'components/needhelp/needHelpModal';
   };
   ********************************************
   return
-    <div>
-      <NeedHelp openModal={openModal} />
+      <HelpApp openModal={openModal} />
       {isModalOpen && <NeedHelpModal onClose={closeModal} />}
-    </div>
  */

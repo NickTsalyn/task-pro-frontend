@@ -1,25 +1,20 @@
 import styled from "styled-components";
 
- export const HelpContainer = styled.div` 
+ export const HelpContainer = styled.div`
  box-sizing: border-box; 
  display:flex;
  flex-wrap: wrap;
  width: 197px;
-  border: 1px solid #9092D6;
+  border: 1px solid #ccc;
   padding: 14px;
   position: relative;
   background: #9092D6;
-  border-radius: 8px;
   
   @media (min-width: 768px) {
-    width: 212px;  
+    width: 212px;   
     padding: 20px;
   }
   `;
- 
- 
-  
-
 
 export const HelpImage = styled.img`
   max-width: 54px;
@@ -38,7 +33,6 @@ export const HelpText = styled.p`
   margin-bottom:18px;
   @media (min-width: 768px) {
     font-size: 14px;
-    line-height: 20px;
   };
 `;
 
