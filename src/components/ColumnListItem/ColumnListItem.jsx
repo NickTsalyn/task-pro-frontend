@@ -1,21 +1,16 @@
-// import { useDispatch, useSelector } from "react-redux";
-
 import { CardList } from 'components/CardList/CardList';
 import sprite from '../../images/icons.svg'
 
 import { ColumnHeader, ColumnTitle, ColumnWrapper, EditBlock, EditButton, EditSVG } from "./ColumnListItem.styled";
+import { AddColumnButton } from 'components/Button/AddColumnButton';
 
-export const ColumnListItem = () => {
-
-    // const dispatch = useDispatch();    
-    // const items = useSelector(selectColumns);
-    // const columns = [];
-    const title = ' Column Title';
+export const ColumnListItem = ({column}) => {    
+  
     
     return(
         <ColumnWrapper>
          <ColumnHeader>
-         <ColumnTitle>{title}</ColumnTitle>
+         <ColumnTitle>{column.title}</ColumnTitle>
           <EditBlock>
             <EditButton type="button">
               <EditSVG>
@@ -28,13 +23,9 @@ export const ColumnListItem = () => {
               </EditSVG>
             </EditButton>
           </EditBlock>
-         </ColumnHeader>
-          {/* {columns.map(column =>
-            <li key={column.id}> */}
-                <CardList/>
-                {/* <button>ButtonAddAnotherCard</button>                  */}
-            {/* </li>
-          ) }   */}
+         </ColumnHeader>          
+            <CardList/>
+            <AddColumnButton/>
         </ColumnWrapper>      
       );
 };
