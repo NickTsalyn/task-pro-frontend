@@ -1,9 +1,9 @@
-import { TaskCard } from "components/TaskCard/TaskCard";
-import { useSelector } from "react-redux";
-import { selectVisibleTasks } from "../../redux/tasks/selectors";
+// import { TaskCard } from "components/TaskCard/TaskCard";
+// import { useSelector } from "react-redux";
+// import { selectVisibleTasks } from "../../redux/tasks/selectors";
 
 export const CardListItem = () => {
-    const visibleTasks = useSelector(selectVisibleTasks);
+    // const visibleTasks = useSelector(selectVisibleTasks);
 
   //   if (visibleTasks.length === 0) {
   //     return <p>No tasks to display.</p>;
@@ -11,11 +11,11 @@ export const CardListItem = () => {
     return(
         <>
         <li >
-          {visibleTasks.map(task =>
+          {/* {visibleTasks.map(task =>
                 <TaskCard
                 key={task.id}
                 task={task}/>                 
-           ) }  
+           ) }   */}
            </li> 
         </>      
       );
