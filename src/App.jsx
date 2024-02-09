@@ -7,10 +7,12 @@ import RegisterForm from 'components/Register/RegisterForm';
 import { Route, Routes } from 'react-router-dom';
 import { AddColumnButton } from '../src/components/Button/AddColumnButton';
 import { AddColumnModal } from '../src/components/ColumnModal/AddColumnModal/AddColumnModal';
+import { ColumnButton } from './components/Button/ColumnButton';
 
 export const App = () => {
   return (
-    <AddColumnButton />
+    // <AddColumnButton />
+    <ColumnButton />
     //  <AddColumnModal />
 
     // <Routes>
