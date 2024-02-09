@@ -18,21 +18,24 @@ import './fonts/poppins-v20-latin-regular.woff2';
 import './fonts/poppins-v20-latin-500.woff2';
 import './fonts/poppins-v20-latin-600.woff2';
 
-import global_en from './translations/en/global.json';
-import global_cn from './translations/cn/global.json';
-import global_de from './translations/de/global.json';
-import global_es from './translations/es/global.json';
-import global_fr from './translations/fr/global.json';
-import global_gr from './translations/gr/global.json';
-import global_he from './translations/he/global.json';
-import global_ita from './translations/ita/global.json';
-import global_jp from './translations/jp/global.json';
-import global_pl from './translations/pl/global.json';
-import global_ro from './translations/ro/global.json';
-import global_tr from './translations/tr/global.json';
-import global_ua from './translations/ua/global.json';
+import global_en from './translations/en/global.json'
+import global_cn from './translations/cn/global.json'
+import global_de from './translations/de/global.json'
+import global_es from './translations/es/global.json'
+import global_fr from './translations/fr/global.json'
+import global_gr from './translations/gr/global.json'
+import global_he from './translations/he/global.json'
+import global_ita from './translations/ita/global.json'
+import global_jp from './translations/jp/global.json'
+import global_pl from './translations/pl/global.json'
+import global_ro from './translations/ro/global.json'
+import global_tr from './translations/tr/global.json'
+import global_ua from './translations/ua/global.json'
+import { getTheme } from 'components/themes';
+
 
 const theme = {
+  selectedThemeColors: getTheme(),
   colors: {
     //кольори для реєстрації і логіну
     white: '#fff',
@@ -59,9 +62,9 @@ const theme = {
     // task's priority colors
     low: '#8FA1D0', //low priority
     medium: 'E09CB5', //medium priority
-    // high:'BEDBB0', // high priority=colors.lightGreen
+    high:'BEDBB0', // high priority=colors.lightGreen
     without: 'rgba(22, 22, 22, 0.3)', //without priority
-  },
+  },  
   radius: {
     s: '6px', //button +
     m: '8px',
