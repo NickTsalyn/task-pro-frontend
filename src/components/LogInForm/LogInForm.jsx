@@ -8,6 +8,7 @@ import {
   StyledInput,
   StyledInputContainer,
   StyledLabel,
+  StyledLink,
   StyledSVG,
   StyledSVGButton,
 } from './LogInForm.styled.jsx';
@@ -39,7 +40,7 @@ const initialValues = {
 export const LogInForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {t} = useTranslation('global')
+  const { t } = useTranslation('global');
   const [showPassword, setShowPassword] = useState(false);
 
   const handleTogglePassword = e => {
@@ -96,6 +97,11 @@ export const LogInForm = () => {
           </StyledLabel>
         </InputContainer>
         <LogInBtn type="submit">{t('welcomePage.login.button')}</LogInBtn>
+        <div>
+          <StyledLink to="/auth/forgetPassword">
+            Forgot your password?
+          </StyledLink>
+        </div>
       </FormContainer>
     </Formik>
   );
