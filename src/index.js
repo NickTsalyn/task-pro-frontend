@@ -33,6 +33,7 @@ import global_tr from './translations/tr/global.json'
 import global_ua from './translations/ua/global.json'
 import { getTheme } from 'components/themes';
 
+
 const theme = {
   selectedThemeColors: getTheme(),
   colors: {
@@ -46,7 +47,7 @@ const theme = {
     darkBgn: '#151515',
     darkInputBgn: '#1f1f1f',
     shadowColor: 'rgba(22, 22, 22, 0.08)',
-    colorFilterSVG:""
+    colorFilterSVG: '',
   },
   violetColors: {
     //кольори для VioletTheme
@@ -72,65 +73,68 @@ const theme = {
   spacing: value => `${value * 4}px`,
 };
 
-i18next.use(LanguageDetector).use(initReactI18next).init({
-	interpolation: { escapeValue: false},
-	fallbackLng: 'en',
-	resources: {
-		en: {
-			global: global_en
-		},
-		cn: {
-			global: global_cn
-		},
-		de: {
-			global: global_de
-		},
-		es: {
-			global: global_es
-		},
-		fr: {
-			global: global_fr
-		},
-		gr: {
-			global: global_gr
-		},
-		he: {
-			global: global_he
-		},
-		ita: {
-			global: global_ita
-		},
-		jp: {
-			global: global_jp
-		},
-		pl: {
-			global: global_pl
-		},
-		ro: {
-			global: global_ro
-		},
-		tr: {
-			global: global_tr
-		},
-		ua: {
-			global: global_ua
-		}
-	}
-})
+i18next
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    interpolation: { escapeValue: false },
+    fallbackLng: 'en',
+    resources: {
+      en: {
+        global: global_en,
+      },
+      cn: {
+        global: global_cn,
+      },
+      de: {
+        global: global_de,
+      },
+      es: {
+        global: global_es,
+      },
+      fr: {
+        global: global_fr,
+      },
+      gr: {
+        global: global_gr,
+      },
+      he: {
+        global: global_he,
+      },
+      ita: {
+        global: global_ita,
+      },
+      jp: {
+        global: global_jp,
+      },
+      pl: {
+        global: global_pl,
+      },
+      ro: {
+        global: global_ro,
+      },
+      tr: {
+        global: global_tr,
+      },
+      ua: {
+        global: global_ua,
+      },
+    },
+  });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode i18n={i18next}>
-	<I18nextProvider>
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <BrowserRouter basename="task-pro-frontend">
-          <ThemeProvider theme={theme}>
-            <Toaster toastOptions={toastStyles} />
-            <App />
-          </ThemeProvider>
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
-	</I18nextProvider>
+  <React.StrictMode >
+    <I18nextProvider i18n={i18next}>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <BrowserRouter basename="task-pro-frontend">
+            <ThemeProvider theme={theme}>
+              <Toaster toastOptions={toastStyles} />
+              <App />
+            </ThemeProvider>
+          </BrowserRouter>
+        </PersistGate>
+      </Provider>
+    </I18nextProvider>
   </React.StrictMode>
 );
