@@ -89,3 +89,22 @@ export const updateAvatar = createAsyncThunk(
     }
   }
 );
+//ЗМІНА ТЕМИ
+export const changeTheme = createAsyncThunk(
+  'auth/theme',
+  async (theme, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+        return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+    try {
+      setAuthHeader(persistedToken);
+      const response = await axios.patch('/users/theme', {theme});
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
