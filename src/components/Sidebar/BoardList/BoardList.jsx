@@ -1,15 +1,28 @@
 import { BoardListItem } from "../BoardListItem/BoardListItem"
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchBoards } from "redux/boards/operations"
+import { selectAllBoards } from "redux/boards/selectors"
 
-export const BoardList = ({boards}) => {
-return (
+export const BoardList = () => {
+  const dispatch = useDispatch()
+  const boards = useSelector(selectAllBoards)
 
-    <ul>
-<li><BoardListItem/></li>
-    {/* {boards.map(board => (
-      <li key={board.id}>
-        <BoardListItem board={board} />
-      </li>
-    ))} */}
-  </ul>
-)
+  useEffect(() => {
+    dispatch(fetchBoards())
+  }, [dispatch])
+  
+  return (
+    <>
+    {boards.length > 0 && (
+      <ul>
+        {boards.map(board => (
+          <li key={board.id}>
+            <BoardListItem board={board} />
+          </li>
+        ))}
+      </ul>
+    )}
+    </>
+  )
 }

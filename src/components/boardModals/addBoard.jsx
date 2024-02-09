@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import { useDispatch } from "react-redux"
 import { AddBoardButton } from './addBoardButton/addBoardButton'
 import { BoardModalBase } from './ModalsBase/BoardModalBase'
+import { addBoard } from 'redux/boards/operations'
 
 export const AddBoard = () => {
+    const dispatch = useDispatch()
     const [isModalOpen, setOpenModal] = useState(false)
 
     function CloseModal() {
@@ -15,13 +18,14 @@ export const AddBoard = () => {
 
     function SubmitForm(info) {
         console.log(info)
+        dispatch(addBoard(info))
         setOpenModal(false)
     }
 
     return (
         <>
             <AddBoardButton onClick={OpenModal} />
-            <BoardModalBase isModalOpen={isModalOpen} info={''} onCloseModal={CloseModal} action={'add'} SubmitForm={SubmitForm}/>
+            <BoardModalBase isModalOpen={isModalOpen} info={{ title: '', icon: 'icon-Project', background: '0' }} onCloseModal={CloseModal} action={'add'} SubmitForm={SubmitForm}/>
         </>
     )
 }
