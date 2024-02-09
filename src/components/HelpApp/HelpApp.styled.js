@@ -7,9 +7,10 @@ import styled from "styled-components";
  width: 197px;
   border: 1px solid #ccc;
   padding: 14px;
-  position: relative;
+  /* position: relative; */
   background: #9092D6;
-  
+  border-radius: 8px;
+
   @media (min-width: 768px) {
     width: 212px;   
     padding: 20px;

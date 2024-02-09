@@ -23,6 +23,7 @@ export const StyledUserName = styled.p`
   color: ${p => p.theme.colors.darkTextColor};
   font-weight: 500;
   line-height: 1.5;
+  letter-spacing: -0.02em;
   margin: auto 0;
 `;
 

@@ -12,16 +12,15 @@ export const StyledBurgerMenu =  styled.button`
   display: flex;
   justify-content: center;
   margin: auto 0;
-  /* margin-left: 20px; */
   margin-right: auto;
   padding: 0;
-  /* display: ${props => (props.isOpen ? 'none' : 'flex')}; */
 position: relative;
-
 display: ${props => (props.isOpen ? 'display: flex;' : '')};
+
   @media screen and (min-width: 768px) {
     width: 32px;
     height: 32px;
+    
   }
 
   @media screen and (min-width: 1440px) {

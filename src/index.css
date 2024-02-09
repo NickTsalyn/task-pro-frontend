@@ -82,3 +82,18 @@ button {
   backdrop-filter: blur(1px);
   background-color: transparent;
 }
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 61px;
+  border-radius: 4px 0 0 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 4px 0 0 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}

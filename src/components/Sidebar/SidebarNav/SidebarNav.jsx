@@ -51,7 +51,7 @@ export const SidebarNav = () => {
         <BoardList />
       {/* </StyledNavItems> */}
 
-      <StyledItemWrapper>
+      {/* <StyledItemWrapper> */}
         <HelpApp openModal={openModal} />
         {isModalOpen && <NeedHelpModal onClose={closeModal} />}
 
@@ -61,7 +61,7 @@ export const SidebarNav = () => {
           </StyledSVGLogout>
           {t('screenPage.static.logout')}
         </StyledLogoutBtn>
-      </StyledItemWrapper>
+      {/* </StyledItemWrapper> */}
 
     </SidebarWrapper>
   );

@@ -19,15 +19,12 @@ const customStyles = {
     // color: state.isFocused ? 'var(--accent)' : 'var(--text)',
     border: 'none ' ,
     boxShadow:  'none',
-    cursor: 'none',
+    // cursor: 'none',
     display: 'flex',
-    // margin: 'auto 0px',
     padding: '14px 0 ',
-    // @media screen and (min-width: 1440px) {
-    // padding: '18px 0'
-    // }
-    // marginTop: '20px'
-// borderRadius: ' 1px solid rgba(236, 237, 253, 0.4)'
+        '@media only screen and (min-width: 1440px)': {
+    padding: '18px 0'
+    }
   }),
   input: (provided, state) => ({
     ...provided,
@@ -45,11 +42,12 @@ const customStyles = {
     ...provided,
     backgroundColor: '#fff',
     color: 'rgb(22, 22, 22)',
-  //  border: '1px solid rgba(236, 237, 253, 0.4)'
   }),
   placeholder: (provided) => ({
     ...provided,
-  
+    fontWeight: '500',
+fontSize: '14px',
+letterSpacing: '-0.02em',
     color: 'rgba(22, 22, 22, 0.8)',
 })
 };

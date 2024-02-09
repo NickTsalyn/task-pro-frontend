@@ -6,6 +6,10 @@ display: flex;
 padding: 20px 14px;
 margin: 0 auto;
 
+background-color: ${({ isActive }) => (isActive ? 'rgba(255, 255, 255, 0.5)' : 'transparent')};
+color: ${({ isActive }) => (isActive ? 'rgba(255, 255, 255)' : 'rgba(255, 255, 255, 0.5)')};
+opacity: ${({ isActive }) => (isActive ? '0.4' : '')};
+
 `;
 
 export const StyledBoardItem = styled.button`
@@ -15,7 +19,14 @@ font-weight: 500;
 line-height: 1.5;
 text-align: start;
 padding: 0;
-color: rgb(255, 255, 255);
+/* color: rgb(255, 255, 255); */
+background-color: ${({ isActive }) => (isActive ? 'rgba(255, 255, 255, 0.5)' : 'transparent')};
+color: ${({ isActive }) => (isActive ? 'rgba(255, 255, 255)' : 'rgba(255, 255, 255, 0.5)')};
+cursor: pointer;
+&:hover,
+  &:focus {
+    color: ${p => p.theme.colors.white};
+  }
 `;
 
 export const StyledSVGPensil = styled.svg`
@@ -25,7 +36,10 @@ export const StyledSVGPensil = styled.svg`
   /* background-color:white; */
   width: 16px;
   height: 16px;
-
+  &:hover,
+  &:focus {
+    stroke: ${p => p.theme.colors.white};
+  }
 `;
 
 export const StyledSVGTrash = styled.svg`
@@ -34,7 +48,10 @@ export const StyledSVGTrash = styled.svg`
   /* background-color:white; */
   width: 16px;
   height: 16px;
-
+  &:hover,
+  &:focus {
+    stroke: ${p => p.theme.colors.white};
+  }
 `;
 
 export const StyledBoardListdBtn = styled.button`

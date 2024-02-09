@@ -3,7 +3,7 @@ import { StyledBoardItem, StyledBoardList, StyledBoardListdBtn, StyledBtnWrapper
 import { useState } from 'react';
 import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase';
 
-export const BoardListItem = ({ board }) => {
+export const BoardListItem = ({ board, isActive, onClick }) => {
   const [isModalOpen, setOpenModal] = useState(false);
 
   function CloseModal() {
@@ -20,7 +20,7 @@ export const BoardListItem = ({ board }) => {
   }
 
   return (
-        <StyledBoardList>
+        <StyledBoardList isActive={isActive} onClick={onClick}>
       
        <StyledBoardItem type='button'>{board.title}</StyledBoardItem>
 
@@ -39,7 +39,6 @@ export const BoardListItem = ({ board }) => {
        </StyledBoardListdBtn>
 
        </StyledBtnWrapper>
-      <span></span>
       <BoardModalBase
         isModalOpen={isModalOpen}
         info={board}
