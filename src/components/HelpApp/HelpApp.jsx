@@ -22,24 +22,3 @@ const HelpApp = ({ openModal }) => {
   );
 }; 
 export default HelpApp;
-// icon-help-circle
-
-/**
-import React, { useState } from 'react';
-import HelpApp from "components/HelpApp/HelpApp.jsx"
-import { NeedHelpModal } from 'components/NeedHelpModal/NeedHelpModal.jsx';
- begin
- const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
- 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-  ********************************************
-  return
-      <HelpApp openModal={openModal} />
-      {isModalOpen && <NeedHelpModal onClose={closeModal} />}
- */

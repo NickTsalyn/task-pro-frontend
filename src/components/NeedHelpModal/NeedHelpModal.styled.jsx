@@ -1,16 +1,10 @@
 import styled from 'styled-components';
-const windowHeight = window.innerHeight; 
-const modalHeight = 355;
-
-// Обчислити зсув для центрування по вертикалі  
-const topOffset = (windowHeight +30) - (modalHeight/2 );
-console.log("height",`${windowHeight} - ${modalHeight/2}=${topOffset} `)
 
 export const ModalWrapper = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -${topOffset}px);
+  transform: translate(-50%, -50%);
   width: 335px;
   height: 355px;
   background: #FCFCFC;
