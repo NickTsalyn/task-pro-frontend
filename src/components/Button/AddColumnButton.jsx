@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import toast, { Toaster } from 'react-hot-toast';
+// import toast, { Toaster } from 'react-hot-toast';
 import { AddColumnModal } from '../ColumnModal/AddColumnModal/AddColumnModal';
 import { EditColumnModal } from '../ColumnModal/EditColumnModal/EditColumnModal';
 import sprite from '../../images/icons.svg';
 import {
   addColumn,
-  deleteColumn,
+  // deleteColumn,
   editColumn,
 } from '../../redux/columns/operations';
 
@@ -58,9 +58,9 @@ export const AddColumnButton = ({ columnId }) => {
     return;
   };
 
-  const handlerDeleteColumn = columnId => {
-    dispatch(deleteColumn(columnId));
-  };
+  // const handlerDeleteColumn = columnId => {
+  //   dispatch(deleteColumn(columnId));
+  // };
 
   // export const handlerColumn = ({ column: { id, title, owner } }) => {
   // const dispatch = useDispatch();
