@@ -8,7 +8,6 @@ import {
   IconClose,
   IconEye,
   IconPlus,
-  IconUser,
   // ImageUser,
   ModalWrap,
   ProfileFotoBox,
@@ -20,6 +19,7 @@ import {
 
 import sprite from '../../images/icons.svg';
 import { PreviewAvatar } from './PreviewAvatar/PreviewAvatar.jsx';
+import { PreviewUploadAvatar } from './PreviewAvatar/PreviewUploadAvatar.jsx';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -36,7 +36,7 @@ const editFormSchema = Yup.object().shape({
     .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
 });
 
-export const EditProfileModal = ({ onCloseModal }) => {
+export const EditProfileModal = ({ onCloseModal, avatar }) => {
   const dispatch = useDispatch();
   const handleSubmit = credentials => {
     return dispatch(updateAvatar(credentials));
@@ -64,7 +64,7 @@ export const EditProfileModal = ({ onCloseModal }) => {
           name: '',
           email: '',
           password: '',
-          file: null,
+          avatar: null,
         }}
         validationSchema={editFormSchema}
         onSubmit={(values, actions) => {
@@ -79,17 +79,17 @@ export const EditProfileModal = ({ onCloseModal }) => {
                 hidden
                 ref={fileRef}
                 type="file"
+                name="avatar"
                 onChange={e => {
-                  setFieldValue('file', e.target.files[0]);
+                  setFieldValue('avatar', e.target.files[0]);
                 }}
               />
-              {values.file ? (
-                <PreviewAvatar file={values.file} />
+              {values.avatar ? (
+                <PreviewUploadAvatar file={values.avatar} />
               ) : (
-                <IconUser>
-                  <use xlinkHref={`${sprite}#icon-user`}></use>
-                </IconUser>
+                <PreviewAvatar avatar={avatar} />
               )}
+
               <AddButton type="button" onClick={() => fileRef.current.click()}>
                 <IconPlus>
                   <use xlinkHref={`${sprite}#icon-plus`}></use>
@@ -129,7 +129,9 @@ export const EditProfileModal = ({ onCloseModal }) => {
               </HideBtn>
             </StyledLabel>
 
-            <Button type="submit">Send</Button>
+            <Button type="submit" onClick={onCloseModal}>
+              Send
+            </Button>
           </StyledForm>
         )}
       </Formik>

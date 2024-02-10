@@ -1,14 +1,17 @@
-import { Loader } from 'components/Loader/Loader';
-import React, { useState } from 'react';
+import React from 'react';
+import { IconUser } from '../EditProfileModal.styled';
+import sprite from '../../../images/icons.svg';
 
-export const PreviewAvatar = ({ file }) => {
-  const [preview, setPreview] = useState(null);
-  const reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = () => {
-    setPreview(reader.result);
-  };
+export const PreviewAvatar = ({ avatar }) => {
   return (
-    <div>{preview ? <img src={preview} alt="user-avatar" /> : Loader}</div>
+    <>
+      {avatar ? (
+        <img src={avatar} alt="user-avatar" />
+      ) : (
+        <IconUser>
+          <use xlinkHref={`${sprite}#icon-user`}></use>
+        </IconUser>
+      )}
+    </>
   );
 };

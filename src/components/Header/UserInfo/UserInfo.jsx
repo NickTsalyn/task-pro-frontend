@@ -4,21 +4,23 @@ import {
   StyledUserPhoto,
   StyledUserBtn,
 } from './UserInfo.styled';
-import photo from '../../../img/welcome.png';
+// import photo from '../../../img/welcome.png';
 import { useSelector } from 'react-redux';
 
 import Modal from 'react-modal';
 import { useState } from 'react';
 import { EditProfileModal } from 'components/EditProfileModal/EditProfileModal';
 import '../../EditProfileModal/EditModal.css';
+import { selectAvatar, selectUser } from 'redux/auth/selectors';
 
 Modal.setAppElement('#root');
 
 export const UserInfo = () => {
 // const dispatch = useDispatch();
 
-const userName = useSelector(state => state.auth.user);
-
+const userName = useSelector(selectUser);
+const userAvatar = useSelector(selectAvatar);
+const avatarURL = new URL(userAvatar, 'https://task-pro-backend-a1c2.onrender.com/public')
 
 const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -33,7 +35,7 @@ const closeModal = () => {
     <StyledUserInfo>
       <StyledUserName>{userName.name}</StyledUserName>
       <StyledUserBtn type="button" onClick={openModal}>
-        <StyledUserPhoto src={photo} alt="user_photo" width={32} height={32} />
+        <StyledUserPhoto src={avatarURL} alt="user_photo" width={32} height={32} />
       </StyledUserBtn>
 
       <Modal
@@ -43,7 +45,7 @@ const closeModal = () => {
         className={'modal-content'}
         closeTimeoutMS={300}
       >
-        <EditProfileModal onCloseModal={closeModal} />
+        <EditProfileModal onCloseModal={closeModal} avatar={avatarURL.href} />
       </Modal>
     </StyledUserInfo>
   );
