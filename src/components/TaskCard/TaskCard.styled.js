@@ -138,8 +138,8 @@ export const Bell = styled.div`
 `;
 
 export const SvgBell = styled.svg`
-    height: 12px;
-    width: 12px;
+    height: 16px;
+    width: 16px;
     fill:${p => p.theme.colors.white};
     stroke: ${p => p.theme.violetColors.accentColor};
     opacity: 50%;
@@ -159,8 +159,8 @@ export const Btn = styled.button`
 `;
 
 export const Svg = styled.svg`
-    height: 12px;
-    width: 12px;
+    height: 16px;
+    width: 16px;
     fill:${p => p.theme.colors.white};
     stroke: ${p => p.theme.colors.darkTextColor};
     opacity: 50%;
