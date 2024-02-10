@@ -6,7 +6,7 @@ import {
   login,
   refreshUser,
   logout,
-  updateProfile,
+  updateAvatar,
   changeTheme
 } from './operations';
 
@@ -88,16 +88,16 @@ const authSlice = createSlice({
     [refreshUser.rejected](state) {
       state.isRefreshing = false;
     },
-    [updateProfile.pending](state) {
+    [updateAvatar.pending](state) {
       state.isLoading = true;
       state.isError = false;
       state.errorMessage = null;
     },
-    [updateProfile.fulfilled](state, action) {
-      state.user = {...state.user, ...action.payload.user};
+    [updateAvatar.fulfilled](state, action) {
+      state.user.avatar = action.payload.avatar;
       state.isLoading = false;
     },
-    [updateProfile.rejected](state, action) {
+    [updateAvatar.rejected](state, action) {
       state.isLoading = false;
       state.isError = true;
       state.errorMessage = action.payload;

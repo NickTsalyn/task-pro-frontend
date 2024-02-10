@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { authReducer } from './auth/slice';
+import { userReducer } from './user/userSlice';
 import { projectReducer } from './project/projectSlice';
 import { boardsReducer } from './boards/boardsSlice'
 
@@ -27,6 +28,7 @@ const persistedAuthReducer = persistReducer(persistConfig, authReducer);
 export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
+    user: userReducer,
     project: projectReducer,
     boards: boardsReducer,
     columns: columnReducer,
