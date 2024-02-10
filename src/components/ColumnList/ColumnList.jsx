@@ -44,7 +44,7 @@ export const ColumnList = () => {
            {columns.map(column => (
             <li key={column.id} >
                 <ColumnTitle>{column.title}</ColumnTitle>
-                <CardList/>
+                {/* <CardList/> */}
             </li>
            ))}                      
            <AddColumnButton/>

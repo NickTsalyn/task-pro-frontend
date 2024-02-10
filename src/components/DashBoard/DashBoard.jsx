@@ -14,7 +14,7 @@ const DashBoard = () => {
   useEffect(() => {
     dispatch(getColumsById(boardId))
   
-  }, [])
+  }, [boardId])
   
 
   return (
