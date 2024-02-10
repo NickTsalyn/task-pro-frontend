@@ -1,12 +1,9 @@
 import sprite from '../../../images/icons.svg';
-import { StyledBoardItem, StyledBoardList, StyledBoardListdBtn, StyledBtnWrapper, StyledSVGIcon, StyledSVGPensil, StyledSVGTrash } from './BoardListItem.styled';
+import { StyledBoardItem, StyledBoardList, StyledBoardListdBtn, StyledBtnWrapper, StyledSVGPensil,  StyledSVGTrash,  } from './BoardListItem.styled';
 import { useState } from 'react';
-import { useDispatch } from "react-redux"
-import { deleteBoard, editBoard } from 'redux/boards/operations';
 import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase';
 
 export const BoardListItem = ({ board }) => {
-  const dispatch = useDispatch()
   const [isModalOpen, setOpenModal] = useState(false);
   console.log(board);
 
@@ -19,35 +16,31 @@ export const BoardListItem = ({ board }) => {
   }
 
   function SubmitForm(info) {
-    const { _id } = board
-    dispatch(editBoard({ _id, info }))
+    console.log(info);
     setOpenModal(false);
   }
 
-  function HandleDelete() {
-    dispatch(deleteBoard(board._id))
-  }
-  
   return (
-    <StyledBoardList>
+        <StyledBoardList>
+      
+       <StyledBoardItem to={`/home/${board._id}`}>{board.title}</StyledBoardItem>
 
-      <StyledSVGIcon><use xlinkHref={`${sprite}#${board.iconURL}`}></use></StyledSVGIcon>
-      <StyledBoardItem type='button'>{board.title}</StyledBoardItem>
+       <StyledBtnWrapper> 
 
-      <StyledBtnWrapper> 
         <StyledBoardListdBtn onClick={OpenModal} type='button'>
-          <StyledSVGPensil>
+       <StyledSVGPensil>
             <use xlinkHref={`${sprite}#icon-pencil-01`}></use>
           </StyledSVGPensil>
-        </StyledBoardListdBtn>
+       </StyledBoardListdBtn>
 
-        <StyledBoardListdBtn onClick={HandleDelete} type='button'>
-          <StyledSVGTrash>
+       <StyledBoardListdBtn type='button'>
+       <StyledSVGTrash>
             <use xlinkHref={`${sprite}#icon-trash-04`}></use>
           </StyledSVGTrash>
-        </StyledBoardListdBtn>
-      </StyledBtnWrapper>
+       </StyledBoardListdBtn>
 
+       </StyledBtnWrapper>
+      <span></span>
       <BoardModalBase
         isModalOpen={isModalOpen}
         info={board}
