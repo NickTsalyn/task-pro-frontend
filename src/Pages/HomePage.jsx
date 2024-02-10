@@ -3,18 +3,21 @@ import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import {  ButtonText, HomeWrapper, Text } from './HomePage.styled';
 import { useTranslation } from 'react-i18next';
-// import { Loader } from 'components/Loader/Loader';
-
-
+import { useSelector } from 'react-redux';
+import { selectAllBoards } from 'redux/boards/selectors';
 
 export default function HomePage() {
   const { t } = useTranslation('global');
+  const boards = useSelector(selectAllBoards);
 
   return (
     <HomeWrapper>
       <Header />
-      <Text>{t('screenPage.static.message1')}<ButtonText>{t('screenPage.static.message2')}</ButtonText>{t('screenPage.static.message3')}</Text>
-      {/* <Loader/>            */}
+      {!boards.length && 
+      <Text>{t('screenPage.static.message1')}
+      <ButtonText>{t('screenPage.static.message2')}</ButtonText>
+      {t('screenPage.static.message3')}</Text>}
+      
       <Suspense fallback={null}>
           <Outlet />
         </Suspense>    

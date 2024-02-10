@@ -5,6 +5,7 @@ import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase
 
 export const BoardListItem = ({ board }) => {
   const [isModalOpen, setOpenModal] = useState(false);
+  console.log(board);
 
   function CloseModal() {
     setOpenModal(false);
@@ -22,7 +23,7 @@ export const BoardListItem = ({ board }) => {
   return (
         <StyledBoardList>
       
-       <StyledBoardItem type='button'>{board.title}</StyledBoardItem>
+       <StyledBoardItem to={`/home/${board._id}`}>{board.title}</StyledBoardItem>
 
        <StyledBtnWrapper> 
 

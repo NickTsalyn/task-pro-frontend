@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledBoardList = styled.div`
@@ -8,7 +9,7 @@ margin: 0 auto;
 
 `;
 
-export const StyledBoardItem = styled.button`
+export const StyledBoardItem = styled(Link)`
 border: none;
 background: transparent;
 font-weight: 500;

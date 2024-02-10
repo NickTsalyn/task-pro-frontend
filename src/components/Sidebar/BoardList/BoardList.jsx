@@ -7,6 +7,7 @@ import { selectAllBoards } from "redux/boards/selectors"
 export const BoardList = () => {
   const dispatch = useDispatch()
   const boards = useSelector(selectAllBoards)
+  // console.log(boards);
 
   useEffect(() => {
     dispatch(fetchBoards())
@@ -17,9 +18,9 @@ export const BoardList = () => {
     {boards.length > 0 && (
       <ul>
         {boards.map(board => (
-          <li key={board.id}>
+          <li key={board._id}>
             <BoardListItem board={board} />
-          </li>
+           </li>
         ))}
       </ul>
     )}

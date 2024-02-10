@@ -12,11 +12,11 @@ import { LogInForm } from 'components/LogInForm/LogInForm';
 import RegisterForm from 'components/Register/RegisterForm';
 import { Loader } from 'components/Loader/Loader';
 
-import HomePage from 'Pages/HomePage';
+// import HomePage from 'Pages/HomePage';
 
 const WelcomePage = lazy(() => import('./Pages/WelcomePage.jsx'));
 const AuthPage = lazy(() => import('./Pages/AuthPage.jsx'));
-// const HomePage = lazy(() => import('./Pages/HomePage.jsx'));
+const HomePage = lazy(() => import('./Pages/HomePage.jsx'));
 const ScreensPage = lazy(() => import('./Pages/ScreensPage'));
 
 export const App = () => {
@@ -41,15 +41,17 @@ export const App = () => {
           <Route path="register" element={<RegisterForm />} />
           <Route path="login" element={<LogInForm />} />
         </Route>
-      </Route>
-      <Route
-        path="/home"
-        element={
-          <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
-        }
-      >
-        <Route path="/home" component={<HomePage />} />
-        <Route path="/home/:boardId" element={<ScreensPage />} />
+      
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
+          }
+        >
+          {/* <Route path="/home" component={<HomePage />} > */}
+            <Route path="/home/:boardId" element={<ScreensPage />} />
+          {/* </Route>  */}
+        </Route>
       </Route>
     </Routes>
   );

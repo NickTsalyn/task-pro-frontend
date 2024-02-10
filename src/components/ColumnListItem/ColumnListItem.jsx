@@ -41,7 +41,7 @@ export const ColumnListItem = ({column: { id, title, owner }}) => {
             </EditButton>
           </EditBlock>
          </ColumnHeader>          
-            <CardList/>
+            <CardList columnId={id}/>
             <AddColumnButton/>
         </ColumnWrapper>      
       );

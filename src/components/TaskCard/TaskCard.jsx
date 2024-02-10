@@ -18,7 +18,7 @@ import { PrioritySeeContainer, CardPriorityDeadline,
 
 Modal.setAppElement('#root');
 
-export const TaskCard = ({ task: { id, title, description } }) => {
+export const TaskCard = ({ task: { id, title, description, priority } }) => {
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -100,7 +100,7 @@ export const TaskCard = ({ task: { id, title, description } }) => {
         <MenuCard>
           <CardPriorityDeadline>
             <ToDoContainer>
-              <SubTitle>Priority</SubTitle>
+              <SubTitle>{priority}</SubTitle>
               <PriorityContainer>
                 <CirclePriority />
                 <TextPriority></TextPriority>
