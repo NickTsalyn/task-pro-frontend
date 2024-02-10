@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { CardList } from 'components/CardList/CardList';
 import sprite from '../../images/icons.svg';

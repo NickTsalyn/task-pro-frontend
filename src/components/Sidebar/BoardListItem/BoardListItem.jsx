@@ -1,9 +1,12 @@
 import sprite from '../../../images/icons.svg';
-import { StyledBoardItem, StyledBoardList, StyledBoardListdBtn, StyledBtnWrapper, StyledSVGPensil,  StyledSVGTrash,  } from './BoardListItem.styled';
+import { StyledBoardItem, StyledBoardList, StyledBoardListdBtn, StyledBtnWrapper, StyledSVGIcon, StyledSVGPensil, StyledSVGTrash } from './BoardListItem.styled';
 import { useState } from 'react';
+import { useDispatch } from "react-redux"
+import { deleteBoard, editBoard } from 'redux/boards/operations';
 import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase';
 
-export const BoardListItem = ({ board, isActive, onClick }) => {
+export const BoardListItem = ({ board }) => {
+  const dispatch = useDispatch()
   const [isModalOpen, setOpenModal] = useState(false);
 
   function CloseModal() {
@@ -15,30 +18,35 @@ export const BoardListItem = ({ board, isActive, onClick }) => {
   }
 
   function SubmitForm(info) {
-    console.log(info);
+    const { _id } = board
+    dispatch(editBoard({ _id, info }))
     setOpenModal(false);
   }
 
+  function HandleDelete() {
+    dispatch(deleteBoard(board._id))
+  }
+  
   return (
-        <StyledBoardList isActive={isActive} onClick={onClick}>
-      
-       <StyledBoardItem type='button'>{board.title}</StyledBoardItem>
+    <StyledBoardList>
 
-       <StyledBtnWrapper> 
+      <StyledSVGIcon><use xlinkHref={`${sprite}#${board.iconURL}`}></use></StyledSVGIcon>
+      <StyledBoardItem type='button'>{board.title}</StyledBoardItem>
 
+      <StyledBtnWrapper> 
         <StyledBoardListdBtn onClick={OpenModal} type='button'>
-       <StyledSVGPensil>
+          <StyledSVGPensil>
             <use xlinkHref={`${sprite}#icon-pencil-01`}></use>
           </StyledSVGPensil>
-       </StyledBoardListdBtn>
+        </StyledBoardListdBtn>
 
-       <StyledBoardListdBtn type='button'>
-       <StyledSVGTrash>
+        <StyledBoardListdBtn onClick={HandleDelete} type='button'>
+          <StyledSVGTrash>
             <use xlinkHref={`${sprite}#icon-trash-04`}></use>
           </StyledSVGTrash>
-       </StyledBoardListdBtn>
+        </StyledBoardListdBtn>
+      </StyledBtnWrapper>
 
-       </StyledBtnWrapper>
       <BoardModalBase
         isModalOpen={isModalOpen}
         info={board}

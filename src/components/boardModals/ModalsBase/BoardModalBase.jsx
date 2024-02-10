@@ -5,8 +5,8 @@ import './BoardModalBase.css'
 
 export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, SubmitForm }) => {
     const [title, setTitle] = useState(info.title)
-    const [icon, setIcon] = useState(info.icon)
-    const [background, setBackground] = useState(info.background)
+    const [iconURL, setIcon] = useState(info.iconURL)
+    const [backgroundURL, setBackground] = useState(info.backgroundURL)
 
     const Icons = [{value: 'icon-Project'}, {value: 'icon-star-04'}, {value: 'icon-loading-03'}, {value: 'icon-puzzle-piece-02'},
                    {value: 'icon-container'}, {value: 'icon-lightning-02'}, {value: 'icon-colors'}, {value: 'icon-hexagon-01'}]
@@ -19,16 +19,16 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
     function close() {
         onCloseModal()
         setTitle(info.title)
-        setIcon(info.icon)
-        setBackground(info.background)
+        setIcon(info.iconURL)
+        setBackground(info.backgroundURL)
     }
 
     function sub(event) {
         event.preventDefault()
-        SubmitForm({title, icon, background})
+        SubmitForm({title, iconURL, backgroundURL})
         setTitle(info.title)
-        setIcon(info.icon)
-        setBackground(info.background)
+        setIcon(info.iconURL)
+        setBackground(info.backgroundURL)
     }
 
     function handleChange(e) {
@@ -66,7 +66,7 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
                                 type="radio" 
                                 name='icon'
                                 value={Icon.value}
-                                checked={Icon.value === icon ? true : false}
+                                checked={Icon.value === iconURL ? true : false}
                                 onChange={() => setIcon(Icon.value)}>
                             </Radio>
                             <IconSVG aria-hidden="true"><use xlinkHref={`${sprite}#${Icon.value}`}></use></IconSVG>
@@ -82,7 +82,7 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
                                 type="radio" 
                                 name='background'
                                 value={Background.value}
-                                checked={Background.value === background ? true : false}
+                                checked={Background.value === backgroundURL ? true : false}
                                 onChange={() => setBackground(Background.value)}>
                             </Radio>
                             <FuturePic></FuturePic>

@@ -20,23 +20,15 @@ export const BoardList = () => {
   };
   return (
     <>
-      {boards.length > 0 && (
-        <StyledBoardListWrapper>
-          {boards.map(board => (
-            <li
-              key={board.id}
-              isActive={board === activeItem}
-              onClick={() => handleBoardClick(board)}
-            >
-              <BoardListItem
-                board={board}
-                isActive={board === activeItem}
-                onClick={() => handleBoardClick(board)}
-              />
-            </li>
-          ))}
-        </StyledBoardListWrapper>
-      )}
+    {boards.length > 0 && (
+      <ul>
+        {boards.map(board => (
+          <li key={board._id}>
+            <BoardListItem board={board} />
+          </li>
+        ))}
+      </ul>
+    )}
     </>
   );
 };

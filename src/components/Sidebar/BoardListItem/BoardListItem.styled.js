@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledBoardList = styled.div`
 display: flex;
 /* justify-content: space-between; */
-padding: 20px 14px;
+padding: 20px 0;
 margin: 0 auto;
 
 background-color: ${({ isActive }) => (isActive ? 'rgba(255, 255, 255, 0.5)' : 'transparent')};
@@ -40,6 +40,16 @@ export const StyledSVGPensil = styled.svg`
   &:focus {
     stroke: ${p => p.theme.colors.white};
   }
+`;
+
+export const StyledSVGIcon = styled.svg`
+  fill: transparent;
+  stroke: rgba(255, 255, 255, 1);
+  padding-right: 8px;
+
+  width: 18px;
+  height: 18px;
+
 `;
 
 export const StyledSVGTrash = styled.svg`
