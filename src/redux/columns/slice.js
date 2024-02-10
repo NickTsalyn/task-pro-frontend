@@ -4,6 +4,7 @@ import {
   addColumn,
   deleteColumn,
   editColumn,
+  getColumsById
 } from './operations';
 
 const handlePending = state => {
@@ -65,7 +66,20 @@ const columnSlice = createSlice({
         const columnIndex = state.columns.findIndex(column => column.id === id);
         state.columns[columnIndex].title = title;
         
-      });
+      })
+      // .addCase(getColumsById.pending, handlePending)
+      // .addCase(getColumsById.rejected, handleRejected)
+      // .addCase(getColumsById.fulfilled, (state, action) => {
+      //   state.isLoading = false;
+      //   state.error = null;
+      //   // const { _id, title } = action.payload;
+      //   const { id, title } = action.payload;
+      //   // const columnIndex = state.columns.findIndex(item => item._id === _id);
+      //   const columnIndex = state.columns.findIndex(column => column.id === id);
+      //   state.columns[columnIndex].title = title;
+      // })
+      
+      
   },
 });
 
