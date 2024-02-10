@@ -68,12 +68,6 @@ export const HelpButton = styled.button`
   color: #FFFFFF;
   `;
   
-  // export const Icon = styled.svg`
-  // width: 20px;
-  // height: 20px;
-  // fill: #161616;
-  // stroke:#161616;
-  // `;
   export const IconContainer = styled.div`
   font-size: 1.7em;
   
@@ -83,10 +77,8 @@ export const HelpButton = styled.button`
   transform: translate(-10%, -10%); 
   `;
 
- export const TaskProLink = styled.a`
+ export const TaskPro = styled.span`
   color: #5255BC; 
-  text-decoration: none;
-  cursor:pointer;
   font-size: 12px;
   line-height: 20px;
   letter-spacing: -0.02em;
@@ -97,5 +89,3 @@ export const HelpButton = styled.button`
 
 `;
 
-  // fill: ${props=>props.theme.colors.white};
-// react icons
