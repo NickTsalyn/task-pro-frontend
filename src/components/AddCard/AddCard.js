@@ -23,11 +23,36 @@ import {
   AddCardTitle,
   AddCardWrapper,
 } from './AddCard.styled';
-import { useState } from 'react';
+import { useState} from 'react';
 import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
+import { addTask } from 'redux/tasks/operations';
+import { useDispatch } from 'react-redux';
 
 export const AddCard = ({ onCloseModal }) => {
   const [startDate, setStartDate] = useState(new Date());
+  const dispatch = useDispatch();
+  // const formik = useFormik({
+  //   initialValues: {
+  //     title: '',
+  //     description: '',
+  //     priority: '',
+  //     deadline: '',
+  //   },
+   
+  // });
+
+//   const saveCard = ()=>{
+
+//     const newCard = {
+//       title: formik.values.title,
+//       description: formik.values.description,
+//       priority: formik.values.priority,
+//       deadline: formik.values.deadline,
+//     };
+// dispatch(addTask(newCard));
+
+
+//   }
 
   const isToday = date => {
     const today = new Date();
@@ -41,13 +66,22 @@ export const AddCard = ({ onCloseModal }) => {
   return (
     <Formik
       initialValues={{
-        name: '',
-        number: '',
+        title: '',
+        description: '',
+        priority: '',
+        deadline: `${startDate}`,
       }}
-      //   validationSchema={SignupSchema}
-      onSubmit={(values, actions) => {
-        // submit(values);
-        actions.resetForm();
+      onSubmit={(values, { resetForm }) => {
+        const newCard = {
+          title: values.title,
+          description: values.description,
+          priority: values.priority,
+          deadline: values.deadline,
+        };
+        console.log(newCard)
+        dispatch(addTask(newCard));
+        resetForm();
+
       }}
     >
       <AddCardWrapper>
@@ -60,6 +94,10 @@ export const AddCard = ({ onCloseModal }) => {
               name="description"
               as="textarea"
               placeholder="Description"
+              // value={Formik.values.description}
+              // onChange={Formik.handleChange// Вивести значення у консоль
+              // }
+              // onBlur={Formik.handleBlur}
             />
           </AddCardTextCont>
           <AddCardOptionCont>
@@ -68,16 +106,17 @@ export const AddCard = ({ onCloseModal }) => {
 
               <label>
                 <AddCardContMark>
-                  <AddCardLabelColor type="radio" name="color" value="blue" />
-                  <AddCardLabelColor type="radio" name="color" value="pink" />
-                  <AddCardLabelColor type="radio" name="color" value="green" />
-                  <AddCardLabelColor type="radio" name="color" value="gray" />
+                  <AddCardLabelColor type="radio" name="priority" value="Low" />
+                  <AddCardLabelColor type="radio" name="priority" value="Medium" />
+                  <AddCardLabelColor type="radio" name="priority" value="High" />
+                  <AddCardLabelColor type="radio" name="priority" value="Without" />
                 </AddCardContMark>
               </label>
             </AddCardColorCont>
             <AddCardContCal>
               <AddCardTextCal>DeadLine</AddCardTextCal>
               <AddCardDate
+              name='deadline'
                 selected={startDate}
                 onChange={date => setStartDate(date)}
                 dateFormat={

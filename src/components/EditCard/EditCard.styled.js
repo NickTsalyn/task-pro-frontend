@@ -6,18 +6,18 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const getColor = (props) => {
   switch (props.value) {
-    case 'Low':
+    case 'blue':
       return props.theme.priorityColors.low;
-    case 'Medium':
+    case 'pink':
       return props.theme.priorityColors.medium;
-    case 'High':
+    case 'green':
       return props.theme.priorityColors.high;
     default:
       return props.theme.priorityColors.without;
   }
 };
 
-export const AddCardWrapper = styled(Form)`
+export const EditCardWrapper = styled(Form)`
 padding: 24px;
 display:flex;
 flex-direction: column;
@@ -26,7 +26,7 @@ width: 287px;
 background-color: ${p => p.theme.colors.white};
 
 `
-export const AddCardContainer = styled.div`
+export const EditCardContainer = styled.div`
 
 display:flex;
 flex-direction: column;
@@ -34,7 +34,7 @@ gap:24px;
 
 
 `
-export const AddCardHeader = styled.h3`
+export const EditCardHeader = styled.h3`
 font-weight: 500;
 font-size: 18px;
 letter-spacing: -0.02em;
@@ -43,14 +43,14 @@ width: 100%;
 
 `
 
-export const AddCardTextCont = styled.div`
+export const EditCardTextCont = styled.div`
 display: flex;
 flex-direction: column;
 gap:14px;
 
 
 `
-export const AddCardTitle = styled(Field)`
+export const EditCardTitle = styled(Field)`
  width: 100%;
   font-size: 14px;
   line-height: 21px;
@@ -75,7 +75,7 @@ export const AddCardTitle = styled(Field)`
 
 
 `
-export const AddCardDescription = styled(Field)`
+export const EditCardDescription = styled(Field)`
  width: 100%;
   font-size: 14px;
   line-height: 21px;
@@ -100,13 +100,13 @@ export const AddCardDescription = styled(Field)`
 
 `
 
-export const AddCardColorCont = styled.div`
+export const EditCardColorCont = styled.div`
 display: flex;
 flex-direction:column;
 gap:4px;
 
 `
-export const AddCardLabelText = styled.p`
+export const EditCardLabelText = styled.p`
 padding: 0;
 margin: 0;
 font-size: 12px;
@@ -115,7 +115,7 @@ color: ${p => p.theme.colors.greyIconColor}
 
 
 `
-export const AddCardLabelColor = styled(Field)`
+export const EditCardLabelColor = styled(Field)`
 
 position: relative;
 width: 14px;
@@ -145,7 +145,7 @@ height: 14px;
    opacity:0; 
 } */
 `
-export const AddCardContMark = styled.div`
+export const EditCardContMark = styled.div`
 
 display: flex;
 gap:8px;
@@ -154,7 +154,7 @@ gap:8px;
 `
 
 
-export const AddCardBtn = styled.button`
+export const EditCardBtn = styled.button`
 display: flex;
 align-items: center;
 justify-content: center;
@@ -173,7 +173,7 @@ letter-spacing: -2%;
 
 `
 
-export const AddCardDate = styled(DatePicker)`
+export const EditCardDate = styled(DatePicker)`
 padding: 0;
 background-color: ${p => p.theme.violetColors.bgColor};
  border:none;
@@ -182,25 +182,15 @@ background-color: ${p => p.theme.violetColors.bgColor};
  font-weight: 500;
 font-size: 14px;
 letter-spacing: -0.02em;
-.react-datepicker__month-container{
-background-color: '#ECEDFD';
-color:'#ECEDFD';
-
-
-}
-.react-datepicker__header  {
-    background-color: #4caf50;
-    color: #fff;
-  }
 
 `
 
-export const AddCardContCal = styled.div`
+export const EditCardContCal = styled.div`
 display: flex;
 flex-direction: column;
 gap:4px;
 `
-export const AddCardOptionCont = styled.div`
+export const EditCardOptionCont = styled.div`
 display: flex;
 flex-direction: column;
 gap:14px;
@@ -208,7 +198,7 @@ margin-bottom: 40px;
 
 
 `
-export const AddCardTextCal = styled.p`
+export const EditCardTextCal = styled.p`
 padding:0;
 margin: 0;
 font-size: 12px;
@@ -217,7 +207,7 @@ color:${p => p.theme.colors.greyIconColor}
 
 `
 
-export const AddCardSvgContainer = styled.span`
+export const EditCardSvgContainer = styled.span`
 display: flex;
 align-items: 'center';
 justify-content: center;
@@ -233,7 +223,7 @@ background-color:${p => p.theme.colors.white};
 `
 
 
-export const AddCardButtonSvg = styled.svg`
+export const EditCardButtonSvg = styled.svg`
 
 
 
@@ -246,7 +236,7 @@ fill: ${p => p.theme.colors.darkTextColor};
  
 
 `
-export const AddCardSvgButtonText = styled.p`
+export const EditCardSvgButtonText = styled.p`
 font-weight: 500;
 font-size: 14px;
 letter-spacing: -0.02em;
