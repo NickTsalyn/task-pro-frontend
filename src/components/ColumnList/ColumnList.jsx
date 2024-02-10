@@ -7,10 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteColumn, editColumn, getColumsById } from "redux/columns/operations";
 import { useEffect } from "react";
 import { ColumnHeader, ColumnTitle, ColumnWrapper, EditBlock, EditButton, EditSVG } from "components/ColumnListItem/ColumnListItem.styled";
-import { CardList } from "components/CardList/CardList";
+// import { CardList } from "components/CardList/CardList";
 import { AddColumnButton } from "components/Button/AddColumnButton";
-import sprite from '../../images/icons.svg';
+// import sprite from '../../images/icons.svg';
 import { selectColumns } from "redux/columns/selectors";
+// import { ColumnTitle } from "components/ColumnListItem/ColumnListItem.styled";
 export const ColumnList = () => {
 
   const {boardId} = useParams()
@@ -29,12 +30,12 @@ export const ColumnList = () => {
     // console.log(filteredColumns);
   
   
-    const handlerEditColumn = (columnId, updatedData) => {
-      dispatch(editColumn({ id: columnId, ...updatedData }));
-    };
-    const handlerDeleteColumn = columnId => {
-      dispatch(deleteColumn(columnId));
-    };
+    // const handlerEditColumn = (columnId, updatedData) => {
+    //   dispatch(editColumn({ id: columnId, ...updatedData }));
+    // };
+    // const handlerDeleteColumn = columnId => {
+    //   dispatch(deleteColumn(columnId));
+    // };
     
 
     return(
