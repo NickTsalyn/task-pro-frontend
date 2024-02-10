@@ -17,7 +17,7 @@ export const BoardList = () => {
     {boards.length > 0 && (
       <ul>
         {boards.map(board => (
-          <li key={board.id}>
+          <li key={board._id}>
             <BoardListItem board={board} />
           </li>
         ))}
