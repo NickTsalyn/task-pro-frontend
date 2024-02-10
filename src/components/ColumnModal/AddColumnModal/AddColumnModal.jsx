@@ -1,6 +1,6 @@
 import React from 'react';
 import sprite from '../../../images/icons.svg';
-import { Main, Section } from '../../Button/AddColumnButton.styled';
+// import { Main, Section } from '../../Button/AddColumnButton.styled';
 import '../ColumnModal.css';
 import {
   ModalCloseButton,
@@ -18,8 +18,8 @@ export const AddColumnModal = ({ onCloseModal }) => {
   };
 
   return (
-    <Main>
-      <Section>
+    // <Main>
+    //   <Section>
         <div>
           <AddColumnTitle>Add column</AddColumnTitle>
 
@@ -47,7 +47,7 @@ export const AddColumnModal = ({ onCloseModal }) => {
             </AddColumnBtn>
           </form>
         </div>
-      </Section>
-    </Main>
+    //   </Section>
+    // </Main>
   );
 };
