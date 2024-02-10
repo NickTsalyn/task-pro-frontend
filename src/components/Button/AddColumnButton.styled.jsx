@@ -2,15 +2,15 @@ import styled from 'styled-components';
 import { Button } from './Button';
 
 // export const Main = styled.main`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
 //   width: 100%;
 //   min-height: 100vh;
 // `;
 
 // export const Section = styled.section`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
 //   width: 100%;
 //   min-height: 100vh;
 // `;
@@ -59,7 +59,7 @@ export const AddColumnInput = styled.input`
   opacity: 0.4;
   border-radius: ${props => props.theme.radius.m};
   border: 1px solid ${props => props.theme.violetColors.accentColor};
-  box-shadow: 0 4px 16px 0 ${props => props.theme.colors.shadowColor});
+  box-shadow: 0 4px 16px 0 ${props => props.theme.colors.shadowColor};
   background-color: transparent;
   color: ${props => props.theme.colors.darkTextColor};
   letter-spacing: -0.32px;
