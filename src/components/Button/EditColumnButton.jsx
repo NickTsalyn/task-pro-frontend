@@ -7,20 +7,25 @@ import {
   ModalShowButton,
   IconVioletWrap,
   StyledSvgWhitePlus,
-} from './AddColumnButton.styled';
-import { AddColumnModal } from '../ColumnModal/AddColumnModal/AddColumnModal';
+} from '../Button/AddColumnButton.styled';
+import { EditColumnModal } from '../../components/ColumnModal/EditColumnModal/EditColumnModal';
 
 Modal.setAppElement('#root');
 
-export const AddColumnButton = () => {
-  const [modalAddColumnIsOpen, setModalAddColumnIsOpen] = useState(false);
+export const EditColumnButton = ({
+  isOpen,
+  onClose,
+  submitButton,
+  children,
+}) => {
+  const [modalEditColumnIsOpen, setModalEditColumnIsOpen] = useState(false);
 
   const openModal = () => {
-    setModalAddColumnIsOpen(true);
+    setModalEditColumnIsOpen(true);
   };
 
   const closeModal = () => {
-    setModalAddColumnIsOpen(false);
+    setModalEditColumnIsOpen(false);
   };
 
   return (
@@ -31,18 +36,18 @@ export const AddColumnButton = () => {
             <use xlinkHref={`${sprite}#icon-plus`}></use>
           </StyledSvgWhitePlus>
         </IconVioletWrap>
-        Add another column
+        Edit column
       </ModalShowButton>
 
       <Modal
-        isOpen={modalAddColumnIsOpen}
+        isOpen={modalEditColumnIsOpen}
         overlayClassName={'modal-overlay'}
         className={'modal-content'}
         closeTimeoutMS={300}
         onRequestClose={closeModal}
         ariaHideApp={false}
       >
-        <AddColumnModal onCloseModal={closeModal} />
+        <EditColumnModal onCloseModal={closeModal} />
       </Modal>
     // </Main>
   );

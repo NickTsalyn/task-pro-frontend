@@ -130,6 +130,7 @@ export const StyledField = styled(Field)`
     opacity: 1;
   }
   box-sizing: border-box;
+  display: inline;
 `;
 
 export const Button = styled.button`
