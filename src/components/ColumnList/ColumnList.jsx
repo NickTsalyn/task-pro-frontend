@@ -11,6 +11,7 @@ import { ColumnHeader, ColumnTitle, ColumnWrapper, EditBlock, EditButton, EditSV
 import { AddColumnButton } from "components/Button/AddColumnButton";
 // import sprite from '../../images/icons.svg';
 import { selectColumns } from "redux/columns/selectors";
+import { CardList } from "components/CardList/CardList";
 // import { ColumnTitle } from "components/ColumnListItem/ColumnListItem.styled";
 export const ColumnList = () => {
 
@@ -43,6 +44,7 @@ export const ColumnList = () => {
            {columns.map(column => (
             <li key={column.id} >
                 <ColumnTitle>{column.title}</ColumnTitle>
+                <CardList/>
             </li>
            ))}                      
            <AddColumnButton/>
