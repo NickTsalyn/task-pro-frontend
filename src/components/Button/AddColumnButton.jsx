@@ -1,36 +1,31 @@
 import React, { useState } from 'react';
-import { AddColumnModal } from '../ColumnModal/AddColumnModal/AddColumnModal';
-import { EditColumnModal } from '../ColumnModal/EditColumnModal/EditColumnModal';
+import Modal from 'react-modal';
 import sprite from '../../images/icons.svg';
-
+import '../../components/ColumnModal/ColumnModal.css';
 import {
   Main,
-  Section,
   ModalShowButton,
-  AddColumnTitle,
-  AddColumnInput,
-  AddColumnBtn,
-  IconWhiteWrap,
   IconVioletWrap,
   StyledSvgWhitePlus,
-  StyledSvgDarkPlus,
-} from '../Button/AddColumnButton.styled';
+} from './AddColumnButton.styled';
+import { AddColumnModal } from '../ColumnModal/AddColumnModal/AddColumnModal';
+
+Modal.setAppElement('#root');
 
 export const AddColumnButton = () => {
   const [modalAddColumnIsOpen, setModalAddColumnIsOpen] = useState(false);
-  const [modalEditColumnIsOpen, setModalEditColumnIsOpen] = useState(false);
+ 
+  const openModal = () => {
+    setModalAddColumnIsOpen(true);
+  };
 
-  const handlerTitleColumn = evt => {
-    evt.preventDefault();
+  const closeModal = () => {
+    setModalAddColumnIsOpen(false);
   };
 
   return (
     <Main>
-      <Section>
-        <ModalShowButton
-          type="submit"
-          onClick={() => setModalAddColumnIsOpen(true)}
-        >
+        <ModalShowButton type="button" onClick={openModal}>
           <IconVioletWrap>
             <StyledSvgWhitePlus>
               <use xlinkHref={`${sprite}#icon-plus`}></use>
@@ -39,68 +34,16 @@ export const AddColumnButton = () => {
           Add another column
         </ModalShowButton>
 
-        <ModalShowButton onClick={() => setModalEditColumnIsOpen(true)}>
-          <IconVioletWrap>
-            <StyledSvgWhitePlus>
-              <use xlinkHref={`${sprite}#icon-plus`}></use>
-            </StyledSvgWhitePlus>
-          </IconVioletWrap>
-          Edit Column
-        </ModalShowButton>
-
-        {/* <AddColumnModal
+        <Modal
           isOpen={modalAddColumnIsOpen}
-          onClose={() => setModalAddColumnIsOpen(false)}
-          submitButton="Add"
+          overlayClassName={'modal-overlay'}
+          className={'modal-content'}
+          closeTimeoutMS={300}
+          onRequestClose={closeModal}
+          ariaHideApp={false}
         >
-          <div>
-            <AddColumnTitle>Add column</AddColumnTitle>
-            <form onSubmit={handlerTitleColumn}>
-              <AddColumnInput
-                type="text"
-                name="title"
-                placeholder="Title"
-                autoFocus
-              />
-
-              <AddColumnBtn type="submit">
-                <IconWhiteWrap>
-                  <StyledSvgDarkPlus>
-                    <use xlinkHref={`${sprite}#icon-plus`}></use>
-                  </StyledSvgDarkPlus>
-                </IconWhiteWrap>
-                Add
-              </AddColumnBtn>
-            </form>
-          </div>
-        </AddColumnModal> */}
-
-        <EditColumnModal
-          isOpen={modalEditColumnIsOpen}
-          onClose={() => setModalEditColumnIsOpen(false)}
-          submitButton="Add"
-        >
-          <div>
-            <AddColumnTitle>Edit column</AddColumnTitle>
-            <form onSubmit={handlerTitleColumn}>
-              <AddColumnInput
-                type="text"
-                name="title"
-                placeholder="To Do"
-                autoFocus
-              />
-              <AddColumnBtn type="submit">
-                <IconWhiteWrap>
-                  <StyledSvgDarkPlus>
-                    <use xlinkHref={`${sprite}#icon-plus`}></use>
-                  </StyledSvgDarkPlus>
-                </IconWhiteWrap>
-                Add
-              </AddColumnBtn>
-            </form>
-          </div>
-        </EditColumnModal>
-      </Section>
+          <AddColumnModal onCloseModal={closeModal} />
+        </Modal>
     </Main>
   );
 };
