@@ -14,7 +14,7 @@ import {
 import { AddColumnButton } from 'components/Button/AddColumnButton';
 // import { useDispatch } from 'react-redux';
 
-export const ColumnListItem = ({column: { id, title}}) => {    
+export const ColumnListItem = ({column: { _id, title}}) => {    
   
   
   // const dispatch = useDispatch();

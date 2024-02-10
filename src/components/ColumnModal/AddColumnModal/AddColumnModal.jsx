@@ -4,6 +4,7 @@ import sprite from '../../../images/icons.svg';
 import '../ColumnModal.css';
 import { ModalCloseButton, StyledSvgClose } from '../ColumnModal.styled';
 
+
 // Modal.setAppElement('#root');
 
 const stylesModal = {
@@ -19,6 +20,7 @@ const stylesModal = {
 }
 
 export const AddColumnModal = ({ isOpen, onClose, submitButton, children }) => {
+  
   return (
     <Modal
       isOpen={isOpen}

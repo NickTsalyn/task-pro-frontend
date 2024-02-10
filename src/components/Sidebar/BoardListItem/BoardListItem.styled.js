@@ -4,12 +4,12 @@ import styled from "styled-components";
 export const StyledBoardList = styled.div`
 display: flex;
 /* justify-content: space-between; */
-padding: 20px 14px;
+padding: 20px 0;
 margin: 0 auto;
 
 `;
 
-export const StyledBoardItem = styled(Link)`
+export const StyledBoardItem = styled.button`
 border: none;
 background: transparent;
 font-weight: 500;
@@ -26,6 +26,16 @@ export const StyledSVGPensil = styled.svg`
   /* background-color:white; */
   width: 16px;
   height: 16px;
+
+`;
+
+export const StyledSVGIcon = styled.svg`
+  fill: transparent;
+  stroke: rgba(255, 255, 255, 1);
+  padding-right: 8px;
+
+  width: 18px;
+  height: 18px;
 
 `;
 

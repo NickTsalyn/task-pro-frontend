@@ -31,11 +31,11 @@ export const getColumsById = createAsyncThunk(
 // add column
 export const addColumn = createAsyncThunk(
   'columns/addColumn',
-  async ({ dashboardId, title, owner }, thunkAPI) => {
+  async ({ dashboardId, title }, thunkAPI) => {
     try {
       const response = await axios.post(`/api/columns/${dashboardId}/addColumn`, {
         title,
-        owner,
+        dashboardId
       });
 
       return response.data;

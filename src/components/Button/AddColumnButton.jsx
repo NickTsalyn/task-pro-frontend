@@ -22,6 +22,7 @@ import {
   StyledSvgWhitePlus,
   StyledSvgDarkPlus,
 } from '../Button/AddColumnButton.styled';
+import { useParams } from 'react-router-dom';
 
 export const AddColumnButton = ({ columnId }) => {
   const [modalAddColumnIsOpen, setModalAddColumnIsOpen] = useState(false);
@@ -29,16 +30,20 @@ export const AddColumnButton = ({ columnId }) => {
   const [editColumnValue, setEditColumnValue] = useState('');
 
   const dispatch = useDispatch();
-
+  const {boardId} = useParams();
   const handlerAddColumn = evt => {
     evt.preventDefault();
     const inputValue = evt.target.title.value.trim();
     if (inputValue !== '') {
       const newColumn = {
         title: inputValue,
+        dashboardId:boardId
       };
+     
       dispatch(addColumn(newColumn));
-      setModalAddColumnIsOpen(false);
+      setModalAddColumnIsOpen(false); 
+      console.log(inputValue);
+      console.log(newColumn);
       return;
     }
     return;

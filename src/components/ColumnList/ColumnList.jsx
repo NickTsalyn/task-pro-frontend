@@ -17,17 +17,18 @@ import { selectColumns } from "redux/columns/selectors";
 import { ColumnListItem } from "components/ColumnListItem/ColumnListItem";
 import { ColumnTitle, ColumnWrapper } from "components/ColumnListItem/ColumnListItem.styled";
 // import { ColumnTitle } from "components/ColumnListItem/ColumnListItem.styled";
-export const ColumnList = () => {
+
+export const ColumnList = ({columns}) => {
 
   const {boardId} = useParams();
 
-  const dispatch = useDispatch();
-     useEffect(() => {
+//   const dispatch = useDispatch();
+//      useEffect(() => {
       
-    dispatch(getColumsById(boardId))
+//     dispatch(getColumsById(boardId))
       
-    }, [boardId]);
-    const columns = useSelector(selectColumns);//приходить масив колонок;
+//     }, [boardId]);
+    // const columns = useSelector(selectColumns);//приходить масив колонок;
     // const { boardId } = useParams(); // Отримуємо динамічний параметр з URL
     // console.log(boardId);
     
@@ -47,7 +48,7 @@ export const ColumnList = () => {
         <ColumnListWrapper>
         <ColumnListStyled>  
            {columns.map(column => (
-            <li key={column.id} >
+            <li key={column._id} >
                 {/* <ColumnWrapper> */}
                 {/* <ColumnTitle>{column.title}</ColumnTitle> */}
 

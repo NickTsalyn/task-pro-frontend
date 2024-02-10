@@ -8,24 +8,27 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectAllBoards } from 'redux/boards/selectors';
-import { getColumsById } from 'redux/columns/operations';
-import { selectColumns } from 'redux/columns/selectors';
+import { getAllColumns, getColumsById } from 'redux/columns/operations';
+import { selectBoardId, selectColumns } from 'redux/columns/selectors';
 import { ButtonText, Text } from './DashBoard.styled';
 // import { selectColumns } from 'redux/columns/selectors';
 
 const DashBoard = () => {
  const {boardId} = useParams();
-  const dispatch = useDispatch()
+const dispatch = useDispatch();
+ 
+const boards = useSelector(selectAllBoards); 
 
   useEffect(() => {
-    dispatch(getColumsById(boardId))
+    dispatch(getAllColumns())
   
-  }, [boardId])
+  }, [])
   const { t } = useTranslation('global');
-  const boards = useSelector(selectAllBoards); 
+  
   
   const columns = useSelector(selectColumns);//приходить масив колонок;
    const filteredColumns = columns.filter((column) => column.board === boardId);
+    console.log(columns);
     console.log(filteredColumns);
 
   return (
@@ -34,7 +37,7 @@ const DashBoard = () => {
       <Text>{t('screenPage.static.message1')}
       <ButtonText>{t('screenPage.static.message2')}</ButtonText>
       {t('screenPage.static.message3')}</Text>}
-      {!filteredColumns ? <AddColumnButton/>:<ColumnList />}
+      {!filteredColumns? <AddColumnButton/>:<ColumnList columns={filteredColumns}/>}
     </>
   );
 };
