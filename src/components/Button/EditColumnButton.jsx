@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import sprite from '../../images/icons.svg';
 import '../../components/ColumnModal/ColumnModal.css';
 import {
-  Main,
+  // Main,
   ModalShowButton,
   IconVioletWrap,
   StyledSvgWhitePlus,
@@ -29,7 +29,7 @@ export const EditColumnButton = ({
   };
 
   return (
-    <Main>
+    // <Main>
       <ModalShowButton type="button" onClick={openModal}>
         <IconVioletWrap>
           <StyledSvgWhitePlus>
@@ -49,6 +49,6 @@ export const EditColumnButton = ({
       >
         <EditColumnModal onCloseModal={closeModal} />
       </Modal>
-    </Main>
+    // </Main>
   );
 };
