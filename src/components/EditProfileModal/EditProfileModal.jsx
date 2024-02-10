@@ -25,7 +25,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import { useDispatch } from 'react-redux';
-import { updateAvatar } from 'redux/auth/operations.js';
+import { updateProfile } from 'redux/auth/operations.js';
 
 const editFormSchema = Yup.object().shape({
   name: Yup.string().min(3, 'To short').max(30, 'To long'),
@@ -39,7 +39,7 @@ const editFormSchema = Yup.object().shape({
 export const EditProfileModal = ({ onCloseModal, avatar }) => {
   const dispatch = useDispatch();
   const handleSubmit = credentials => {
-    return dispatch(updateAvatar(credentials));
+    return dispatch(updateProfile(credentials));
   };
 
   const [showPassword, setShowPassword] = useState(false);

@@ -4,7 +4,6 @@ import {
   StyledUserPhoto,
   StyledUserBtn,
 } from './UserInfo.styled';
-// import photo from '../../../img/welcome.png';
 import { useSelector } from 'react-redux';
 
 import Modal from 'react-modal';
@@ -17,6 +16,7 @@ Modal.setAppElement('#root');
 
 export const UserInfo = () => {
 // const dispatch = useDispatch();
+
 
 const userName = useSelector(selectUser);
 const userAvatar = useSelector(selectAvatar);
