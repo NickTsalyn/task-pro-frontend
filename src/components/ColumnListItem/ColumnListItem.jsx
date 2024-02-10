@@ -1,6 +1,6 @@
 import { CardList } from 'components/CardList/CardList';
 import sprite from '../../images/icons.svg';
-import { deleteColumn, editColumn } from '../../redux/columns/operations';
+// import { deleteColumn, editColumn } from '../../redux/columns/operations';
 import {
   ColumnHeader,
   ColumnTitle,
@@ -12,37 +12,41 @@ import {
 
 
 import { AddColumnButton } from 'components/Button/AddColumnButton';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
-export const ColumnListItem = ({column: { id, title, owner }}) => {    
+export const ColumnListItem = ({column: { id, title}}) => {    
   
   
-  const dispatch = useDispatch();
-  const handlerEditColumn = (columnId, updatedData) => {
-    dispatch(editColumn({ id: columnId, ...updatedData }));
-  };
-  const handlerDeleteColumn = columnId => {
-    dispatch(deleteColumn(columnId));
-  };
+  // const dispatch = useDispatch();
+  // const handlerEditColumn = (columnId, updatedData) => {
+  //   dispatch(editColumn({ id: columnId, ...updatedData }));
+  // };
+  // const handlerDeleteColumn = columnId => {
+  //   dispatch(deleteColumn(columnId));
+  // };
     return(
         <ColumnWrapper>
          <ColumnHeader>
          <ColumnTitle>{title}</ColumnTitle>
           <EditBlock>
-            <EditButton type="button" onClick={() => handlerEditColumn(id)}>
+            <EditButton type="button" 
+            // onClick={() => handlerEditColumn(id)}
+            >
               <EditSVG>
                 <use xlinkHref={`${sprite}#icon-pencil-01`}/>
               </EditSVG>
             </EditButton>
-            <EditButton type="button" onClick={() => handlerDeleteColumn(id)}>
+            <EditButton type="button" 
+            // onClick={() => handlerDeleteColumn(id)}
+            >
               <EditSVG>
                 <use xlinkHref={`${sprite}#icon-trash-04`}/>
               </EditSVG>
             </EditButton>
           </EditBlock>
          </ColumnHeader>          
-            <CardList columnId={id}/>
-            <AddColumnButton/>
+            {/* <CardList columnId={id}/> */}
+            {/* <AddColumnButton/> */}
         </ColumnWrapper>      
       );
 

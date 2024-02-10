@@ -49,7 +49,7 @@ export const App = () => {
           }
         >
           {/* <Route path="/home" component={<HomePage />} > */}
-            <Route path="/home/:boardId" element={<ScreensPage />} />
+            <Route path=":boardId" element={<ScreensPage />} />
           {/* </Route>  */}
         </Route>
       </Route>

@@ -72,8 +72,9 @@ export const AddColumnButton = ({ columnId }) => {
   // };
 
   return (
-    <Main>
-      <Section>
+    // <Main>
+      // <Section>
+      <>
         <ModalShowButton
           type="submit"
           onClick={() => setModalAddColumnIsOpen(true)}
@@ -149,7 +150,8 @@ export const AddColumnButton = ({ columnId }) => {
             </form>
           </div>
         </EditColumnModal>
-      </Section>
-    </Main>
+        </>
+      // </Section>
+    // </Main>
   );
 };

@@ -16,16 +16,16 @@ export default function ScreensPage() {
 
   useEffect(() => {
     dispatch(getBoardById(boardId));
-    // dispatch(getAllColumns());
+    
   }, [boardId]);
-  return (
-    <>
+  
+  return (    
       <ScreensPageWrapper>
         <HeaderDashboard />
         {/* <ColumnList /> */}
         <DashBoard/>
         {/* <AddColumnButton/> */}
       </ScreensPageWrapper>
-    </>
+    
   );
 }

@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 import { Button } from './Button';
 
-export const Main = styled.main`
-  width: 100%;
-  min-height: 100vh;
-`;
+// export const Main = styled.main`
+//   width: 100%;
+//   min-height: 100vh;
+// `;
 
-export const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
-`;
+// export const Section = styled.section`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   width: 100%;
+//   min-height: 100vh;
+// `;
 
 export const ModalShowButton = styled.button`
   display: flex;
