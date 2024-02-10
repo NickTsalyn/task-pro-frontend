@@ -16,12 +16,24 @@ export const getAllColumns = createAsyncThunk(
   }
 );
 
+export const getColumsById = createAsyncThunk(
+  'colums/getById',
+  async (id, thunkAPI) => {
+    try {
+      const response = await axios.get(`/api/columns/${id}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 // add column
 export const addColumn = createAsyncThunk(
   'columns/addColumn',
   async ({ dashboardId, title, owner }, thunkAPI) => {
     try {
-      const response = await axios.post(`/api/columns/${dashboardId}`, {
+      const response = await axios.post(`/api/columns/${dashboardId}/addColumn`, {
         title,
         owner,
       });
@@ -36,9 +48,9 @@ export const addColumn = createAsyncThunk(
 // edit column
 export const editColumn = createAsyncThunk(
   'columns/editColumn',
-  async ({ id, updatedData }, thunkAPI) => {
+  async ({ id, title }, thunkAPI) => {
     try {
-      const response = await axios.patch(`/api/columns/${id}`, { updatedData });
+      const response = await axios.patch(`/api/columns/edit/${id}`, { title });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

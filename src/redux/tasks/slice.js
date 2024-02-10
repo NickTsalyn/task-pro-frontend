@@ -28,7 +28,7 @@ const tasksSlice = createSlice({
     [fetchTasks.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.tasks = action.payload; 
+      state.tasks = action.payload; // змінено з state.cards на state.tasks
     },
     [fetchTasks.rejected](state, action) {
       state.isLoading = false;

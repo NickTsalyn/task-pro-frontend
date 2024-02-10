@@ -14,7 +14,7 @@ import { PrioritySeeContainer, CardPriorityDeadline,
   Btn, MenuCard, SubTitle, CirclePriority, TextPriority, 
   PriorityContainer, MainContainer, TextDate, ButtonsContainer, 
   SvgBell, DescriptionContainer } from "./TaskCard.styled";
-import { SetColumnModal } from "components/SetColumnModal/SetColumnModal";
+// import { PopUpSetColumn } from "components/PopUpSetColumn/PopUpSetColumns";
 
 Modal.setAppElement('#root');
 
@@ -135,7 +135,7 @@ export const TaskCard = ({ task: { id, title, description, priority } }) => {
         className={'modal-content'}
         closeTimeoutMS={300}
       >
-        <SetColumnModal onCloseModal={closeModal} />
+        {/* <PopUpSetColumn onCloseModal={closeModal} /> */}
       </Modal>
               <Btn type="button" onClick={() => toEditTask(id)}>
                 <Svg>
