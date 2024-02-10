@@ -1,17 +1,17 @@
 import React from 'react';
 import sprite from '../../../images/icons.svg';
 import '../ColumnModal.css';
+import { Main, Section } from '../../Button/AddColumnButton.styled';
+import '../ColumnModal.css';
 import {
-  // Main,
-  // Section,
+  ModalCloseButton,
+  StyledSvgClose,
   AddColumnTitle,
   AddColumnInput,
   AddColumnBtn,
   IconWhiteWrap,
   StyledSvgDarkPlus,
-} from '../../Button/AddColumnButton.styled';
-import '../ColumnModal.css';
-import { ModalCloseButton, StyledSvgClose } from '../ColumnModal.styled';
+} from '../ColumnModal.styled';
 
 export const EditColumnModal = ({ onCloseModal }) => {
   const handlerTitleColumn = evt => {
@@ -19,8 +19,8 @@ export const EditColumnModal = ({ onCloseModal }) => {
   };
 
   return (
-    // <Main>
-    //   <Section>
+    <Main>
+      <Section>
         <div>
           <AddColumnTitle>Edit column</AddColumnTitle>
 
@@ -47,7 +47,7 @@ export const EditColumnModal = ({ onCloseModal }) => {
             </AddColumnBtn>
           </form>
         </div>
-    //   </Section>
-    // </Main>
+      </Section>
+    </Main>
   );
 };

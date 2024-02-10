@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import sprite from '../../images/icons.svg';
 import '../../components/ColumnModal/ColumnModal.css';
 import {
-  // Main,
+  Main,
   ModalShowButton,
   IconVioletWrap,
   StyledSvgWhitePlus,
@@ -24,7 +24,7 @@ export const AddColumnButton = () => {
   };
 
   return (
-    // <Main>
+    <Main>
       <ModalShowButton type="button" onClick={openModal}>
         <IconVioletWrap>
           <StyledSvgWhitePlus>
@@ -44,6 +44,6 @@ export const AddColumnButton = () => {
       >
         <AddColumnModal onCloseModal={closeModal} />
       </Modal>
-    // </Main>
+    </Main>
   );
 };
