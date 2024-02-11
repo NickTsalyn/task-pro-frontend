@@ -11,11 +11,11 @@ import { Layout } from 'components/Layout/Layout';
 
 import { Loader } from 'components/Loader/Loader';
 
-import HomePage from 'Pages/HomePage';
+// import HomePage from 'Pages/HomePage';
 
 const WelcomePage = lazy(() => import('./Pages/WelcomePage.jsx'));
 const AuthPage = lazy(() => import('./Pages/AuthPage.jsx'));
-// const HomePage = lazy(() => import('./Pages/HomePage.jsx'));
+const HomePage = lazy(() => import('./Pages/HomePage.jsx'));
 const ScreensPage = lazy(() => import('./Pages/ScreensPage'));
 
 export const App = () => {
@@ -37,15 +37,16 @@ export const App = () => {
             <RestrictedRoute redirectTo="/home" component={<AuthPage />} />
           }
         />
-      </Route>
-      <Route
-        path="/home"
-        element={
-          <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
-        }
-      >
-        <Route path="/home" component={<HomePage />} />
-        <Route path="/home/:boardName" element={<ScreensPage />} />
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
+          }
+        >
+          {/* <Route path="/home" component={<HomePage />} > */}
+          <Route path=":boardId" element={<ScreensPage />} />
+          {/* </Route>  */}
+        </Route>
       </Route>
     </Routes>
   );

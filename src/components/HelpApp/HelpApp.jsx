@@ -1,17 +1,57 @@
-import React from 'react';
-// import sprite from '../../images/icons.svg';
-import { HelpContainer, HelpImage, HelpButton, HelpText, ButtonText, IconContainer, TaskProLink} from './HelpApp.styled.js';
+import React, { useState } from 'react';
+import { NeedHelpModal } from 'components/NeedHelpModal/NeedHelpModal.jsx';
+import { HelpContainer, HelpImage, HelpButton, HelpText, ButtonText, IconContainer, TaskPro} from './HelpApp.styled.js';
 import flowerImage from './../../images/flower.png';
 import { CiCircleQuestion } from "react-icons/ci";
-import { useTranslation } from 'react-i18next';
 
-const HelpApp = ({ openModal }) => {
-  const {t} = useTranslation('global')
+const HelpApp = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <HelpContainer>
       <HelpImage src={flowerImage} alt="flower" />
       <HelpText>
-        {t('screenPage.static.help')} <TaskProLink href="#">TaskPro </TaskProLink>{t('screenPage.static.help2')}
+        If you need help with <TaskPro >TaskPro</TaskPro>, check out our support resources or reach out to our customer support team.
+      </HelpText>
+      <HelpButton onClick={openModal}>
+        <IconContainer>
+          <CiCircleQuestion/>
+        </IconContainer>
+      </HelpButton>
+     
+      <ButtonText onClick={openModal}>Need help?</ButtonText>
+
+      {isModalOpen && 
+        <NeedHelpModal 
+          isOpen={isModalOpen}
+          onClose={closeModal}
+        />
+      }
+    </HelpContainer>
+  );
+}; 
+export default HelpApp;
+
+/*import React from 'react';
+// import sprite from '../../images/icons.svg';
+import { HelpContainer, HelpImage, HelpButton, HelpText, ButtonText, IconContainer, TaskProLink} from './HelpApp.styled.js';
+import flowerImage from './../../images/flower.png';
+import { CiCircleQuestion } from "react-icons/ci";
+
+const HelpApp = ({ openModal }) => {
+  return (
+    <HelpContainer>
+      <HelpImage src={flowerImage} alt="flower" />
+      <HelpText>
+        If you need help with <TaskProLink href="#">TaskPro</TaskProLink>, check out our support resources or reach out to our customer support team.
       </HelpText>
       <HelpButton onClick={openModal}>
       <IconContainer>
@@ -19,30 +59,8 @@ const HelpApp = ({ openModal }) => {
         </IconContainer>
       </HelpButton>
      
-      <ButtonText onClick={openModal}>{t('screenPage.static.needHelp')}</ButtonText>
+      <ButtonText onClick={openModal}>Need help?</ButtonText>
     </HelpContainer>
   );
 }; 
-export default HelpApp;
-// icon-help-circle
-
-/**
-import { NeedHelp } from 'components/needhelp/needhelp';
-import { NeedHelpModal } from 'components/needhelp/needHelpModal';
- begin
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
- 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-  ********************************************
-  return
-    <div>
-      <NeedHelp openModal={openModal} />
-      {isModalOpen && <NeedHelpModal onClose={closeModal} />}
-    </div>
- */
+export default HelpApp;*/
