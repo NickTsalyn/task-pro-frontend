@@ -1,11 +1,19 @@
 import sprite from '../../../images/icons.svg';
-import { StyledBoardItem, StyledBoardList, StyledBoardListdBtn, StyledBtnWrapper, StyledSVGPensil,  StyledSVGTrash,  } from './BoardListItem.styled';
+import { StyledBoardItem, StyledBoardList, StyledBoardListdBtn, StyledBtnWrapper, StyledSVGIcon, StyledSVGPensil, StyledSVGTrash } from './BoardListItem.styled';
 import { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux"
+import { deleteBoard, editBoard, getBoardById } from 'redux/boards/operations';
 import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase';
+import { Link, useParams } from 'react-router-dom';
+import { selectBoardId } from 'redux/columns/selectors';
 
 export const BoardListItem = ({ board }) => {
+  const dispatch = useDispatch();
   const [isModalOpen, setOpenModal] = useState(false);
 
+  const {boardId} = useParams();
+
+  
   function CloseModal() {
     setOpenModal(false);
   }
@@ -15,31 +23,39 @@ export const BoardListItem = ({ board }) => {
   }
 
   function SubmitForm(info) {
-    console.log(info);
+    const { _id } = board
+    dispatch(editBoard({ _id, info }))
     setOpenModal(false);
   }
 
+  function HandleDelete() {
+    dispatch(deleteBoard(board._id))
+  }
+  
   return (
-        <StyledBoardList>
-      
-       <StyledBoardItem type='button'>{board.title}</StyledBoardItem>
+    <StyledBoardList>
+      {/* <StyledBoardItem to={`/home/${board._id}`}></StyledBoardItem> */}
+      <StyledSVGIcon><use xlinkHref={`${sprite}#${board.iconURL}`}></use></StyledSVGIcon>
+      <StyledBoardItem type='button' 
+      // onClick={()=> dispatch(getBoardById(boardId))}
+      >        
+        <Link to={`/home/${board._id}`}>{board.title}</Link>
+      </StyledBoardItem>
 
-       <StyledBtnWrapper> 
-
+      <StyledBtnWrapper> 
         <StyledBoardListdBtn onClick={OpenModal} type='button'>
-       <StyledSVGPensil>
+          <StyledSVGPensil>
             <use xlinkHref={`${sprite}#icon-pencil-01`}></use>
           </StyledSVGPensil>
-       </StyledBoardListdBtn>
+        </StyledBoardListdBtn>
 
-       <StyledBoardListdBtn type='button'>
-       <StyledSVGTrash>
+        <StyledBoardListdBtn onClick={HandleDelete} type='button'>
+          <StyledSVGTrash>
             <use xlinkHref={`${sprite}#icon-trash-04`}></use>
           </StyledSVGTrash>
-       </StyledBoardListdBtn>
+        </StyledBoardListdBtn>
+      </StyledBtnWrapper>
 
-       </StyledBtnWrapper>
-      <span></span>
       <BoardModalBase
         isModalOpen={isModalOpen}
         info={board}
