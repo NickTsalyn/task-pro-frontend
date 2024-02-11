@@ -1,4 +1,3 @@
-// import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import {
@@ -8,7 +7,10 @@ import {
   StyledInput,
   SendMailBtn,
   StyledLabel,
-} from './ForgetPassword.styled';
+} from './ForgetPassword.styled.jsx';
+import { useDispatch } from 'react-redux';
+import { forgetPassword } from 'redux/auth/operations';
+import toast from 'react-hot-toast';
 
 const ForgetPasswordSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email!').required('Email is required!'),
@@ -18,14 +20,33 @@ const initialValues = {
   email: '',
 };
 
-export const ForgetPassword = ({ setForgetPassword }) => {
-  //   const navigate = useNavigate();
+export const ForgetPassword = () => {
+  const dispatch = useDispatch();
+
+  const onSubmit = (values, { resetForm }) => {
+    const { email } = values;
+
+    dispatch(forgetPassword({ email }))
+      .then(resp => {
+        console.log(resp);
+        if (resp.data.message === 'User not found') {
+          toast.error('User not found. Please check your email.');
+        } else {
+          toast.success(`Temporary password sent to ${email} successfully!`);
+        }
+      })
+      .catch(error => {
+        toast.error('An error occurred. Please try again.');
+      });
+
+    resetForm();
+  };
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={ForgetPasswordSchema}
-      //   onSubmit={}
+      onSubmit={onSubmit}
     >
       <FormContainer>
         <InputContainer>

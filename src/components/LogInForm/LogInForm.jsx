@@ -55,8 +55,9 @@ export const LogInForm = () => {
         password,
       })
     );
-    resetForm();
+
     navigate('/home');
+    resetForm();
   };
 
   return (

@@ -1,31 +1,6 @@
 import styled from 'styled-components';
 import { Field, Form, ErrorMessage } from 'formik';
-import { NavLink } from 'react-router-dom';
 
-export const StyledSVG = styled.svg`
-  stroke: ${p => p.theme.colors.greyTextColor};
-  fill: ${p => p.theme.colors.darkInputBgn};
-  opacity: 0.4;
-  cursor: pointer;
-
-  width: 18px;
-  height: 18px;
-  &:hover,
-  &:focus {
-    opacity: 1;
-  }
-`;
-export const StyledSVGButton = styled.button`
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  bottom: 10px;
-  right: 18px;
-
-  background: none;
-  border: none;
-  cursor: pointer;
-`;
 export const FormContainer = styled(Form)`
   display: flex;
   flex-direction: column;
@@ -61,8 +36,7 @@ export const StyledInput = styled(Field)`
     opacity: 1;
   }
 `;
-
-export const LogInBtn = styled.button`
+export const SendMailBtn = styled.button`
   width: 100%;
   padding-top: ${p => p.theme.spacing(3.5)};
   padding-bottom: ${p => p.theme.spacing(3.5)};
@@ -79,9 +53,6 @@ export const LogInBtn = styled.button`
     background-color: #9dc888;
   }
 `;
-export const StyledLabel = styled.label`
-  position: relative;
-`;
 
 export const MessageError = styled(ErrorMessage)`
   margin-top: 3px;
@@ -89,13 +60,35 @@ export const MessageError = styled(ErrorMessage)`
   color: #c04d4d;
   font-size: 12px;
 `;
-
+export const StyledLabel = styled.label`
+  position: relative;
+`;
 export const StyledInputContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
 `;
+export const StyledSVG = styled.svg`
+  stroke: ${p => p.theme.colors.greyTextColor};
+  fill: ${p => p.theme.colors.darkInputBgn};
+  opacity: 0.4;
+  cursor: pointer;
 
-export const StyledLink = styled(NavLink)`
-  color: ${p => p.theme.colors.lightGreen};
+  width: 18px;
+  height: 18px;
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+`;
+export const StyledSVGButton = styled.button`
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 10px;
+  right: 18px;
+
+  background: none;
+  border: none;
+  cursor: pointer;
 `;
