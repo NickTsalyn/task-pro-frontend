@@ -25,8 +25,8 @@ export const AddColumnModal = ({ isOpen, onClose, submitButton, children }) => {
     <Modal
       isOpen={isOpen}
       overlayClassName={'modal-overlay'}
-      style={stylesModal}
-      // className={'modal-content'}
+      // style={stylesModal}
+      className={'modal-content'}
       closeTimeoutMS={300}
       onRequestClose={() => onClose()}
       ariaHideApp={false}

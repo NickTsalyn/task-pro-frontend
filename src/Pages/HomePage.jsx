@@ -54,7 +54,7 @@ export default function HomePage() {
       <Text>{t('screenPage.static.message1')}
       <ButtonText>{t('screenPage.static.message2')}</ButtonText>
       {t('screenPage.static.message3')}</Text>} */}
-      <ScreensPage/>
+      {/* <ScreensPage/> */}
       {/* <Link to={`/home/${boardId}`}></Link> */}
        {/* <Suspense fallback={<Loader/>}><Outlet /></Suspense>     */}
     </HomeWrapper> 
