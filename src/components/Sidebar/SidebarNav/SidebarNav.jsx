@@ -6,12 +6,9 @@ import sprite from '../../../images/icons.svg';
 import { BoardList } from '../BoardList/BoardList';
 import { AddBoard } from "components/boardModals/addBoard";
 import {
-  StyledCreateBtn,
-  StyledCreateBtnIconWrapper,
   StyledCreateBtnWrapper,
   StyledLogoutBtn,
   StyledSVGLogout,
-  StyledSVGPlus,
   StyledText,
 } from './SidebarNav.styled';
 import { logout } from 'redux/auth/operations';

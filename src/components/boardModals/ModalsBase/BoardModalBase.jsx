@@ -86,7 +86,7 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
                                 onChange={() => setBackground(Background.value)}>
                             </Radio>
                             <Pic>
-                                <img alt='icon_option' src='images/desktop_1x/desktop_12.webp'></img>
+                                <img alt='icon_option' src={`images/mini/mini_${Background.value}.webp`}></img>
                             </Pic>
                         </label>
                     ))}
