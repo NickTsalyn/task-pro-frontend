@@ -15,8 +15,8 @@ export const CardList = ( {columnId} ) => {
                 <TaskCard key={task}/>
             ))}
         </CardListStyled>
-        <ButtonAddCard type="button" onClick = {openModal}>AddAnotherCard</ButtonAddCard>
-        <Modal
+        <ButtonAddCard type="button">AddAnotherCard</ButtonAddCard>
+        {/* <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         overlayClassName={'modal-overlay'}
@@ -24,7 +24,7 @@ export const CardList = ( {columnId} ) => {
         closeTimeoutMS={300}
       >
         <AddCard onCloseModal={closeModal} />
-      </Modal>
+      </Modal> */}
         </CardListWrapper>
     )
 };
