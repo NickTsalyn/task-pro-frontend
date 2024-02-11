@@ -8,7 +8,7 @@ import photo from '../../../img/welcome.png';
 import { useSelector } from 'react-redux';
 
 import Modal from 'react-modal';
-// import { useState } from 'react';
+import { useState } from 'react';
 import { EditProfileModal } from 'components/EditProfileModal/EditProfileModal';
 import '../../EditProfileModal/EditModal.css';
 
@@ -17,14 +17,14 @@ Modal.setAppElement('#root');
 export const UserInfo = () => {
 
 const userName = useSelector(state => state.auth.user);
-
+const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
-    // setIsModalOpen(true);
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
-    // setIsModalOpen(false);
+    setIsModalOpen(false);
   };
   return (
     <StyledUserInfo>
