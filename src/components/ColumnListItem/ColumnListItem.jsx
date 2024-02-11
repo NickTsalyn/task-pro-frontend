@@ -1,6 +1,6 @@
-import { CardList } from 'components/CardList/CardList';
+
 import sprite from '../../images/icons.svg';
-// import { deleteColumn, editColumn } from '../../redux/columns/operations';
+
 import {
   ColumnHeader,
   ColumnTitle,
@@ -11,8 +11,6 @@ import {
 } from './ColumnListItem.styled';
 
 
-import { AddColumnButton } from 'components/Button/AddColumnButton';
-// import { useDispatch } from 'react-redux';
 
 export const ColumnListItem = ({column: { _id, title}}) => {    
   
@@ -45,8 +43,8 @@ export const ColumnListItem = ({column: { _id, title}}) => {
             </EditButton>
           </EditBlock>
          </ColumnHeader>          
-            {/* <CardList columnId={id}/> */}
-            {/* <AddColumnButton/> */}
+            {/* <CardList columnId={_id}/> */}
+            {/* <ButtonAddCard/> */}
         </ColumnWrapper>      
       );
 

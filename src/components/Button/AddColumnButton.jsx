@@ -10,9 +10,7 @@ import {
   editColumn,
 } from '../../redux/columns/operations';
 
-import {
-  Main,
-  Section,
+import {  
   ModalShowButton,
   AddColumnTitle,
   AddColumnInput,
@@ -76,9 +74,7 @@ export const AddColumnButton = ({ columnId }) => {
   //   dispatch(deleteColumn(columnId));
   // };
 
-  return (
-    // <Main>
-      // <Section>
+  return (    
       <>
         <ModalShowButton
           type="submit"
@@ -155,8 +151,6 @@ export const AddColumnButton = ({ columnId }) => {
             </form>
           </div>
         </EditColumnModal>
-        </>
-      // </Section>
-    // </Main>
+        </>      
   );
 };

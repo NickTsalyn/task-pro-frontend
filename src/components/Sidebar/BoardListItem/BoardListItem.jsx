@@ -1,18 +1,14 @@
 import sprite from '../../../images/icons.svg';
 import { StyledBoardItem, StyledBoardList, StyledBoardListdBtn, StyledBtnWrapper, StyledSVGIcon, StyledSVGPensil, StyledSVGTrash } from './BoardListItem.styled';
 import { useState } from 'react';
-import { useDispatch, useSelector } from "react-redux"
-import { deleteBoard, editBoard, getBoardById } from 'redux/boards/operations';
+import { useDispatch} from "react-redux"
+import { deleteBoard, editBoard,  } from 'redux/boards/operations';
 import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase';
-import { Link, useParams } from 'react-router-dom';
-import { selectBoardId } from 'redux/columns/selectors';
+import { Link } from 'react-router-dom';
 
 export const BoardListItem = ({ board }) => {
   const dispatch = useDispatch();
   const [isModalOpen, setOpenModal] = useState(false);
-
-  const {boardId} = useParams();
-
   
   function CloseModal() {
     setOpenModal(false);
