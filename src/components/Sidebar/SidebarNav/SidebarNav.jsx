@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import sprite from '../../../images/icons.svg';
 import { BoardList } from '../BoardList/BoardList';
+import { AddBoard } from "components/boardModals/addBoard";
 import {
   ItemsWrapper,
   SidebarWrapper,
@@ -14,7 +15,6 @@ import {
   StyledText,
 } from './SidebarNav.styled';
 import { logout } from 'redux/auth/operations';
-import { AddBoard } from 'components/boardModals/addBoard';
 import HelpApp from 'components/HelpApp/HelpApp.jsx';
 
 export const SidebarNav = () => {

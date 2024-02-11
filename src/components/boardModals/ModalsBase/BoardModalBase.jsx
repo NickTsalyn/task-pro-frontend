@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import sprite from 'images/icons.svg'
-import { StyledModal, Form, CloseButton, CloseSVG, BigHeader, TitleInput, SmallHeader, List, Radio, IconSVG, FuturePic, SubmitButton } from './BoardModalBase.styled'
-import './BoardModalBase.css'
+import { StyledModal, Form, CloseButton, CloseSVG, BigHeader, TitleInput, SmallHeader, List, Radio, IconSVG, Pic, SubmitButton } from './BoardModalBase.styled'
+import {pictures_mini} from 'images/mini/index'
 
 export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, SubmitForm }) => {
     const [title, setTitle] = useState(info.title)
@@ -85,7 +85,9 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
                                 checked={Background.value === backgroundURL ? true : false}
                                 onChange={() => setBackground(Background.value)}>
                             </Radio>
-                            <FuturePic></FuturePic>
+                            <Pic>
+                                <img alt='icon_option' src={pictures_mini[`p${Background.value}`]}></img>
+                            </Pic>
                         </label>
                     ))}
                 </List>
