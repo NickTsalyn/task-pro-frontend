@@ -2,10 +2,19 @@ import styled from 'styled-components';
 
 export const HomeWrapper = styled.div`
   min-height: 100vh;
-  width: 1180px;
+  width: 320px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
+
+  @media screen and (min-width: 768px) {
+   width: 768px;
+
+  }
+
+  @media screen and (min-width: 1440px) {
+ width: 1180px;
+  }
 `;
 
 export const Text = styled.p`

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const SidebarWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  height: 86%;
 `;
 
 export const StyledText = styled.p`
@@ -37,7 +38,6 @@ export const StyledLogoutBtn = styled.button`
 export const StyledSVGPlus = styled.svg`
   fill: ${p => p.theme.violetColors.accentColor};
   stroke: rgb(255, 255, 255);
-  /* background-color:white; */
   width: 20px;
   height: 20px;
   padding: 8px 10px;
@@ -60,6 +60,6 @@ export const StyledSVGLogout = styled.svg`
 export const ItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: auto;
   gap: 24px;
-  /* margin-top: 20px; */
 `;

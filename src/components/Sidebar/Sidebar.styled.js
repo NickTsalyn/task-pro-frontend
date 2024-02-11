@@ -28,5 +28,7 @@ export const StyledSidebar = styled.aside`
   @media screen and (min-width: 1440px) {
     z-index: 0;
     position: static;
+    top: 0;
+    left: 0;
   }
 `;
