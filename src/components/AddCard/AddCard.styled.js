@@ -75,7 +75,7 @@ export const AddCardTitle = styled(Field)`
 
 
 `
-export const AddCardDescription = styled(Field)`
+export const AddCardDescription = styled.textarea`
  width: 100%;
   font-size: 14px;
   line-height: 21px;
@@ -99,6 +99,19 @@ export const AddCardDescription = styled(Field)`
   }
 
 `
+export const AddCardDesc = styled(Field)`
+ /* width: 100%; */
+  /* font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  padding: 14px 18px;
+  border-radius: ${p => p.theme.radius.m};
+  border: 1px solid ${p => p.theme.violetColors.accentColor};
+  background: ${p => p.theme.violetColors.bgColor};
+  color: ${p => p.theme.colors.darkTextColor}; */
+
+
+`
 
 export const AddCardColorCont = styled.div`
 display: flex;
@@ -111,7 +124,7 @@ padding: 0;
 margin: 0;
 font-size: 12px;
 letter-spacing: -0.02em;
-color: ${p => p.theme.colors.greyIconColor}
+color: ${p => p.theme.colors.greyIconColor};
 
 
 `
@@ -213,7 +226,7 @@ padding:0;
 margin: 0;
 font-size: 12px;
 letter-spacing: -0.02em;
-color:${p => p.theme.colors.greyIconColor}
+color:${p => p.theme.colors.greyIconColor};
 
 `
 

@@ -1,4 +1,4 @@
-import { Formik } from 'formik';
+import { Field, Formik } from 'formik';
 import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../images/icons.svg';
 
@@ -11,6 +11,7 @@ import {
   AddCardContMark,
   AddCardContainer,
   AddCardDate,
+  AddCardDesc,
   AddCardDescription,
   AddCardHeader,
   AddCardLabelColor,
@@ -90,13 +91,17 @@ export const AddCard = ({ onCloseModal }) => {
           <AddCardHeader>Add Card</AddCardHeader>
           <AddCardTextCont>
             <AddCardTitle name="title" placeholder="Title" />
-            <AddCardDescription
+            {/* <Field className='AddCardDesc' as='textarea'name="description"></Field> */}
+            <Field
+            as={AddCardDescription}
               name="description"
-              as="textarea"
+           
               placeholder="Description"
               // value={Formik.values.description}
-              // onChange={Formik.handleChange// Вивести значення у консоль
-              // }
+              // onChange={(e) => {
+              //   AddCardDescription.value = e.target.value;
+              //   console.dir(AddCardDescription.value);
+              // }}
               // onBlur={Formik.handleBlur}
             />
           </AddCardTextCont>
