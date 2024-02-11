@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledUserInfo = styled.div`
-height: 32px;
+  height: 32px;
   padding: 0;
   display: flex;
   gap: ${p => p.theme.spacing(2)};

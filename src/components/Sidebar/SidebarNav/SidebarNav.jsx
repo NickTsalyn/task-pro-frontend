@@ -7,11 +7,10 @@ import { useDispatch } from 'react-redux';
 import sprite from '../../../images/icons.svg';
 import { BoardList } from '../BoardList/BoardList';
 import {
+  ItemsWrapper,
   SidebarWrapper,
-  StyledCreateBtnWrapper,
-  StyledItemWrapper,
+  StyledCreateWrapper,
   StyledLogoutBtn,
- 
   StyledSVGLogout,
   StyledText,
 } from './SidebarNav.styled';
@@ -23,7 +22,7 @@ import { useTranslation } from 'react-i18next';
 export const SidebarNav = () => {
   // ******  модалка для helpapp
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -34,24 +33,24 @@ export const SidebarNav = () => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(logout())
-    
-    navigate('/')
-  }
+    dispatch(logout());
 
-  const {t} = useTranslation('global')
+    navigate('/');
+  };
+
+  const { t } = useTranslation('global');
 
   return (
     <SidebarWrapper>
       <StyledText>{t('screenPage.static.my-boards')}</StyledText>
-      {/* <StyledNavItems> */}
-        <StyledCreateBtnWrapper>
-          <AddBoard />
-        </StyledCreateBtnWrapper>
-        <BoardList />
-      {/* </StyledNavItems> */}
 
-      {/* <StyledItemWrapper> */}
+      <StyledCreateWrapper>
+        <AddBoard />
+      </StyledCreateWrapper>
+
+      <BoardList />
+
+      <ItemsWrapper>
         <HelpApp openModal={openModal} />
         {isModalOpen && <NeedHelpModal onClose={closeModal} />}
 
@@ -61,8 +60,7 @@ export const SidebarNav = () => {
           </StyledSVGLogout>
           {t('screenPage.static.logout')}
         </StyledLogoutBtn>
-      {/* </StyledItemWrapper> */}
-
+      </ItemsWrapper>
     </SidebarWrapper>
   );
 };

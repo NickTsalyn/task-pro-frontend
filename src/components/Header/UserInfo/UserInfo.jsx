@@ -15,27 +15,33 @@ import { selectAvatar, selectUser } from 'redux/auth/selectors';
 Modal.setAppElement('#root');
 
 export const UserInfo = () => {
-// const dispatch = useDispatch();
 
+  const userName = useSelector(selectUser);
+  const userAvatar = useSelector(selectAvatar);
+  const avatarURL = new URL(
+    userAvatar,
+    'https://task-pro-backend-a1c2.onrender.com/public'
+  );
 
-const userName = useSelector(selectUser);
-const userAvatar = useSelector(selectAvatar);
-const avatarURL = new URL(userAvatar, 'https://task-pro-backend-a1c2.onrender.com/public')
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
-const openModal = () => {
-  setIsModalOpen(true);
-};
-
-const closeModal = () => {
-  setIsModalOpen(false);
-};
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <StyledUserInfo>
       <StyledUserName>{userName.name}</StyledUserName>
       <StyledUserBtn type="button" onClick={openModal}>
-        <StyledUserPhoto src={avatarURL} alt="user_photo" width={32} height={32} />
+        <StyledUserPhoto
+          src={avatarURL}
+          alt="user_photo"
+          width={32}
+          height={32}
+        />
       </StyledUserBtn>
 
       <Modal

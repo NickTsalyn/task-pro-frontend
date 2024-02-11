@@ -1,23 +1,49 @@
 import { Header } from 'components/Header/Header';
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import {  ButtonText, HomeWrapper, Text } from './HomePage.styled';
+import {
+  ButtonText,
+  HeaderWrapper,
+  HomeWrapper,
+  Text,
+} from './HomePage.styled';
 import { useTranslation } from 'react-i18next';
+import { Sidebar } from 'components/Sidebar/Sidebar';
 // import { Loader } from 'components/Loader/Loader';
-
-
 
 export default function HomePage() {
   const { t } = useTranslation('global');
 
+  const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1440);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsWideScreen(window.innerWidth >= 1440);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <HomeWrapper>
-      <Header />
-      <Text>{t('screenPage.static.message1')}<ButtonText>{t('screenPage.static.message2')}</ButtonText>{t('screenPage.static.message3')}</Text>
+      {isWideScreen && <Sidebar />}
+      <HeaderWrapper>
+        <Header />
+        <Text>
+          {t('screenPage.static.message1')}
+          <ButtonText>{t('screenPage.static.message2')}</ButtonText>
+          {t('screenPage.static.message3')}
+        </Text>
+      </HeaderWrapper>
+
       {/* <Loader/>            */}
       <Suspense fallback={null}>
-          <Outlet />
-        </Suspense>    
+        <Outlet />
+      </Suspense>
     </HomeWrapper>
   );
 }
