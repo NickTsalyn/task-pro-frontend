@@ -1,28 +1,19 @@
-import { CardListItem } from "components/CardListItem/CardListItem";
+// import { CardListItem } from "components/CardListItem/CardListItem";
 import { ButtonAddCard, CardListStyled, CardListWrapper } from "./CardList.styled";
-import Modal from 'react-modal';
-import { useState } from 'react';
-import { AddCard } from "components/AddCard/AddCard";
+import { useSelector } from "react-redux";
+import { selectTasks } from "redux/tasks/selectors";
+import { TaskCard } from "components/TaskCard/TaskCard";
 
-Modal.setAppElement('#root');
-
-export const CardList = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-const openModal = () => {
-  setIsModalOpen(true);
-};
-
-const closeModal = () => {
-  setIsModalOpen(false);
-};
+export const CardList = ( {columnId} ) => {
+    const tasks = useSelector(selectTasks);
+    const id = state => state.task.column;
+    const filteredTasks = tasks.filter((tasks) => id === columnId);
     return(
         <CardListWrapper>
         <CardListStyled>
-            <CardListItem/>
-            {/* <CardListItem/>
-            <CardListItem/>
-            <CardListItem/>             */}
+            {filteredTasks.map(task => (
+                <TaskCard key={task}/>
+            ))}
         </CardListStyled>
         <ButtonAddCard type="button" onClick = {openModal}>AddAnotherCard</ButtonAddCard>
         <Modal
