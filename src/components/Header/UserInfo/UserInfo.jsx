@@ -34,7 +34,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       </StyledUserBtn>
 
       <Modal
-        // isOpen={isModalOpen}
+        isOpen={isModalOpen}
         onRequestClose={closeModal}
         overlayClassName={'modal-overlay'}
         className={'modal-content'}
