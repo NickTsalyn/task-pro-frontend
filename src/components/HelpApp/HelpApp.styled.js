@@ -5,17 +5,21 @@ import styled from "styled-components";
  display:flex;
  flex-wrap: wrap;
  width: 197px;
-  border: 1px solid #ccc;
+  border: 1px solid #9092D6;
   padding: 14px;
   /* position: relative; */
   background: #9092D6;
   border-radius: 8px;
-
+  
   @media (min-width: 768px) {
-    width: 212px;   
+    width: 212px;  
     padding: 20px;
   }
   `;
+ 
+ 
+  
+
 
 export const HelpImage = styled.img`
   max-width: 54px;
@@ -34,6 +38,7 @@ export const HelpText = styled.p`
   margin-bottom:18px;
   @media (min-width: 768px) {
     font-size: 14px;
+    line-height: 20px;
   };
 `;
 
@@ -63,12 +68,6 @@ export const HelpButton = styled.button`
   color: #FFFFFF;
   `;
   
-  // export const Icon = styled.svg`
-  // width: 20px;
-  // height: 20px;
-  // fill: #161616;
-  // stroke:#161616;
-  // `;
   export const IconContainer = styled.div`
   font-size: 1.7em;
   
@@ -78,10 +77,8 @@ export const HelpButton = styled.button`
   transform: translate(-10%, -10%); 
   `;
 
- export const TaskProLink = styled.a`
+ export const TaskPro = styled.span`
   color: #5255BC; 
-  text-decoration: none;
-  cursor:pointer;
   font-size: 12px;
   line-height: 20px;
   letter-spacing: -0.02em;
@@ -92,5 +89,3 @@ export const HelpButton = styled.button`
 
 `;
 
-  // fill: ${props=>props.theme.colors.white};
-// react icons

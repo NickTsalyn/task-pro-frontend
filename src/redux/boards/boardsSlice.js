@@ -11,7 +11,7 @@ const handleRejected = (state, action) => {
 }
   
 const boardsSlice = createSlice({
-    name: 'contacts',
+    name: 'boards',
     initialState: {
       boards: [],
       isLoading: false,

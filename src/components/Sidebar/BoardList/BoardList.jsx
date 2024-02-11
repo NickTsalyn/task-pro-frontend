@@ -6,8 +6,9 @@ import { selectAllBoards } from 'redux/boards/selectors';
 import { StyledBoardListWrapper } from './BoardList.styled';
 
 export const BoardList = () => {
-  const dispatch = useDispatch();
-  const boards = useSelector(selectAllBoards);
+  const dispatch = useDispatch()
+  const boards = useSelector(selectAllBoards)
+  // console.log(boards);
 
   useEffect(() => {
     dispatch(fetchBoards());

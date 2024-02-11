@@ -34,6 +34,15 @@ export const StyledLogoutBtn = styled.button`
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
+export const StyledSVGPlus = styled.svg`
+  fill: ${p => p.theme.violetColors.accentColor};
+  stroke: rgb(255, 255, 255);
+  /* background-color:white; */
+  width: 20px;
+  height: 20px;
+  padding: 8px 10px;
+`;
+
 export const StyledSVGLogout = styled.svg`
   fill: transparent;
   stroke: white;
@@ -52,5 +61,5 @@ export const ItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 `;

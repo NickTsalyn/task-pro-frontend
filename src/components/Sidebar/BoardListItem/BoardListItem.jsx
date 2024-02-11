@@ -9,14 +9,19 @@ import {
   StyledSVGTrash,
 } from './BoardListItem.styled';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { deleteBoard, editBoard } from 'redux/boards/operations';
+import { useDispatch, useSelector } from "react-redux"
+import { deleteBoard, editBoard, getBoardById } from 'redux/boards/operations';
 import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase';
+import { Link, useParams } from 'react-router-dom';
+import { selectBoardId } from 'redux/columns/selectors';
 
 export const BoardListItem = ({ board, isActive, onClick }) => {
   const dispatch = useDispatch();
   const [isModalOpen, setOpenModal] = useState(false);
 
+  const {boardId} = useParams();
+
+  
   function CloseModal() {
     setOpenModal(false);
   }
@@ -36,16 +41,21 @@ export const BoardListItem = ({ board, isActive, onClick }) => {
   }
 
   return (
+
     <StyledBoardList isActive={isActive} onClick={onClick}>
+      {/* <StyledBoardItem to={`/home/${board._id}`}></StyledBoardItem> */}
       <StyledSVGIcon>
         <use xlinkHref={`${sprite}#${board.iconURL}`}></use>
       </StyledSVGIcon>
-      <StyledBoardItem type="button" isActive={isActive} onClick={onClick}>
-        {board.title}
+      <StyledBoardItem type="button" isActive={isActive} onClick={onClick}
+      // onClick={()=> dispatch(getBoardById(boardId))}
+      >
+       <Link to={`/home/${board._id}`}>{board.title}</Link> 
       </StyledBoardItem>
 
       <StyledBtnWrapper isActive={isActive} onClick={onClick}>
         <StyledBoardListBtn onClick={OpenModal} type="button">
+
           <StyledSVGPensil>
             <use xlinkHref={`${sprite}#icon-pencil-01`}></use>
           </StyledSVGPensil>
