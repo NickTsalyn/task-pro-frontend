@@ -2,13 +2,13 @@ import React from 'react';
 import sprite from '../../../images/icons.svg';
 import '../ColumnModal.css';
 import {
-  // Main,
-  // Section,
   AddColumnTitle,
   AddColumnInput,
   AddColumnBtn,
   IconWhiteWrap,
   StyledSvgDarkPlus,
+  ColumnModalWrapper,
+  ThumbColumnWrapper,
 } from '../../Button/AddColumnButton.styled';
 import '../ColumnModal.css';
 import { ModalCloseButton, StyledSvgClose } from '../ColumnModal.styled';
@@ -19,8 +19,8 @@ export const EditColumnModal = ({ onCloseModal }) => {
   };
 
   return (
-    // <Main>
-    //   <Section>
+    <ColumnModalWrapper>
+      <ThumbColumnWrapper>
         <div>
           <AddColumnTitle>Edit column</AddColumnTitle>
 
@@ -37,7 +37,7 @@ export const EditColumnModal = ({ onCloseModal }) => {
               placeholder="To Do"
               autoFocus
             />
-            <AddColumnBtn type="submit">
+            <AddColumnBtn type="submit" onClick={onCloseModal}>
               <IconWhiteWrap>
                 <StyledSvgDarkPlus>
                   <use xlinkHref={`${sprite}#icon-plus`}></use>
@@ -47,7 +47,7 @@ export const EditColumnModal = ({ onCloseModal }) => {
             </AddColumnBtn>
           </form>
         </div>
-    //   </Section>
-    // </Main>
+      </ThumbColumnWrapper>
+    </ColumnModalWrapper>
   );
 };

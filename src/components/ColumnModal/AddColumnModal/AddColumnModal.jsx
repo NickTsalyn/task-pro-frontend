@@ -1,16 +1,19 @@
 import React from 'react';
 import sprite from '../../../images/icons.svg';
-// import { Main, Section } from '../../Button/AddColumnButton.styled';
 import '../ColumnModal.css';
 import {
-  ModalCloseButton,
-  StyledSvgClose,
+  // ModalCloseButton,
+  // StyledSvgClose,
   AddColumnTitle,
   AddColumnInput,
   AddColumnBtn,
   IconWhiteWrap,
   StyledSvgDarkPlus,
-} from '../ColumnModal.styled';
+  ColumnModalWrapper,
+  ThumbColumnWrapper,
+} from '../../Button/AddColumnButton.styled';
+
+import {ModalCloseButton, StyledSvgClose } from '../ColumnModal.styled';
 
 export const AddColumnModal = ({ onCloseModal }) => {
   const handlerTitleColumn = evt => {
@@ -18,8 +21,8 @@ export const AddColumnModal = ({ onCloseModal }) => {
   };
 
   return (
-    // <Main>
-    //   <Section>
+    <ColumnModalWrapper>
+      <ThumbColumnWrapper>
         <div>
           <AddColumnTitle>Add column</AddColumnTitle>
 
@@ -37,7 +40,7 @@ export const AddColumnModal = ({ onCloseModal }) => {
               autoFocus
             />
 
-            <AddColumnBtn type="submit">
+            <AddColumnBtn type="submit" onClick={onCloseModal}>
               <IconWhiteWrap>
                 <StyledSvgDarkPlus>
                   <use xlinkHref={`${sprite}#icon-plus`}></use>
@@ -47,7 +50,7 @@ export const AddColumnModal = ({ onCloseModal }) => {
             </AddColumnBtn>
           </form>
         </div>
-    //   </Section>
-    // </Main>
+      </ThumbColumnWrapper>
+    </ColumnModalWrapper>
   );
 };

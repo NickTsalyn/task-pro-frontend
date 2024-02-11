@@ -3,21 +3,16 @@ import Modal from 'react-modal';
 import sprite from '../../images/icons.svg';
 import '../../components/ColumnModal/ColumnModal.css';
 import {
-  // Main,
   ModalShowButton,
   IconVioletWrap,
   StyledSvgWhitePlus,
+  ColumnModalWrapper,
 } from '../Button/AddColumnButton.styled';
 import { EditColumnModal } from '../../components/ColumnModal/EditColumnModal/EditColumnModal';
 
 Modal.setAppElement('#root');
 
-export const EditColumnButton = ({
-  isOpen,
-  onClose,
-  submitButton,
-  children,
-}) => {
+export const EditColumnButton = () => {
   const [modalEditColumnIsOpen, setModalEditColumnIsOpen] = useState(false);
 
   const openModal = () => {
@@ -29,7 +24,7 @@ export const EditColumnButton = ({
   };
 
   return (
-    // <Main>
+    <ColumnModalWrapper>
       <ModalShowButton type="button" onClick={openModal}>
         <IconVioletWrap>
           <StyledSvgWhitePlus>
@@ -49,6 +44,6 @@ export const EditColumnButton = ({
       >
         <EditColumnModal onCloseModal={closeModal} />
       </Modal>
-    // </Main>
+    </ColumnModalWrapper>
   );
 };
