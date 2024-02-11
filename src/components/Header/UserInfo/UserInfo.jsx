@@ -15,20 +15,17 @@ import '../../EditProfileModal/EditModal.css';
 Modal.setAppElement('#root');
 
 export const UserInfo = () => {
-// const dispatch = useDispatch();
 
 const userName = useSelector(state => state.auth.user);
-
-
 const [isModalOpen, setIsModalOpen] = useState(false);
 
-const openModal = () => {
-  setIsModalOpen(true);
-};
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
-const closeModal = () => {
-  setIsModalOpen(false);
-};
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <StyledUserInfo>
       <StyledUserName>{userName.name}</StyledUserName>
@@ -37,7 +34,7 @@ const closeModal = () => {
       </StyledUserBtn>
 
       <Modal
-        isOpen={isModalOpen}
+        // isOpen={isModalOpen}
         onRequestClose={closeModal}
         overlayClassName={'modal-overlay'}
         className={'modal-content'}
