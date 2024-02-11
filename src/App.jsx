@@ -22,9 +22,11 @@ const AuthPage = lazy(() => import('./Pages/AuthPage.jsx'));
 // const HomePage = lazy(() => import('./Pages/HomePage.jsx'));
 const ScreensPage = lazy(() => import('./Pages/ScreensPage'));
 
-export const App = () => {
+export const App = () => {return (
   // <AddColumnButton />
-  <EditColumnModal />
+  <EditColumnButton />
+);
+ 
  
   // const dispatch = useDispatch();
   // const { isRefreshing } = useAuth();
