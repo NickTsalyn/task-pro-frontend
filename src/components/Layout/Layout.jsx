@@ -5,8 +5,10 @@ import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledLayout = styled.div`
-  min-height: 100vh;
+  min-height: 100%;
+  max-width: 1440px;
   margin: 0 auto;
+  overflow: hidden;
   /* background: linear-gradient(
     180deg,
     rgba(196, 196, 196, 0) 25%,

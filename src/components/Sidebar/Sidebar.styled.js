@@ -4,9 +4,9 @@ export const StyledSidebar = styled.aside`
 width: 225px;
 background-color: ${p => p.theme.violetColors.accentColor};
 padding: 14px;
-height: 100vh;
+/* height: 100%; */
 z-index: 100;
-position: absolute;
+/* position: absolute; */
 left: 0;
 
   /* max-width: 335px;

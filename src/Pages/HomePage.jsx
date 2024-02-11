@@ -1,16 +1,17 @@
 import { Header } from 'components/Header/Header';
 import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import {  
-  // ButtonText, 
+import {
+  // ButtonText,
   HomeWrapper,
-  //  Text 
-  } from './HomePage.styled';
+  //  Text
+} from './HomePage.styled';
 // import { useTranslation } from 'react-i18next';
 // import { useSelector } from 'react-redux';
 // import { selectAllBoards } from 'redux/boards/selectors';
 
 import ScreensPage from './ScreensPage';
+import { Sidebar } from 'components/Sidebar/Sidebar';
 
 export default function HomePage() {
   // const { t } = useTranslation('global');
@@ -18,12 +19,13 @@ export default function HomePage() {
 
   return (
     <HomeWrapper>
-      <Header />
+      <Sidebar/>
+      {/* <Header /> */}
       {/* {!boards.length && 
       <Text>{t('screenPage.static.message1')}
       <ButtonText>{t('screenPage.static.message2')}</ButtonText>
       {t('screenPage.static.message3')}</Text>} */}
-      <ScreensPage/>
+      <ScreensPage />
       {/* <Suspense fallback={null}>
           <Outlet />
         </Suspense>     */}

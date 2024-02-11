@@ -49,7 +49,7 @@ export const HeaderDashboard = () => {
   };
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative', width: '100%' }}>
       <h3>{projectName}</h3>
       <button
         onClick={handleOpen}
