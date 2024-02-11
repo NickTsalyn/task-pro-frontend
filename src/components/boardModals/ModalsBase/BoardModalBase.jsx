@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import sprite from 'images/icons.svg'
 import { StyledModal, Form, CloseButton, CloseSVG, BigHeader, TitleInput, SmallHeader, List, Radio, IconSVG, Pic, SubmitButton } from './BoardModalBase.styled'
-import './BoardModalBase.css'
 
 export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, SubmitForm }) => {
     const [title, setTitle] = useState(info.title)
