@@ -1,8 +1,9 @@
-import { BoardListItem } from "../BoardListItem/BoardListItem"
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchBoards } from "redux/boards/operations"
-import { selectAllBoards } from "redux/boards/selectors"
+import { BoardListItem } from '../BoardListItem/BoardListItem';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchBoards } from 'redux/boards/operations';
+import { selectAllBoards } from 'redux/boards/selectors';
+import { StyledBoardListWrapper } from './BoardList.styled';
 
 export const BoardList = () => {
   const dispatch = useDispatch()
@@ -10,20 +11,31 @@ export const BoardList = () => {
   // console.log(boards);
 
   useEffect(() => {
-    dispatch(fetchBoards())
-  }, [dispatch])
-  
+    dispatch(fetchBoards());
+  }, [dispatch]);
+
+  const [activeItem, setActiveItem] = useState(null);
+
+  const handleBoardClick = board => {
+    setActiveItem(board);
+  };
   return (
     <>
-    {boards.length > 0 && (
-      <ul>
-        {boards.map(board => (
-          <li key={board._id}>
-            <BoardListItem board={board} />
-           </li>
-        ))}
-      </ul>
-    )}
+      {boards.length > 0 && (
+        <StyledBoardListWrapper>
+          {boards.map(board => (
+            <li
+              key={board._id}
+              >
+              <BoardListItem
+                board={board}
+                isActive={board === activeItem}
+                onClick={() => handleBoardClick(board)}
+              />
+            </li>
+          ))}
+        </StyledBoardListWrapper>
+      )}
     </>
-  )
-}
+  );
+};

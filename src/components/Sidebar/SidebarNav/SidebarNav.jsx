@@ -1,50 +1,48 @@
 // needhelp
-import HelpApp from "components/HelpApp/HelpApp.jsx"
-
+// import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import sprite from '../../../images/icons.svg';
 import { BoardList } from '../BoardList/BoardList';
 import {
-  StyledCreateBtn,
-  StyledCreateBtnIconWrapper,
-  StyledCreateBtnWrapper,
+  ItemsWrapper,
+  SidebarWrapper,
+  StyledCreateWrapper,
   StyledLogoutBtn,
   StyledSVGLogout,
-  StyledSVGPlus,
   StyledText,
 } from './SidebarNav.styled';
 import { logout } from 'redux/auth/operations';
+import { AddBoard } from 'components/boardModals/addBoard';
+import HelpApp from 'components/HelpApp/HelpApp.jsx';
 
 export const SidebarNav = () => {
   const dispatch = useDispatch();
+const navigate = useNavigate()
 
+  const handleClick = () => {
+    dispatch(logout());
+    navigate('/');
+  };
+
+  const { t } = useTranslation('global');
   return (
-    <div>
-      <StyledText>My boards</StyledText>
-
-      <StyledCreateBtnWrapper>
-        {' '}
-        <StyledCreateBtn>
-          Create a new board
-          <StyledCreateBtnIconWrapper>
-            <StyledSVGPlus>
-              <use xlinkHref={`${sprite}#icon-plus`}></use>
-            </StyledSVGPlus>
-          </StyledCreateBtnIconWrapper>
-        </StyledCreateBtn>
-      </StyledCreateBtnWrapper>
-
+    <SidebarWrapper>
+      <StyledText>{t('screenPage.static.my-boards')}</StyledText>
+      <StyledCreateWrapper>
+        <AddBoard />
+      </StyledCreateWrapper>
       <BoardList />
-
-      {/* <NeedHelp/> */}
-      <HelpApp />
-
-      <StyledLogoutBtn type="button" onClick={() => dispatch(logout())}>
-        <StyledSVGLogout>
-          <use xlinkHref={`${sprite}#icon-login`}></use>
-        </StyledSVGLogout>
-        Log out
-      </StyledLogoutBtn>
-    </div>
+      <ItemsWrapper>
+        <HelpApp />
+        <StyledLogoutBtn type="button" onClick={handleClick}>
+          <StyledSVGLogout>
+            <use xlinkHref={`${sprite}#icon-login`}></use>
+          </StyledSVGLogout>
+          {t('screenPage.static.logout')}
+        </StyledLogoutBtn>
+      </ItemsWrapper>
+    </SidebarWrapper>
   );
 };
