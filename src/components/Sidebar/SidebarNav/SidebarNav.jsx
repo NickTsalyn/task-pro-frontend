@@ -4,6 +4,7 @@ import HelpApp from "components/HelpApp/HelpApp.jsx"
 import { useDispatch } from 'react-redux';
 import sprite from '../../../images/icons.svg';
 import { BoardList } from '../BoardList/BoardList';
+import { AddBoard } from "components/boardModals/addBoard";
 import {
   StyledCreateBtn,
   StyledCreateBtnIconWrapper,
@@ -24,14 +25,7 @@ export const SidebarNav = () => {
 
       <StyledCreateBtnWrapper>
         {' '}
-        <StyledCreateBtn>
-          Create a new board
-          <StyledCreateBtnIconWrapper>
-            <StyledSVGPlus>
-              <use xlinkHref={`${sprite}#icon-plus`}></use>
-            </StyledSVGPlus>
-          </StyledCreateBtnIconWrapper>
-        </StyledCreateBtn>
+        <AddBoard />
       </StyledCreateBtnWrapper>
 
       <BoardList />
