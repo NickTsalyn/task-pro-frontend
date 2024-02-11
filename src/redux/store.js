@@ -12,10 +12,10 @@ import {
 } from 'redux-persist';
 import { authReducer } from './auth/slice';
 import { userReducer } from './user/userSlice';
-import { projectReducer } from './project/projectSlice';
-import { boardsReducer } from './boards/boardsSlice'
+import { filtersReducer } from './filters/filtersSlice';
+import { boardsReducer } from './boards/boardsSlice';
 
-import { columnReducer} from './columns/slice'
+import { columnReducer } from './columns/slice';
 
 const persistConfig = {
   key: 'auth',
@@ -29,7 +29,7 @@ export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     user: userReducer,
-    project: projectReducer,
+    filters: filtersReducer,
     boards: boardsReducer,
     columns: columnReducer,
   },
