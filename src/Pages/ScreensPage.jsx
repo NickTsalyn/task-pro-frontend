@@ -27,13 +27,14 @@ export default function ScreensPage() {
   const boards = useSelector(selectAllBoards);
   const columns = useSelector(selectColumns); //приходить масив колонок;
   const filteredColumns = columns.filter(column => column.board === boardId);
-  console.log(boards);
   // console.log(filteredColumns);
-
+  let project = [];
+  if (boardId) {
+    project = boards.find(board => board._id === boardId);
+  }
   return (
     <ScreensPageWrapper>
-      <HeaderDashboard />
-
+      <HeaderDashboard project={project} />
       {boards.length === 0 ? (
         <Text>
           {t('screenPage.static.message1')}

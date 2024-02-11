@@ -2,6 +2,15 @@ import styled from 'styled-components';
 import { Form } from 'formik';
 import { getTheme } from '../../components/themes';
 
+export const ProjectName = styled.div`
+  color: ${p => getTheme(p.theme.selectedTheme).mainText};
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  margin-left: 24px;
+  margin-top: 10px;
+`;
+
 export const Button = styled.button`
   position: absolute;
   display: inline-flex;
@@ -14,18 +23,24 @@ export const Button = styled.button`
   outline: none;
   top: 14px;
   right: 24px;
+
+  &:hover {
+    opacity: 0.8;
+    scale: 1.2;
+  }
 `;
 
 export const Icon = styled.svg`
+  stroke: ${p => getTheme(p.theme.selectedTheme).grayText};
   width: 16px;
   height: 16px;
-  stroke: ${p => getTheme(p.theme.selectedTheme).grayText};
+  stroke-width: 1.5px;
   transition: all 250ms linear;
   fill: transparent;
 `;
 
 export const Text = styled.span`
-  color: ${p => getTheme(p.theme.selectedTheme).btnPlusStroke};
+  color: ${p => getTheme(p.theme.selectedTheme).grayText};
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02px;
@@ -46,7 +61,7 @@ export const CloseModal = styled.svg`
   height: 18px;
   cursor: pointer;
   transition: all 250ms linear;
-  stroke: rgba(22, 22, 22, 0.8);
+  stroke: ${p => getTheme(p.theme.selectedTheme).plusIconFill};
   stroke-width: 1.5px;
 
   &:hover {
@@ -56,7 +71,7 @@ export const CloseModal = styled.svg`
 `;
 
 export const SectionTitle = styled.h4`
-  color: ${p => getTheme(p.theme.selectedTheme).btnPlusStroke};
+  color: ${p => getTheme(p.theme.selectedTheme).mainText};
   font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -71,19 +86,25 @@ export const FormWraper = styled.div`
 `;
 
 export const FormTitle = styled.span`
+  color: ${p => getTheme(p.theme.selectedTheme).mainText};
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.02em;
 `;
 
 export const ShowAllLabel = styled.p`
+  color: ${p => getTheme(p.theme.selectedTheme).grayText};
   font-weight: 400;
   font-size: 12px;
   letter-spacing: -0.02em;
   text-decoration-line: underline;
   cursor: pointer;
   text-decoration-skip-ink: none;
-  color: ${p => getTheme(p.theme.selectedTheme).grayText};
+
+  &:hover {
+    opacity: 0.8;
+    scale: 1.2;
+  }
 `;
 
 export const RadioBtnWrapper = styled(Form)`

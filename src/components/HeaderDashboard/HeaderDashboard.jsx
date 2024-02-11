@@ -6,6 +6,7 @@ import {
   FormTitle,
   FormWraper,
   Icon,
+  ProjectName,
   Section,
   SectionTitle,
   ShowAllLabel,
@@ -17,7 +18,8 @@ import { showAll } from 'redux/filters/filtersSlice';
 import { getTheme } from '../../components/themes';
 import PriorityCheckboxForm from './ui/PriorityCheckboxForm';
 
-export const HeaderDashboard = () => {
+export const HeaderDashboard = ({ project }) => {
+  console.log('project', project);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -40,6 +42,7 @@ export const HeaderDashboard = () => {
 
   return (
     <>
+      <ProjectName>{project?.title}</ProjectName>
       <Button onClick={handleOpen}>
         <Icon>
           <use xlinkHref={`${sprite}#icon-filter`}></use>
