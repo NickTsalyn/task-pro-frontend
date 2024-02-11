@@ -7,6 +7,7 @@ import {
   refreshUser,
   logout,
   updateAvatar,
+  forgetPassword,
   changeTheme,
 } from './operations';
 
@@ -66,6 +67,8 @@ const authSlice = createSlice({
     },
     [logout.pending](state) {
       state.isLoading = true;
+      state.isError = false;
+      state.errorMessage = null;
     },
     [logout.fulfilled](state) {
       state.isLoading = false;
@@ -75,11 +78,11 @@ const authSlice = createSlice({
     },
     [logout.rejected](state, action) {
       state.isError = true;
-      state.errorMessage = action.payload;
-      toast.error(state.errorMessage);
     },
     [refreshUser.pending](state) {
       state.isRefreshing = true;
+      state.isError = false;
+      state.errorMessage = null;
     },
     [refreshUser.fulfilled](state, action) {
       state.user = action.payload;
@@ -103,6 +106,19 @@ const authSlice = createSlice({
       state.isError = true;
       state.errorMessage = action.payload;
       toast.error(state.errorMessage);
+    },
+    [forgetPassword.pending](state) {
+      state.isLoading = true;
+      state.isError = false;
+      state.errorMessage = null;
+    },
+    [forgetPassword.fulfilled](state) {
+      state.isLoading = false;
+    },
+    [forgetPassword.rejected](state, action) {
+      state.isLoading = false;
+      state.isError = true;
+      state.errorMessage = action.payload;
     },
     [changeTheme.fulfilled](state, action) {
       //ЗМІНА ТЕМИ

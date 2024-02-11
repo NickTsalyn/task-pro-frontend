@@ -1,5 +1,6 @@
+import { Outlet, useParams } from 'react-router-dom';
+import { Suspense } from 'react';
 import { useParams } from 'react-router-dom';
-
 import RegisterForm from 'components/Register/RegisterForm';
 import {
   AuthLinks,
@@ -9,6 +10,8 @@ import {
 } from './Auth.styled';
 import { LogInForm } from 'components/LogInForm/LogInForm';
 import { useTranslation } from 'react-i18next';
+
+import { ForgetPassword } from 'components/ForgetPassword/ForgetPassword';
 
 const Auth = () => {
   const { id } = useParams();
@@ -27,6 +30,11 @@ const Auth = () => {
         </LinkWrapper>
         {id === 'login' && <LogInForm />}
         {id === 'register' && <RegisterForm />}
+        {id === 'forgetPassword' && <ForgetPassword />}
+
+        <Suspense fallback={<>Login...</>}>
+          <Outlet />
+        </Suspense>
       </FormContainer>
     </WelcomeWrapper>
   );

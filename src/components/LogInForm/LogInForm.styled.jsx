@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Field, Form, ErrorMessage } from 'formik';
+import { NavLink } from 'react-router-dom';
 
 export const StyledSVG = styled.svg`
   stroke: ${p => p.theme.colors.greyTextColor};
@@ -14,7 +15,17 @@ export const StyledSVG = styled.svg`
     opacity: 1;
   }
 `;
+export const StyledSVGButton = styled.button`
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 10px;
+  right: 18px;
 
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
 export const FormContainer = styled(Form)`
   display: flex;
   flex-direction: column;
@@ -50,17 +61,7 @@ export const StyledInput = styled(Field)`
     opacity: 1;
   }
 `;
-export const StyledSVGButton = styled.button`
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  bottom: 10px;
-  right: 18px;
 
-  background: none;
-  border: none;
-  cursor: pointer;
-`;
 export const LogInBtn = styled.button`
   width: 100%;
   padding-top: ${p => p.theme.spacing(3.5)};
@@ -93,4 +94,8 @@ export const StyledInputContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+`;
+
+export const StyledLink = styled(NavLink)`
+  color: ${p => p.theme.colors.lightGreen};
 `;

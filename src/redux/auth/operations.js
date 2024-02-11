@@ -89,6 +89,17 @@ export const updateAvatar = createAsyncThunk(
     }
   }
 );
+// ВІДНОВЛЕННЯ ПАРОЛЮ
+export const forgetPassword = createAsyncThunk(
+  'auth/forgetPassword',
+  async (credentials, thunkAPI) => {
+    try {
+      await axios.post('api/users/forgetPassword', credentials);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  }
+);
 //ЗМІНА ТЕМИ
 export const changeTheme = createAsyncThunk(
   'auth/theme',
@@ -97,11 +108,11 @@ export const changeTheme = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
-        return thunkAPI.rejectWithValue('Unable to fetch user');
+      return thunkAPI.rejectWithValue('Unable to fetch user');
     }
     try {
       setAuthHeader(persistedToken);
-      const response = await axios.patch('/users/theme', {theme});
+      const response = await axios.patch('/users/theme', { theme });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
