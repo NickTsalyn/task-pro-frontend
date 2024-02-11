@@ -4,7 +4,7 @@ import {
   addColumn,
   deleteColumn,
   editColumn,
-  getColumsById
+  // getColumsById
 } from './operations';
 
 const handlePending = state => {
