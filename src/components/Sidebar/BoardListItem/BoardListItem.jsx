@@ -1,5 +1,13 @@
 import sprite from '../../../images/icons.svg';
-import { StyledBoardItem, StyledBoardList, StyledBoardListdBtn, StyledBtnWrapper, StyledSVGIcon, StyledSVGPensil, StyledSVGTrash } from './BoardListItem.styled';
+import {
+  StyledBoardItem,
+  StyledBoardList,
+  StyledBoardListBtn,
+  StyledBtnWrapper,
+  StyledSVGIcon,
+  StyledSVGPensil,
+  StyledSVGTrash,
+} from './BoardListItem.styled';
 import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux"
 import { deleteBoard, editBoard, getBoardById } from 'redux/boards/operations';
@@ -7,7 +15,7 @@ import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase
 import { Link, useParams } from 'react-router-dom';
 import { selectBoardId } from 'redux/columns/selectors';
 
-export const BoardListItem = ({ board }) => {
+export const BoardListItem = ({ board, isActive, onClick }) => {
   const dispatch = useDispatch();
   const [isModalOpen, setOpenModal] = useState(false);
 
@@ -23,37 +31,41 @@ export const BoardListItem = ({ board }) => {
   }
 
   function SubmitForm(info) {
-    const { _id } = board
-    dispatch(editBoard({ _id, info }))
+    const { _id } = board;
+    dispatch(editBoard({ _id, info }));
     setOpenModal(false);
   }
 
   function HandleDelete() {
-    dispatch(deleteBoard(board._id))
+    dispatch(deleteBoard(board._id));
   }
-  
+
   return (
-    <StyledBoardList>
+
+    <StyledBoardList isActive={isActive} onClick={onClick}>
       {/* <StyledBoardItem to={`/home/${board._id}`}></StyledBoardItem> */}
-      <StyledSVGIcon><use xlinkHref={`${sprite}#${board.iconURL}`}></use></StyledSVGIcon>
-      <StyledBoardItem type='button' 
+      <StyledSVGIcon>
+        <use xlinkHref={`${sprite}#${board.iconURL}`}></use>
+      </StyledSVGIcon>
+      <StyledBoardItem type="button" isActive={isActive} onClick={onClick}
       // onClick={()=> dispatch(getBoardById(boardId))}
-      >        
-        <Link to={`/home/${board._id}`}>{board.title}</Link>
+      >
+       <Link to={`/home/${board._id}`}>{board.title}</Link> 
       </StyledBoardItem>
 
-      <StyledBtnWrapper> 
-        <StyledBoardListdBtn onClick={OpenModal} type='button'>
+      <StyledBtnWrapper isActive={isActive} onClick={onClick}>
+        <StyledBoardListBtn onClick={OpenModal} type="button">
+
           <StyledSVGPensil>
             <use xlinkHref={`${sprite}#icon-pencil-01`}></use>
           </StyledSVGPensil>
-        </StyledBoardListdBtn>
+        </StyledBoardListBtn>
 
-        <StyledBoardListdBtn onClick={HandleDelete} type='button'>
+        <StyledBoardListBtn onClick={HandleDelete} type="button">
           <StyledSVGTrash>
             <use xlinkHref={`${sprite}#icon-trash-04`}></use>
           </StyledSVGTrash>
-        </StyledBoardListdBtn>
+        </StyledBoardListBtn>
       </StyledBtnWrapper>
 
       <BoardModalBase
@@ -63,6 +75,6 @@ export const BoardListItem = ({ board }) => {
         action={'edit'}
         SubmitForm={SubmitForm}
       />
-      </StyledBoardList>
-  )
-}
+    </StyledBoardList>
+  );
+};

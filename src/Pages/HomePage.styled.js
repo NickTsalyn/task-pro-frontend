@@ -1,11 +1,23 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const HomeWrapper = styled.div`
   min-height: 100vh;
+  width: 320px;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+   width: 768px;
+
+  }
+
+  @media screen and (min-width: 1440px) {
+ width: 1180px;
+  }
 `;
 
-export const Text = styled.p`  
+export const Text = styled.p`
   margin: 258px 20px 0;
   font-size: 12px;
   line-height: 1.3;
@@ -15,12 +27,12 @@ export const Text = styled.p`
 
   @media only screen and (min-width: 375px) and (max-width: 768px) {
     margin: 258px auto 0;
-    max-width: 335px;    
+    max-width: 335px;
   }
   @media only screen and (min-width: 768px) {
     margin: 368px auto 0;
-    max-width:486px;
-    font-size: 14px;    
+    max-width: 486px;
+    font-size: 14px;
   }
   @media only screen and (min-width: 1440px) {
     margin: 247px auto 0; 
@@ -28,14 +40,19 @@ export const Text = styled.p`
   }
 `;
 
-export const ButtonText= styled.button`
-    padding: 0;
-    font-size: 12px;
-    border :none;
-    background-color: inherit;
-    color: ${p => p.theme.violetColors.accentColor};
+export const ButtonText = styled.button`
+  padding: 0;
+  font-size: 12px;
+  border: none;
+  background-color: inherit;
+  color: ${p => p.theme.violetColors.accentColor};
 
-    @media only screen and (min-width: 768px) {      
-      font-size: 14px;
-    }
+  @media only screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+`;
+
+export const HeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
