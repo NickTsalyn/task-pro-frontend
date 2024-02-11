@@ -1,6 +1,8 @@
 
 import sprite from '../../images/icons.svg';
-
+import Modal from 'react-modal';
+import { useState } from 'react';
+// import { deleteColumn, editColumn } from '../../redux/columns/operations';
 import {
   ColumnHeader,
   ColumnTitle,
@@ -11,8 +13,20 @@ import {
 } from './ColumnListItem.styled';
 
 
-
+import { AddColumnButton } from 'components/Button/AddColumnButton';
+import { AddCard } from 'components/AddCard/AddCard';
+// import { useDispatch } from 'react-redux';
+Modal.setAppElement('#root');
 export const ColumnListItem = ({column: { _id, title}}) => {    
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   
   
   // const dispatch = useDispatch();
@@ -43,8 +57,20 @@ export const ColumnListItem = ({column: { _id, title}}) => {
             </EditButton>
           </EditBlock>
          </ColumnHeader>          
-            {/* <CardList columnId={_id}/> */}
-            {/* <ButtonAddCard/> */}
+            {/* <CardList columnId={id}/> */}
+            {/* <AddColumnButton/> */}
+            <button  onClick={openModal}>AddAnotherCard</button>  
+
+
+            <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        overlayClassName={'modal-overlay'}
+        className={'modal-content'}
+        closeTimeoutMS={300}
+      >
+        <AddCard onCloseModal={closeModal} />
+      </Modal> 
         </ColumnWrapper>      
       );
 
@@ -91,9 +117,18 @@ export const ColumnListItem = ({column: { _id, title}}) => {
 //       {/* {columns.map(column =>
 //             <li key={column.id}> */}
 //       <CardList />
-//       {/* <button>ButtonAddAnotherCard</button>                  */}
+//       {/* <button  onClick={openModal}>ButtonAddAnotherCard</button>                  */}
 //       {/* </li>
 //           ) }   */}
+ {/* <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        overlayClassName={'modal-overlay'}
+        className={'modal-content'}
+        closeTimeoutMS={300}
+      >
+        <AddCard onCloseModal={closeModal} />
+      </Modal> */}
 //     </ColumnWrapper>
 //   );
 
