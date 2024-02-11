@@ -112,7 +112,7 @@ export const IconSVG = styled.svg`
     height: 18px;
 `
 
-export const FuturePic = styled.span`
+export const Pic = styled.span`
     display: inline-block;
     vertical-align: middle;
     background-color: ${props => props.theme.colors.shadowColor};
