@@ -1,8 +1,25 @@
 import sprite from '../../images/icons.svg';
 import { useState } from 'react';
 import {
+  Button,
+  CheckboxContainer,
+  CloseModal,
+  FieldCheckbox,
   // DefaultRadioBtn,
   FilterSVG,
+  FormStyle,
+  FormTitle,
+  FormWraper,
+  H4Text,
+  Icon,
+  // InputRadio,
+  // LabelRadio,
+  RadioBtnWrapper,
+  Section,
+  SectionTitle,
+  ShowAllLabel,
+  Text,
+  // WraperInput,
   // Icon,
   // Label,
   // LabelItem,
@@ -13,19 +30,19 @@ import {
 import { Field, Form, Formik } from 'formik';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { showAll, togglePriority } from 'redux/project/projectSlice';
+import { showAll, togglePriority } from 'redux/filters/filtersSlice';
+import { getTheme } from '../../components/themes';
 const options = ['without', 'low', 'medium', 'high'];
 
 export const HeaderDashboard = () => {
   const dispatch = useDispatch();
-  const projectName = useSelector(state => state.project.projectName);
-  const filtersPriority = useSelector(state => state.project.filtersPriority);
-  // togglePriority;
   const [open, setOpen] = useState(false);
-  // const [selectedLabel, setSelectedLabel] = useState('');
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  // імпортувати назву проекта
+  const theme = getTheme();
+  const filtersPriority = useSelector(state => state.filters.filtersPriority);
+  console.log(filtersPriority);
+
   const customStyles = {
     content: {
       width: '300px',
@@ -36,7 +53,7 @@ export const HeaderDashboard = () => {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      backgroundColor: '#121212',
+      backgroundColor: `${theme.headerBgn}`,
     },
   };
 
@@ -49,84 +66,63 @@ export const HeaderDashboard = () => {
   };
 
   return (
-    <div style={{ position: 'relative' }}>
-      <h3>{projectName}</h3>
-      <button
-        onClick={handleOpen}
-        style={{
-          position: 'absolute',
-          top: '14px',
-          right: '24px',
-          display: 'flex',
-          gap: '8px',
-          background: 'none',
-          border: 'none',
-        }}
-      >
-        <FilterSVG>
+    <>
+      <Button onClick={handleOpen}>
+        <Icon>
           <use xlinkHref={`${sprite}#icon-filter`}></use>
-        </FilterSVG>
-        <span>Filter</span>
-      </button>
+        </Icon>
+        <Text>Filters</Text>
+      </Button>
       <Modal
         isOpen={open}
         onRequestClose={handleClose}
         style={customStyles}
         appElement={document.getElementById('root')}
       >
-        <div
-          style={{
-            position: 'relative',
-            padding: '24px',
-            display: 'flex',
-            flexDirection: 'column',
-          }}
-        >
-          <button
-            onClick={handleClose}
-            style={{ position: 'absolute', top: '14px', right: '14px' }}
-          >
-            X
-          </button>
-          <div style={{ color: 'white' }}>
-            <h4
-              style={{ borderBottom: '1px solid white', paddingBottom: '14px' }}
-            >
-              Filters
-            </h4>
-            <div
-              style={{
-                margin: '14px 0',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
-              <span>Label color</span>
-              <button onClick={() => dispatch(showAll())}>Show all</button>
-            </div>
+        <Section>
+          <CloseModal onClick={handleClose} type="button">
+            <use xlinkHref={`${sprite}#icon-x-close`}></use>
+          </CloseModal>
+          <div>
+            <SectionTitle>Filters</SectionTitle>
+            <FormWraper>
+              <FormTitle>Label color</FormTitle>
+              <ShowAllLabel
+                onClick={() => {
+                  console.log('Click');
+                  dispatch(showAll());
+                }}
+              >
+                Show all
+              </ShowAllLabel>
+            </FormWraper>
+
             <Formik initialValues={initialValues}>
-              <Form>
-                {options.map((el, idx) => (
-                  <div key={idx}>
-                    <label>
-                      <Field
-                        type="checkbox"
-                        checked={isCheked(el)}
-                        name="options"
-                        onChange={e => dispatch(togglePriority(e.target.value))}
-                        value={el}
-                      />
+              <RadioBtnWrapper>
+                {options.map(el => (
+                  <CheckboxContainer
+                    onChange={e => {
+                      console.log(e.target.id);
+                      dispatch(togglePriority(e.target.id));
+                    }}
+                  >
+                    <input
+                      id={el}
+                      name="radio"
+                      defaultChecked={isCheked(el)}
+                      type="checkbox"
+                    />
+                    <label htmlFor={el} className="radio-label">
                       {el}
                     </label>
-                  </div>
+                  </CheckboxContainer>
                 ))}
-              </Form>
+              </RadioBtnWrapper>
             </Formik>
           </div>
-        </div>
+        </Section>
       </Modal>
-    </div>
+    </>
   );
 };
 

@@ -8,8 +8,7 @@ import { refreshUser } from 'redux/auth/operations';
 import { PrivateRoute } from 'components/PrivateRoute';
 import { RestrictedRoute } from 'components/RestrictedRoute';
 import { Layout } from 'components/Layout/Layout';
-import { LogInForm } from 'components/LogInForm/LogInForm';
-import RegisterForm from 'components/Register/RegisterForm';
+
 import { Loader } from 'components/Loader/Loader';
 
 import HomePage from 'Pages/HomePage';
@@ -37,10 +36,7 @@ export const App = () => {
           element={
             <RestrictedRoute redirectTo="/home" component={<AuthPage />} />
           }
-        >
-          <Route path="register" element={<RegisterForm />} />
-          <Route path="login" element={<LogInForm />} />
-        </Route>
+        />
       </Route>
       <Route
         path="/home"

@@ -1,5 +1,12 @@
 import sprite from '../../../images/icons.svg';
-import { StyledBoardItem, StyledBoardList, StyledBoardListdBtn, StyledBtnWrapper, StyledSVGPensil,  StyledSVGTrash,  } from './BoardListItem.styled';
+import {
+  StyledBoardItem,
+  StyledBoardList,
+  StyledBoardListdBtn,
+  StyledBtnWrapper,
+  StyledSVGPensil,
+  StyledSVGTrash,
+} from './BoardListItem.styled';
 import { useState } from 'react';
 import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase';
 
@@ -20,25 +27,22 @@ export const BoardListItem = ({ board }) => {
   }
 
   return (
-        <StyledBoardList>
-      
-       <StyledBoardItem type='button'>{board.title}</StyledBoardItem>
+    <StyledBoardList>
+      <StyledBoardItem type="button">{board.title}</StyledBoardItem>
 
-       <StyledBtnWrapper> 
-
-        <StyledBoardListdBtn onClick={OpenModal} type='button'>
-       <StyledSVGPensil>
+      <StyledBtnWrapper>
+        <StyledBoardListdBtn onClick={OpenModal} type="button">
+          <StyledSVGPensil>
             <use xlinkHref={`${sprite}#icon-pencil-01`}></use>
           </StyledSVGPensil>
-       </StyledBoardListdBtn>
+        </StyledBoardListdBtn>
 
-       <StyledBoardListdBtn type='button'>
-       <StyledSVGTrash>
+        <StyledBoardListdBtn type="button">
+          <StyledSVGTrash>
             <use xlinkHref={`${sprite}#icon-trash-04`}></use>
           </StyledSVGTrash>
-       </StyledBoardListdBtn>
-
-       </StyledBtnWrapper>
+        </StyledBoardListdBtn>
+      </StyledBtnWrapper>
       <span></span>
       <BoardModalBase
         isModalOpen={isModalOpen}
@@ -47,6 +51,6 @@ export const BoardListItem = ({ board }) => {
         action={'edit'}
         SubmitForm={SubmitForm}
       />
-      </StyledBoardList>
-  )
-}
+    </StyledBoardList>
+  );
+};

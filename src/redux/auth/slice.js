@@ -7,7 +7,7 @@ import {
   refreshUser,
   logout,
   updateAvatar,
-  changeTheme
+  changeTheme,
 } from './operations';
 
 const initialState = {
@@ -18,7 +18,7 @@ const initialState = {
   isLoading: false,
   isError: false,
   errorMessage: null,
-  theme: "light"
+  theme: 'light',
 };
 
 const authSlice = createSlice({
@@ -30,9 +30,10 @@ const authSlice = createSlice({
       state.isError = false;
       state.errorMessage = null;
     },
-    [register.fulfilled](state, action) {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
+    [register.fulfilled](state, { payload }) {
+      console.log(payload);
+      state.user = payload.user;
+      state.token = payload.token;
       state.isLoading = false;
       state.isLoggedIn = true;
     },
@@ -103,9 +104,10 @@ const authSlice = createSlice({
       state.errorMessage = action.payload;
       toast.error(state.errorMessage);
     },
-    [changeTheme.fulfilled](state, action){//ЗМІНА ТЕМИ
-      state.theme = action.payload.theme;      
-    }
+    [changeTheme.fulfilled](state, action) {
+      //ЗМІНА ТЕМИ
+      state.theme = action.payload.theme;
+    },
   },
 });
 
