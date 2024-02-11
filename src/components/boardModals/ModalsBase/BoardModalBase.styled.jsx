@@ -115,15 +115,15 @@ export const IconSVG = styled.svg`
 export const Pic = styled.span`
     display: inline-block;
     border: 1px transparent solid;
+    background-color: transparent;
+    z-index: 10;
     cursor: pointer;
     border-radius: 8px;
     width: 28px;
     height: 28px;
 
-    & + img {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
+    & > img {
+        border-radius: 6px;
     }
 `
 
