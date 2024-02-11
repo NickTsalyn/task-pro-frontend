@@ -1,6 +1,6 @@
 import { Header } from 'components/Header/Header';
-import React, { Suspense, useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import React, {  useEffect, useState } from 'react';
+
 import {
   // ButtonText,
   HeaderWrapper,
@@ -15,6 +15,7 @@ import ScreensPage from './ScreensPage';
 export default function HomePage() {
   // const { t } = useTranslation('global');
   // const boards = useSelector(selectAllBoards);
+  // const { boardId } = useParams();
 
   const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1440);
 
@@ -53,10 +54,9 @@ export default function HomePage() {
       <Text>{t('screenPage.static.message1')}
       <ButtonText>{t('screenPage.static.message2')}</ButtonText>
       {t('screenPage.static.message3')}</Text>} */}
-      
-      {/* <Suspense fallback={null}>
-          <Outlet />
-        </Suspense>     */}
-    </HomeWrapper>
+      <ScreensPage/>
+      {/* <Link to={`/home/${boardId}`}></Link> */}
+       {/* <Suspense fallback={<Loader/>}><Outlet /></Suspense>     */}
+    </HomeWrapper> 
   );
 }

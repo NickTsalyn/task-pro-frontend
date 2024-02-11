@@ -1,7 +1,7 @@
 import { 
-  // Outlet,
+  Outlet,
    useParams } from 'react-router-dom';
-// import { Suspense } from 'react';
+import { Suspense } from 'react';
 import RegisterForm from 'components/Register/RegisterForm';
 import {
   AuthLinks,
@@ -27,9 +27,9 @@ const Auth = () => {
         {id === 'login' && <LogInForm />}
         {id === 'register' && <RegisterForm />}
 
-        {/* <Suspense fallback={<>Login...</>}>
+        <Suspense fallback={<>Login...</>}>
           <Outlet />
-        </Suspense> */}
+        </Suspense>
       </FormContainer>
     </WelcomeWrapper>
   );
