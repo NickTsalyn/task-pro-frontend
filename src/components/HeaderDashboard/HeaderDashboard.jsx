@@ -2,46 +2,27 @@ import sprite from '../../images/icons.svg';
 import { useState } from 'react';
 import {
   Button,
-  CheckboxContainer,
   CloseModal,
-  FieldCheckbox,
-  // DefaultRadioBtn,
-  FilterSVG,
-  FormStyle,
   FormTitle,
   FormWraper,
-  H4Text,
   Icon,
-  // InputRadio,
-  // LabelRadio,
-  RadioBtnWrapper,
   Section,
   SectionTitle,
   ShowAllLabel,
   Text,
-  // WraperInput,
-  // Icon,
-  // Label,
-  // LabelItem,
-  // LabetlText,
-  // RadioBtnWrapper,
-  // Wrapper,
 } from './HeaderDashboard.styled';
-import { Field, Form, Formik } from 'formik';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { showAll, togglePriority } from 'redux/filters/filtersSlice';
+import { showAll } from 'redux/filters/filtersSlice';
 import { getTheme } from '../../components/themes';
-const options = ['without', 'low', 'medium', 'high'];
+import PriorityCheckboxForm from './ui/PriorityCheckboxForm';
 
 export const HeaderDashboard = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const theme = getTheme();
   const filtersPriority = useSelector(state => state.filters.filtersPriority);
-  console.log(filtersPriority);
 
   const customStyles = {
     content: {
@@ -53,16 +34,8 @@ export const HeaderDashboard = () => {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      backgroundColor: `${theme.headerBgn}`,
+      backgroundColor: `${getTheme().headerBgn}`,
     },
-  };
-
-  const initialValues = {
-    label: filtersPriority,
-  };
-
-  const isCheked = value => {
-    return filtersPriority.includes(value);
   };
 
   return (
@@ -96,29 +69,7 @@ export const HeaderDashboard = () => {
                 Show all
               </ShowAllLabel>
             </FormWraper>
-
-            <Formik initialValues={initialValues}>
-              <RadioBtnWrapper>
-                {options.map(el => (
-                  <CheckboxContainer
-                    onChange={e => {
-                      console.log(e.target.id);
-                      dispatch(togglePriority(e.target.id));
-                    }}
-                  >
-                    <input
-                      id={el}
-                      name="radio"
-                      defaultChecked={isCheked(el)}
-                      type="checkbox"
-                    />
-                    <label htmlFor={el} className="radio-label">
-                      {el}
-                    </label>
-                  </CheckboxContainer>
-                ))}
-              </RadioBtnWrapper>
-            </Formik>
+            <PriorityCheckboxForm filtersPriority={filtersPriority} />
           </div>
         </Section>
       </Modal>

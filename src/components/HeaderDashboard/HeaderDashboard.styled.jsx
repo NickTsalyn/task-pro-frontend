@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { Form, Field } from 'formik';
-// import { getTheme } from './themes';
+import { Form } from 'formik';
 import { getTheme } from '../../components/themes';
 
 export const Button = styled.button`
@@ -20,14 +19,13 @@ export const Button = styled.button`
 export const Icon = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: rgba(22, 22, 22, 0.8);
+  stroke: ${p => getTheme(p.theme.selectedTheme).grayText};
   transition: all 250ms linear;
   fill: transparent;
 `;
 
 export const Text = styled.span`
   color: ${p => getTheme(p.theme.selectedTheme).btnPlusStroke};
-  /* color: rgba(22, 22, 22, 0.8); */
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02px;
@@ -85,7 +83,7 @@ export const ShowAllLabel = styled.p`
   text-decoration-line: underline;
   cursor: pointer;
   text-decoration-skip-ink: none;
-  color: rgba(22, 22, 22, 0.5);
+  color: ${p => getTheme(p.theme.selectedTheme).grayText};
 `;
 
 export const RadioBtnWrapper = styled(Form)`
@@ -95,172 +93,46 @@ export const RadioBtnWrapper = styled(Form)`
   align-items: stretch;
   gap: 8px;
 `;
-export const WraperInput = styled.div`
-  /* position: relative; */
-  display: flex;
-  /* gap: 8px; */
-  align-items: center;
-`;
-
-// export const InputRadio = styled.input`
-//   display: none;
-//   &:checked {
-//     & + label {
-//       &:after {
-//         transform: scale(1);
-//         opacity: 1;
-//       }
-//       &:before {
-//         border: ${p => {
-//           if (p.value === 'without') {
-//             return p.theme.priorityColors.without;
-//           }
-//           if (p.value === 'low') {
-//             return p.theme.priorityColors.low;
-//           }
-//           if (p.value === 'medium') {
-//             return p.theme.priorityColors.medium;
-//           }
-//           if (p.value === 'high') {
-//             return p.theme.priorityColors.high;
-//           }
-//         }};
-//       }
-//     }
-//   }
-// `;
-
-// export const LabelRadio = styled.label`
-//   color: ${p => {
-//     if (p.cheked === 'true') {
-//       return `#FFFFFF`;
-//     }
-//     return getTheme(p.theme.selectedTheme).btnPlusStroke;
-//   }};
-//   margin: 0;
-//   display: inline-block;
-//   position: relative;
-
-//   &:before {
-//     content: '';
-//     width: 20px;
-//     height: 20px;
-//     position: absolute;
-//     left: -30px;
-//     border: 1px solid
-//       ${p => {
-//         if (p.value === 'without') {
-//           return p.theme.priorityColors.without;
-//         }
-//         if (p.value === 'low') {
-//           return p.theme.priorityColors.low;
-//         }
-//         if (p.value === 'medium') {
-//           return p.theme.priorityColors.medium;
-//         }
-//         if (p.value === 'high') {
-//           return p.theme.priorityColors.high;
-//         }
-//       }};
-//     top: 50%;
-//     background: #fff;
-//     margin-top: -10px;
-//     border-radius: 50%;
-//   }
-//   &:after {
-//     background: ${p => {
-//       if (p.value === 'without') {
-//         return p.theme.priorityColors.without;
-//       }
-//       if (p.value === 'low') {
-//         return p.theme.priorityColors.low;
-//       }
-//       if (p.value === 'medium') {
-//         return p.theme.priorityColors.medium;
-//       }
-//       if (p.value === 'high') {
-//         return p.theme.priorityColors.high;
-//       }
-//     }};
-//     transition: 0.3s;
-//     transform: scale(3.4);
-//     opacity: 0;
-//     margin-top: -7px;
-//     width: 10px;
-//     height: 10px;
-//     border-radius: 50%;
-//     content: '';
-//     position: absolute;
-//     top: 11px;
-//     left: -24px;
-//   }
-// `;
-
-// export const InputRadio = styled.input`
-//   position: absolute;
-//   z-index: -1;
-//   opacity: 0;
-
-//   &:not(:disabled):not(:checked):hover + label::before {
-//     border-color: #b3d7ff;
-//   }
-
-//   &:not(:disabled):active + label::before {
-//     background-color: #b3d7ff;
-//     border-color: #b3d7ff;
-//   }
-
-//   &:focus + label::before {
-//     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-//   }
-
-//   &:focus:not(:checked) + label::before {
-//     border-color: #80bdff;
-//   }
-
-//   &:checked + label::before {
-//     border-color: #0b76ef;
-//     background-color: #0b76ef;
-//     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-//   }
-
-//   &:disabled + label::before {
-//     background-color: #e9ecef;
-//   }
-// `;
-
-// export const LabelRadio = styled.label`
-//   display: inline-flex;
-//   align-items: center;
-//   user-select: none;
-
-//   &::before {
-//     content: '';
-//     display: inline-block;
-//     width: 1em;
-//     height: 1em;
-//     flex-shrink: 0;
-//     flex-grow: 0;
-//     border: 1px solid #adb5bd;
-//     border-radius: 50%;
-//     margin-right: 0.5em;
-//     background-repeat: no-repeat;
-//     background-position: center center;
-//     background-size: 50% 50%;
-//   }
-// `;
 
 export const CheckboxContainer = styled.div`
-  margin: 0.5rem;
+  font-size: 12px;
+  letter-spacing: -0.02em;
   input[type='checkbox'] {
     position: absolute;
     opacity: 0;
     + .radio-label {
       &:before {
         content: '';
-        background: $color1;
+        background-color: ${p => {
+          if (p.priority === 'without') {
+            return p.theme.priorityColors.without;
+          }
+          if (p.priority === 'low') {
+            return p.theme.priorityColors.low;
+          }
+          if (p.priority === 'medium') {
+            return p.theme.priorityColors.medium;
+          }
+          if (p.priority === 'high') {
+            return p.theme.priorityColors.high;
+          }
+        }};
         border-radius: 100%;
-        border: 1px solid green;
+        border: 1px solid
+          ${p => {
+            if (p.priority === 'without') {
+              return p.theme.priorityColors.without;
+            }
+            if (p.priority === 'low') {
+              return p.theme.priorityColors.low;
+            }
+            if (p.priority === 'medium') {
+              return p.theme.priorityColors.medium;
+            }
+            if (p.priority === 'high') {
+              return p.theme.priorityColors.high;
+            }
+          }};
         display: inline-block;
         width: 1.4em;
         height: 1.4em;
@@ -276,24 +148,52 @@ export const CheckboxContainer = styled.div`
     &:checked {
       + .radio-label {
         &:before {
-          background-color: red;
-          box-shadow: inset 0 0 0 4px yellow;
+          background-color: ${p => {
+            if (p.priority === 'without') {
+              return p.theme.priorityColors.without;
+            }
+            if (p.priority === 'low') {
+              return p.theme.priorityColors.low;
+            }
+            if (p.priority === 'medium') {
+              return p.theme.priorityColors.medium;
+            }
+            if (p.priority === 'high') {
+              return p.theme.priorityColors.high;
+            }
+          }};
+          box-shadow: inset 0 0 0 4px white;
         }
       }
     }
     &:checked + .radio-label {
-      color: green;
+      color: ${p => getTheme(p.theme.selectedTheme).mainText};
     }
     &:focus {
       + .radio-label {
         &:before {
           outline: none;
-          border-color: blue;
+          border-color: ${p => {
+            if (p.priority === 'without') {
+              return p.theme.priorityColors.without;
+            }
+            if (p.priority === 'low') {
+              return p.theme.priorityColors.low;
+            }
+            if (p.priority === 'medium') {
+              return p.theme.priorityColors.medium;
+            }
+            if (p.priority === 'high') {
+              return p.theme.priorityColors.high;
+            }
+          }};
         }
       }
     }
 
     + .radio-label {
+      color: ${p => getTheme(p.theme.selectedTheme).grayText};
+
       &:empty {
         &:before {
           margin-right: 0;
