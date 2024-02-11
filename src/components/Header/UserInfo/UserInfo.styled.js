@@ -8,6 +8,12 @@ export const StyledUserInfo = styled.div`
   margin: auto 0;
 
   margin-left: ${p => p.theme.spacing(3.5)};
+
+  @media screen and (min-width: 1440px) {
+  
+    padding: 0 ${p => p.theme.spacing(6)} 0 0;
+ 
+  }
 `;
 
 export const StyledUserBtn = styled.button`

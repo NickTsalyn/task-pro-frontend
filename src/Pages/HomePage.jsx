@@ -2,10 +2,10 @@ import { Header } from 'components/Header/Header';
 import React, { Suspense, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import {
-  ButtonText,
+  // ButtonText,
   HeaderWrapper,
   HomeWrapper,
-  Text,
+  // Text,
 } from './HomePage.styled';
 // import { useTranslation } from 'react-i18next';
 import { Sidebar } from 'components/Sidebar/Sidebar';
@@ -35,18 +35,18 @@ export default function HomePage() {
       {isWideScreen && <Sidebar />}
       <HeaderWrapper>
         <Header />
-        <Text>
+        {/* <Text> */}
           {/* {t('screenPage.static.message1')}
           <ButtonText>{t('screenPage.static.message2')}</ButtonText>
           {t('screenPage.static.message3')} */}
-        </Text>
+        {/* </Text> */}
         <ScreensPage/>
       </HeaderWrapper>
 
       {/* <Loader/>            */}
-      <Suspense fallback={null}>
+      {/* <Suspense fallback={null}>
         <Outlet />
-      </Suspense>
+      </Suspense> */}
 
       {/* <Header /> */}
       {/* {!boards.length && 

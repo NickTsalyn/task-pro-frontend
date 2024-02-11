@@ -16,8 +16,8 @@ export const StyledHeader = styled.header`
   @media screen and (min-width: 1440px) {
     width: 1180px;
     height: 68px;
-    padding: 0 ${p => p.theme.spacing(6)} 0 0;
     margin: 0;
+    padding: 0;
   }
 `;
 
