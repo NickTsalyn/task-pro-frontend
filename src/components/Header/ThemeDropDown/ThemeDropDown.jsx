@@ -12,7 +12,7 @@ const options = [
 const customStyles = {
   control: (provided, state) => ({
     ...provided,
-    backgroundColor: '#fff',
+    backgroundColor: 'none',
     color: state.isFocused ? 'rgba(22, 22, 22)' : 'rgba(22, 22, 22, 0.8)',
     border: 'none ',
     boxShadow: 'none',
