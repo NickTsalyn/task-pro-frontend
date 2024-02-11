@@ -7,7 +7,7 @@ import styled from "styled-components";
  width: 197px;
   border: 1px solid #9092D6;
   padding: 14px;
-  position: relative;
+  /* position: relative; */
   background: #9092D6;
   border-radius: 8px;
   

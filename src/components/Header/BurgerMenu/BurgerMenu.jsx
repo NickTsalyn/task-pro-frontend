@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import sprite from '../../../images/icons.svg';
-import { BurgerMenuWrapper,  StyledBurgerMenu, StyledSVGBurger } from './BurgerMenu.styled';
+import {
+  BurgerMenuWrapper,
+  StyledBurgerMenu,
+  StyledSVGBurger,
+} from './BurgerMenu.styled';
 import { Sidebar } from 'components/Sidebar/Sidebar';
+import { DarkBackground } from 'components/Sidebar/Sidebar.styled';
 
 export const BurgerMenu = () => {
   const [isOpen, setOpen] = useState(false);
@@ -16,29 +21,40 @@ export const BurgerMenu = () => {
   useEffect(() => {
     console.log('burgerMenuRef:', burgerMenuRef.current);
     console.log('sidebarRef:', sidebarRef.current);
-const handleClickClose = (event) => {
-    if (
-      burgerMenuRef.current && !burgerMenuRef.current.contains(event.target) && 
-    sidebarRef.current && !sidebarRef.current.contains(event.target)) {
- setOpen(false);
-    }
-     
-  };
+    const handleClickClose = event => {
+      if (
+        burgerMenuRef.current &&
+        !burgerMenuRef.current.contains(event.target) &&
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target)
+      ) {
+        setOpen(false);
+      }
+    };
 
     document.addEventListener('click', handleClickClose);
 
-    return () => 
-      document.removeEventListener('click', handleClickClose);
+    return () => document.removeEventListener('click', handleClickClose);
   }, [burgerMenuRef, sidebarRef]);
 
   return (
     <BurgerMenuWrapper>
-      <StyledBurgerMenu type="button"  onClick={hendleOpenSidebar} isOpen={isOpen} ref={burgerMenuRef}>
+      <StyledBurgerMenu
+        type="button"
+        onClick={hendleOpenSidebar}
+        isOpen={isOpen}
+        ref={burgerMenuRef}
+      >
         <StyledSVGBurger>
           <use xlinkHref={`${sprite}#icon-menu-01`}></use>
         </StyledSVGBurger>
       </StyledBurgerMenu>
-      {isOpen && <Sidebar ref={sidebarRef}/>}
+      {isOpen && (
+        <div>
+          <DarkBackground />
+          <Sidebar ref={sidebarRef} />
+        </div>
+      )}
     </BurgerMenuWrapper>
   );
 };

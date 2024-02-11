@@ -35,9 +35,9 @@ const Auth = () => {
         {id === 'register' && <RegisterForm />}
         {id === 'forgetPassword' && <ForgetPassword />}
 
-        {/* <Suspense fallback={<>Login...</>}>
+        <Suspense fallback={<>Login...</>}>
           <Outlet />
-        </Suspense> */}
+        </Suspense>
       </FormContainer>
     </WelcomeWrapper>
   );

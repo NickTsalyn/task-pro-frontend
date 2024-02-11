@@ -1,26 +1,12 @@
-// import { ColumnListItem } from "components/ColumnListItem/ColumnListItem";
-import { AddcolumnWrapper, ColumnListStyled, ColumnListWrapper } from "./ColumnList.styled";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-// import { selectAllBoards } from "redux/boards/selectors";
-// import { selectColumns } from "redux/columns/selectors";
-import { 
-    // deleteColumn, editColumn, 
-    getColumsById } from "redux/columns/operations";
-import { useEffect } from "react";
-// import { ColumnHeader, ColumnTitle, ColumnWrapper, EditBlock, EditButton, EditSVG } from "components/ColumnListItem/ColumnListItem.styled";
-// import { CardList } from "components/CardList/CardList";
 import { AddColumnButton } from "components/Button/AddColumnButton";
-// import sprite from '../../images/icons.svg';
-import { selectColumns } from "redux/columns/selectors";
-// import { CardList } from "components/CardList/CardList";
+import { ColumnListStyled, ColumnListWrapper } from "./ColumnList.styled";
+// import { AddColumnButton } from "components/Button/AddColumnButton";
 import { ColumnListItem } from "components/ColumnListItem/ColumnListItem";
-import { ColumnTitle, ColumnWrapper } from "components/ColumnListItem/ColumnListItem.styled";
-// import { ColumnTitle } from "components/ColumnListItem/ColumnListItem.styled";
+
 
 export const ColumnList = ({columns}) => {
 
-  const {boardId} = useParams();
+//   const {boardId} = useParams();
 
 //   const dispatch = useDispatch();
 //      useEffect(() => {
