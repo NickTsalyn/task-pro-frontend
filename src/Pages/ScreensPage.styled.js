@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ScreensPageWrapper = styled.div`
   background-color: ${p=>p.theme.violetColors.violetFill};
   width: 100%;
   height: 100vh;
-  display:flex;
+  display: flex;
   flex-direction: column;
 
   

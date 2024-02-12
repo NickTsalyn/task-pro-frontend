@@ -65,12 +65,11 @@ export const HomeWrapper = styled.div`
   justify-content: center;
 
   @media screen and (min-width: 768px) {
-   width: 768px;
-
+    width: 768px;
   }
 
   @media screen and (min-width: 1440px) {
- width: 1180px;
+    width: 1180px;
   }
 `;
 

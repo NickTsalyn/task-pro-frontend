@@ -1,5 +1,6 @@
 import { Outlet, useParams } from 'react-router-dom';
 import { Suspense } from 'react';
+// import { useParams } from 'react-router-dom';
 import RegisterForm from 'components/Register/RegisterForm';
 import {
   AuthLinks,
@@ -27,7 +28,6 @@ const Auth = () => {
             {t('welcomePage.welcome.login')}
           </AuthLinks>
         </LinkWrapper>
-
         {id === 'login' && <LogInForm />}
         {id === 'register' && <RegisterForm />}
         {id === 'forgetPassword' && <ForgetPassword />}

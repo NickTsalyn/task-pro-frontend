@@ -18,6 +18,7 @@ import {
   AddCardLabelText,
   AddCardOptionCont,
   AddCardSvgButtonText,
+  AddCardSvgClose,
   AddCardSvgContainer,
   AddCardTextCal,
   AddCardTextCont,
@@ -87,7 +88,11 @@ export const AddCard = ({ onCloseModal, id }) => {
       }}
     >
       <AddCardWrapper>
-        <CLoseButton onClick = {onCloseModal}>Close</CLoseButton>
+        <CLoseButton onClick = {onCloseModal}>
+          <AddCardSvgClose>
+          <use xlinkHref={`${sprite}#icon-x-close`}></use>
+          </AddCardSvgClose>
+          </CLoseButton>
         <AddCardContainer>
           <AddCardHeader>Add Card</AddCardHeader>
           <AddCardTextCont>

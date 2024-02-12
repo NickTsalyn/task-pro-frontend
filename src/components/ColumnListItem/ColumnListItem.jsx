@@ -12,6 +12,7 @@ import {
 
 import { AddCard } from 'components/AddCard/AddCard';
 import { CardList } from 'components/CardList/CardList';
+
 // import { useDispatch } from 'react-redux';
 Modal.setAppElement('#root');
 export const ColumnListItem = ({column}) => {    
@@ -58,7 +59,14 @@ export const ColumnListItem = ({column}) => {
          </ColumnHeader>          
             <CardList columnId={column._id}/>
             {/* <AddColumnButton/> */}
-            <button  onClick={openModal}>AddAnotherCard</button>  
+            <AddAnotherCard onClick = {openModal} type="submit">
+          <AddCardSvgContainer>
+            <AddCardButtonSvg>
+              <use xlinkHref={`${sprite}#icon-plus`}></use>
+            </AddCardButtonSvg>
+          </AddCardSvgContainer>
+          <AddCardSvgButtonText>Add</AddCardSvgButtonText>
+        </AddAnotherCard> 
 
 
             <Modal

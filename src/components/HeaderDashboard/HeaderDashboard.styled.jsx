@@ -1,197 +1,225 @@
 import styled from 'styled-components';
-import { Form, Field } from 'formik';
+import { Form } from 'formik';
+import { getTheme } from '../../components/themes';
+
+export const ProjectName = styled.div`
+  color: ${p => getTheme(p.theme.selectedTheme).mainText};
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  margin-left: 24px;
+  margin-top: 10px;
+`;
+
+export const Button = styled.button`
+  position: absolute;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  top: 14px;
+  right: 24px;
+
+  &:hover {
+    opacity: 0.8;
+    scale: 1.2;
+  }
+`;
 
 export const Icon = styled.svg`
-  width: 18px;
-  height: 18px;
-  fill: red;
-  color: red;
+  stroke: ${p => getTheme(p.theme.selectedTheme).grayText};
+  width: 16px;
+  height: 16px;
+  stroke-width: 1.5px;
   transition: all 250ms linear;
   fill: transparent;
 `;
 
-export const Section = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-`;
-
-export const SectionTitle = styled.h2`
-  font-size: 18px;
-  font-family: 'Poppins';
+export const Text = styled.span`
+  color: ${p => getTheme(p.theme.selectedTheme).grayText};
   font-weight: 500;
-  letter-spacing: -0.36px;
-  margin-bottom: 14px;
-`;
-
-export const FormWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-
-  margin-bottom: 24px;
-
-  &:first-of-type {
-    padding-top: 14px;
-    padding-bottom: 14px;
-  }
-
-  &:last-of-type {
-    position: relative;
-    margin-bottom: 0;
-  }
-`;
-
-export const FormTitle = styled.h3`
   font-size: 14px;
-  font-family: 'Poppins';
+  letter-spacing: -0.02px;
+`;
+
+export const Section = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+`;
+
+export const CloseModal = styled.svg`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  transition: all 250ms linear;
+  stroke: ${p => getTheme(p.theme.selectedTheme).plusIconFill};
+  stroke-width: 1.5px;
+
+  &:hover {
+    opacity: 0.8;
+    scale: 1.2;
+  }
+`;
+
+export const SectionTitle = styled.h4`
+  color: ${p => getTheme(p.theme.selectedTheme).mainText};
+  font-size: 18px;
   font-weight: 500;
-  letter-spacing: -0.28px;
+  letter-spacing: -0.02em;
   margin-bottom: 14px;
 `;
 
-export const BgWrapper = styled.div`
+export const FormWraper = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 252px;
-  gap: 4px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
 `;
 
-export const BgItem = styled.div`
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  width: 28px;
-  height: 28px;
-
-  background-position: center;
-  background-size: contain;
-
-  cursor: pointer;
-  transition: all 250ms linear;
-
-  &.active {
-    scale: 1.1;
-  }
-`;
-
-export const CustomRadioBtn = styled.div`
-  border-radius: 8px;
-  width: 28px;
-  height: 28px;
-
-  background-position: center;
-  background-size: cover;
-
-  cursor: pointer;
-
-  transition: all 250ms linear;
-
-  &.active {
-    scale: 1.1;
-  }
-`;
-
-export const DefaultRadioBtn = styled(Field)`
-  appearance: none;
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+export const FormTitle = styled.span`
+  color: ${p => getTheme(p.theme.selectedTheme).mainText};
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
 `;
 
 export const ShowAllLabel = styled.p`
+  color: ${p => getTheme(p.theme.selectedTheme).grayText};
+  font-weight: 400;
   font-size: 12px;
-  font-family: Poppins;
-  letter-spacing: -0.24px;
+  letter-spacing: -0.02em;
   text-decoration-line: underline;
   cursor: pointer;
+  text-decoration-skip-ink: none;
 
-  position: absolute;
-  top: 2px;
-  right: 0;
+  &:hover {
+    opacity: 0.8;
+    scale: 1.2;
+  }
 `;
 
-export const RadioBtnWrapper = styled.div`
+export const RadioBtnWrapper = styled(Form)`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  gap: 12px;
-`;
-
-export const Label = styled.label`
-  display: flex;
-  align-items: center;
-  position: relative;
-  width: 16px;
-  height: 14px;
-  border-radius: 14px;
-
-  cursor: pointer;
-`;
-
-export const LabelItem = styled.div`
-  width: 14px;
-  height: 14px;
-  border-radius: 14px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  transition: all 250ms linear;
-
-  &.active {
-    width: 6px;
-    height: 6px;
-  }
-`;
-
-export const LabetlText = styled.p`
-  display: block;
-  width: 100%;
-
-  font-size: 12px;
-  font-family: Poppins;
-  letter-spacing: -0.24px;
-
-  cursor: pointer;
-`;
-
-export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
   gap: 8px;
 `;
 
-export const ModalForm = styled(Form)`
-  margin: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
+export const CheckboxContainer = styled.div`
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+    + .radio-label {
+      &:before {
+        content: '';
+        background-color: ${p => {
+          if (p.priority === 'without') {
+            return p.theme.priorityColors.without;
+          }
+          if (p.priority === 'low') {
+            return p.theme.priorityColors.low;
+          }
+          if (p.priority === 'medium') {
+            return p.theme.priorityColors.medium;
+          }
+          if (p.priority === 'high') {
+            return p.theme.priorityColors.high;
+          }
+        }};
+        border-radius: 100%;
+        border: 1px solid
+          ${p => {
+            if (p.priority === 'without') {
+              return p.theme.priorityColors.without;
+            }
+            if (p.priority === 'low') {
+              return p.theme.priorityColors.low;
+            }
+            if (p.priority === 'medium') {
+              return p.theme.priorityColors.medium;
+            }
+            if (p.priority === 'high') {
+              return p.theme.priorityColors.high;
+            }
+          }};
+        display: inline-block;
+        width: 1.4em;
+        height: 1.4em;
+        position: relative;
+        top: -0.2em;
+        margin-right: 1em;
+        vertical-align: top;
+        cursor: pointer;
+        text-align: center;
+        transition: all 250ms ease;
+      }
+    }
+    &:checked {
+      + .radio-label {
+        &:before {
+          background-color: ${p => {
+            if (p.priority === 'without') {
+              return p.theme.priorityColors.without;
+            }
+            if (p.priority === 'low') {
+              return p.theme.priorityColors.low;
+            }
+            if (p.priority === 'medium') {
+              return p.theme.priorityColors.medium;
+            }
+            if (p.priority === 'high') {
+              return p.theme.priorityColors.high;
+            }
+          }};
+          box-shadow: inset 0 0 0 4px white;
+        }
+      }
+    }
+    &:checked + .radio-label {
+      color: ${p => getTheme(p.theme.selectedTheme).mainText};
+    }
+    &:focus {
+      + .radio-label {
+        &:before {
+          outline: none;
+          border-color: ${p => {
+            if (p.priority === 'without') {
+              return p.theme.priorityColors.without;
+            }
+            if (p.priority === 'low') {
+              return p.theme.priorityColors.low;
+            }
+            if (p.priority === 'medium') {
+              return p.theme.priorityColors.medium;
+            }
+            if (p.priority === 'high') {
+              return p.theme.priorityColors.high;
+            }
+          }};
+        }
+      }
+    }
 
-export const FilterSVG = styled.svg`
-  fill: rgba(22, 22, 22, 0.8);
-  opacity: 0.4;
-  cursor: pointer;
+    + .radio-label {
+      color: ${p => getTheme(p.theme.selectedTheme).grayText};
 
-  width: 18px;
-  height: 18px;
-  &:hover,
-  &:focus {
-    opacity: 1;
+      &:empty {
+        &:before {
+          margin-right: 0;
+        }
+      }
+    }
   }
 `;

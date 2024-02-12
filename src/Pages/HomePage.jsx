@@ -1,5 +1,6 @@
 import { Header } from 'components/Header/Header';
-import React, {  useEffect, useState } from 'react';
+
+import React, { useEffect, useState } from 'react';
 
 import { HeaderWrapper, HomeWrapper, } from './HomePage.styled';
 import { Sidebar } from 'components/Sidebar/Sidebar';
@@ -29,5 +30,6 @@ export default function HomePage() {
         <ScreensPage/>
       </HeaderWrapper>    
     </HomeWrapper> 
+
   );
 }
