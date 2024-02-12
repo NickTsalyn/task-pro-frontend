@@ -9,10 +9,9 @@ const handleRejected = (state, action) => {
   state.isLoadingProject = false;
   state.errorProject = action.payload;
 };
-const projectSlice = createSlice({
-  name: 'project',
+const filtersSlice = createSlice({
+  name: 'filters',
   initialState: {
-    projectName: 'Project office',
     isLoadingProject: false,
     errorProject: null,
     filtersPriority: ['without'],
@@ -43,6 +42,6 @@ const projectSlice = createSlice({
       .addCase(getProjectData.rejected, handleRejected);
   },
 });
-export const { togglePriority, showAll } = projectSlice.actions;
+export const { togglePriority, showAll } = filtersSlice.actions;
 
-export const projectReducer = projectSlice.reducer;
+export const filtersReducer = filtersSlice.reducer;

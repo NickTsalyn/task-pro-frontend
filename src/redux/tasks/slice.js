@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTasks, addTask, deleteTask } from "./operations";
+import { fetchTitle, addTask, deleteTask } from "./operations";
 
 const tasksSlice = createSlice({
   name: "tasks",
   initialState: {
     tasks: [],
-    priority: [],
-    deadline: [],
-    // column: true,
-    column:"",
+    // priority: [],
+    // deadline: [],
+    // // column: true,
+    // column:"",
     owner: true,
     isLoading: false,
     error: null,
@@ -22,15 +22,15 @@ const tasksSlice = createSlice({
   },
 
   extraReducers: {
-    [fetchTasks.pending](state) {
+    [fetchTitle.pending](state) {
       state.isLoading = true;
     },
-    [fetchTasks.fulfilled](state, action) {
+    [fetchTitle.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.tasks = action.payload; // змінено з state.cards на state.tasks
     },
-    [fetchTasks.rejected](state, action) {
+    [fetchTitle.rejected](state, action) {
       state.isLoading = false;
       state.error = action.payload;
     },

@@ -1,21 +1,12 @@
 import { Header } from 'components/Header/Header';
-import React, {  useEffect, useState } from 'react';
 
-import {
-  // ButtonText,
-  HeaderWrapper,
-  HomeWrapper,
-  // Text,
-} from './HomePage.styled';
-// import { useTranslation } from 'react-i18next';
+import React, { useEffect, useState } from 'react';
+
+import { HeaderWrapper, HomeWrapper, } from './HomePage.styled';
 import { Sidebar } from 'components/Sidebar/Sidebar';
 import ScreensPage from './ScreensPage';
-// import { Loader } from 'components/Loader/Loader';
 
-export default function HomePage() {
-  // const { t } = useTranslation('global');
-  // const boards = useSelector(selectAllBoards);
-  // const { boardId } = useParams();
+export default function HomePage() {  
 
   const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1440);
 
@@ -35,28 +26,10 @@ export default function HomePage() {
     <HomeWrapper>
       {isWideScreen && <Sidebar />}
       <HeaderWrapper>
-        <Header />
-        {/* <Text> */}
-          {/* {t('screenPage.static.message1')}
-          <ButtonText>{t('screenPage.static.message2')}</ButtonText>
-          {t('screenPage.static.message3')} */}
-        {/* </Text> */}
+        <Header />       
         <ScreensPage/>
-      </HeaderWrapper>
-
-      {/* <Loader/>            */}
-      {/* <Suspense fallback={null}>
-        <Outlet />
-      </Suspense> */}
-
-      {/* <Header /> */}
-      {/* {!boards.length && 
-      <Text>{t('screenPage.static.message1')}
-      <ButtonText>{t('screenPage.static.message2')}</ButtonText>
-      {t('screenPage.static.message3')}</Text>} */}
-      {/* <ScreensPage/> */}
-      {/* <Link to={`/home/${boardId}`}></Link> */}
-       {/* <Suspense fallback={<Loader/>}><Outlet /></Suspense>     */}
+      </HeaderWrapper>    
     </HomeWrapper> 
+
   );
 }

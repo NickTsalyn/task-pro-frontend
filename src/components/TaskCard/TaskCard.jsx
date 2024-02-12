@@ -18,7 +18,7 @@ import { PrioritySeeContainer, CardPriorityDeadline,
 
 Modal.setAppElement('#root');
 
-export const TaskCard = ({ task: { id, title, description, priority } }) => {
+export const TaskCard = ({ task: { _id, title, description, priority } }) => {
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -137,12 +137,12 @@ export const TaskCard = ({ task: { id, title, description, priority } }) => {
       >
         {/* <PopUpSetColumn onCloseModal={closeModal} /> */}
       </Modal>
-              <Btn type="button" onClick={() => toEditTask(id)}>
+              <Btn type="button" onClick={() => toEditTask(_id)}>
                 <Svg>
                   <use xlinkHref={`${sprite}#icon-pencil-01`}></use>
                 </Svg>
               </Btn>
-              <Btn type="button" onClick={() => toDeleteTask(id)}>
+              <Btn type="button" onClick={() => toDeleteTask(_id)}>
                 <Svg>
                   <use xlinkHref={`${sprite}#icon-trash-04`}></use>
                 </Svg>
