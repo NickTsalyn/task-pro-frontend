@@ -49,9 +49,9 @@ const columnSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const index = state.columns.findIndex(
-          // item => item._id === action.payload._id
-          column => column.id === action.payload.id
-        );
+        column => column.id === action.payload.id
+          // state.columns = state.columns.filter((column) => column._id !== action.payload._id)
+        )
         state.columns.splice(index, 1);
        
       })
