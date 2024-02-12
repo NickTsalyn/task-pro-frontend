@@ -14,8 +14,9 @@ import { authReducer } from './auth/slice';
 import { userReducer } from './user/userSlice';
 import { filtersReducer } from './filters/filtersSlice';
 import { boardsReducer } from './boards/boardsSlice';
+import { columnReducer} from './columns/slice'
+import { tasksReducer } from './tasks/slice';
 
-import { columnReducer } from './columns/slice';
 
 const persistConfig = {
   key: 'auth',
@@ -32,6 +33,7 @@ export const store = configureStore({
     filters: filtersReducer,
     boards: boardsReducer,
     columns: columnReducer,
+    tasks: tasksReducer
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

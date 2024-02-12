@@ -20,7 +20,6 @@ import {
 import sprite from '../../images/icons.svg';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-// import { useDispatch } from 'react-redux';
 
 const editFormSchema = Yup.object().shape({
   name: Yup.string().min(3, 'To short').max(30, 'To long'),

@@ -268,3 +268,29 @@ padding: 0;
 margin: 0;
 
 `
+
+export const AddAnotherCard = styled.button`
+margin-top:14px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap:8px;
+width: 100%;
+padding-top: 10px;
+padding-bottom: 10px;
+background-color: ${p => p.theme.violetColors.accentColor};
+border-radius:8px;
+border-color:transparent;
+font-size: 14px;
+font-weight: 500;
+line-height: 21px;
+letter-spacing: -2%;
+`
+
+export const AddCardSvgClose = styled.svg`
+fill: ${p => p.theme.colors.darkTextColor};
+  stroke: ${p => p.theme.colors.darkTextColor};
+  width: 18px;
+  height: 18px;
+
+`

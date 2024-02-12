@@ -1,30 +1,33 @@
-// import { CardListItem } from "components/CardListItem/CardListItem";
-import { ButtonAddCard, CardListStyled, CardListWrapper } from "./CardList.styled";
-import { useSelector } from "react-redux";
+import {  CardListStyled, CardListWrapper } from "./CardList.styled";
+import { useDispatch, useSelector } from "react-redux";
 import { selectTasks } from "redux/tasks/selectors";
 import { TaskCard } from "components/TaskCard/TaskCard";
+import { fetchTitle } from "redux/tasks/operations";
+import { useEffect } from "react";
 
 export const CardList = ( {columnId} ) => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTitle())
+  
+  }, [dispatch])
+
     const tasks = useSelector(selectTasks);
-    const id = state => state.task.column;
-    const filteredTasks = tasks.filter((tasks) => id === columnId);
+    // console.log(tasks);
+    // console.log(columnId);   
+    const filteredTasks = tasks.filter((task) => task.column === columnId);
+   
     return(
         <CardListWrapper>
-        <CardListStyled>
+        <CardListStyled>  
             {filteredTasks.map(task => (
-                <TaskCard key={task}/>
+              <li key={task._id}>
+                <TaskCard task={task}/>
+              </li>
             ))}
-        </CardListStyled>
-        <ButtonAddCard type="button">AddAnotherCard</ButtonAddCard>
-        {/* <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        overlayClassName={'modal-overlay'}
-        className={'modal-content'}
-        closeTimeoutMS={300}
-      >
-        <AddCard onCloseModal={closeModal} />
-      </Modal> */}
+        </CardListStyled>      
         </CardListWrapper>
     )
 };

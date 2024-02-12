@@ -22,9 +22,10 @@ export const fetchTitle = createAsyncThunk(
 // add card 
 
 export const addTask = createAsyncThunk(
-    "tasks/addTask", async({ title, description, priority, deadline }, thunkAPI) => {
+    "tasks/addTask", async(task, thunkAPI) => {
         try {
-            const response = await axios.post("/api/addTask", { title, description, priority, deadline });
+            const response = await axios.post(`/api/tasks/${task.column}/addTask`, task);
+            console.log(response);
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);

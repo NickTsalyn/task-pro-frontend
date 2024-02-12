@@ -1,6 +1,5 @@
 import { AddColumnButton } from "components/Button/AddColumnButton";
 import { ColumnListStyled, ColumnListWrapper } from "./ColumnList.styled";
-// import { AddColumnButton } from "components/Button/AddColumnButton";
 import { ColumnListItem } from "components/ColumnListItem/ColumnListItem";
 
 
@@ -28,24 +27,16 @@ export const ColumnList = ({columns}) => {
     // const handlerDeleteColumn = columnId => {
     //   dispatch(deleteColumn(columnId));
     // };
-    
+    console.log(columns);
 
     return(
         <ColumnListWrapper>
         <ColumnListStyled>  
            {columns.map(column => (
-            <li key={column._id} >
-                {/* <ColumnWrapper> */}
-                {/* <ColumnTitle>{column.title}</ColumnTitle> */}
-
-
-                {/* <CardList/> */}
-                <ColumnListItem column={column}/>
-                {/* </ColumnWrapper> */}
+            <li key={column._id} >                
+                <ColumnListItem column={column}/>                
             </li>
-
-           ))} 
-                              
+           ))}                               
            
         </ColumnListStyled>
         
