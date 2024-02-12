@@ -1,6 +1,6 @@
 import { Outlet, useParams } from 'react-router-dom';
 import { Suspense } from 'react';
-// import { useParams } from 'react-router-dom';
+
 import RegisterForm from 'components/Register/RegisterForm';
 import {
   AuthLinks,

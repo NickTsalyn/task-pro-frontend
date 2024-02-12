@@ -6,6 +6,8 @@ import {
   FormTitle,
   FormWraper,
   Icon,
+  IconTextContainer,
+  Line,
   ProjectName,
   Section,
   SectionTitle,
@@ -44,10 +46,12 @@ export const HeaderDashboard = ({ project }) => {
     <>
       <ProjectName>{project?.title}</ProjectName>
       <Button onClick={handleOpen}>
-        <Icon>
-          <use xlinkHref={`${sprite}#icon-filter`}></use>
-        </Icon>
-        <Text>Filters</Text>
+        <IconTextContainer>
+          <Icon>
+            <use xlinkHref={`${sprite}#icon-filter`}></use>
+          </Icon>
+          <Text>Filters</Text>
+        </IconTextContainer>
       </Button>
       <Modal
         isOpen={open}
@@ -55,12 +59,13 @@ export const HeaderDashboard = ({ project }) => {
         style={customStyles}
         appElement={document.getElementById('root')}
       >
+        <CloseModal onClick={handleClose} type="button">
+          <use xlinkHref={`${sprite}#icon-x-close`}></use>
+        </CloseModal>
         <Section>
-          <CloseModal onClick={handleClose} type="button">
-            <use xlinkHref={`${sprite}#icon-x-close`}></use>
-          </CloseModal>
           <div>
             <SectionTitle>Filters</SectionTitle>
+            <Line />
             <FormWraper>
               <FormTitle>Label color</FormTitle>
               <ShowAllLabel
