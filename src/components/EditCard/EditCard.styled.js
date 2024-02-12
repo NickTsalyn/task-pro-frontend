@@ -40,15 +40,12 @@ font-size: 18px;
 letter-spacing: -0.02em;
 color: ${p=> p.theme.colors.darkTextColor};
 width: 100%;
-
 `
 
 export const EditCardTextCont = styled.div`
 display: flex;
 flex-direction: column;
 gap:14px;
-
-
 `
 export const EditCardTitle = styled(Field)`
  width: 100%;
@@ -72,8 +69,6 @@ export const EditCardTitle = styled(Field)`
   &:focus {
     opacity: 1;
   }
-
-
 `
 export const EditCardDescription = styled(Field)`
  width: 100%;
@@ -97,9 +92,7 @@ export const EditCardDescription = styled(Field)`
   &:focus {
     opacity: 1;
   }
-
 `
-
 export const EditCardColorCont = styled.div`
 display: flex;
 flex-direction:column;
@@ -112,8 +105,6 @@ margin: 0;
 font-size: 12px;
 letter-spacing: -0.02em;
 color: ${p => p.theme.colors.greyIconColor}
-
-
 `
 export const EditCardLabelColor = styled(Field)`
 
@@ -149,8 +140,6 @@ export const EditCardContMark = styled.div`
 
 display: flex;
 gap:8px;
-
-
 `
 
 
@@ -169,8 +158,6 @@ font-size: 14px;
 font-weight: 500;
 line-height: 21px;
 letter-spacing: -2%;
-
-
 `
 
 export const EditCardDate = styled(DatePicker)`
@@ -182,7 +169,6 @@ background-color: ${p => p.theme.violetColors.bgColor};
  font-weight: 500;
 font-size: 14px;
 letter-spacing: -0.02em;
-
 `
 
 export const EditCardContCal = styled.div`
@@ -195,8 +181,6 @@ display: flex;
 flex-direction: column;
 gap:14px;
 margin-bottom: 40px;
-
-
 `
 export const EditCardTextCal = styled.p`
 padding:0;
@@ -216,16 +200,9 @@ border-radius: 4px;
 width: 28px;
 height: 28px;
 background-color:${p => p.theme.colors.white};
-
-
-
-
 `
 
-
 export const EditCardButtonSvg = styled.svg`
-
-
 
 fill: ${p => p.theme.colors.darkTextColor};
   stroke: ${p => p.theme.colors.darkTextColor};

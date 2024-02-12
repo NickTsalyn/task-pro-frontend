@@ -46,7 +46,7 @@ export const ColumnListStyled = styled.ul`
     @media only screen and (min-width: 1440px) {
         margin: 0 4px 36px 24px    
     };
-/* 
+
        overflow-y: hidden;
       overflow-x: auto;
 
@@ -61,8 +61,5 @@ export const ColumnListStyled = styled.ul`
     &::-webkit-scrollbar-track {
       background-color: ${p => p.theme.colors.white}; 
       border-radius: ${p => p.theme.radius.l};; 
-      }     */
+      }    
 `;
- export const AddcolumnWrapper = styled.li`
-   
- `;

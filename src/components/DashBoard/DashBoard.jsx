@@ -22,7 +22,7 @@ const boards = useSelector(selectAllBoards);
   const { t } = useTranslation('global');
   
   
-  const columns = useSelector(selectColumns);//приходить масив колонок;
+  const columns = useSelector(selectColumns);
    const filteredColumns = columns.filter((column) => column.board === boardId);
     console.log(columns);
     console.log(filteredColumns);
@@ -34,11 +34,7 @@ const boards = useSelector(selectAllBoards);
         <ButtonText>{t('screenPage.static.message2')}</ButtonText>
         {t('screenPage.static.message3')}</Text> )
         : <ColumnList columns={filteredColumns}/>  }
-      {/* {!boards.length && 
-      <Text>{t('screenPage.static.message1')}
-      <ButtonText>{t('screenPage.static.message2')}</ButtonText>
-      {t('screenPage.static.message3')}</Text>}
-      {!filteredColumns? <AddColumnButton/>:<ColumnList columns={filteredColumns}/>} */}
+     
     </>
   );
 };

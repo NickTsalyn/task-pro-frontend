@@ -16,11 +16,7 @@ import styled from "styled-components";
     padding: 20px;
   }
   `;
- 
- 
   
-
-
 export const HelpImage = styled.img`
   max-width: 54px;
   height: 78px;
