@@ -93,6 +93,11 @@ export const SectionTitle = styled.h4`
   margin-bottom: 14px;
 `;
 
+export const Line = styled.div`
+  border-top: 1px solid ${p => getTheme(p.theme.selectedTheme).horizontScroll};
+  margin-bottom: 14px;
+`;
+
 export const FormWraper = styled.div`
   display: flex;
   justify-content: space-between;

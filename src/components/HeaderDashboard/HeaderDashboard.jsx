@@ -7,6 +7,7 @@ import {
   FormWraper,
   Icon,
   IconTextContainer,
+  Line,
   ProjectName,
   Section,
   SectionTitle,
@@ -64,6 +65,7 @@ export const HeaderDashboard = ({ project }) => {
         <Section>
           <div>
             <SectionTitle>Filters</SectionTitle>
+            <Line />
             <FormWraper>
               <FormTitle>Label color</FormTitle>
               <ShowAllLabel
