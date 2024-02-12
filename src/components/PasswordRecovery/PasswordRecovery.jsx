@@ -13,10 +13,16 @@ import {
 } from './PasswordRecovery.styled.jsx';
 import { useState } from 'react';
 import sprite from '../../images/icons.svg';
+import { useDispatch } from 'react-redux';
+import { changePassword } from 'redux/auth/operations.js';
 
-// import toast from 'react-hot-toast';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const PasswordRecoverySchem = Yup.object().shape({
+  tempraryPassword: Yup.string()
+    .matches(/^.{12}$/, 'Recovery code must be exactly 12 characters long')
+    .required('Recovery code is required!'),
   newPassword: Yup.string()
     .min(8, 'Password is too short!')
     .matches(
@@ -31,20 +37,27 @@ const PasswordRecoverySchem = Yup.object().shape({
 });
 
 const initialValues = {
+  tempraryPassword: '',
   newPassword: '',
   confirmNewPassword: '',
 };
 
 export const PasswordRecovery = () => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const handleTogglePassword = e => {
     e.preventDefault();
     setShowPassword(!showPassword);
   };
-
+  const navigate = useNavigate();
   const onSubmit = (values, { resetForm }) => {
-    // const { email } = values;
+    const { tempraryPassword, newPassword, confirmNewPassword } = values;
+
+    dispatch(
+      changePassword({ tempraryPassword, newPassword, confirmNewPassword })
+    );
+    navigate('/auth/login');
+    resetForm();
   };
 
   return (
@@ -54,6 +67,21 @@ export const PasswordRecovery = () => {
       onSubmit={onSubmit}
     >
       <FormContainer>
+        <InputContainer>
+          <StyledLabel>
+            <StyledInputContainer>
+              <StyledInput
+                type="text"
+                id="tempraryPassword"
+                name="tempraryPassword"
+                autoComplete="temprorary-password"
+                placeholder="Recovery code"
+              />
+            </StyledInputContainer>
+
+            <MessageError name="tempraryPassword" component="div" />
+          </StyledLabel>
+        </InputContainer>
         <InputContainer>
           <StyledLabel>
             <StyledInputContainer>

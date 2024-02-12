@@ -9,6 +9,7 @@ import {
   updateAvatar,
   forgetPassword,
   changeTheme,
+  changePassword,
 } from './operations';
 
 const initialState = {
@@ -116,6 +117,19 @@ const authSlice = createSlice({
       state.isLoading = false;
     },
     [forgetPassword.rejected](state, action) {
+      state.isLoading = false;
+      state.isError = true;
+      state.errorMessage = action.payload;
+    },
+    [changePassword.pending](state) {
+      state.isLoading = true;
+      state.isError = false;
+      state.errorMessage = null;
+    },
+    [changePassword.fulfilled](state) {
+      state.isLoading = false;
+    },
+    [changePassword.rejected](state, action) {
       state.isLoading = false;
       state.isError = true;
       state.errorMessage = action.payload;
