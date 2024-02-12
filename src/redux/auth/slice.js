@@ -22,15 +22,22 @@ const initialState = {
   errorMessage: null,
   theme: 'light',
 };
+const handlePending = state => {
+  state.isLoading = true;
+  state.isError = false;
+  state.errorMessage = null;
+};
+const handleRejected = state => {
+  state.isLoading = false;
+  state.isError = true;
+};
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
     [register.pending](state) {
-      state.isLoading = true;
-      state.isError = false;
-      state.errorMessage = null;
+      handlePending(state);
     },
     [register.fulfilled](state, { payload }) {
       console.log(payload);
@@ -50,9 +57,7 @@ const authSlice = createSlice({
       }
     },
     [login.pending](state) {
-      state.isLoading = true;
-      state.isError = false;
-      state.errorMessage = null;
+      handlePending(state);
     },
     [login.fulfilled](state, action) {
       state.user = action.payload.user;
@@ -61,15 +66,12 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
     },
     [login.rejected](state, action) {
-      state.isLoading = false;
       state.errorMessage = action.payload;
       toast.error(state.errorMessage);
-      state.isError = true;
+      handleRejected(state);
     },
     [logout.pending](state) {
-      state.isLoading = true;
-      state.isError = false;
-      state.errorMessage = null;
+      handlePending(state);
     },
     [logout.fulfilled](state) {
       state.isLoading = false;
@@ -78,12 +80,10 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
     },
     [logout.rejected](state, action) {
-      state.isError = true;
+      handleRejected(state);
     },
     [refreshUser.pending](state) {
-      state.isRefreshing = true;
-      state.isError = false;
-      state.errorMessage = null;
+      handlePending(state);
     },
     [refreshUser.fulfilled](state, action) {
       state.user = action.payload;
@@ -92,46 +92,38 @@ const authSlice = createSlice({
     },
     [refreshUser.rejected](state) {
       state.isRefreshing = false;
+      handleRejected(state);
     },
     [updateAvatar.pending](state) {
-      state.isLoading = true;
-      state.isError = false;
-      state.errorMessage = null;
+      handlePending(state);
     },
     [updateAvatar.fulfilled](state, action) {
       state.user.avatar = action.payload.avatar;
       state.isLoading = false;
     },
     [updateAvatar.rejected](state, action) {
-      state.isLoading = false;
-      state.isError = true;
+      handleRejected(state);
       state.errorMessage = action.payload;
       toast.error(state.errorMessage);
     },
     [forgetPassword.pending](state) {
-      state.isLoading = true;
-      state.isError = false;
-      state.errorMessage = null;
+      handlePending(state);
     },
     [forgetPassword.fulfilled](state) {
       state.isLoading = false;
     },
     [forgetPassword.rejected](state, action) {
-      state.isLoading = false;
-      state.isError = true;
+      handleRejected(state);
       state.errorMessage = action.payload;
     },
     [changePassword.pending](state) {
-      state.isLoading = true;
-      state.isError = false;
-      state.errorMessage = null;
+      handlePending(state);
     },
     [changePassword.fulfilled](state) {
       state.isLoading = false;
     },
     [changePassword.rejected](state, action) {
-      state.isLoading = false;
-      state.isError = true;
+      handleRejected(state);
       state.errorMessage = action.payload;
     },
     [changeTheme.fulfilled](state, action) {

@@ -16,7 +16,6 @@ import sprite from '../../images/icons.svg';
 import { useDispatch } from 'react-redux';
 import { changePassword } from 'redux/auth/operations.js';
 
-import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const PasswordRecoverySchem = Yup.object().shape({
