@@ -48,8 +48,10 @@ const columnSlice = createSlice({
       .addCase(deleteColumn.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        const { id } = action.payload;
         const index = state.columns.findIndex(
-        column => column.id === action.payload.id
+        column => column.id === id
+        // column => column.id === action.payload.id
           // state.columns = state.columns.filter((column) => column._id !== action.payload._id)
         )
         state.columns.splice(index, 1);
