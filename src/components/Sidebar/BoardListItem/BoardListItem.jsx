@@ -4,7 +4,6 @@ import {
   StyledBoardList,
   StyledBoardListBtn,
   StyledBtnWrapper,
-  StyledSVGIcon,
   StyledSVGPensil,
   StyledSVGTrash,
 } from './BoardListItem.styled';
@@ -39,15 +38,16 @@ export const BoardListItem = ({ board, isActive, onClick }) => {
   return (
     <StyledBoardList isActive={isActive} onClick={onClick}>
       {/* <StyledBoardItem to={`/home/${board._id}`}></StyledBoardItem> */}
-      <StyledSVGIcon>
-        <use xlinkHref={`${sprite}#${board.iconURL}`}></use>
-      </StyledSVGIcon>
+      
       <StyledBoardItem
         type="button"
         isActive={isActive}
         onClick={onClick}
         // onClick={()=> dispatch(getBoardById(boardId))}
       >
+        <svg>
+        <use xlinkHref={`${sprite}#${board.iconURL}`}></use>
+      </svg>
         <Link to={`/home/${board._id}`}>{board.title}</Link>
       </StyledBoardItem>
 
