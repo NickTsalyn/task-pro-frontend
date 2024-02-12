@@ -19,9 +19,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { showAll } from 'redux/filters/filtersSlice';
 import { getTheme } from '../../components/themes';
 import PriorityCheckboxForm from './ui/PriorityCheckboxForm';
+import { StyledComponentsWrapper } from './StyledComponentsWrapper';
 
 export const HeaderDashboard = ({ project }) => {
-  console.log('project', project);
+  // console.log('project', project);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -29,6 +30,9 @@ export const HeaderDashboard = ({ project }) => {
   const filtersPriority = useSelector(state => state.filters.filtersPriority);
 
   const customStyles = {
+    overlay: {
+      backgroundColor: 'transparent',
+    },
     content: {
       width: '300px',
       heihght: '234px',
@@ -43,7 +47,7 @@ export const HeaderDashboard = ({ project }) => {
   };
 
   return (
-    <>
+    <StyledComponentsWrapper>
       <ProjectName>{project?.title}</ProjectName>
       <Button onClick={handleOpen}>
         <IconTextContainer>
@@ -81,7 +85,7 @@ export const HeaderDashboard = ({ project }) => {
           </div>
         </Section>
       </Modal>
-    </>
+    </StyledComponentsWrapper>
   );
 };
 

@@ -136,6 +136,7 @@ export const RadioBtnWrapper = styled(Form)`
 `;
 
 export const CheckboxContainer = styled.div`
+  $priority: ${props => props.priority};
   font-size: 12px;
   letter-spacing: -0.02em;
   input[type='checkbox'] {
