@@ -8,8 +8,8 @@ import {
   logout,
   updateAvatar,
   forgetPassword,
-  changeTheme,
   changePassword,
+  changeTheme,
 } from './operations';
 
 const initialState = {
@@ -22,22 +22,15 @@ const initialState = {
   errorMessage: null,
   theme: 'light',
 };
-const handlePending = state => {
-  state.isLoading = true;
-  state.isError = false;
-  state.errorMessage = null;
-};
-const handleRejected = state => {
-  state.isLoading = false;
-  state.isError = true;
-};
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
     [register.pending](state) {
-      handlePending(state);
+      state.isLoading = true;
+      state.isError = false;
+      state.errorMessage = null;
     },
     [register.fulfilled](state, { payload }) {
       console.log(payload);
@@ -57,7 +50,9 @@ const authSlice = createSlice({
       }
     },
     [login.pending](state) {
-      handlePending(state);
+      state.isLoading = true;
+      state.isError = false;
+      state.errorMessage = null;
     },
     [login.fulfilled](state, action) {
       state.user = action.payload.user;
@@ -66,12 +61,15 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
     },
     [login.rejected](state, action) {
+      state.isLoading = false;
       state.errorMessage = action.payload;
       toast.error(state.errorMessage);
-      handleRejected(state);
+      state.isError = true;
     },
     [logout.pending](state) {
-      handlePending(state);
+      state.isLoading = true;
+      state.isError = false;
+      state.errorMessage = null;
     },
     [logout.fulfilled](state) {
       state.isLoading = false;
@@ -80,12 +78,12 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
     },
     [logout.rejected](state, action) {
-      handleRejected(state);
+      state.isError = true;
     },
     [refreshUser.pending](state) {
       state.isRefreshing = true;
-      state.isLoggedIn = true;
-      handlePending(state);
+      state.isError = false;
+      state.errorMessage = null;
     },
     [refreshUser.fulfilled](state, action) {
       state.user = action.payload;
@@ -94,38 +92,46 @@ const authSlice = createSlice({
     },
     [refreshUser.rejected](state) {
       state.isRefreshing = false;
-      handleRejected(state);
     },
     [updateAvatar.pending](state) {
-      handlePending(state);
+      state.isLoading = true;
+      state.isError = false;
+      state.errorMessage = null;
     },
     [updateAvatar.fulfilled](state, action) {
       state.user.avatar = action.payload.avatar;
       state.isLoading = false;
     },
     [updateAvatar.rejected](state, action) {
-      handleRejected(state);
+      state.isLoading = false;
+      state.isError = true;
       state.errorMessage = action.payload;
       toast.error(state.errorMessage);
     },
     [forgetPassword.pending](state) {
-      handlePending(state);
+      state.isLoading = true;
+      state.isError = false;
+      state.errorMessage = null;
     },
     [forgetPassword.fulfilled](state) {
       state.isLoading = false;
     },
     [forgetPassword.rejected](state, action) {
-      handleRejected(state);
+      state.isLoading = false;
+      state.isError = true;
       state.errorMessage = action.payload;
     },
     [changePassword.pending](state) {
-      handlePending(state);
+      state.isLoading = true;
+      state.isError = false;
+      state.errorMessage = null;
     },
     [changePassword.fulfilled](state) {
       state.isLoading = false;
     },
     [changePassword.rejected](state, action) {
-      handleRejected(state);
+      state.isLoading = false;
+      state.isError = true;
       state.errorMessage = action.payload;
     },
     [changeTheme.fulfilled](state, action) {
