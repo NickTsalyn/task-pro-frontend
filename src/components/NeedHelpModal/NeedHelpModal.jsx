@@ -6,6 +6,7 @@ import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { ModalWrapper, CloseButton, InputWrapper, ModalTitle, Input, CommentInput, SendButton, StyledSvgClose } from './NeedHelpModal.styled';
 import { sendHelpRequest } from '../../redux/auth/needHelpRequest.jsx'
+import { useTranslation } from 'react-i18next';
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -16,6 +17,8 @@ const validationSchema = Yup.object({
 });
 
  export const NeedHelpModal = ({ isOpen, onClose }) => {
+  const { t } = useTranslation('global');
+
   const [email, setEmail] = useState('');
   const [comment, setComment] = useState('');
   const dispatch = useDispatch();
@@ -52,7 +55,7 @@ const validationSchema = Yup.object({
             <use xlinkHref={`${sprite}#icon-x-close`}></use>
           </StyledSvgClose>
         </CloseButton>
-        <ModalTitle>Need help</ModalTitle>
+        <ModalTitle>{t('screenPage.render.modal.help.title')}</ModalTitle>
         <Formik
           initialValues={{ email: '', comment: '' }}
           validationSchema={validationSchema}
@@ -60,11 +63,11 @@ const validationSchema = Yup.object({
         >
           {({ isSubmitting }) => (
             <Form>
-                <Input type="email" name="email" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Input type="email" name="email" placeholder={t('screenPage.render.modal.help.email')} value={email} onChange={(e) => setEmail(e.target.value)} />
                 <ErrorMessage name="email" component="div" className="error-message" />
-                <CommentInput type="text" name="comment" placeholder="Comment" value={comment} onChange={(e) => setComment(e.target.value)} />
+                <CommentInput type="text" name="comment" placeholder={t('screenPage.render.modal.help.text')} value={comment} onChange={(e) => setComment(e.target.value)} />
                 <ErrorMessage name="comment" component="div" className="error-message" />
-              <SendButton type="submit" onClick={handleSend}>Send</SendButton>
+                <SendButton type="submit">{t('Send')}</SendButton> {/* Використовуємо ключ для перекладу тексту кнопки */}
             </Form>
           )}
         </Formik>

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NeedHelpModal } from 'components/NeedHelpModal/NeedHelpModal.jsx';
 import { HelpContainer, HelpImage, HelpButton, HelpText, ButtonText, IconContainer, TaskPro} from './HelpApp.styled.js';
 import flowerImage from './../../images/flower.png';
-import { CiCircleQuestion } from "react-icons/ci";
+import { AiOutlineQuestionCircle } from "react-icons/ai";
 
 const HelpApp = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t } = useTranslation('global'); // Вказуємо простір імен для перекладу
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -19,16 +21,18 @@ const HelpApp = () => {
     <HelpContainer>
       <HelpImage src={flowerImage} alt="flower" />
       <HelpText>
-        If you need help with <TaskPro >TaskPro</TaskPro>, check out our support resources or reach out to our customer support team.
+        {t('screenPage.static.help')} {/* Використання ключа для перекладу тексту */}
+        <TaskPro>TaskPro</TaskPro>
+        {t('screenPage.static.help2')} {/* Використання іншого ключа для перекладу тексту */}
       </HelpText>
       <HelpButton onClick={openModal}>
         <IconContainer>
-          <CiCircleQuestion/>
+          <AiOutlineQuestionCircle/>
         </IconContainer>
       </HelpButton>
-     
-      <ButtonText onClick={openModal}>Need help?</ButtonText>
-
+      <ButtonText onClick={openModal}>
+        {t('screenPage.static.needHelp')} {/* Використання ще одного ключа для перекладу тексту */}
+      </ButtonText>
       {isModalOpen && 
         <NeedHelpModal 
           isOpen={isModalOpen}
@@ -39,4 +43,3 @@ const HelpApp = () => {
   );
 }; 
 export default HelpApp;
-
