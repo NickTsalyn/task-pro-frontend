@@ -1,9 +1,18 @@
 import React from 'react';
-import Modal from 'react-modal';
-import sprite from '../../../images/icons.svg';
-import '../ColumnModal.css';
-import { ModalCloseButton, StyledSvgClose } from '../ColumnModal.styled';
 
+import sprite from '../../../images/icons.svg';
+
+import { ModalCloseButton, ModalWrap, StyledSvgClose } from '../ColumnModal.styled';
+import {
+  AddColumnBtn,
+  AddColumnInput,
+  AddColumnTitle,
+  IconWhiteWrap,
+  StyledSvgDarkPlus,
+} from 'components/Button/AddColumnButton.styled';
+import { addColumn } from 'redux/columns/operations';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 // Modal.setAppElement('#root');
 
@@ -19,28 +28,76 @@ import { ModalCloseButton, StyledSvgClose } from '../ColumnModal.styled';
 //   // transition: transform 0.3s;
 // }
 
-export const AddColumnModal = ({ isOpen, onClose, submitButton, children }) => {
-  
-  return (
-    <Modal
-      isOpen={isOpen}
-      overlayClassName={'modal-overlay'}
-      // style={stylesModal}
-      className={'modal-content'}
-      closeTimeoutMS={300}
-      onRequestClose={() => onClose()}
-      ariaHideApp={false}
-    >
+// export const AddColumnModal = ({ isOpen, onClose, submitButton, children }) => {
+//   return (
+//     <Modal
+//       isOpen={isOpen}
+//       overlayClassName={'modal-overlay'}
+//       // style={stylesModal}
+//       className={'modal-content'}
+//       closeTimeoutMS={300}
+//       onRequestClose={() => onClose()}
+//       ariaHideApp={false}
+//     >
+//       <ModalCloseButton onClick={() => onClose()}>
+//         <StyledSvgClose>
+//           <use xlinkHref={`${sprite}#icon-x-close`}></use>
+//         </StyledSvgClose>
+//       </ModalCloseButton>
+//       {children}
+//     </Modal>
+//   );
+// };
 
-   <ModalCloseButton onClick={() => onClose()}>
-          <StyledSvgClose>
-            <use xlinkHref={`${sprite}#icon-x-close`}></use>
-          </StyledSvgClose>
-         
-        </ModalCloseButton>
-        {children}
-     
-      </Modal>
-    
+export const AddColumnModal = ({ onCloseModal }) => {
+  const dispatch = useDispatch();
+  const { boardId } = useParams();
+
+  const handlerAddColumn = evt => {
+    evt.preventDefault();
+    const inputValue = evt.target.title.value.trim();
+    if (inputValue !== '') {
+      const newColumn = {
+        title: inputValue,
+        dashboardId: boardId,
+      };
+
+      dispatch(addColumn(newColumn));
+      onCloseModal();
+      console.log(inputValue);
+      console.log(newColumn);
+      return;
+    }
+    return;
+  };
+
+  return (
+    <ModalWrap>
+      <AddColumnTitle>Add column</AddColumnTitle>
+
+      <ModalCloseButton onClick={onCloseModal}>
+        <StyledSvgClose>
+          <use xlinkHref={`${sprite}#icon-x-close`}></use>
+        </StyledSvgClose>
+      </ModalCloseButton>
+
+      <form onSubmit={handlerAddColumn}>
+        <AddColumnInput
+          type="text"
+          name="title"
+          placeholder="Title"
+          autoFocus
+        />
+
+        <AddColumnBtn type="submit">
+          <IconWhiteWrap>
+            <StyledSvgDarkPlus>
+              <use xlinkHref={`${sprite}#icon-plus`}></use>
+            </StyledSvgDarkPlus>
+          </IconWhiteWrap>
+          Add
+        </AddColumnBtn>
+      </form>
+    </ModalWrap>
   );
 };

@@ -15,43 +15,41 @@ import { ColumnList } from 'components/ColumnList/ColumnList';
 import { getAllColumns } from 'redux/columns/operations';
 // import DashBoard from 'components/DashBoard/DashBoard';
 
-
 export default function ScreensPage() {
   const dispatch = useDispatch();
   const { boardId } = useParams();
 
   useEffect(() => {
-    dispatch(getBoardById(boardId))
-    
-    
+    dispatch(getBoardById(boardId));
   }, [boardId, dispatch]);
 
   useEffect(() => {
-    dispatch(getAllColumns())
-  
+    dispatch(getAllColumns());
   }, [dispatch]);
 
   const { t } = useTranslation('global');
-  const boards = useSelector(selectAllBoards);  
-  const columns = useSelector(selectColumns);//приходить масив колонок;
-  const filteredColumns = columns.filter((column) => column.board === boardId);
-    console.log(boards);
-    // console.log(filteredColumns);
-    
-  
-  return (    
-      <ScreensPageWrapper>
-        <HeaderDashboard />
+  const boards = useSelector(selectAllBoards);
+  const columns = useSelector(selectColumns); //приходить масив колонок;
+  const filteredColumns = columns.filter(column => column.board === boardId);
+  console.log(boards);
+  // console.log(filteredColumns);
 
-        {boards.length === 0 ? 
-        (<Text>{t('screenPage.static.message1')}
-        <ButtonText>{t('screenPage.static.message2')}</ButtonText>
-        {t('screenPage.static.message3')}</Text> )
-        : <ColumnList columns={filteredColumns}/>  }
+  return (
+    <ScreensPageWrapper>
+      <HeaderDashboard />
 
-        {/* {(boards.length === 0 && filteredColumns.length === 0) ? <ColumnList columns={filteredColumns}/> : <AddColumnButton/> } */}
-        {/* <DashBoard/> */}
-      </ScreensPageWrapper>
-    
+      {boards.length === 0 ? (
+        <Text>
+          {t('screenPage.static.message1')}
+          <ButtonText>{t('screenPage.static.message2')}</ButtonText>
+          {t('screenPage.static.message3')}
+        </Text>
+      ) : (
+        <ColumnList columns={filteredColumns} />
+      )}
+
+      {/* {(boards.length === 0 && filteredColumns.length === 0) ? <ColumnList columns={filteredColumns}/> : <AddColumnButton/> } */}
+      {/* <DashBoard/> */}
+    </ScreensPageWrapper>
   );
 }
