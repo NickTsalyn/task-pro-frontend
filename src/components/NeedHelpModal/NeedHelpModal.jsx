@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { ModalWrapper, CloseButton, InputWrapper, ModalTitle, Input, CommentInput, SendButton, StyledSvgClose } from './NeedHelpModal.styled';
+import { ModalWrapper, CloseButton, ModalTitle, Input, CommentInput, SendButton, StyledSvgClose } from './NeedHelpModal.styled';
 import { sendHelpRequest } from '../../redux/auth/needHelpRequest.jsx'
 
 const validationSchema = Yup.object({
