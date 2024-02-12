@@ -1,20 +1,17 @@
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import React, { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { editColumn, deleteColumn } from '../../redux/columns/operations';
-import Modal from 'react-modal';
+// import Modal from 'react-modal';
 import sprite from '../../images/icons.svg';
 import '../../components/ColumnModal/ColumnModal.css';
 import { EditColumnModal } from '../../components/ColumnModal/EditColumnModal/EditColumnModal';
 import {
-  ModalShowButton,
   AddColumnTitle,
   AddColumnInput,
   AddColumnBtn,
   IconWhiteWrap,
-  IconVioletWrap,
-  StyledSvgWhitePlus,
   StyledSvgDarkPlus,
 } from '../Button/AddColumnButton.styled';
 
@@ -36,9 +33,9 @@ export const ColumnListItem = ({ column: { columnId, title } }) => {
     setModalEditColumnIsOpen(true);
   };
 
-  const closeModal = () => {
-    setModalEditColumnIsOpen(false);
-  };
+  // const closeModal = () => {
+  //   setModalEditColumnIsOpen(false);
+  // };
 
   const handlerValue = ({ target }) => setEditColumnValue(target.value);
 
@@ -71,6 +68,10 @@ export const ColumnListItem = ({ column: { columnId, title } }) => {
       errorToaster(error.message);
     }
   };
+
+  // function handlerDeleteColumn() {
+  //   dispatch(deleteColumn(column._id));
+  // }
 
   const successToaster = () => {
     toast.success('Woh! Well done!', {
@@ -106,7 +107,9 @@ export const ColumnListItem = ({ column: { columnId, title } }) => {
           </EditButton>
           <EditButton
             type="button"
-            onClick={() => handlerDeleteColumn(columnId)}
+            onClick={handlerDeleteColumn}
+            // onClick={() => handlerDeleteColumn(columnId)}
+
           >
             <EditSVG>
               <use xlinkHref={`${sprite}#icon-trash-04`} />
