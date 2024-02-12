@@ -83,6 +83,8 @@ const authSlice = createSlice({
       handleRejected(state);
     },
     [refreshUser.pending](state) {
+      state.isRefreshing = true;
+      state.isLoggedIn = true;
       handlePending(state);
     },
     [refreshUser.fulfilled](state, action) {
