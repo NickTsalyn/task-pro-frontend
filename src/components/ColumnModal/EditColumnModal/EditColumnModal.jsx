@@ -3,7 +3,6 @@ import Modal from 'react-modal';
 import sprite from '../../../images/icons.svg';
 import '../ColumnModal.css';
 import { ModalCloseButton, StyledSvgClose } from '../ColumnModal.styled';
-// import { ModalCloseButton, StyledSvgClose } from '../ColumnModal.styled';
 
 // Modal.setAppElement('#root');
 

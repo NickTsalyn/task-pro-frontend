@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import toast, { Toaster } from 'react-hot-toast';
 import { AddColumnModal } from '../ColumnModal/AddColumnModal/AddColumnModal';
-import { EditColumnModal } from '../ColumnModal/EditColumnModal/EditColumnModal';
+// import { EditColumnModal } from '../ColumnModal/EditColumnModal/EditColumnModal';
 import sprite from '../../images/icons.svg';
 import {
   addColumn,
   // deleteColumn,
-  editColumn,
+  // editColumn,
 } from '../../redux/columns/operations';
 
 import {  
@@ -24,8 +24,8 @@ import { useParams } from 'react-router-dom';
 
 export const AddColumnButton = ({ columnId }) => {
   const [modalAddColumnIsOpen, setModalAddColumnIsOpen] = useState(false);
-  const [modalEditColumnIsOpen, setModalEditColumnIsOpen] = useState(false);
-  const [editColumnValue, setEditColumnValue] = useState('');
+  // const [modalEditColumnIsOpen, setModalEditColumnIsOpen] = useState(false);
+  // const [editColumnValue, setEditColumnValue] = useState('');
 
   const dispatch = useDispatch();
   const {boardId} = useParams();
@@ -47,19 +47,19 @@ export const AddColumnButton = ({ columnId }) => {
     return;
   };
 
-  const handlerValue = ({ target }) => setEditColumnValue(target.value);
+  // const handlerValue = ({ target }) => setEditColumnValue(target.value);
 
-  const handlerEditColumn = evt => {
-    evt.preventDefault();
-    const updatedTitle = evt.target.elements.title.value;
+  // const handlerEditColumn = evt => {
+  //   evt.preventDefault();
+  //   const updatedTitle = evt.target.elements.title.value;
 
-    if (updatedTitle.trim() !== '') {
-      dispatch(editColumn({ id: columnId, title: updatedTitle }));
-      setModalEditColumnIsOpen(false);
-      return;
-    }
-    return;
-  };
+  //   if (updatedTitle.trim() !== '') {
+  //     dispatch(editColumn({ id: columnId, title: updatedTitle }));
+  //     setModalEditColumnIsOpen(false);
+  //     return;
+  //   }
+  //   return;
+  // };
 
   // const handlerDeleteColumn = columnId => {
   //   dispatch(deleteColumn(columnId));
@@ -88,14 +88,14 @@ export const AddColumnButton = ({ columnId }) => {
           Add another column
         </ModalShowButton>
 
-        <ModalShowButton onClick={() => setModalEditColumnIsOpen(true)}>
+        {/* <ModalShowButton onClick={() => setModalEditColumnIsOpen(true)}>
           <IconVioletWrap>
             <StyledSvgWhitePlus>
               <use xlinkHref={`${sprite}#icon-plus`}></use>
             </StyledSvgWhitePlus>
           </IconVioletWrap>
           Edit Column
-        </ModalShowButton>
+        </ModalShowButton> */}
 
         <AddColumnModal
           isOpen={modalAddColumnIsOpen}
@@ -124,7 +124,7 @@ export const AddColumnButton = ({ columnId }) => {
           </div>
         </AddColumnModal>
 
-        <EditColumnModal
+        {/* <EditColumnModal
           isOpen={modalEditColumnIsOpen}
           onClose={() => setModalEditColumnIsOpen(false)}
           submitButton="Add"
@@ -150,7 +150,7 @@ export const AddColumnButton = ({ columnId }) => {
               </AddColumnBtn>
             </form>
           </div>
-        </EditColumnModal>
+        </EditColumnModal> */}
         </>      
   );
 };
