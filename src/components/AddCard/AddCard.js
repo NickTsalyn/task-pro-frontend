@@ -11,7 +11,7 @@ import {
   AddCardContMark,
   AddCardContainer,
   AddCardDate,
-  AddCardDesc,
+  // AddCardDesc,
   AddCardDescription,
   AddCardHeader,
   AddCardLabelColor,
@@ -30,7 +30,7 @@ import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled
 import { addTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 
-export const AddCard = ({ onCloseModal }) => {
+export const AddCard = ({ onCloseModal, id }) => {
   const [startDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
   // const formik = useFormik({
@@ -79,8 +79,9 @@ export const AddCard = ({ onCloseModal }) => {
           description: values.description,
           priority: values.priority,
           deadline: values.deadline,
+          column: id
         };
-        console.log(newCard)
+        
         dispatch(addTask(newCard));
         resetForm();
 
