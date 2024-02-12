@@ -10,8 +10,9 @@ import {
   EditSVG,
 } from './ColumnListItem.styled';
 
-import { AddCard } from 'components/AddCard/AddCard';
+import { AddAnotherCard, AddCardButtonSvg, AddCardSvgButtonText, AddCardSvgContainer } from 'components/AddCard/AddCard.styled';
 import { CardList } from 'components/CardList/CardList';
+import { AddCard } from 'components/AddCard/AddCard';
 
 // import { useDispatch } from 'react-redux';
 Modal.setAppElement('#root');
