@@ -1,5 +1,6 @@
 import { Header } from 'components/Header/Header';
-import React, {  useEffect, useState } from 'react';
+
+import React, { useEffect, useState } from 'react';
 
 import {
   // ButtonText,
@@ -37,11 +38,11 @@ export default function HomePage() {
       <HeaderWrapper>
         <Header />
         {/* <Text> */}
-          {/* {t('screenPage.static.message1')}
+        {/* {t('screenPage.static.message1')}
           <ButtonText>{t('screenPage.static.message2')}</ButtonText>
           {t('screenPage.static.message3')} */}
         {/* </Text> */}
-        <ScreensPage/>
+        <ScreensPage />
       </HeaderWrapper>
 
       {/* <Loader/>            */}
@@ -56,7 +57,7 @@ export default function HomePage() {
       {t('screenPage.static.message3')}</Text>} */}
       {/* <ScreensPage/> */}
       {/* <Link to={`/home/${boardId}`}></Link> */}
-       {/* <Suspense fallback={<Loader/>}><Outlet /></Suspense>     */}
-    </HomeWrapper> 
+      {/* <Suspense fallback={<Loader/>}><Outlet /></Suspense>     */}
+    </HomeWrapper>
   );
 }

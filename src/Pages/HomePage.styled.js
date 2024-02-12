@@ -8,12 +8,11 @@ export const HomeWrapper = styled.div`
   justify-content: center;
 
   @media screen and (min-width: 768px) {
-   width: 768px;
-
+    width: 768px;
   }
 
   @media screen and (min-width: 1440px) {
- width: 1180px;
+    width: 1180px;
   }
 `;
 
@@ -35,7 +34,7 @@ export const Text = styled.p`
     font-size: 14px;
   }
   @media only screen and (min-width: 1440px) {
-    margin: 247px auto 0; 
+    margin: 247px auto 0;
     /* margin-right: 347px;     */
   }
 `;

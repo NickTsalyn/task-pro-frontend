@@ -112,15 +112,19 @@ export const IconSVG = styled.svg`
     height: 18px;
 `
 
-export const FuturePic = styled.span`
+export const Pic = styled.span`
     display: inline-block;
-    vertical-align: middle;
-    background-color: ${props => props.theme.colors.shadowColor};
     border: 1px transparent solid;
+    background-color: transparent;
+    z-index: 10;
     cursor: pointer;
     border-radius: 8px;
     width: 28px;
     height: 28px;
+
+    & > img {
+        border-radius: 6px;
+    }
 `
 
 export const SubmitButton = styled.button`
