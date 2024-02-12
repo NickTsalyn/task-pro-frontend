@@ -15,6 +15,7 @@ import {
 
 import { AddColumnButton } from 'components/Button/AddColumnButton';
 import { AddCard } from 'components/AddCard/AddCard';
+import { AddAnotherCard,AddCardButtonSvg, AddCardSvgButtonText, AddCardSvgContainer } from 'components/AddCard/AddCard.styled';
 // import { useDispatch } from 'react-redux';
 Modal.setAppElement('#root');
 export const ColumnListItem = ({column: { _id, title}}) => {    
@@ -59,7 +60,14 @@ export const ColumnListItem = ({column: { _id, title}}) => {
          </ColumnHeader>          
             {/* <CardList columnId={id}/> */}
             {/* <AddColumnButton/> */}
-            <button  onClick={openModal}>AddAnotherCard</button>  
+            <AddAnotherCard onClick = {openModal} type="submit">
+          <AddCardSvgContainer>
+            <AddCardButtonSvg>
+              <use xlinkHref={`${sprite}#icon-plus`}></use>
+            </AddCardButtonSvg>
+          </AddCardSvgContainer>
+          <AddCardSvgButtonText>Add</AddCardSvgButtonText>
+        </AddAnotherCard> 
 
 
             <Modal
