@@ -28,8 +28,8 @@ export const EditColumnModal = ({
     <Modal
       isOpen={isOpen}
       overlayClassName={'modal-overlay'}
-      // className={'modal-content'}
-      style={stylesModal}
+      className={'modal-content'}
+      // style={stylesModal}
       closeTimeoutMS={300}
       onRequestClose={() => onClose()}
       ariaHideApp={false}

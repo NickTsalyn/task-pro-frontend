@@ -41,9 +41,11 @@ export const ColumnListItem = ({ column: { columnId, title } }) => {
 
   const handlerEditColumn = evt => {
     evt.preventDefault();
-    const updatedTitle = evt.target.elements.title.value;
+    // const updatedTitle = evt.target.elements.title.value;
+     const updatedTitle = evt.target.value;
 
-    if (updatedTitle.trim() !== '') {
+    // if (updatedTitle.trim() !== '') {
+    if (updatedTitle !== '') {
       dispatch(editColumn({ id: columnId, title: updatedTitle }));
       setModalEditColumnIsOpen(false);
       return;

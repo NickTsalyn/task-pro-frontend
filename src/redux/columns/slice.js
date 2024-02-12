@@ -64,6 +64,10 @@ const columnSlice = createSlice({
         state.error = null;
         // const { _id, title } = action.payload;
         const { id, title } = action.payload;
+        console.log(id);
+        console.log(title);
+
+
         // const columnIndex = state.columns.findIndex(item => item._id === _id);
         const columnIndex = state.columns.findIndex(column => column.id === id);
         state.columns[columnIndex].title = title;
