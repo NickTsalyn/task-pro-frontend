@@ -11,23 +11,9 @@ export const ProjectName = styled.div`
   margin-top: 10px;
 `;
 
-export const Button = styled.button`
-  position: absolute;
-  display: inline-flex;
-  justify-content: center;
+export const IconTextContainer = styled.div`
+  display: flex;
   align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  outline: none;
-  top: 14px;
-  right: 24px;
-
-  &:hover {
-    opacity: 0.8;
-    scale: 1.2;
-  }
 `;
 
 export const Icon = styled.svg`
@@ -46,11 +32,40 @@ export const Text = styled.span`
   letter-spacing: -0.02px;
 `;
 
+export const Button = styled.button`
+  position: absolute;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  top: 14px;
+  right: 24px;
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.2);
+    transition: all 250ms ease-in-out;
+    stroke: ${p => getTheme(p.theme.selectedTheme).accent};
+
+    ${Icon} {
+      stroke: ${p => getTheme(p.theme.selectedTheme).accent};
+    }
+
+    ${Text} {
+      color: ${p => getTheme(p.theme.selectedTheme).accent};
+    }
+  }
+`;
+
 export const Section = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 4px;
 `;
 
 export const CloseModal = styled.svg`
