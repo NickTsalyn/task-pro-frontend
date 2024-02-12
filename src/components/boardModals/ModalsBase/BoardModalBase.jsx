@@ -11,10 +11,10 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
     const Icons = [{value: 'icon-Project'}, {value: 'icon-star-04'}, {value: 'icon-loading-03'}, {value: 'icon-puzzle-piece-02'},
                    {value: 'icon-container'}, {value: 'icon-lightning-02'}, {value: 'icon-colors'}, {value: 'icon-hexagon-01'}]
     
-    const Backgrounds = [{value: '0'}, {value: '1'}, {value: '2'}, {value: '3'},
-                        {value: '4'}, {value: '5'}, {value: '6'}, {value: '7'},
-                        {value: '8'}, {value: '9'}, {value: '10'}, {value: '11'},
-                        {value: '12'}, {value: '13'}, {value: '14'}, {value: '15'}]
+    const Backgrounds = [{value: 'p0'}, {value: 'p1'}, {value: 'p2'}, {value: 'p3'},
+                        {value: 'p4'}, {value: 'p5'}, {value: 'p6'}, {value: 'p7'},
+                        {value: 'p8'}, {value: 'p9'}, {value: 'p10'}, {value: 'p11'},
+                        {value: 'p12'}, {value: 'p13'}, {value: 'p14'}, {value: 'p15'}]
 
     function close() {
         onCloseModal()
@@ -86,7 +86,7 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
                                 onChange={() => setBackground(Background.value)}>
                             </Radio>
                             <Pic>
-                                <img alt='icon_option' src={pictures_mini[`p${Background.value}`]}></img>
+                                <img alt='icon_option' src={pictures_mini[`${Background.value}`]}></img>
                             </Pic>
                         </label>
                     ))}
