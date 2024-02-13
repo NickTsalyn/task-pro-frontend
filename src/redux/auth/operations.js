@@ -94,7 +94,7 @@ export const forgetPassword = createAsyncThunk(
   'auth/forgetPassword',
   async (credentials, thunkAPI) => {
     try {
-      await axios.post('api/users/recovery', credentials);
+      await axios.post('api/users/recovery-mail', credentials);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
