@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch } from "react-redux"
-import { useNavigate } from 'react-router-dom'
 import { AddBoardButton } from './addBoardButton/addBoardButton'
 import { BoardModalBase } from './ModalsBase/BoardModalBase'
 import { addBoard } from 'redux/boards/operations'
 
 export const AddBoard = () => {
     const dispatch = useDispatch()
-    const navigate = useNavigate()
     const [isModalOpen, setOpenModal] = useState(false)
 
     function CloseModal() {
@@ -23,7 +21,6 @@ export const AddBoard = () => {
         console.log(info)
         dispatch(addBoard(info))
         setOpenModal(false)
-        navigate(`/home/${info.title.replaceAll(' ', '')}`)
     }
 
     return (

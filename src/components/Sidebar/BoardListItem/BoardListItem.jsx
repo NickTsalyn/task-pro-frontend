@@ -10,7 +10,7 @@ import {
 } from './BoardListItem.styled';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteBoard, editBoard } from 'redux/boards/operations';
+import { getBoardById, deleteBoard, editBoard } from 'redux/boards/operations';
 import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase';
 import { Link } from 'react-router-dom';
 
@@ -45,8 +45,10 @@ export const BoardListItem = ({ board, isActive, onClick }) => {
       <StyledBoardItem
         type="button"
         isActive={isActive}
-        onClick={onClick}
-        // onClick={()=> dispatch(getBoardById(boardId))}
+        onClick={() => {
+          onClick()
+          dispatch(getBoardById(board._id))
+        }}
       >
         <Link to={`/home/${board._id}`}>{board.title}</Link>
       </StyledBoardItem>
