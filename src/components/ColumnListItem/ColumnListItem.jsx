@@ -18,6 +18,9 @@ import {
 } from 'components/AddCard/AddCard.styled';
 import { CardList } from 'components/CardList/CardList';
 import { AddCard } from 'components/AddCard/AddCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectTasks } from 'redux/tasks/selectors';
+import { fetchTitle } from 'redux/tasks/operations';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { selectTasks } from 'redux/tasks/selectors';
@@ -41,7 +44,7 @@ export const ColumnListItem = ({ column }) => {
 
   useEffect(() => {
     dispatch(fetchTitle());
-  }, [dispatch]);
+  }, []);
 
   // const dispatch = useDispatch();
   // const handlerEditColumn = (columnId, updatedData) => {
