@@ -5,6 +5,7 @@ import {
   CloseModal,
   FormTitle,
   FormWraper,
+  HdWrapper,
   Icon,
   IconTextContainer,
   Line,
@@ -35,7 +36,7 @@ export const HeaderDashboard = ({ project }) => {
     },
     content: {
       width: '300px',
-      heihght: '234px',
+      height: '234px',
       top: '50%',
       left: '50%',
       right: 'auto',
@@ -47,45 +48,49 @@ export const HeaderDashboard = ({ project }) => {
   };
 
   return (
-    <StyledComponentsWrapper>
-      <ProjectName>{project?.title}</ProjectName>
-      <Button onClick={handleOpen}>
-        <IconTextContainer>
-          <Icon>
-            <use xlinkHref={`${sprite}#icon-filter`}></use>
-          </Icon>
-          <Text>Filters</Text>
-        </IconTextContainer>
-      </Button>
-      <Modal
-        isOpen={open}
-        onRequestClose={handleClose}
-        style={customStyles}
-        appElement={document.getElementById('root')}
-      >
-        <CloseModal onClick={handleClose} type="button">
-          <use xlinkHref={`${sprite}#icon-x-close`}></use>
-        </CloseModal>
-        <Section>
-          <div>
-            <SectionTitle>Filters</SectionTitle>
-            <Line />
-            <FormWraper>
-              <FormTitle>Label color</FormTitle>
-              <ShowAllLabel
-                onClick={() => {
-                  console.log('Click');
-                  dispatch(showAll());
-                }}
-              >
-                Show all
-              </ShowAllLabel>
-            </FormWraper>
-            <PriorityCheckboxForm filtersPriority={filtersPriority} />
-          </div>
-        </Section>
-      </Modal>
-    </StyledComponentsWrapper>
+    <div>
+      <StyledComponentsWrapper>
+        <HdWrapper>
+          <ProjectName>{project?.title}projectName</ProjectName>
+          <Button onClick={handleOpen}>
+            <IconTextContainer>
+              <Icon>
+                <use xlinkHref={`${sprite}#icon-filter`}></use>
+              </Icon>
+              <Text>Filters</Text>
+            </IconTextContainer>
+          </Button>
+        </HdWrapper>
+        <Modal
+          isOpen={open}
+          onRequestClose={handleClose}
+          style={customStyles}
+          appElement={document.getElementById('root')}
+        >
+          <CloseModal onClick={handleClose} type="button">
+            <use xlinkHref={`${sprite}#icon-x-close`}></use>
+          </CloseModal>
+          <Section>
+            <div>
+              <SectionTitle>Filters</SectionTitle>
+              <Line />
+              <FormWraper>
+                <FormTitle>Label color</FormTitle>
+                <ShowAllLabel
+                  onClick={() => {
+                    console.log('Click');
+                    dispatch(showAll());
+                  }}
+                >
+                  Show all
+                </ShowAllLabel>
+              </FormWraper>
+              <PriorityCheckboxForm filtersPriority={filtersPriority} />
+            </div>
+          </Section>
+        </Modal>
+      </StyledComponentsWrapper>
+    </div>
   );
 };
 

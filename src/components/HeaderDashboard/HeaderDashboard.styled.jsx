@@ -2,13 +2,20 @@ import styled from 'styled-components';
 import { Form } from 'formik';
 import { getTheme } from '../../components/themes';
 
+export const HdWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  padding-left: 24px;
+  padding-right: 24px;
+`;
+
 export const ProjectName = styled.div`
   color: ${p => getTheme(p.theme.selectedTheme).mainText};
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
-  margin-left: 24px;
-  margin-top: 10px;
+  padding-top: 10px;
 `;
 
 export const IconTextContainer = styled.div`
@@ -23,6 +30,7 @@ export const Icon = styled.svg`
   stroke-width: 1.5px;
   transition: all 250ms linear;
   fill: transparent;
+  margin-right: 8px;
 `;
 
 export const Text = styled.span`
@@ -33,17 +41,15 @@ export const Text = styled.span`
 `;
 
 export const Button = styled.button`
-  position: absolute;
-  display: inline-flex;
-  justify-content: center;
+  display: flex;
   align-items: center;
-  gap: 8px;
   cursor: pointer;
   background: transparent;
   border: none;
   outline: none;
-  top: 14px;
-  right: 24px;
+  padding: 0px;
+  height: 100%;
+  margin-top: 14px;
 
   &:hover {
     opacity: 0.8;
