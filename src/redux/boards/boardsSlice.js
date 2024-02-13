@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchBoards, addBoard, editBoard, deleteBoard } from './operations'
+import { fetchBoards, addBoard, getBoardById, editBoard, deleteBoard } from './operations'
 
 const handlePending = state => {
     state.isLoading = true
@@ -13,6 +13,7 @@ const handleRejected = (state, action) => {
 const boardsSlice = createSlice({
     name: 'boards',
     initialState: {
+      currentBoard: {},
       boards: [],
       isLoading: false,
       error: null,
@@ -20,10 +21,12 @@ const boardsSlice = createSlice({
     extraReducers: {
         [fetchBoards.pending]: handlePending,
         [addBoard.pending]: handlePending,
+        [getBoardById.pending]: handlePending,
         [editBoard.pending]: handlePending,
         [deleteBoard.pending]: handlePending,
         [fetchBoards.rejected]: handleRejected,
         [addBoard.rejected]: handleRejected,
+        [getBoardById.rejected]: handleRejected,
         [editBoard.rejected]: handleRejected,
         [deleteBoard.rejected]: handleRejected,
         [fetchBoards.fulfilled](state, action) {
@@ -36,6 +39,11 @@ const boardsSlice = createSlice({
             state.error = null
             state.boards.push(action.payload)
         },
+        [getBoardById.fulfilled](state, action) {
+            state.isLoading = false
+            state.error = null
+            state.currentBoard = action.payload
+        },
         [editBoard.fulfilled](state, action) {
             state.isLoading = false
             state.error = null
@@ -43,6 +51,7 @@ const boardsSlice = createSlice({
                 board => board.id === action.payload.id
             )
             state.boards[index] = action.payload
+            state.currentBoard = action.payload
         },
         [deleteBoard.fulfilled](state, action) {
             state.isLoading = false
@@ -51,6 +60,7 @@ const boardsSlice = createSlice({
                 board => board.id === action.payload.id
             )
             state.boards.splice(index, 1)
+            state.currentBoard = {}
         },
     },
 })

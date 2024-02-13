@@ -5,10 +5,10 @@ import {
   CloseModal,
   FormTitle,
   FormWraper,
+  HdWrapper,
   Icon,
   IconTextContainer,
   Line,
-  ProjectName,
   Section,
   SectionTitle,
   ShowAllLabel,
@@ -19,19 +19,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { showAll } from 'redux/filters/filtersSlice';
 import { getTheme } from '../../components/themes';
 import PriorityCheckboxForm from './ui/PriorityCheckboxForm';
+import ProjectTitle from './ui/ProjectTitle';
+import { useParams } from 'react-router-dom';
+import { StyledComponentsWrapper } from './StyledComponentsWrapper';
 
-export const HeaderDashboard = ({ project }) => {
-  console.log('project', project);
+export const HeaderDashboard = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const filtersPriority = useSelector(state => state.filters.filtersPriority);
+  const { boardId } = useParams();
 
   const customStyles = {
+    overlay: {
+      backgroundColor: 'transparent',
+    },
     content: {
       width: '300px',
-      heihght: '234px',
+      height: '234px',
       top: '50%',
       left: '50%',
       right: 'auto',
@@ -43,45 +49,48 @@ export const HeaderDashboard = ({ project }) => {
   };
 
   return (
-    <>
-      <ProjectName>{project?.title}</ProjectName>
-      <Button onClick={handleOpen}>
-        <IconTextContainer>
-          <Icon>
-            <use xlinkHref={`${sprite}#icon-filter`}></use>
-          </Icon>
-          <Text>Filters</Text>
-        </IconTextContainer>
-      </Button>
-      <Modal
-        isOpen={open}
-        onRequestClose={handleClose}
-        style={customStyles}
-        appElement={document.getElementById('root')}
-      >
-        <CloseModal onClick={handleClose} type="button">
-          <use xlinkHref={`${sprite}#icon-x-close`}></use>
-        </CloseModal>
-        <Section>
-          <div>
-            <SectionTitle>Filters</SectionTitle>
-            <Line />
-            <FormWraper>
-              <FormTitle>Label color</FormTitle>
-              <ShowAllLabel
-                onClick={() => {
-                  console.log('Click');
-                  dispatch(showAll());
-                }}
-              >
-                Show all
-              </ShowAllLabel>
-            </FormWraper>
-            <PriorityCheckboxForm filtersPriority={filtersPriority} />
-          </div>
-        </Section>
-      </Modal>
-    </>
+    <div>
+      <StyledComponentsWrapper>
+        <HdWrapper>
+          <ProjectTitle boardId={boardId} />
+          <Button onClick={handleOpen}>
+            <IconTextContainer>
+              <Icon>
+                <use xlinkHref={`${sprite}#icon-filter`}></use>
+              </Icon>
+              <Text>Filters</Text>
+            </IconTextContainer>
+          </Button>
+        </HdWrapper>
+        <Modal
+          isOpen={open}
+          onRequestClose={handleClose}
+          style={customStyles}
+          appElement={document.getElementById('root')}
+        >
+          <CloseModal onClick={handleClose} type="button">
+            <use xlinkHref={`${sprite}#icon-x-close`}></use>
+          </CloseModal>
+          <Section>
+            <div>
+              <SectionTitle>Filters</SectionTitle>
+              <Line />
+              <FormWraper>
+                <FormTitle>Label color</FormTitle>
+                <ShowAllLabel
+                  onClick={() => {
+                    dispatch(showAll());
+                  }}
+                >
+                  Show all
+                </ShowAllLabel>
+              </FormWraper>
+              <PriorityCheckboxForm filtersPriority={filtersPriority} />
+            </div>
+          </Section>
+        </Modal>
+      </StyledComponentsWrapper>
+    </div>
   );
 };
 
