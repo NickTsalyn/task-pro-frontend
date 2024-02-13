@@ -10,25 +10,22 @@ import { ButtonText, DashBoardWrapper, Text } from './DashBoard.styled';
 import { ColumnList } from 'components/ColumnList/ColumnList';
 
 const DashBoard = () => {
- const {boardId} = useParams();
-const dispatch = useDispatch();
-console.log(boardId)
- 
-const boards = useSelector(selectAllBoards); 
-const columns = useSelector(selectColumns);
+  const { boardId } = useParams();
+  const dispatch = useDispatch();
+  console.log(boardId);
 
+  const boards = useSelector(selectAllBoards);
+  const columns = useSelector(selectColumns);
 
   useEffect(() => {
-    dispatch(getAllColumns())
-  
-  }, [boardId])
+    dispatch(getAllColumns());
+  }, [dispatch, boardId]);
 
   const { t } = useTranslation('global');
-  
-  
-   const filteredColumns = columns.filter((column) => column.board === boardId);
-    console.log(columns);
-    console.log(filteredColumns);
+
+  const filteredColumns = columns.filter(column => column.board === boardId);
+  console.log(columns);
+  console.log(filteredColumns);
 
   return (
     <DashBoardWrapper>  
@@ -38,7 +35,7 @@ const columns = useSelector(selectColumns);
         {t('screenPage.static.message3')}</Text> )
         : <ColumnList columns={filteredColumns}/>  }
      
-    </DashBoardWrapper>
+    </DashBoardWrapper
   );
 };
 
