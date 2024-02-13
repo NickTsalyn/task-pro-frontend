@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 
 export const StyledLogoWrapper = styled.div`
-  padding-bottom: 70px;
+  /* padding-bottom: 70px; */
   display: flex;
   gap: ${p => p.theme.spacing(2)};
+  padding: 14px 14px 0 14px;
 
+  @media screen and (min-width: 768px) {
+   
+   padding: 24px 24px 0 24px;
+ 
+ }
   @media screen and (min-width: 1440px) {
-    padding-bottom: 60px;
+    /* padding-bottom: 60px; */
   }
 `;
 

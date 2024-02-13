@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export const StyledUserInfo = styled.div`
-  height: 32px;
+  /* height: 32px; */
   padding: 0;
   display: flex;
   gap: ${p => p.theme.spacing(2)};
-  margin: auto 0;
+  /* margin: auto 0; */
 
-  margin-left: ${p => p.theme.spacing(3.5)};
+  /* margin-left: ${p => p.theme.spacing(3.5)}; */
 
   @media screen and (min-width: 1440px) {
   
@@ -30,6 +30,9 @@ export const StyledUserName = styled.p`
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: -0.02em;
+  /* text-align: center;
+  align-items: center;
+  justify-content: center; */
   margin: auto 0;
 `;
 
@@ -38,5 +41,4 @@ export const StyledUserPhoto = styled.img`
   height: 100%;
   object-fit: cover;
   border-radius: ${p => p.theme.radius.m};
-  background-color: violet;
 `;

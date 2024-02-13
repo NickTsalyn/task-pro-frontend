@@ -3,7 +3,14 @@ import styled from 'styled-components';
 export const SidebarWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 86%;
+  padding: 70px 14px 14px;
+  height: 100%;
+  /* height: 86%; */
+  @media screen and (min-width: 768px) {
+   
+    padding: 60px 24px 24px;
+  
+  }
 `;
 
 export const StyledText = styled.p`
@@ -17,7 +24,7 @@ export const StyledCreateWrapper = styled.div`
   padding: ${p => p.theme.spacing(3.5)} 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: ${p => p.theme.spacing(10)};
+  /* margin-bottom: ${p => p.theme.spacing(10)}; */
 `;
 export const StyledLogoutBtn = styled.button`
   border: none;
@@ -35,13 +42,13 @@ export const StyledLogoutBtn = styled.button`
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
-export const StyledSVGPlus = styled.svg`
-  fill: ${p => p.theme.violetColors.accentColor};
-  stroke: rgb(255, 255, 255);
-  width: 20px;
-  height: 20px;
-  padding: 8px 10px;
-`;
+// export const StyledSVGPlus = styled.svg`
+//   fill: ${p => p.theme.violetColors.accentColor};
+//   stroke: rgb(255, 255, 255);
+//   width: 20px;
+//   height: 20px;
+//   padding: 8px 10px;
+// `;
 
 export const StyledSVGLogout = styled.svg`
   fill: transparent;
@@ -62,4 +69,10 @@ export const ItemsWrapper = styled.div`
   flex-direction: column;
   margin-top: auto;
   gap: 24px;
+`;
+
+export const Boards = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 `;

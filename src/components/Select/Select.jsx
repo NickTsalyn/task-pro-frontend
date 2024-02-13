@@ -1,6 +1,24 @@
 import React from 'react';
-import Select from 'react-select';
+import Select, {components} from 'react-select';
 import { useTranslation } from 'react-i18next';
+import { CustomDropdownIcon } from './Select.styled';
+
+export const MySelect = () => {
+  return (
+    <Select
+      components={{
+        DropdownIndicator: props => {
+          return (
+            <components.DropdownIndicator {...props}>
+              <CustomDropdownIcon />
+            </components.DropdownIndicator>
+          );
+        },
+      }}
+      styles={customStyles}
+    />
+  );
+};
 
 const options = [
   { value: 'ua', label: 'Ukraine' },
@@ -21,16 +39,48 @@ const options = [
 const customStyles = {
   control: (provided, state) => ({
     ...provided,
-    backgroundColor: '#FCFCFC',
-    color: state.isFocused ? 'var(--accent)' : 'var(--text)',
-    border: 'none',
-    borderRadius: '25px',
-    boxShadow:  'none',
-    '&:hover': {
-    //   backgroundColor: 'var(--text)',
-      color: '#5255BC'
-    }
+    color: state.isFocused ? 'rgba(22, 22, 22)' : 'rgba(22, 22, 22, 0.8)',
+    border: 'none ',
+    boxShadow: 'none',
+    display: 'flex',
+    margin: '0',
+    padding: '0',
+    minHeight: '0',
+    lineHeight: '1',
+    // '&:hover': {
+    // //   backgroundColor: 'var(--text)',
+    //   color: '#5255BC'
+    // }
   }),
+
+  downChevron:  provided => ({
+    ...provided,
+    width: '16px',
+    height: '16px',
+    padding: '0',
+    margin: '0 auto'
+   
+  }),
+  
+  indicatorSeparator: 
+  provided => ({
+    ...provided,
+   display: 'none'
+  }),
+
+  dropdownIndicator: provided => ({
+    ...provided,
+    padding: '0',
+  // width: '20',
+  color: 'rgb(22, 22, 22)',
+  '&:hover, &:focus': {
+    color: '#5255bc',
+  },
+    // '&::before': {
+    //   content: 'none',
+    // },
+  }),
+
   option: (provided, state) => ({
     ...provided,
     backgroundColor: state.isSelected ? 'var(--text)' : '#FCFCFC',
@@ -42,19 +92,33 @@ const customStyles = {
   }),
   placeholder: (provided) => ({
     ...provided,
-    color: 'var(--text)',
-    '&:hover': {
-        color: '#5255BC'
-      }
+    display: 'none'
+    // fontWeight: '500',
+    // fontSize: '14px',
+    // letterSpacing: '-0.02em',
+    // color: 'var(--text)',
+    // '&:hover': {
+    //     color: '#5255BC'
+    //   }
 }),
+input: (provided) => ({
+  ...provided,
+  display: 'none'
+}),
+  // indicatorsContainer: provided => ({
+  //   ...provided,
+  
+  // }),
     menu: (provided) => ({
         ...provided,
-        maxHeight: '100px'
+        maxHeight: '60px',
+        width: '110px',
+        backgroundColor: 'white'
         // overflow: 'auto'
     })
 };
 
-const CustomDropdown = () => {
+export const CustomDropdown = () => {
     const { i18n } = useTranslation('global');
 
 
@@ -66,9 +130,10 @@ const CustomDropdown = () => {
       options={options}
       styles={customStyles}
       onChange={handleChangeLanguage}
-      placeholder="--Choose Language--"
+      // placeholder="--Choose Language--"
     />
   );
 };
 
-export default CustomDropdown;
+// export default CustomDropdown;
+export default MySelect

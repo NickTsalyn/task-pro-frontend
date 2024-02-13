@@ -7,7 +7,7 @@ export const StyledSVG = styled.svg`
 `
 
 export const StyledButton = styled.span`
-  margin-left: 40px;
+
   width: 40px;
   height: 36px;
   border-radius: 6px;
@@ -33,4 +33,6 @@ export const StyledCreateBtn = styled.button`
     color: rgb(255, 255, 255);
     padding: 0;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 `

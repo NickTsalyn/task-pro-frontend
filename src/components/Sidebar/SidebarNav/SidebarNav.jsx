@@ -7,6 +7,7 @@ import sprite from '../../../images/icons.svg';
 import { BoardList } from '../BoardList/BoardList';
 import { AddBoard } from "components/boardModals/addBoard";
 import {
+  Boards,
   ItemsWrapper,
   SidebarWrapper,
   StyledCreateWrapper,
@@ -16,6 +17,7 @@ import {
 } from './SidebarNav.styled';
 import { logout } from 'redux/auth/operations';
 import HelpApp from 'components/HelpApp/HelpApp.jsx';
+import { Logo } from '../Logo/Logo';
 
 export const SidebarNav = () => {
   const dispatch = useDispatch();
@@ -29,11 +31,15 @@ const navigate = useNavigate()
   const { t } = useTranslation('global');
   return (
     <SidebarWrapper>
+      {/* <Logo/> */}
+      
       <StyledText>{t('screenPage.static.my-boards')}</StyledText>
+     <Boards> 
       <StyledCreateWrapper>
         <AddBoard />
       </StyledCreateWrapper>
       <BoardList />
+</Boards>
       <ItemsWrapper>
         <HelpApp />
         <StyledLogoutBtn type="button" onClick={handleClick}>
