@@ -1,4 +1,4 @@
-import {  CardListStyled, CardListWrapper } from "./CardList.styled";
+import {  CardListStyled} from "./CardList.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTasks } from "redux/tasks/selectors";
 import { TaskCard } from "components/TaskCard/TaskCard";
@@ -20,7 +20,7 @@ export const CardList = ( {columnId} ) => {
     const filteredTasks = tasks.filter((task) => task.column === columnId);
    
     return(
-        <CardListWrapper>
+        // <CardListWrapper>
         <CardListStyled>  
             {filteredTasks.map(task => (
               <li key={task._id}>
@@ -28,6 +28,6 @@ export const CardList = ( {columnId} ) => {
               </li>
             ))}
         </CardListStyled>      
-        </CardListWrapper>
+        // </CardListWrapper>
     )
 };

@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { selectAllBoards } from 'redux/boards/selectors';
 import { getAllColumns } from 'redux/columns/operations';
 import { selectColumns } from 'redux/columns/selectors';
-import { ButtonText, Text } from './DashBoard.styled';
+import { ButtonText, DashBoardWrapper, Text } from './DashBoard.styled';
 import { ColumnList } from 'components/ColumnList/ColumnList';
 
 const DashBoard = () => {
@@ -31,14 +31,14 @@ const columns = useSelector(selectColumns);
     console.log(filteredColumns);
 
   return (
-    <>  
+    <DashBoardWrapper>  
       {boards.length === 0 ? 
         (<Text>{t('screenPage.static.message1')}
         <ButtonText>{t('screenPage.static.message2')}</ButtonText>
         {t('screenPage.static.message3')}</Text> )
         : <ColumnList columns={filteredColumns}/>  }
      
-    </>
+    </DashBoardWrapper>
   );
 };
 
