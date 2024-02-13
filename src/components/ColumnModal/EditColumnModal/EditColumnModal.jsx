@@ -1,5 +1,6 @@
 import React from 'react';
 import sprite from '../../../images/icons.svg';
+import { toastStyles } from '../../../ToasterOptions'
 
 import {
   ModalCloseButton,
@@ -15,25 +16,71 @@ import {
 } from 'components/EditColumnButtons/AddColumnButton/AddColumnButton.styled';
 import { editColumn } from 'redux/columns/operations';
 import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 
 export const EditColumnModal = ({ onCloseModal, column }) => {
   const dispatch = useDispatch();
-  
-  const handlerEditColumn = evt => {
-    evt.preventDefault();
-    const inputValue = evt.target.title.value.trim();
-    if (inputValue !== '') {
-      const newTitle = {
-        title: { title: inputValue },
-        id: column._id,
-      };
 
-      dispatch(editColumn(newTitle));
-      onCloseModal();
-      return;
-    }
-    return;
+  // const handlerEditColumn = evt => {
+  //   evt.preventDefault();
+  //   const inputValue = evt.target.title.value.trim();
+  //   if (inputValue !== '') {
+  //     const newTitle = {
+  //       title: { title: inputValue },
+  //       id: column._id,
+  //     };
+
+  //     dispatch(editColumn(newTitle));
+  //     onCloseModal();
+  //     return;
+  //   }
+  //   return;
+  // };
+
+  const successToaster = () => {
+    toast.success('You successfully edited column!', {
+      icon: '👌',
+      duration: 4000,
+      style: toastStyles.success,
+      // {
+      //   background: 'green',
+      //   color: '#fff',
+      // },
+    });
   };
+
+    const errorToaster = error => {
+      toast.error(`Something went wrong! It's ${error} error`, {
+        icon: '🤔',
+        duration: 4000,
+        style: toastStyles.error,
+        // {
+        //   background: 'red',
+        //   color: '#fff',
+        // },
+      });
+    };
+
+ const handlerEditColumn = evt => {
+   evt.preventDefault();
+
+   try {
+     const inputValue = evt.target.title.value.trim();
+
+     if (inputValue !== '') {
+       const newTitle = {
+         title: { title: inputValue },
+         id: column._id,
+       };
+
+       dispatch(editColumn(newTitle));
+       onCloseModal();
+       successToaster();
+     }
+   } catch (error) {
+     errorToaster(error.message);
+   }
+ };
 
   return (
     <ModalWrap>
