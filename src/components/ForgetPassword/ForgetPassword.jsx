@@ -11,6 +11,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { forgetPassword } from 'redux/auth/operations';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const ForgetPasswordSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email!').required('Email is required!'),
@@ -22,13 +23,13 @@ const initialValues = {
 
 export const ForgetPassword = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmit = (values, { resetForm }) => {
     const { email } = values;
 
     dispatch(forgetPassword({ email }))
       .then(resp => {
-        console.log(resp);
         if (resp.payload === 'User not found') {
           toast.error('User not found. Please check your email.');
         } else {
@@ -39,7 +40,9 @@ export const ForgetPassword = () => {
         console.log(error);
         toast.error('An error occurred. Please try again.');
       });
-
+    setTimeout(() => {
+      navigate('/auth/changePassword');
+    }, 3000);
     resetForm();
   };
 

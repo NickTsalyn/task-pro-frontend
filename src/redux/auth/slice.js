@@ -9,6 +9,7 @@ import {
   updateAvatar,
   forgetPassword,
   changePassword,
+  sendHelpRequest,
   changeTheme,
 } from './operations';
 
@@ -130,6 +131,19 @@ const authSlice = createSlice({
       state.isLoading = false;
     },
     [changePassword.rejected](state, action) {
+      state.isLoading = false;
+      state.isError = true;
+      state.errorMessage = action.payload;
+    },
+    [sendHelpRequest.pending](state) {
+      state.isLoading = true;
+      state.isError = false;
+      state.errorMessage = null;
+    },
+    [sendHelpRequest.fulfilled](state) {
+      state.isLoading = false;
+    },
+    [sendHelpRequest.rejected](state, action) {
       state.isLoading = false;
       state.isError = true;
       state.errorMessage = action.payload;

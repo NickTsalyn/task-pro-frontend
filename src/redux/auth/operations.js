@@ -94,7 +94,7 @@ export const forgetPassword = createAsyncThunk(
   'auth/forgetPassword',
   async (credentials, thunkAPI) => {
     try {
-      await axios.post('api/users/recovery-mail', credentials);
+      await axios.post('/api/users/recovery-mail', credentials);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
@@ -104,7 +104,7 @@ export const changePassword = createAsyncThunk(
   'auth/changePassword',
   async (credentials, thunkAPI) => {
     try {
-      await axios.post('api/users/changePassword', credentials);
+      await axios.post('/api/users/changePassword', credentials);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
@@ -126,6 +126,17 @@ export const changeTheme = createAsyncThunk(
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+//Need help
+export const sendHelpRequest = createAsyncThunk(
+  'user/needhelp',
+  async (needHelpData, thunkAPI) => {
+    try {
+      await axios.post('/api/users/needHelp', needHelpData);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
