@@ -1,48 +1,67 @@
 import React from 'react';
-import Modal from 'react-modal';
 import sprite from '../../../images/icons.svg';
-import '../ColumnModal.css';
-import { ModalCloseButton, StyledSvgClose } from '../ColumnModal.styled';
-// import { ModalCloseButton, StyledSvgClose } from '../ColumnModal.styled';
 
-// Modal.setAppElement('#root');
+import {
+  ModalCloseButton,
+  ModalWrap,
+  StyledSvgClose,
+} from '../ColumnModal.styled';
+import {
+  AddColumnBtn,
+  AddColumnInput,
+  AddColumnTitle,
+  IconWhiteWrap,
+  StyledSvgDarkPlus,
+} from 'components/EditColumnButtons/AddColumnButton/AddColumnButton.styled';
+import { editColumn } from 'redux/columns/operations';
+import { useDispatch } from 'react-redux';
 
-const stylesModal = {
-  position: 'relative',
-  width: '100%',
-  height: 'fit-content',
-  maxHeight: '433px',
-  maxWidth: '350px',
-  // backgroundColor: ${props => props.theme.colors.white},
-  // border-radius: '8px'
-  // box-shadow: '0px 4px 16px 0px' ${props => props.theme.colors.greyIconColor};
-  // transition: transform 0.3s;
-}
+export const EditColumnModal = ({ onCloseModal, column }) => {
+  const dispatch = useDispatch();
+  
+  const handlerEditColumn = evt => {
+    evt.preventDefault();
+    const inputValue = evt.target.title.value.trim();
+    if (inputValue !== '') {
+      const newTitle = {
+        title: { title: inputValue },
+        id: column._id,
+      };
 
-export const EditColumnModal = ({
-  isOpen,
-  onClose,
-  submitButton,
-  children,
-}) => {
+      dispatch(editColumn(newTitle));
+      onCloseModal();
+      return;
+    }
+    return;
+  };
+
   return (
-    <Modal
-      isOpen={isOpen}
-      overlayClassName={'modal-overlay'}
-      // className={'modal-content'}
-      style={stylesModal}
-      closeTimeoutMS={300}
-      onRequestClose={() => onClose()}
-      ariaHideApp={false}
-    >
-     <ModalCloseButton onClick={() => onClose()}>
+    <ModalWrap>
+      <AddColumnTitle>Edit column</AddColumnTitle>
+
+      <ModalCloseButton onClick={onCloseModal}>
         <StyledSvgClose>
           <use xlinkHref={`${sprite}#icon-x-close`}></use>
         </StyledSvgClose>
-      
       </ModalCloseButton>
-      {children}
-     
-    </Modal>
+
+      <form onSubmit={handlerEditColumn}>
+        <AddColumnInput
+          type="text"
+          name="title"
+          placeholder="Title"
+          autoFocus
+        />
+
+        <AddColumnBtn type="submit">
+          <IconWhiteWrap>
+            <StyledSvgDarkPlus>
+              <use xlinkHref={`${sprite}#icon-plus`}></use>
+            </StyledSvgDarkPlus>
+          </IconWhiteWrap>
+          Edit
+        </AddColumnBtn>
+      </form>
+    </ModalWrap>
   );
 };
