@@ -45,11 +45,12 @@ export const BoardListItem = ({ board, isActive, onClick }) => {
         onClick={onClick}
         // onClick={()=> dispatch(getBoardById(boardId))}
       >
-
         <svg>
         <use xlinkHref={`${sprite}#${board.iconURL}`}></use>
       </svg>
-        <Link to={`/home/${board.title.replaceAll(' ', '-')}`}>{board.title}</Link>
+      
+        <Link to={`/home/${board._id}`}>{board.title}</Link>
+
       </StyledBoardItem>
 
       <StyledBtnWrapper isActive={isActive} onClick={onClick}>

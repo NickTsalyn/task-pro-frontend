@@ -1,6 +1,6 @@
 import sprite from '../../images/icons.svg';
 import Modal from 'react-modal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   ColumnHeader,
   ColumnTitle,
@@ -13,13 +13,19 @@ import {
 import { AddAnotherCard, AddCardButtonSvg, AddCardSvgButtonText, AddCardSvgContainer } from 'components/AddCard/AddCard.styled';
 import { CardList } from 'components/CardList/CardList';
 import { AddCard } from 'components/AddCard/AddCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectTasks } from 'redux/tasks/selectors';
+import { fetchTitle } from 'redux/tasks/operations';
 
 // import { useDispatch } from 'react-redux';
 Modal.setAppElement('#root');
 export const ColumnListItem = ({column}) => {    
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(column);
+  const dispatch = useDispatch()
+  const tasks = useSelector(selectTasks)
+  // console.log(column);
+  console.log(tasks)
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -28,6 +34,10 @@ export const ColumnListItem = ({column}) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  
+  useEffect(() => {
+    dispatch(fetchTitle())
+  }, [])
   
   
   // const dispatch = useDispatch();
