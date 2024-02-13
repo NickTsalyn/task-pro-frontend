@@ -51,6 +51,7 @@ const boardsSlice = createSlice({
                 board => board.id === action.payload.id
             )
             state.boards[index] = action.payload
+            state.currentBoard = action.payload
         },
         [deleteBoard.fulfilled](state, action) {
             state.isLoading = false
@@ -59,6 +60,7 @@ const boardsSlice = createSlice({
                 board => board.id === action.payload.id
             )
             state.boards.splice(index, 1)
+            state.currentBoard = {}
         },
     },
 })
