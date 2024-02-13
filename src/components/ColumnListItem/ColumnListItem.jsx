@@ -24,7 +24,7 @@ import {
   EditSVG,
 } from './ColumnListItem.styled';
 
-export const ColumnListItem = ({ column: { columnId, title } }) => {
+export const ColumnListItem = ({ column}) => {
   const dispatch = useDispatch();
   const [modalEditColumnIsOpen, setModalEditColumnIsOpen] = useState(false);
   const [editColumnValue, setEditColumnValue] = useState('');
@@ -46,7 +46,7 @@ export const ColumnListItem = ({ column: { columnId, title } }) => {
 
     // if (updatedTitle.trim() !== '') {
     if (updatedTitle !== '') {
-      dispatch(editColumn({ id: columnId, title: updatedTitle }));
+      dispatch(editColumn({ columnId: column._id, updatedTitle: column.title }));
       setModalEditColumnIsOpen(false);
       return;
     }
@@ -71,9 +71,6 @@ export const ColumnListItem = ({ column: { columnId, title } }) => {
     }
   };
 
-  // function handlerDeleteColumn() {
-  //   dispatch(deleteColumn(column._id));
-  // }
 
   const successToaster = () => {
     toast.success('Woh! Well done!', {
@@ -100,7 +97,7 @@ export const ColumnListItem = ({ column: { columnId, title } }) => {
   return (
     <ColumnWrapper>
       <ColumnHeader>
-        <ColumnTitle>{title}</ColumnTitle>
+        <ColumnTitle>{column.title}</ColumnTitle>
         <EditBlock>
           <EditButton type="button" onClick={openModal}>
             <EditSVG>
@@ -151,53 +148,4 @@ export const ColumnListItem = ({ column: { columnId, title } }) => {
       <Toaster />
     </ColumnWrapper>
   );
-
-  // import {
-  //   ColumnHeader,
-  //   ColumnTitle,
-  //   ColumnWrapper,
-  //   EditBlock,
-  //   EditButton,
-  //   EditSVG,
-  // } from './ColumnListItem.styled';
-
-  // export const ColumnListItem = ({ column: { id, title, owner } }) => {
-  //   const dispatch = useDispatch();
-  //   const handlerEditColumn = (columnId, updatedData) => {
-  //     dispatch(editColumn({ id: columnId, ...updatedData }));
-  //   };
-  //   const handlerDeleteColumn = columnId => {
-  //     dispatch(deleteColumn(columnId));
-  //   };
-
-  //   // const dispatch = useDispatch();
-  //   // const items = useSelector(selectColumns);
-  //   // const columns = [];
-  //   // const title = ' Column Title';
-
-  //   return (
-  //     <ColumnWrapper>
-  //       <ColumnHeader>
-  //         <ColumnTitle>{title}</ColumnTitle>
-  //         <EditBlock>
-  //           <EditButton type="button" onClick={() => handlerEditColumn(id)}>
-  //             <EditSVG>
-  //               <use xlinkHref={`${sprite}#icon-pencil-01`} />
-  //             </EditSVG>
-  //           </EditButton>
-  //           <EditButton type="button" onClick={() => handlerDeleteColumn(id)}>
-  //             <EditSVG>
-  //               <use xlinkHref={`${sprite}#icon-trash-04`} />
-  //             </EditSVG>
-  //           </EditButton>
-  //         </EditBlock>
-  //       </ColumnHeader>
-  //       {/* {columns.map(column =>
-  //             <li key={column.id}> */}
-  //       <CardList />
-  //       {/* <button>ButtonAddAnotherCard</button>                  */}
-  //       {/* </li>
-  //           ) }   */}
-  //     </ColumnWrapper>
-  //   );
 };
