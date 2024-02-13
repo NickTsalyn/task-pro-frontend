@@ -78,17 +78,17 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
         priority: `${priority}`,
         deadline: `${deadline} ?? ${startDate}`,
       }}
-      onSubmit={(values, { resetForm }) => {
-        const newCard = {
+      onSubmit={(values, ) => {
+        const editCard = {
           title: values.title,
           description: values.description,
           priority: values.priority,
           deadline: values.deadline,
-          columnId: _id
+          taskId: _id
          
         };
-        console.log(newCard);
-        dispatch(editTask(newCard));
+        console.log(editCard);
+        dispatch(editTask(editCard));
         // resetForm();
         
         onCloseModal()

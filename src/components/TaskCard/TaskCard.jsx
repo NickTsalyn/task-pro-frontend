@@ -136,7 +136,7 @@ export const TaskCard = ({ task: { _id, title, description, priority,deadline} }
               </SvgBell>
             </Bell>
             <Buttons>
-              <Btn type="button" onClick={openModal}>
+              <Btn type="button" >
                 <Svg>
                   <use xlinkHref={`${sprite}#icon-active`}></use>
                 </Svg>
@@ -151,7 +151,7 @@ export const TaskCard = ({ task: { _id, title, description, priority,deadline} }
         <EditCard onCloseModal={closeModal} task = {{ _id,title, description, priority,deadline }}/>
         {/* <PopUpSetColumn onCloseModal={closeModal} /> */}
       </Modal>
-              <Btn type="button" >
+              <Btn type="button" onClick={openModal} >
                 <Svg>
                   <use xlinkHref={`${sprite}#icon-pencil-01`}></use>
                 </Svg>
