@@ -94,7 +94,17 @@ export const forgetPassword = createAsyncThunk(
   'auth/forgetPassword',
   async (credentials, thunkAPI) => {
     try {
-      await axios.post('api/users/forgetPassword', credentials);
+      await axios.post('api/users/recovery-mail', credentials);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  }
+);
+export const changePassword = createAsyncThunk(
+  'auth/changePassword',
+  async (credentials, thunkAPI) => {
+    try {
+      await axios.post('api/users/changePassword', credentials);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }

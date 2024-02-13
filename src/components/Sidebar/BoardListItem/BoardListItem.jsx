@@ -48,7 +48,7 @@ export const BoardListItem = ({ board, isActive, onClick }) => {
         onClick={onClick}
         // onClick={()=> dispatch(getBoardById(boardId))}
       >
-        <Link to={`/home/${board.title.replaceAll(' ', '-')}`}>{board.title}</Link>
+        <Link to={`/home/${board._id}`}>{board.title}</Link>
       </StyledBoardItem>
 
       <StyledBtnWrapper isActive={isActive} onClick={onClick}>

@@ -79,7 +79,7 @@ export const AddCard = ({ onCloseModal, id }) => {
           description: values.description,
           priority: values.priority,
           deadline: values.deadline,
-          column: id
+          columnId: id
         };
         
         dispatch(addTask(newCard));

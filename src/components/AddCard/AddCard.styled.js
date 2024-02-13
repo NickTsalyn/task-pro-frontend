@@ -270,21 +270,27 @@ margin: 0;
 `
 
 export const AddAnotherCard = styled.button`
-margin-top:14px;
+margin-bottom:24px;
 display: flex;
 align-items: center;
 justify-content: center;
 gap:8px;
-width: 100%;
+width: 334px;
 padding-top: 10px;
 padding-bottom: 10px;
 background-color: ${p => p.theme.violetColors.accentColor};
 border-radius:8px;
 border-color:transparent;
-font-size: 14px;
 font-weight: 500;
 line-height: 21px;
 letter-spacing: -2%;
+
+@media only screen and (min-width: 768px) {
+   margin-bottom: 52px;
+}
+@media only screen and (min-width: 1440px) {
+  margin-bottom: 16px;
+}
 `
 
 export const AddCardSvgClose = styled.svg`
