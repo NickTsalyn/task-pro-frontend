@@ -4,7 +4,6 @@ export const ColumnWrapper = styled.div`
   display:flex;
   flex-direction: column;  
 `;
-
 export const ColumnHeader = styled.div`
   width: 335px;
   display: flex;
@@ -15,13 +14,11 @@ export const ColumnHeader = styled.div`
   border-radius: ${p => p.theme.radius.m};  
   background-color:  ${p => p.theme.colors.white}
 `;
-
 export const ColumnTitle = styled.h3`
   margin-left: ${p => p.theme.spacing(5)}; 
   font-size: 14px;
   letter-spacing: -0.28px;
 `;
-
 export const EditBlock = styled.div`
   margin-right :${p => p.theme.spacing(5)} ;
   display: flex;
@@ -35,7 +32,6 @@ export const EditButton = styled.button`
   background-color: transparent;
   border: none;
 `;
-
 export const EditSVG = styled.svg`
    stroke: ${p => p.theme.colors.greyIconColor};
   fill: ${p => p.theme.colors.white};  

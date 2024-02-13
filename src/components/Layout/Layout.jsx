@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledLayout = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 ;  
 `;
 
