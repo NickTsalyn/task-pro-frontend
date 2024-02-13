@@ -9,7 +9,6 @@ import {
   Icon,
   IconTextContainer,
   Line,
-  ProjectName,
   Section,
   SectionTitle,
   ShowAllLabel,
@@ -20,15 +19,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { showAll } from 'redux/filters/filtersSlice';
 import { getTheme } from '../../components/themes';
 import PriorityCheckboxForm from './ui/PriorityCheckboxForm';
+import ProjectTitle from './ui/ProjectTitle';
+import { useParams } from 'react-router-dom';
 import { StyledComponentsWrapper } from './StyledComponentsWrapper';
 
-export const HeaderDashboard = ({ project }) => {
-  // console.log('project', project);
+export const HeaderDashboard = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const filtersPriority = useSelector(state => state.filters.filtersPriority);
+  const { boardId } = useParams();
 
   const customStyles = {
     overlay: {
@@ -51,7 +52,7 @@ export const HeaderDashboard = ({ project }) => {
     <div>
       <StyledComponentsWrapper>
         <HdWrapper>
-          <ProjectName>{project?.title}projectName</ProjectName>
+          <ProjectTitle boardId={boardId} />
           <Button onClick={handleOpen}>
             <IconTextContainer>
               <Icon>
@@ -78,7 +79,6 @@ export const HeaderDashboard = ({ project }) => {
                 <FormTitle>Label color</FormTitle>
                 <ShowAllLabel
                   onClick={() => {
-                    console.log('Click');
                     dispatch(showAll());
                   }}
                 >
