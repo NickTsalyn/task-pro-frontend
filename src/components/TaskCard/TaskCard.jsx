@@ -14,14 +14,27 @@ import { PrioritySeeContainer, CardPriorityDeadline,
   Btn, MenuCard, SubTitle, CirclePriority, TextPriority, 
   PriorityContainer, MainContainer, TextDate, ButtonsContainer, 
   SvgBell, DescriptionContainer } from "./TaskCard.styled";
+import { EditCard } from "components/EditCard/EditCard";
 // import { PopUpSetColumn } from "components/PopUpSetColumn/PopUpSetColumns";
 
 Modal.setAppElement('#root');
 
-export const TaskCard = ({ task: { _id, title, description, priority } }) => {
+export const TaskCard = ({ task: { _id, title, description, priority,deadline} }) => {
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+
+  const openEditModal = () => {
+    setIsEditModalOpen(true);
+  };
+  
+  const closeEditModal = () => {
+    setIsEditModalOpen(false);
+  };
+
+
+
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -31,33 +44,33 @@ export const TaskCard = ({ task: { _id, title, description, priority } }) => {
     setIsModalOpen(false);
   };
 
-  // const toEditTask = (taskId, updatedData) => {
-  //   dispatch(editTask({ id: taskId, updatedData }));
-  //   successToaster();
-  // };
-
-  // const toDeleteTask = taskId => {
-  //   dispatch(deleteTask(taskId));
-  //   successToaster();
-  // };
-
-  const toEditTask = async (taskId, updatedData) => {
-    try {
-      await dispatch(editTask({ id: taskId, updatedData }));
-      successToaster();
-    } catch (error) {
-      errorToaster(error.message);
-    }
+  const toEditTask = (taskId, updatedData) => {
+    dispatch(editTask({ id: taskId, updatedData }));
+    successToaster();
   };
 
-  const toDeleteTask = async (taskId) => {
-    try {
-      await dispatch(deleteTask(taskId));
-      successToaster();
-    } catch (error) {
-      errorToaster(error.message);
-    }
+  const toDeleteTask = taskId => {
+    dispatch(deleteTask(taskId));
+    successToaster();
   };
+
+  // const toEditTask = async (taskId, updatedData) => {
+  //   try {
+  //     await dispatch(editTask({ id: taskId, updatedData }));
+  //     successToaster();
+  //   } catch (error) {
+  //     errorToaster(error.message);
+  //   }
+  // };
+
+  // const toDeleteTask = async (taskId) => {
+  //   try {
+  //     await dispatch(deleteTask(taskId));
+  //     successToaster();
+  //   } catch (error) {
+  //     errorToaster(error.message);
+  //   }
+  // };
 
 
   const successToaster = () => {
@@ -123,7 +136,7 @@ export const TaskCard = ({ task: { _id, title, description, priority } }) => {
               </SvgBell>
             </Bell>
             <Buttons>
-              <Btn type="button" onClick={openModal}>
+              <Btn type="button" >
                 <Svg>
                   <use xlinkHref={`${sprite}#icon-active`}></use>
                 </Svg>
@@ -135,9 +148,10 @@ export const TaskCard = ({ task: { _id, title, description, priority } }) => {
         className={'modal-content'}
         closeTimeoutMS={300}
       >
+        <EditCard onCloseModal={closeModal} task = {{ _id,title, description, priority,deadline }}/>
         {/* <PopUpSetColumn onCloseModal={closeModal} /> */}
       </Modal>
-              <Btn type="button" onClick={() => toEditTask(_id)}>
+              <Btn type="button" onClick={openModal} >
                 <Svg>
                   <use xlinkHref={`${sprite}#icon-pencil-01`}></use>
                 </Svg>
