@@ -22,9 +22,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectTasks } from 'redux/tasks/selectors';
 import { fetchTitle } from 'redux/tasks/operations';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { selectTasks } from 'redux/tasks/selectors';
-import { fetchTitle } from 'redux/tasks/operations';
 Modal.setAppElement('#root');
 export const ColumnListItem = ({ column }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
