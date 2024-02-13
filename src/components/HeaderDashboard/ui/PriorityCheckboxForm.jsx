@@ -17,18 +17,16 @@ const PriorityCheckboxForm = ({ filtersPriority }) => {
     <Formik initialValues={initialValues}>
       <RadioBtnWrapper>
         {options.map(el => (
-          <CheckboxContainer
-            priority={el}
-            onChange={e => {
-              dispatch(togglePriority(e.target.id));
-            }}
-          >
+          <CheckboxContainer key={el} priority={el}>
             <input
               id={el}
               name="radio"
-              defaultChecked={isCheked(el)}
+              // defaultChecked={isCheked(el)}
               type="checkbox"
               checked={isCheked(el)}
+              onChange={e => {
+                dispatch(togglePriority(e.target.id));
+              }}
             />
             <label htmlFor={el} className="radio-label">
               {el}
