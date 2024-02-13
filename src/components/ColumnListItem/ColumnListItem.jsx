@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { useParams } from 'react-router-dom';
 import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
@@ -34,7 +34,6 @@ import {
 } from 'components/AddCard/AddCard.styled';
 import { CardList } from 'components/CardList/CardList';
 import { AddCard } from 'components/AddCard/AddCard';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectTasks } from 'redux/tasks/selectors';
 import { fetchTitle } from 'redux/tasks/operations';
 
@@ -52,12 +51,12 @@ export const ColumnListItem = ({ column }) => {
   console.log(tasks);
 
   const openModal = () => {
-    setModalEditColumnIsOpen(true);
+    // setModalEditColumnIsOpen(true);
   };
 
-  // const closeModal = () => {
-  //   setModalEditColumnIsOpen(false);
-  // };
+  const closeModal = () => {
+    // setModalEditColumnIsOpen(false);
+  };
 
   const handlerValue = ({ target }) => setEditColumnValue(target.value);
 
@@ -129,7 +128,8 @@ export const ColumnListItem = ({ column }) => {
         <EditBlock>
           <EditButton
             type="button"
-            onClick={openModal}
+            // onClick={openModal}
+            onClick={() => setModalEditColumnIsOpen(true)}
           >
             <EditSVG>
               <use xlinkHref={`${sprite}#icon-pencil-01`} />
