@@ -85,7 +85,7 @@ export const ThemeDropDown = () => {
   // const handleThemeChange = (e) => {
   //   const selectedTheme = e.target.value;
   //    dispatch(changeTheme(selectedTheme));
-  
+  // }
   return (
     <Select 
     // value={currentTheme} 

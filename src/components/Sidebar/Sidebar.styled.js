@@ -7,7 +7,7 @@ export const DarkBackground = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(21, 21, 21, 0.3);
-  z-index: 10;
+  z-index: 9999;
 `;
 
 export const StyledSidebar = styled.aside`
@@ -16,7 +16,7 @@ export const StyledSidebar = styled.aside`
   background-color: ${p => p.theme.violetColors.accentColor};
   /* padding: 14px; */
   /* padding-bottom: 0; */
-  z-index: 99;
+  z-index: 9999;
   position: absolute;
   top: 0;
   left: 0;
