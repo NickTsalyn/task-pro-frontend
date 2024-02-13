@@ -28,14 +28,17 @@ const DashBoard = () => {
   console.log(filteredColumns);
 
   return (
-    <DashBoardWrapper>  
-      {boards.length === 0 ? 
-        (<Text>{t('screenPage.static.message1')}
-        <ButtonText>{t('screenPage.static.message2')}</ButtonText>
-        {t('screenPage.static.message3')}</Text> )
-        : <ColumnList columns={filteredColumns}/>  }
-     
-    </DashBoardWrapper
+    <DashBoardWrapper>
+      {boards.length === 0 ? (
+        <Text>
+          {t('screenPage.static.message1')}
+          <ButtonText>{t('screenPage.static.message2')}</ButtonText>
+          {t('screenPage.static.message3')}
+        </Text>
+      ) : (
+        <ColumnList columns={filteredColumns} />
+      )}
+    </DashBoardWrapper>
   );
 };
 
