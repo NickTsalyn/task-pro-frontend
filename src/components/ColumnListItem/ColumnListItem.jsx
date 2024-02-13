@@ -37,7 +37,7 @@ export const ColumnListItem = ({column}) => {
   
   useEffect(() => {
     dispatch(fetchTitle())
-  }, [])
+  }, [dispatch])
   
   
   // const dispatch = useDispatch();
