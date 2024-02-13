@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import toast, { Toaster } from 'react-hot-toast';
 import { AddColumnModal } from '../ColumnModal/AddColumnModal/AddColumnModal';
 import sprite from '../../images/icons.svg';
 import {
