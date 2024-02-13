@@ -1,6 +1,8 @@
 import sprite from '../../images/icons.svg';
 import Modal from 'react-modal';
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { toastStyles } from '../../ToasterOptions';
 import {
   ColumnHeader,
   ColumnTitle,
@@ -54,11 +56,48 @@ export const ColumnListItem = ({ column }) => {
   // const handlerDeleteColumn = columnId => {
   //   dispatch(deleteColumn(columnId));
   // };
-  const handlerDeleteColumn = () => {
-    const columnId = _id;
-    console.log(columnId);
-    dispatch(deleteColumn(columnId));
+
+  const successToaster = () => {
+    toast.success('You successfully deleted column!', {
+      icon: '👍',
+      duration: 4000,
+      style: toastStyles.success,
+      // {
+      //   background: 'green',
+      //   color: '#fff',
+      // },
+    });
   };
+
+  const errorToaster = error => {
+    toast.error(`Something went wrong! It's ${error} error`, {
+      icon: '🤔',
+      duration: 4000,
+      style: toastStyles.error,
+      // {
+      //   background: 'red',
+      //   color: '#fff',
+      // },
+    });
+  };
+
+  // const handlerDeleteColumn = () => {
+  //   const columnId = _id;
+  //   console.log(columnId);
+  //   dispatch(deleteColumn(columnId));
+  // };
+
+  const handlerDeleteColumn = () => {
+    try {
+      const columnId = _id;
+      console.log(columnId);
+      dispatch(deleteColumn(columnId));
+      successToaster();
+    } catch (error) {
+      errorToaster(error.message);
+    }
+  };
+ 
 
   return (
     <ColumnWrapper>
