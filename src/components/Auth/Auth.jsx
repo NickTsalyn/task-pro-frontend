@@ -11,6 +11,7 @@ import {
 import { LogInForm } from 'components/LogInForm/LogInForm';
 import { useTranslation } from 'react-i18next';
 
+import { PasswordRecovery } from 'components/PasswordRecovery/PasswordRecovery';
 import { ForgetPassword } from 'components/ForgetPassword/ForgetPassword';
 
 const Auth = () => {
@@ -31,6 +32,7 @@ const Auth = () => {
         {id === 'login' && <LogInForm />}
         {id === 'register' && <RegisterForm />}
         {id === 'forgetPassword' && <ForgetPassword />}
+        {id === 'changePassword' && <PasswordRecovery />}
 
         <Suspense fallback={<>Login...</>}>
           <Outlet />
