@@ -1,17 +1,5 @@
 import styled from "styled-components";
 
-// export const CardListWrapper = styled.div`
-//   margin-bottom: ${p => p.theme.spacing(6)}; 
-
-//   @media only screen and (min-width: 768px) {
-//     margin-bottom: ${p => p.theme.spacing(13)} 
-//   };
-
-//     @media only screen and (min-width: 1440px) {
-//       margin-bottom: ${p => p.theme.spacing(4)}
-//     };
-// `;
-
 export const CardListStyled = styled.ul`
     padding-right: ${p => p.theme.spacing(1)}; 
     margin: ${p=>p.theme.spacing(3.5)} 0 ;
