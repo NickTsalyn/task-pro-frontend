@@ -29,13 +29,14 @@ export const ForgetPassword = () => {
     dispatch(forgetPassword({ email }))
       .then(resp => {
         console.log(resp);
-        if (resp.data.message === 'User not found') {
+        if (resp.payload === 'User not found') {
           toast.error('User not found. Please check your email.');
         } else {
           toast.success(`Temporary password sent to ${email} successfully!`);
         }
       })
       .catch(error => {
+        console.log(error);
         toast.error('An error occurred. Please try again.');
       });
 

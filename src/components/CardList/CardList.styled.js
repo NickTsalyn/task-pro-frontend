@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
-export const CardListWrapper = styled.div`
-  margin-bottom: ${p => p.theme.spacing(6)}; 
+// export const CardListWrapper = styled.div`
+//   margin-bottom: ${p => p.theme.spacing(6)}; 
 
-  @media only screen and (min-width: 768px) {
-    margin-bottom: ${p => p.theme.spacing(13)} 
-  };
+//   @media only screen and (min-width: 768px) {
+//     margin-bottom: ${p => p.theme.spacing(13)} 
+//   };
 
-    @media only screen and (min-width: 1440px) {
-      margin-bottom: ${p => p.theme.spacing(4)}
-    };
-`;
+//     @media only screen and (min-width: 1440px) {
+//       margin-bottom: ${p => p.theme.spacing(4)}
+//     };
+// `;
 
 export const CardListStyled = styled.ul`
     padding-right: ${p => p.theme.spacing(1)}; 
@@ -40,10 +40,4 @@ export const CardListStyled = styled.ul`
     background-color: ${p => p.theme.colors.white}; /* Колір фону скроллбару */
     border-radius: ${p => p.theme.radius.l};
   }   
-`;
-
-export const ButtonAddCard = styled.button`
-  width: 335px;
-  
-
 `;
