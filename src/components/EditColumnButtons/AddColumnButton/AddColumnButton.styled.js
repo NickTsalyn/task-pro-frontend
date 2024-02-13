@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from './Button';
+import { Button } from '../Button';
 
 export const ModalShowButton = styled.button`
   display: flex;
@@ -13,10 +13,11 @@ export const ModalShowButton = styled.button`
   margin-bottom: 24px;
   font-family: Poppins;
   font-size: 14px;
-  letter-spacing: -0.32px;
+  letter-spacing: -0.02px;
   background-color: ${props => props.theme.colors.white};
   color: ${props => props.theme.colors.darkTextColor};
   border-radius: ${props => props.theme.radius.m};
+  border: 0;
   border-color: ${props => props.theme.colors.white};
   filter: drop-shadow(0 0 7px rgba(22, 22, 22, 0.08));
   transition: background-color 0.3s;
@@ -37,7 +38,7 @@ export const AddColumnTitle = styled.p`
 
 export const AddColumnInput = styled.input`
   display: block;
-  width: 251px;
+  width: 249px;
   height: 21px;
   padding: 14px 18px;
   margin-bottom: 24px;
@@ -54,7 +55,7 @@ export const AddColumnInput = styled.input`
     outline: 1px solid ${props => props.theme.violetColors.accentColor};
   }
   @media screen and (min-width: 768px) {
-    width: 266px;
+    width: 264px;
   }
 `;
 

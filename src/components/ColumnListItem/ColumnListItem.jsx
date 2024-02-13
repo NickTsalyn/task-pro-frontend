@@ -21,10 +21,13 @@ import { AddCard } from 'components/AddCard/AddCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectTasks } from 'redux/tasks/selectors';
 import { fetchTitle } from 'redux/tasks/operations';
+import { EditColumnButton } from 'components/EditColumnButtons/EditColumnButton/EditColumnButton';
+import { deleteColumn } from 'redux/columns/operations';
 
 Modal.setAppElement('#root');
 export const ColumnListItem = ({ column }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { _id } = column;
 
   const dispatch = useDispatch();
   const tasks = useSelector(selectTasks);
@@ -51,27 +54,26 @@ export const ColumnListItem = ({ column }) => {
   // const handlerDeleteColumn = columnId => {
   //   dispatch(deleteColumn(columnId));
   // };
+  const handlerDeleteColumn = () => {
+    const columnId = _id;
+    console.log(columnId);
+    dispatch(deleteColumn(columnId));
+  };
+
   return (
     <ColumnWrapper>
       <ColumnHeader>
         <ColumnTitle>{column.title}</ColumnTitle>
         <EditBlock>
-          <EditButton
-            type="button"
-            // onClick={() => handlerEditColumn(id)}
-          >
-            <EditSVG>
-              <use xlinkHref={`${sprite}#icon-pencil-01`} />
-            </EditSVG>
-          </EditButton>
-          <EditButton
-            type="button"
-            // onClick={() => handlerDeleteColumn(id)}
-          >
+
+          <EditColumnButton column={column} />
+
+          <EditButton type="button" onClick={handlerDeleteColumn}>
             <EditSVG>
               <use xlinkHref={`${sprite}#icon-trash-04`} />
             </EditSVG>
           </EditButton>
+
         </EditBlock>
       </ColumnHeader>
       <CardList columnId={column._id} />
