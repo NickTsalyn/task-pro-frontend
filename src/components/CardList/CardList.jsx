@@ -20,10 +20,13 @@ export const CardList = ({ columnId }) => {
   const tasks = useSelector(selectTasks);
 
   const filteredTasks = tasks.filter(task => {
-    if (formattedPriority.length === 0) {
-      return true;
-    }
-    return formattedPriority.includes(task.priority);
+    const priorityCondition =
+      formattedPriority.length === 0 ||
+      formattedPriority.includes(task.priority);
+
+    const columnCondition = task.column === columnId;
+
+    return priorityCondition && columnCondition;
   });
   return (
     // <CardListWrapper>
