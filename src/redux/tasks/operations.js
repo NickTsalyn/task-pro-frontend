@@ -51,9 +51,9 @@ export const getTask = createAsyncThunk(
 //  edit card
 
 export const editTask = createAsyncThunk(
-    "tasks/editTask", async ({ id, updatedData }, thunkAPI) => {
+    "tasks/editTask", async ({title, description, priority, deadline, columnId}, thunkAPI) => {
         try {
-            const response = await axios.patch(`/api/tasks/${id}`, updatedData);
+            const response = await axios.patch(`/api/tasks/${columnId}`, {title, description, priority, deadline});
             return response.data;
         } catch(error) {
         return thunkAPI.rejectWithValue(error.message)}
