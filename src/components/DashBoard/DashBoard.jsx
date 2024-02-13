@@ -34,7 +34,6 @@ const DashBoard = () => {
         <ButtonText>{t('screenPage.static.message2')}</ButtonText>
         {t('screenPage.static.message3')}</Text> )
         : <ColumnList columns={filteredColumns}/>  }
-     
     </DashBoardWrapper>
   );
 };
