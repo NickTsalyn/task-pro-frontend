@@ -14,7 +14,7 @@ const filtersSlice = createSlice({
   initialState: {
     isLoadingProject: false,
     errorProject: null,
-    filtersPriority: ['without'],
+    filtersPriority: [],
   },
   reducers: {
     togglePriority: (state, { payload }) => {

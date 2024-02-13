@@ -5,7 +5,6 @@ import { togglePriority } from 'redux/filters/filtersSlice';
 const options = ['without', 'low', 'medium', 'high'];
 
 const PriorityCheckboxForm = ({ filtersPriority }) => {
-  console.log(filtersPriority, filtersPriority);
   const dispatch = useDispatch();
   const initialValues = {
     label: filtersPriority,
