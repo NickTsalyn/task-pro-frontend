@@ -25,7 +25,7 @@ export const ColumnList = ({ columns }) => {
   // const handlerDeleteColumn = columnId => {
   //   dispatch(deleteColumn(columnId));
   // };
-  console.log(columns);
+  // console.log(columns);
 
   return (
     <ColumnListWrapper>

@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const HomeWrapper = styled.div`
-  height: 100vh;
-  width: 320px;
+  min-height: 100vh;
+  /* min-width : 310px; */
+  max-width: 375px;
   margin: 0 auto;
+  /* margin: 0; */
   display: flex;
   justify-content: center;
 

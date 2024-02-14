@@ -20,8 +20,8 @@ const initialState = {
   isRefreshing: false,
   isLoading: false,
   isError: false,
-  errorMessage: null,
-  theme: 'light',
+  errorMessage: null, 
+  theme: ""
 };
 
 const authSlice = createSlice({
@@ -34,7 +34,7 @@ const authSlice = createSlice({
       state.errorMessage = null;
     },
     [register.fulfilled](state, { payload }) {
-      console.log(payload);
+      // console.log(payload);
       state.user = payload.user;
       state.token = payload.token;
       state.isLoading = false;
@@ -148,9 +148,20 @@ const authSlice = createSlice({
       state.isError = true;
       state.errorMessage = action.payload;
     },
-    [changeTheme.fulfilled](state, action) {
-      //ЗМІНА ТЕМИ
+    //ЗМІНА ТЕМИ
+    [changeTheme.pending](state,action) {
+      state.isLoading = true;
+      state.isError = false;
+      state.errorMessage = null;
+    },
+    [changeTheme.fulfilled](state, action) {      
+      state.isLoading = false;      
       state.theme = action.payload.theme;
+    },
+    [changeTheme.rejected](state, action) {
+      state.isLoading = false;
+      state.isError = true;
+      state.user.errorMessage = action.payload;
     },
   },
 });
