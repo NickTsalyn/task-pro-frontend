@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const HomeWrapper = styled.div`
-  min-height: 100vh;
-  /* min-width : 310px; */
-  max-width: 375px;
-  margin: 0 auto;
-  /* margin: 0; */
+  min-height: 100vh;    
+  width: 320px;
+  margin: 0 auto; 
   display: flex;
   justify-content: center;
+  @media only screen and (min-width: 375px) {
+     width: 375px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 768px;
