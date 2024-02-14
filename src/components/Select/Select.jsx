@@ -2,6 +2,7 @@ import React from 'react';
 import Select, {components} from 'react-select';
 import { useTranslation } from 'react-i18next';
 import { GrLanguage } from "react-icons/gr";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 const CustomDropdownIcon = () => (
     <GrLanguage/>
@@ -18,19 +19,19 @@ const IconLanguage = {
         }
 
 const options = [
-  { value: 'ua', label: 'Ukraine' },
-  { value: 'en', label: 'UK' },
-  { value: 'cn', label: 'China' },
-  { value: 'he', label: 'Israel' },
-  { value: 'de', label: 'Germany' },
-  { value: 'es', label: 'Spain' },
-  { value: 'ita', label: 'Italy' },
-  { value: 'fr', label: 'France' },
-  { value: 'jp', label: 'Japan' },
-  { value: 'pl', label: 'Poland' },
-  { value: 'ro', label: 'Romania' },
-  { value: 'ar', label: 'Turkey' },
-  { value: 'gr', label: 'Greece' },
+  { value: 'ua', label:  <span><span class="fi fi-ua"></span>Ukraine</span> },
+  { value: 'en', label: <span><span class="fi fi-gb"></span>UK</span>  },
+  { value: 'cn', label: <span><span class="fi fi-cn"></span>China</span> },
+  { value: 'he', label: <span><span class="fi fi-il"></span>Israel</span> },
+  { value: 'de', label: <span><span class="fi fi-de"></span>Germany</span> },
+  { value: 'es', label: <span><span class="fi fi-es"></span>Spain</span> },
+  { value: 'ita', label: <span><span class="fi fi-it"></span>Italy</span> },
+  { value: 'fr', label: <span><span class="fi fi-fr"></span>France</span> },
+  { value: 'jp', label: <span><span class="fi fi-jp"></span>Japan</span> },
+  { value: 'pl', label: <span><span class="fi fi-pl"></span>Poland</span> },
+  { value: 'ro', label: <span><span class="fi fi-ro"></span>Romania</span> },
+  { value: 'ar', label: <span><span class="fi fi-tr"></span>Turkey</span> },
+  { value: 'gr', label: <span><span class="fi fi-gr"></span>Greece</span> },
 ];
 
  const customStyles = {
