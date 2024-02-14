@@ -81,7 +81,7 @@ export const AddCard = ({ onCloseModal, id }) => {
       initialValues={{
         title: '',
         description: '',
-        priority: ''?? 'Without',
+        priority: '' ?? 'Without',
         deadline: `${startDate}`,
       }}
       onSubmit={(values, { resetForm }) => {
@@ -92,14 +92,17 @@ export const AddCard = ({ onCloseModal, id }) => {
           deadline: values.deadline,
           columnId: id
         };
+        console.log('hi')
         console.log(newCard)
         dispatch(addTask(newCard));
+        console.log('hi')
         resetForm();
+        onCloseModal()
         successToaster();
       }}
     >
       <AddCardWrapper>
-        <CLoseButton onClick = {onCloseModal}>
+        <CLoseButton onClick = {onCloseModal} type='button'>
           <AddCardSvgClose>
           <use xlinkHref={`${sprite}#icon-x-close`}></use>
           </AddCardSvgClose>

@@ -45,6 +45,16 @@ export const TaskCard = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
+  const formatDeadlineDate = deadline => {
+    const formattedDeadlineDate = new Date(deadline);
+
+    const day = formattedDeadlineDate.getDate();
+    const month = String(formattedDeadlineDate.getMonth() + 1).padStart(2, '0');
+    const year = formattedDeadlineDate.getFullYear();
+
+    return `${day}/${0,month}/${year}`;
+  };
+
   const openEditModal = () => {
     setIsEditModalOpen(true);
   };
@@ -143,7 +153,7 @@ export const TaskCard = ({
 
   return (
     <TaskContainer>
-      <PrioritySeeContainer></PrioritySeeContainer>
+      <PrioritySeeContainer value={priority}></PrioritySeeContainer>
       <MainContainer>
         <TextContainer>
           <Title>{title}</Title>
@@ -159,13 +169,13 @@ export const TaskCard = ({
             <ToDoContainer>
               <SubTitle>{priority}</SubTitle>
               <PriorityContainer>
-                <CirclePriority />
+                <CirclePriority value={priority} />
                 <TextPriority></TextPriority>
               </PriorityContainer>
             </ToDoContainer>
             <DeadlineContainer>
               <SubTitle>Deadline</SubTitle>
-              <TextDate></TextDate>
+              <TextDate>{formatDeadlineDate(deadline)}</TextDate>
             </DeadlineContainer>
           </CardPriorityDeadline>
           <ButtonsContainer>
