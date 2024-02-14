@@ -13,7 +13,18 @@
     "login": {
       "password": "Potwierdź hasło",
       "email": "Wprowadź swój adres email",
-      "button": "Zaloguj się"
+      "button": "Zaloguj się",
+      "forgot": "Zapomniałeś hasła?"
+    },
+    "forgot": {
+      "email": "Wprowadź swój adres e-mail",
+      "send": "Wyślij e-mail"
+    },
+    "recovery": {
+      "code": "Kod odzyskiwania",
+      "new": "Nowe hasło",
+      "confirm": "Potwierdź nowe hasło",
+      "change": "Zmień hasło"
     }
   },
   "screenPage": {
@@ -55,6 +66,7 @@
         },
         "card": {
           "title": "Dodaj kartę",
+          "editTitle": "Edytuj kartę",
           "cardTitle": "Tytuł",
           "descr": "Opis",
           "color": "Kolor etykiety",
@@ -72,7 +84,8 @@
           "title": "Edytuj profil",
           "name": "Wprowadź swoje imię",
           "email": "Wprowadź swój adres email",
-          "password": "Wprowadź swoje hasło"
+          "password": "Wprowadź swoje hasło",
+          "send": "Wyślij"
         }
       }
     }

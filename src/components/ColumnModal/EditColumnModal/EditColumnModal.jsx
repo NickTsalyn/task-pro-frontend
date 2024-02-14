@@ -17,8 +17,10 @@ import {
 import { editColumn } from 'redux/columns/operations';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 
 export const EditColumnModal = ({ onCloseModal, column }) => {
+  const {t} = useTranslation('global')
   const dispatch = useDispatch();
 
   // const handlerEditColumn = evt => {
@@ -84,7 +86,7 @@ export const EditColumnModal = ({ onCloseModal, column }) => {
 
   return (
     <ModalWrap>
-      <AddColumnTitle>Edit column</AddColumnTitle>
+      <AddColumnTitle>{t('screenPage.render.modal.column.editTitle')}</AddColumnTitle>
 
       <ModalCloseButton onClick={onCloseModal}>
         <StyledSvgClose>
@@ -96,7 +98,7 @@ export const EditColumnModal = ({ onCloseModal, column }) => {
         <AddColumnInput
           type="text"
           name="title"
-          placeholder="Title"
+          placeholder={t('screenPage.render.modal.column.input')}
           autoFocus
         />
 
@@ -106,7 +108,7 @@ export const EditColumnModal = ({ onCloseModal, column }) => {
               <use xlinkHref={`${sprite}#icon-plus`}></use>
             </StyledSvgDarkPlus>
           </IconWhiteWrap>
-          Edit
+          {t('screenPage.render.modal.card.editBtn')}
         </AddColumnBtn>
       </form>
     </ModalWrap>

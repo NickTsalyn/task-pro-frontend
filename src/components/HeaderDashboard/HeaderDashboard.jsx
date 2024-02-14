@@ -22,8 +22,10 @@ import PriorityCheckboxForm from './ui/PriorityCheckboxForm';
 import ProjectTitle from './ui/ProjectTitle';
 import { useParams } from 'react-router-dom';
 import { StyledComponentsWrapper } from './StyledComponentsWrapper';
+import { useTranslation } from 'react-i18next';
 
 export const HeaderDashboard = () => {
+  const {t} = useTranslation('global')
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -58,7 +60,7 @@ export const HeaderDashboard = () => {
               <Icon>
                 <use xlinkHref={`${sprite}#icon-filter`}></use>
               </Icon>
-              <Text>Filters</Text>
+              <Text>{t('screenPage.static.filters')}</Text>
             </IconTextContainer>
           </Button>
         </HdWrapper>

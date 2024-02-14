@@ -21,19 +21,21 @@ import {
 import { CardList } from 'components/CardList/CardList';
 import { AddCard } from 'components/AddCard/AddCard';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectTasks } from 'redux/tasks/selectors';
+// import { selectTasks } from 'redux/tasks/selectors';
 import { fetchTitle } from 'redux/tasks/operations';
 import { EditColumnButton } from 'components/EditColumnButtons/EditColumnButton/EditColumnButton';
 import { deleteColumn } from 'redux/columns/operations';
 import { selectedTheme } from 'redux/auth/selectors';
+import { useTranslation } from 'react-i18next';
 
 Modal.setAppElement('#root');
 export const ColumnListItem = ({ column }) => {
+  const {t} = useTranslation('global')
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { _id } = column;
 
   const dispatch = useDispatch();
-  const tasks = useSelector(selectTasks);
+  // const tasks = useSelector(selectTasks);
   // console.log(column);
   // console.log(tasks);
 
@@ -127,7 +129,7 @@ export const ColumnListItem = ({ column }) => {
             <use xlinkHref={`${sprite}#icon-plus`}></use>
           </AddCardButtonSvg>
         </AddCardSvgContainer>
-        <AddCardSvgButtonText>Add</AddCardSvgButtonText>
+        <AddCardSvgButtonText>{t('screenPage.render.addCard')}</AddCardSvgButtonText>
       </AddAnotherCard>
 
       <Modal

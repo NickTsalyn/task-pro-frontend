@@ -14,6 +14,7 @@ import {
   StyledSvgClose,
 } from './NeedHelpModal.styled';
 import { sendHelpRequest } from 'redux/auth/operations';
+import { useTranslation } from 'react-i18next';
 
 const validationSchema = Yup.object({
   email: Yup.string().email('Please enter a valid email address').required(''),
@@ -22,6 +23,7 @@ const validationSchema = Yup.object({
 
 export const NeedHelpModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation('global');
 
   const handleSend = async ({ email, comment }) => {
     console.log(comment);
@@ -49,7 +51,7 @@ export const NeedHelpModal = ({ isOpen, onClose }) => {
             <use xlinkHref={`${sprite}#icon-x-close`}></use>
           </StyledSvgClose>
         </CloseButton>
-        <ModalTitle>Need help</ModalTitle>
+        <ModalTitle>{t('screenPage.static.needHelp')}</ModalTitle>
         <Formik
           initialValues={{ email: '', comment: '' }}
           validationSchema={validationSchema}

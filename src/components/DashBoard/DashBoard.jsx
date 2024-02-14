@@ -12,7 +12,6 @@ import { ColumnList } from 'components/ColumnList/ColumnList';
 const DashBoard = () => {
   const { boardId } = useParams();
   const dispatch = useDispatch();
-  // console.log(boardId);
 
   const boards = useSelector(selectAllBoards);
   const columns = useSelector(selectColumns);
@@ -24,8 +23,7 @@ const DashBoard = () => {
   const { t } = useTranslation('global');
 
   const filteredColumns = columns.filter(column => column.board === boardId);
-  // console.log(columns);
-  // console.log(filteredColumns);
+  
 
   return (
     <DashBoardWrapper>  

@@ -14,7 +14,18 @@
     "login": {
       "password": "Confirmer le mot de passe",
       "email": "Entrez votre adresse e-mail",
-      "button": "Connectez-vous maintenant"
+      "button": "Connectez-vous maintenant",
+      "forgot": "Mot de passe oublié?"
+    },
+    "forgot": {
+      "email": "Entrez votre adresse e-mail",
+      "send": "Envoyer un e-mail"
+    },
+    "recovery": {
+      "code": "Code de récupération",
+      "new": "Nouveau mot de passe",
+      "confirm": "Confirmer le nouveau mot de passe",
+      "change": "Changer le mot de passe"
     }
   },
   "screenPage": {
@@ -56,6 +67,7 @@
         },
         "card": {
           "title": "Ajouter une carte",
+          "editTitle": "Modifier la carte",
           "cardTitle": "Titre",
           "descr": "Description",
           "color": "Couleur de l'étiquette",
@@ -73,7 +85,8 @@
           "title": "Modifier le profil",
           "name": "Entrez votre nom",
           "email": "Entrez votre adresse e-mail",
-          "password": "Entrez votre mot de passe"
+          "password": "Entrez votre mot de passe",
+          "send": "Envoyer"
         }
       }
     }

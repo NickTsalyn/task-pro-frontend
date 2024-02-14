@@ -1,82 +1,94 @@
 {
-    "welcomePage": {
-      "welcome": {
-        "text": "Task Proを使用して生産性を向上させ、タスクをコントロールしましょう - 待たずに目標達成を始めましょう！",
-        "registration": "登録",
-        "login": "ログイン"
-      },
-      "registration": {
-        "name": "お名前を入力してください",
-        "email": "メールアドレスを入力してください",
-        "password": "パスワードを作成してください",
-        "button": "今すぐ登録"
-      },
-      "login": {
-        "password": "パスワードの確認",
-        "email": "メールアドレスを入力してください",
-        "button": "今すぐログイン"
+  "welcomePage": {
+    "welcome": {
+      "text": "Task Proを使用して生産性を向上させ、タスクをコントロールしましょう - 待たずに目標達成を始めましょう！",
+      "registration": "登録",
+      "login": "ログイン"
+    },
+    "registration": {
+      "name": "お名前を入力してください",
+      "email": "メールアドレスを入力してください",
+      "password": "パスワードを作成してください",
+      "button": "今すぐ登録"
+    },
+    "login": {
+      "password": "パスワードの確認",
+      "email": "メールアドレスを入力してください",
+      "button": "今すぐログイン",
+      "forgot": "パスワードをお忘れですか？"
+    },
+    "forgot": {
+      "email": "メールアドレスを入力してください",
+      "send": "メールを送信"
+    },
+    "recovery": {
+      "code": "復旧コード",
+      "new": "新しいパスワード",
+      "confirm": "新しいパスワードの確認",
+      "change": "パスワードの変更"
+    }
+  },
+  "screenPage": {
+    "static": {
+      "theme": "テーマ",
+      "my-boards": "マイボード",
+      "addBoard": "新しいボードを作成",
+      "help": "もし",
+      "help2": "で助けが必要なら、サポートリソースをチェックするか、カスタマーサポートチームにお問い合わせください。",
+      "needHelp": "ヘルプが必要",
+      "logout": "ログアウト",
+      "message1": "プロジェクトを開始する前に、",
+      "message2": "ボードを作成することが不可欠です",
+      "message3": "すべての必要なタスクやマイルストーンを視覚化し、追跡するため。このボードは、ワークフローを整理し、チームメンバー間で効果的な協力を確認するための強力なツールとして機能します。",
+      "filters": "フィルター",
+      "priority": {
+        "without": "優先度なし",
+        "low": "低",
+        "medium": "中",
+        "high": "高"
       }
     },
-    "screenPage": {
-      "static": {
-        "theme": "テーマ",
-        "my-boards": "マイボード",
-        "addBoard": "新しいボードを作成",
-        "help": "もし",
-        "help2": "で助けが必要なら、サポートリソースをチェックするか、カスタマーサポートチームにお問い合わせください。",
-        "needHelp": "ヘルプが必要",
-        "logout": "ログアウト",
-        "message1": "プロジェクトを開始する前に、",
-        "message2": "ボードを作成することが不可欠です",
-        "message3": "すべての必要なタスクやマイルストーンを視覚化し、追跡するため。このボードは、ワークフローを整理し、チームメンバー間で効果的な協力を確認するための強力なツールとして機能します。",
-        "filters": "フィルター",
-        "priority": {
-          "without": "優先度なし",
-          "low": "低",
-          "medium": "中",
-          "high": "高"
-        }
-      },
-      "render": {
-        "addColumn": "別の列を追加",
-        "addCard": "別のカードを追加",
-        "modal": {
-          "board": {
-            "titleNew": "新しいボード",
-            "titleEdit": "ボードを編集",
-            "icons": "アイコン",
-            "backgr": "背景",
-            "add-btn": "作成",
-            "edit-btn": "編集"
-          },
-          "help": {
-            "title": "ヘルプが必要",
-            "email": "メールアドレス",
-            "text": "コメント"
-          },
-          "card": {
-            "title": "カードを追加",
-            "cardTitle": "タイトル",
-            "descr": "説明",
-            "color": "ラベルの色",
-            "deadline": "締め切り",
-            "addBtn": "追加",
-            "editBtn": "編集"
-          },
-          "column": {
-            "addTitle": "列を追加",
-            "editTitle": "列を編集",
-            "input": "タイトル",
-            "btn": "追加"
-          },
-          "profile": {
-            "title": "プロフィールを編集",
-            "name": "お名前を入力してください",
-            "email": "メールアドレスを入力してください",
-            "password": "パスワードを入力してください"
-          }
+    "render": {
+      "addColumn": "別の列を追加",
+      "addCard": "別のカードを追加",
+      "modal": {
+        "board": {
+          "titleNew": "新しいボード",
+          "titleEdit": "ボードを編集",
+          "icons": "アイコン",
+          "backgr": "背景",
+          "add-btn": "作成",
+          "edit-btn": "編集"
+        },
+        "help": {
+          "title": "ヘルプが必要",
+          "email": "メールアドレス",
+          "text": "コメント"
+        },
+        "card": {
+          "title": "カードを追加",
+          "editTitle": "カードの編集",
+          "cardTitle": "タイトル",
+          "descr": "説明",
+          "color": "ラベルの色",
+          "deadline": "締め切り",
+          "addBtn": "追加",
+          "editBtn": "編集"
+        },
+        "column": {
+          "addTitle": "列を追加",
+          "editTitle": "列を編集",
+          "input": "タイトル",
+          "btn": "追加"
+        },
+        "profile": {
+          "title": "プロフィールを編集",
+          "name": "お名前を入力してください",
+          "email": "メールアドレスを入力してください",
+          "password": "パスワードを入力してください",
+          "send": "送信"
         }
       }
     }
   }
-  
+}

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 export const DarkBackground = styled.div`
@@ -26,7 +27,22 @@ flex-direction: column;;
   @media screen and (min-width: 768px) {
     width: 260px;
   }
+  ${() => {
+  const {i18n} = useTranslation('global')
+    const dir = i18n.dir(i18n.language);
 
+    if (dir === 'rtl') {
+      return `
+        right: 0;
+        left: auto;
+      `;
+    } else {
+      return `
+        left: 0;
+        right: auto;
+      `;
+    }
+  }}
   @media screen and (min-width: 1440px) {
     z-index: 0;
     position: static;

@@ -1,7 +1,7 @@
 // import { hover } from '@testing-library/user-event/dist/hover';
 import React from 'react';
 import Select from 'react-select';
-import '../../Header/ThemeDropDown/theme.css';
+// import '../../Header/ThemeDropDown/theme.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectedTheme } from 'redux/auth/selectors';
 import { changeTheme } from 'redux/auth/operations';

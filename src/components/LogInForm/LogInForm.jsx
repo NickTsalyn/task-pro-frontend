@@ -100,7 +100,7 @@ export const LogInForm = () => {
         <LogInBtn type="submit">{t('welcomePage.login.button')}</LogInBtn>
         <div>
           <StyledLink to="/auth/forgetPassword">
-            Forgot your password?
+            {t('welcomePage.login.forgot')}
           </StyledLink>
         </div>
       </FormContainer>

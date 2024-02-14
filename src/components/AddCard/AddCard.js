@@ -27,13 +27,15 @@ import {
   AddCardWrapper,
   DatePickerCalendar,
 } from './AddCard.styled';
-import { useState} from 'react';
+import { useState } from 'react';
 import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
 import { addTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
-import DatePicker from "react-datepicker";
+import DatePicker from 'react-datepicker';
+import { useTranslation } from 'react-i18next';
 
 export const AddCard = ({ onCloseModal, id }) => {
+  const { t } = useTranslation('global');
   const [startDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
   // const formik = useFormik({
@@ -43,21 +45,20 @@ export const AddCard = ({ onCloseModal, id }) => {
   //     priority: '',
   //     deadline: '',
   //   },
-   
+
   // });
 
-//   const saveCard = ()=>{
+  //   const saveCard = ()=>{
 
-//     const newCard = {
-//       title: formik.values.title,
-//       description: formik.values.description,
-//       priority: formik.values.priority,
-//       deadline: formik.values.deadline,
-//     };
-// dispatch(addTask(newCard));
+  //     const newCard = {
+  //       title: formik.values.title,
+  //       description: formik.values.description,
+  //       priority: formik.values.priority,
+  //       deadline: formik.values.deadline,
+  //     };
+  // dispatch(addTask(newCard));
 
-
-//   }
+  //   }
 
   const isToday = date => {
     const today = new Date();
@@ -90,33 +91,37 @@ export const AddCard = ({ onCloseModal, id }) => {
           description: values.description,
           priority: values.priority,
           deadline: values.deadline,
-          columnId: id
+          columnId: id,
         };
-        console.log('hi')
-        console.log(newCard)
+        console.log('hi');
+        console.log(newCard);
         dispatch(addTask(newCard));
-        console.log('hi')
+        console.log('hi');
         resetForm();
-        onCloseModal()
+        onCloseModal();
         successToaster();
       }}
     >
       <AddCardWrapper>
-        <CLoseButton onClick = {onCloseModal} type='button'>
+        <CLoseButton onClick={onCloseModal} type="button">
           <AddCardSvgClose>
-          <use xlinkHref={`${sprite}#icon-x-close`}></use>
+            <use xlinkHref={`${sprite}#icon-x-close`}></use>
           </AddCardSvgClose>
-          </CLoseButton>
+        </CLoseButton>
         <AddCardContainer>
-          <AddCardHeader>Add Card</AddCardHeader>
+          <AddCardHeader>
+            {t('screenPage.render.modal.card.title')}
+          </AddCardHeader>
           <AddCardTextCont>
-            <AddCardTitle name="title" placeholder="Title" />
+            <AddCardTitle
+              name="title"
+              placeholder={t('screenPage.render.modal.card.cardTitle')}
+            />
             {/* <Field className='AddCardDesc' as='textarea'name="description"></Field> */}
             <Field
-            as={AddCardDescription}
+              as={AddCardDescription}
               name="description"
-           
-              placeholder="Description"
+              placeholder={t('screenPage.render.modal.card.descr')}
               // value={Formik.values.description}
               // onChange={(e) => {
               //   AddCardDescription.value = e.target.value;
@@ -127,32 +132,48 @@ export const AddCard = ({ onCloseModal, id }) => {
           </AddCardTextCont>
           <AddCardOptionCont>
             <AddCardColorCont>
-              <AddCardLabelText>Label color</AddCardLabelText>
+              <AddCardLabelText>
+                {t('screenPage.render.modal.card.color')}
+              </AddCardLabelText>
 
               <label>
                 <AddCardContMark>
                   <AddCardLabelColor type="radio" name="priority" value="Low" />
-                  <AddCardLabelColor type="radio" name="priority" value="Medium" />
-                  <AddCardLabelColor type="radio" name="priority" value="High" />
-                  <AddCardLabelColor type="radio" name="priority" value="Without" />
+                  <AddCardLabelColor
+                    type="radio"
+                    name="priority"
+                    value="Medium"
+                  />
+                  <AddCardLabelColor
+                    type="radio"
+                    name="priority"
+                    value="High"
+                  />
+                  <AddCardLabelColor
+                    type="radio"
+                    name="priority"
+                    value="Without"
+                  />
                 </AddCardContMark>
               </label>
             </AddCardColorCont>
             <AddCardContCal>
-           
-              <AddCardTextCal>DeadLine</AddCardTextCal>
-              <DatePickerCalendar          name='deadline'
-          selected={startDate}
-          onChange={date => setStartDate(date)}
-          dateFormat={
-            isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
-          }
-          // showWeekNumbers
-          />
-        {/* <DatePicker
+              <AddCardTextCal>
+                {t('screenPage.render.modal.card.deadline')}
+              </AddCardTextCal>
+              <DatePickerCalendar
+                name="deadline"
+                selected={startDate}
+                onChange={date => setStartDate(date)}
+                dateFormat={
+                  isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
+                }
+                // showWeekNumbers
+              />
+              {/* <DatePicker
 
         /> */}
-      {/* </DatePickerCalendar> */}
+              {/* </DatePickerCalendar> */}
               {/* <AddCardDate
               name='deadline'
                 selected={startDate}
@@ -171,7 +192,9 @@ export const AddCard = ({ onCloseModal, id }) => {
               <use xlinkHref={`${sprite}#icon-plus`}></use>
             </AddCardButtonSvg>
           </AddCardSvgContainer>
-          <AddCardSvgButtonText>Add</AddCardSvgButtonText>
+          <AddCardSvgButtonText>
+            {t('screenPage.render.addCard')}
+          </AddCardSvgButtonText>
         </AddCardBtn>
       </AddCardWrapper>
     </Formik>

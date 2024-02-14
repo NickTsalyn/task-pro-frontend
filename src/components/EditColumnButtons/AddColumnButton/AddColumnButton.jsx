@@ -10,8 +10,10 @@ import {
   IconVioletWrap,
   StyledSvgWhitePlus,
 } from './AddColumnButton.styled';
+import { useTranslation } from 'react-i18next';
 
 export const AddColumnButton = ({ column }) => {
+  const {t} = useTranslation('global')
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -30,7 +32,7 @@ export const AddColumnButton = ({ column }) => {
             <use xlinkHref={`${sprite}#icon-plus`}></use>
           </StyledSvgWhitePlus>
         </IconVioletWrap>
-        Add another column
+        {t('screenPage.render.addColumn')}
       </ModalShowButton>
 
       <Modal
