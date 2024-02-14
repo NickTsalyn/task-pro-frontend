@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import sprite from '../../images/icons.svg';
-import { deleteTask, editTask } from 'redux/tasks/operations';
+import { deleteTask, 
+  // editTask 
+} from 'redux/tasks/operations';
 import toast, { Toaster } from 'react-hot-toast';
 import Modal from 'react-modal';
 import { useState } from 'react';
@@ -43,7 +45,7 @@ export const TaskCard = ({
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  // const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const formatDeadlineDate = deadline => {
     const formattedDeadlineDate = new Date(deadline);
@@ -52,16 +54,16 @@ export const TaskCard = ({
     const month = String(formattedDeadlineDate.getMonth() + 1).padStart(2, '0');
     const year = formattedDeadlineDate.getFullYear();
 
-    return `${day}/${0,month}/${year}`;
+    return `${day}/${month}/${year}`;
   };
 
-  const openEditModal = () => {
-    setIsEditModalOpen(true);
-  };
+  // const openEditModal = () => {
+  //   setIsEditModalOpen(true);
+  // };
 
-  const closeEditModal = () => {
-    setIsEditModalOpen(false);
-  };
+  // const closeEditModal = () => {
+  //   setIsEditModalOpen(false);
+  // };
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -92,10 +94,10 @@ export const TaskCard = ({
     });
   };
 
-  const toEditTask = (taskId, updatedData) => {
-    dispatch(editTask({ id: taskId, updatedData }));
-    successToaster();
-  };
+  // const toEditTask = (taskId, updatedData) => {
+  //   dispatch(editTask({ id: taskId, updatedData }));
+  //   successToaster();
+  // };
 
   // const toDeleteTask = taskId => {
   //   dispatch(deleteTask(taskId));
