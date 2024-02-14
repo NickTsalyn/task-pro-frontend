@@ -40,16 +40,16 @@ import styled from "styled-components";
 // СТИЛІ РУКАМИ НЕ ЧІПАТИ
 
 export const DashBoardWrapper = styled.div`
-  margin: 46px 20px 24px;
+  padding: 46px 20px 24px;
   max-width: 335px;
   
   @media only screen and (min-width: 768px) {
-    margin: 26px 32px 32px;
+    padding: 26px 32px 32px;
     max-width: 704px;
   }
 
   @media only screen and (min-width: 1440px) {
-    margin: 10px 24px 8px;
+    padding: 10px 24px 8px;
     max-width: 1132px;
   }
 `;

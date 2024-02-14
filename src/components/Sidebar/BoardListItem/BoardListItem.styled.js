@@ -8,6 +8,17 @@ export const StyledBoardList = styled.div`
 
   background-color: ${({ isActive }) =>
     isActive ? 'rgba(255, 255, 255, 0.2)' : 'transparent'};
+ 
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.white};
+    stroke: ${p => p.theme.colors.white};
+  }
+
+@media screen and (min-width: 768px) {
+  padding: 21px 24px;
+  }
+
 `;
 
 export const StyledBoardItem = styled.button`
@@ -17,13 +28,29 @@ export const StyledBoardItem = styled.button`
   line-height: 1.5;
   text-align: start;
   padding: 0;
+  display: flex;
+  gap: 4px;
   color: ${({ isActive }) =>
     isActive ? 'rgba(255, 255, 255)' : 'rgba(255, 255, 255, 0.5)'};
   cursor: pointer;
   &:hover,
   &:focus {
     color: ${p => p.theme.colors.white};
+    svg {
+      stroke: ${p => p.theme.colors.white};
+    }
   }
+  svg
+  {width: 18px;
+  height: 18px;
+  fill: transparent;
+  stroke: ${({ isActive }) =>
+    isActive ? 'rgba(255, 255, 255)' : 'rgba(255, 255, 255, 0.5)'};
+}
+
+  @media screen and (min-width: 768px) {
+  gap: 8px;
+  }  
 `;
 
 export const StyledSVGPensil = styled.svg`
@@ -35,15 +62,6 @@ export const StyledSVGPensil = styled.svg`
   &:focus {
     stroke: ${p => p.theme.colors.white};
   }
-`;
-
-export const StyledSVGIcon = styled.svg`
-  fill: transparent;
-  stroke: rgba(255, 255, 255, 1);
-  padding-right: ${p => p.theme.spacing(2)};
-
-  width: 18px;
-  height: 18px;
 `;
 
 export const StyledSVGTrash = styled.svg`
