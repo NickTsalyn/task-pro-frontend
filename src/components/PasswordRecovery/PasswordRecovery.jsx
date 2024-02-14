@@ -10,13 +10,15 @@ import {
   StyledInputContainer,
   StyledSVGButton,
   StyledSVG,
+  StyledSVGInv,
 } from './PasswordRecovery.styled.jsx';
 import { useState } from 'react';
-import sprite from '../../images/icons.svg';
+
 import { useDispatch } from 'react-redux';
 import { changePassword } from 'redux/auth/operations.js';
 
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 
 const PasswordRecoverySchem = Yup.object().shape({
@@ -43,24 +45,41 @@ const initialValues = {
 };
 
 export const PasswordRecovery = () => {
-  const {t} = useTranslation('global')
+  const { t } = useTranslation('global');
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordOne, setShowPasswordOne] = useState(false);
   const handleTogglePassword = e => {
     e.preventDefault();
     setShowPassword(!showPassword);
   };
+  const handleTogglePasswordOne = e => {
+    e.preventDefault();
+    setShowPasswordOne(!showPasswordOne);
+  };
   const navigate = useNavigate();
   const onSubmit = (values, { resetForm }) => {
-    const { tempraryPassword, newPassword, confirmNewPassword } = values;
+    const { tempraryPassword: resetToken, newPassword } = values;
 
-    dispatch(
-      changePassword({ tempraryPassword, newPassword, confirmNewPassword })
-    );
+    dispatch(changePassword({ resetToken, newPassword }))
+      .then(resp => {
+        if (resp.payload === 'Invalid or expired reset code') {
+          toast.error('Invalid or expired reset code');
+        } else {
+          toast.success(
+            `Your password has been successfully changed to a new one. Log in with your new password.`
+          );
+          setTimeout(() => {
+            navigate('/auth/login');
+          }, 3000);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        toast.error('An error occurred. Please try again.');
+      });
+
     resetForm();
-    setTimeout(() => {
-      navigate('/auth/login');
-    }, 3000);
   };
 
   return (
@@ -89,16 +108,14 @@ export const PasswordRecovery = () => {
           <StyledLabel>
             <StyledInputContainer>
               <StyledInput
-                type={showPassword ? 'text' : 'password'}
+                type={showPasswordOne ? 'text' : 'password'}
                 id="newPassword"
                 name="newPassword"
                 autoComplete="new-password"
                 placeholder={t('welcomePage.recovery.new')}
               />
-              <StyledSVGButton type="button " onClick={handleTogglePassword}>
-                <StyledSVG>
-                  <use xlinkHref={`${sprite}#icon-eye`}></use>
-                </StyledSVG>
+              <StyledSVGButton type="button " onClick={handleTogglePasswordOne}>
+                {showPassword ? <StyledSVGInv /> : <StyledSVG />}
               </StyledSVGButton>
             </StyledInputContainer>
 
@@ -124,16 +141,16 @@ export const PasswordRecovery = () => {
               />
               ;
               <StyledSVGButton type="button " onClick={handleTogglePassword}>
-                <StyledSVG>
-                  <use xlinkHref={`${sprite}#icon-eye`}></use>
-                </StyledSVG>
+                {showPassword ? <StyledSVGInv /> : <StyledSVG />}
               </StyledSVGButton>
             </StyledInputContainer>
             <MessageError name="confirmNewPassword" component="div" />;
           </StyledLabel>
         </InputContainer>
 
-        <SendMailBtn type="submit">{t('welcomePage.recovery.change')}</SendMailBtn>
+        <SendMailBtn type="submit">
+          {t('welcomePage.recovery.change')}
+        </SendMailBtn>
       </FormContainer>
     </Formik>
   );

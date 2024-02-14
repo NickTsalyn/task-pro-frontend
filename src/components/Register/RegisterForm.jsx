@@ -14,11 +14,12 @@ import {
   StyledInputContainer,
   StyledLabel,
   StyledSVG,
+  StyledSVGInv,
   StyledSVGButton,
 } from './RegisterForm.styled.jsx';
 
 import { useNavigate } from 'react-router-dom';
-import sprite from '../../images/icons.svg';
+
 import { useTranslation } from 'react-i18next';
 
 const RegisterSchema = Yup.object().shape({
@@ -44,7 +45,7 @@ const initialValues = {
 };
 
 const RegisterForm = () => {
-  const {t} = useTranslation('global')
+  const { t } = useTranslation('global');
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // const loading = useSelector(selectIsLoading);
@@ -107,9 +108,7 @@ const RegisterForm = () => {
               />
 
               <StyledSVGButton type="button " onClick={handleTogglePassword}>
-                <StyledSVG>
-                  <use xlinkHref={`${sprite}#icon-eye`}></use>
-                </StyledSVG>
+                {showPassword ? <StyledSVGInv /> : <StyledSVG />}
               </StyledSVGButton>
             </StyledInputContainer>
             <MessageError name="password" component="div" />

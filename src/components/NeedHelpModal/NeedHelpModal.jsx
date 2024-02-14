@@ -26,7 +26,6 @@ export const NeedHelpModal = ({ isOpen, onClose }) => {
   const { t } = useTranslation('global');
 
   const handleSend = async ({ email, comment }) => {
-    console.log(comment);
     dispatch(sendHelpRequest({ email, comment }))
       .then(() => {
         console.log('Request sent successfully');
