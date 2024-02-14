@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const CardListStyled = styled.ul`
     padding-right: ${p => p.theme.spacing(1)}; 
     margin: ${p=>p.theme.spacing(3.5)} 0 ;
@@ -7,13 +8,20 @@ export const CardListStyled = styled.ul`
     display: flex;
     flex-direction: column;
     gap: ${p=> p.theme.spacing(2)};
-    max-height: 478px;
+    max-height: 154px;
     overflow-y: auto;
     overflow-x: hidden;
 
+    
+
     @media only screen and (min-width: 768px) {
       padding-right: ${p => p.theme.spacing(2)}; 
+      max-height: 640px;
     };
+
+    @media only screen and (min-width: 1440px) {
+       max-height: 478px;
+    }
 
     /* Стилізація скроллбару */
   &::-webkit-scrollbar {

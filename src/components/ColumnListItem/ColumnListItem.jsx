@@ -21,7 +21,6 @@ import {
 import { CardList } from 'components/CardList/CardList';
 import { AddCard } from 'components/AddCard/AddCard';
 import { useDispatch, useSelector } from 'react-redux';
-// import { selectTasks } from 'redux/tasks/selectors';
 import { fetchTitle } from 'redux/tasks/operations';
 import { EditColumnButton } from 'components/EditColumnButtons/EditColumnButton/EditColumnButton';
 import { deleteColumn } from 'redux/columns/operations';
@@ -34,10 +33,7 @@ export const ColumnListItem = ({ column }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { _id } = column;
 
-  const dispatch = useDispatch();
-  // const tasks = useSelector(selectTasks);
-  // console.log(column);
-  // console.log(tasks);
+  const dispatch = useDispatch();  
 
   const currentTheme = useSelector(selectedTheme);
   console.log(currentTheme);
