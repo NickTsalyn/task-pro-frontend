@@ -14,7 +14,7 @@ const options = [
   { value: 'jp', label: 'Japan' },
   { value: 'pl', label: 'Poland' },
   { value: 'ro', label: 'Romania' },
-  { value: 'tr', label: 'Turkey' },
+  { value: 'ar', label: 'Turkey' },
   { value: 'gr', label: 'Greece' },
 ];
 

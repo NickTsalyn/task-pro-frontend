@@ -29,7 +29,7 @@ import global_ita from './translations/ita/global.json';
 import global_jp from './translations/jp/global.json';
 import global_pl from './translations/pl/global.json';
 import global_ro from './translations/ro/global.json';
-import global_tr from './translations/tr/global.json';
+import global_ar from './translations/ar/global.json';
 import global_ua from './translations/ua/global.json';
 import { getTheme } from 'components/themes';
 
@@ -112,8 +112,8 @@ i18next
       ro: {
         global: global_ro,
       },
-      tr: {
-        global: global_tr,
+      ar: {
+        global: global_ar,
       },
       ua: {
         global: global_ua,
