@@ -5,11 +5,8 @@ export const SidebarWrapper = styled.div`
   flex-direction: column;
   padding: 70px 14px 14px;
   height: 100%;
-  /* height: 86%; */
   @media screen and (min-width: 768px) {
-   
     padding: 60px 24px 24px;
-  
   }
 `;
 
@@ -24,7 +21,6 @@ export const StyledCreateWrapper = styled.div`
   padding: ${p => p.theme.spacing(3.5)} 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  /* margin-bottom: ${p => p.theme.spacing(10)}; */
 `;
 export const StyledLogoutBtn = styled.button`
   border: none;

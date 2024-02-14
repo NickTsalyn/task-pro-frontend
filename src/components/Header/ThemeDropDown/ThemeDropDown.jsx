@@ -1,8 +1,7 @@
 // import { hover } from '@testing-library/user-event/dist/hover';
 import React from 'react';
 import Select from 'react-select';
-import '../../Header/ThemeDropDown/theme.css';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 
 const options = [
   { value: 'light', label: 'Light' },
@@ -39,11 +38,7 @@ const customStyles = {
     ...provided,
    display: 'none'
   }),
-  // indicatorsContainer: provided => ({
-  //   ...provided,
-  //   width: '16px',
-  //   height: '16px',
-  // }),
+
   input: (provided) => ({
     ...provided,
     display: 'none'
@@ -52,6 +47,7 @@ const customStyles = {
     ...provided,
     padding: '0',
     margin: 'auto 0',
+    
     '&::before': {
       content: 'none',
     },
@@ -60,7 +56,7 @@ const customStyles = {
   option: (provided, state) => ({
     ...provided,
     backgroundColor: '#fff',
-    color: 'rgb(22, 22, 22)',
+    color: state.isSelected ? '#5255BC' :'rgb(22, 22, 22)',
     '&:hover, &:focus': {
       color: '#5255bc',
     },
@@ -92,7 +88,7 @@ export const ThemeDropDown = () => {
     // onChange={handleThemeChange}
       options={options}
       styles={customStyles}
-      // onChange={handleChangeTheme}
+      onChange={handleChangeTheme}
       placeholder="Theme"
       // classNamePrefix="custom-select"
     />

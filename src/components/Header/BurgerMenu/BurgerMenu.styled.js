@@ -15,7 +15,6 @@ export const StyledBurgerMenu = styled.button`
   display: flex;
   justify-content: center;
   margin: auto 0;
-  /* margin-right: auto; */
   padding: 0;
   position: relative;
   display: ${props => (props.isOpen ? 'display: flex;' : '')};

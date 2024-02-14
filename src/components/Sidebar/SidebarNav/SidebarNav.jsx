@@ -17,7 +17,6 @@ import {
 } from './SidebarNav.styled';
 import { logout } from 'redux/auth/operations';
 import HelpApp from 'components/HelpApp/HelpApp.jsx';
-import { Logo } from '../Logo/Logo';
 
 export const SidebarNav = () => {
   const dispatch = useDispatch();
@@ -31,8 +30,6 @@ const navigate = useNavigate()
   const { t } = useTranslation('global');
   return (
     <SidebarWrapper>
-      {/* <Logo/> */}
-      
       <StyledText>{t('screenPage.static.my-boards')}</StyledText>
      <Boards> 
       <StyledCreateWrapper>

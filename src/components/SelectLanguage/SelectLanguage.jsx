@@ -1,5 +1,4 @@
 import React from 'react';
-// import { SelectStyled } from './SelectLanguage.styled';
 import { useTranslation } from 'react-i18next';
 import CustomDropdown from 'components/Select/Select';
 

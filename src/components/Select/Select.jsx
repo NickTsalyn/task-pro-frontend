@@ -1,24 +1,21 @@
 import React from 'react';
 import Select, {components} from 'react-select';
 import { useTranslation } from 'react-i18next';
-import { CustomDropdownIcon } from './Select.styled';
+import { GrLanguage } from "react-icons/gr";
 
-export const MySelect = () => {
-  return (
-    <Select
-      components={{
-        DropdownIndicator: props => {
-          return (
-            <components.DropdownIndicator {...props}>
-              <CustomDropdownIcon />
-            </components.DropdownIndicator>
-          );
-        },
-      }}
-      styles={customStyles}
-    />
+const CustomDropdownIcon = () => (
+    <GrLanguage/>
   );
-};
+
+const IconLanguage = {
+          DropdownIndicator: props => {
+            return (
+              <components.DropdownIndicator {...props}>
+                <CustomDropdownIcon width='32' height='32'/>
+              </components.DropdownIndicator>
+            );
+          },
+        }
 
 const options = [
   { value: 'ua', label: 'Ukraine' },
@@ -36,55 +33,65 @@ const options = [
   { value: 'gr', label: 'Greece' },
 ];
 
-const customStyles = {
+ const customStyles = {
   control: (provided, state) => ({
     ...provided,
     color: state.isFocused ? 'rgba(22, 22, 22)' : 'rgba(22, 22, 22, 0.8)',
     border: 'none ',
     boxShadow: 'none',
     display: 'flex',
-    margin: '0',
+    margin: 'auto 0',
     padding: '0',
     minHeight: '0',
     lineHeight: '1',
-    // '&:hover': {
-    // //   backgroundColor: 'var(--text)',
-    //   color: '#5255BC'
-    // }
+
   }),
 
   downChevron:  provided => ({
     ...provided,
-    width: '16px',
-    height: '16px',
+    width: '32px',
+    height: '32px',
     padding: '0',
-    margin: '0 auto'
    
   }),
   
+  IndicatorContainer:  provided => ({
+    ...provided,
+    // width: '32px',
+    // height: '32px',
+    // padding: '0',
+    // margin: '0'
+   display: 'none'
+  }),
+
   indicatorSeparator: 
   provided => ({
     ...provided,
    display: 'none'
   }),
 
+  input: (provided) => ({
+    ...provided,
+    display: 'none'
+  }),
+
   dropdownIndicator: provided => ({
     ...provided,
     padding: '0',
-  // width: '20',
-  color: 'rgb(22, 22, 22)',
+  color: 'rgb(22, 22, 22, 0.8)',
   '&:hover, &:focus': {
     color: '#5255bc',
   },
-    // '&::before': {
-    //   content: 'none',
-    // },
+    '&::before': {
+      content: 'none',
+    },
   }),
 
   option: (provided, state) => ({
     ...provided,
-    backgroundColor: state.isSelected ? 'var(--text)' : '#FCFCFC',
-    color: state.isSelected ? '#5255BC' : 'var(--text)',
+    backgroundColor: '#fff',
+    color: state.isSelected ? '#5255BC' : 'rgb(22, 22, 22)',
+    
     '&:hover': {
       backgroundColor: '#FCFCFC',
       color: '#5255BC'
@@ -93,47 +100,54 @@ const customStyles = {
   placeholder: (provided) => ({
     ...provided,
     display: 'none'
-    // fontWeight: '500',
-    // fontSize: '14px',
-    // letterSpacing: '-0.02em',
-    // color: 'var(--text)',
-    // '&:hover': {
-    //     color: '#5255BC'
-    //   }
 }),
-input: (provided) => ({
-  ...provided,
-  display: 'none'
-}),
-  // indicatorsContainer: provided => ({
-  //   ...provided,
-  
-  // }),
     menu: (provided) => ({
         ...provided,
-        maxHeight: '60px',
+        maxHeight: '120px',
         width: '110px',
-        backgroundColor: 'white'
-        // overflow: 'auto'
+
+        backgroundColor: 'white',
+        borderRadius: '8px',
+
+       overflowY: 'auto',
+        '&::-webkit-scrollbar': {
+          width: '4px',
+          
+          
+        },
+        '&::-webkit-scrollbar-thumb': {
+          backgroundColor: 'rgba(22, 22, 22, 0.2)',
+          borderRadius: '8px',
+          
+        },
+        '&::-webkit-scrollbar-track': {
+          backgroundColor: 'transparent',
+        },
+    }),
+    menuList: (provided) => ({
+      ...provided,
+      
+      overflowY: 'none',
     })
 };
 
+
+
 export const CustomDropdown = () => {
     const { i18n } = useTranslation('global');
-
 
   const handleChangeLanguage = selectedOption => {
     i18n.changeLanguage(selectedOption.value);
   };
   return (
     <Select
+    components={IconLanguage}
       options={options}
       styles={customStyles}
       onChange={handleChangeLanguage}
-      // placeholder="--Choose Language--"
+      placeholder=""
     />
   );
 };
 
-// export default CustomDropdown;
-export default MySelect
+export default CustomDropdown;
