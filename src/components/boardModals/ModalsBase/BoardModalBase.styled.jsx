@@ -10,6 +10,7 @@ export const StyledModal = styled(Modal)`
     background-color: ${props => props.theme.colors.white};
     border-radius: 8px;
     box-shadow: 0px 4px 16px 0px ${props => props.theme.colors.greyIconColor};
+    z-index: 3000;
     transition: transform 0.3s;
 `
 

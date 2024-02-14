@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import sprite from 'images/icons.svg'
 import { StyledModal, Form, CloseButton, CloseSVG, BigHeader, TitleInput, SmallHeader, List, Radio, IconSVG, Pic, SubmitButton } from './BoardModalBase.styled'
 import {pictures_mini} from 'images/mini/index'
+import './BoardModalBase.css'
 
 export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, SubmitForm }) => {
     const [title, setTitle] = useState(info.title)
@@ -38,15 +39,16 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
     return (
         <StyledModal
             isOpen={isModalOpen}
-            overlayClassName={'modal-overlay'}
+            overlayClassName={'modal-overlay-board'}
             onRequestClose={close}
+            onClick={e => e.stopPropagation()}
             ariaHideApp={false}
         >
             <CloseButton onClick={close}>
                 <CloseSVG><use xlinkHref={`${sprite}#icon-x-close`}></use></CloseSVG>
             </CloseButton>
 
-            <Form onSubmit={event => sub(event)}>
+            <Form onSubmit={event => sub(event)} onClick={e => e.stopPropagation()}>
                 <BigHeader>{action==='add' ? 'New' : 'Edit'} board</BigHeader>
 
                 <TitleInput
