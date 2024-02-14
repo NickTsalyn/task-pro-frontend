@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+const getColor = (props) => {
+    switch (props.value) {
+      case 'Low':
+        return props.theme.priorityColors.low;
+      case 'Medium':
+        return props.theme.priorityColors.medium;
+      case 'High':
+        return props.theme.priorityColors.high;
+      default:
+        return props.theme.priorityColors.without;
+    }
+  };
+
 export const TaskContainer = styled.div`
     display: grid; 
     grid-template-columns: 4px 1fr;
@@ -16,7 +29,7 @@ export const PrioritySeeContainer = styled.div`
     width: 4px;
     padding: 0;
     border-radius: 8px 0px 0px 8px;
-    background-color:  ${p => p.theme.priorityColors.low};
+    background-color:  ${getColor};
 `;
 
 export const MainContainer = styled.div`
@@ -104,7 +117,7 @@ export const CirclePriority = styled.div`
     height: 12px;
     width: 12px;
     border-radius: 50%;
-    background-color: ${p => p.theme.priorityColors.low};
+    background-color: ${getColor};
 `;
 
 export const TextPriority = styled.p`

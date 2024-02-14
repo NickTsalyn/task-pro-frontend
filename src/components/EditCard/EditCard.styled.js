@@ -6,11 +6,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const getColor = (props) => {
   switch (props.value) {
-    case 'blue':
+    case 'Low':
       return props.theme.priorityColors.low;
-    case 'pink':
+    case 'Medium':
       return props.theme.priorityColors.medium;
-    case 'green':
+    case 'High':
       return props.theme.priorityColors.high;
     default:
       return props.theme.priorityColors.without;
