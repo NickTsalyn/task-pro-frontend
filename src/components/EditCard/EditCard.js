@@ -1,4 +1,4 @@
-import { Formik } from 'formik';
+import { Field, Formik } from 'formik';
 import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../images/icons.svg';
 
@@ -11,23 +11,53 @@ import {
   EditCardContMark,
   EditCardContainer,
   EditCardDate,
+  // AddCardDesc,
   EditCardDescription,
   EditCardHeader,
   EditCardLabelColor,
   EditCardLabelText,
   EditCardOptionCont,
   EditCardSvgButtonText,
+  EditCardSvgClose,
   EditCardSvgContainer,
   EditCardTextCal,
   EditCardTextCont,
   EditCardTitle,
   EditCardWrapper,
 } from './EditCard.styled';
-import { useState } from 'react';
+import { useState} from 'react';
 import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
+import {  editTask } from 'redux/tasks/operations';
+import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
+import { toastStyles } from '../../ToasterOptions';
 
-export const EditCard = ({ onCloseModal }) => {
+export const EditCard = ({ onCloseModal,task: {  _id, title, description, priority,deadline } }) => {
   const [startDate, setStartDate] = useState(new Date());
+  const dispatch = useDispatch();
+  
+  // const formik = useFormik({
+  //   initialValues: {
+  //     title: '',
+  //     description: '',
+  //     priority: '',
+  //     deadline: '',
+  //   },
+   
+  // });
+
+//   const saveCard = ()=>{
+
+//     const newCard = {
+//       title: formik.values.title,
+//       description: formik.values.description,
+//       priority: formik.values.priority,
+//       deadline: formik.values.deadline,
+//     };
+// dispatch(addTask(newCard));
+
+
+//   }
 
   const isToday = date => {
     const today = new Date();
@@ -38,28 +68,63 @@ export const EditCard = ({ onCloseModal }) => {
     );
   };
 
+   const successToaster = () => {
+     toast.success('You successfully edited card!', {
+       icon: '👍',
+       duration: 4000,
+       style: toastStyles.success,
+     });
+   };
+
   return (
     <Formik
       initialValues={{
-        name: '',
-        number: '',
+        title: `${title}`,
+        description: `${description}`,
+        priority: `${priority}`,
+        deadline: `${deadline} ?? ${startDate}`,
       }}
-      //   validationSchema={SignupSchema}
-      onSubmit={(values, actions) => {
-        // submit(values);
-        actions.resetForm();
+      onSubmit={(values, ) => {
+        const editCard = {
+          title: values.title,
+          description: values.description,
+          priority: values.priority,
+          deadline: values.deadline,
+          taskId: _id
+         
+        };
+        console.log(editCard);
+        dispatch(editTask(editCard));
+        
+        // resetForm();
+        
+        onCloseModal()
+        successToaster();
+
       }}
     >
       <EditCardWrapper>
-        <CLoseButton onClick = {onCloseModal}>Close</CLoseButton>
+        {/* <CLoseButton onClick = {onCloseModal}>
+          <EditCardSvgClose>
+          <use xlinkHref={`${sprite}#icon-x-close`}></use>
+          </EditCardSvgClose>
+          </CLoseButton> */}
         <EditCardContainer>
-          <EditCardHeader>Add Card</EditCardHeader>
+          <EditCardHeader>Edit Card</EditCardHeader>
           <EditCardTextCont>
             <EditCardTitle name="title" placeholder="Title" />
-            <EditCardDescription
+            {/* <Field className='AddCardDesc' as='textarea'name="description"></Field> */}
+            <Field
+            as={EditCardDescription}
               name="description"
-              as="textarea"
+           
               placeholder="Description"
+              // value={Formik.values.description}
+              // onChange={(e) => {
+              //   AddCardDescription.value = e.target.value;
+              //   console.dir(AddCardDescription.value);
+              // }}
+              // onBlur={Formik.handleBlur}
             />
           </EditCardTextCont>
           <EditCardOptionCont>
@@ -68,16 +133,17 @@ export const EditCard = ({ onCloseModal }) => {
 
               <label>
                 <EditCardContMark>
-                  <EditCardLabelColor type="radio" name="color" value="blue" />
-                  <EditCardLabelColor type="radio" name="color" value="pink" />
-                  <EditCardLabelColor type="radio" name="color" value="green" />
-                  <EditCardLabelColor type="radio" name="color" value="gray" />
+                  <EditCardLabelColor type="radio" name="priority" value="Low" />
+                  <EditCardLabelColor type="radio" name="priority" value="Medium" />
+                  <EditCardLabelColor type="radio" name="priority" value="High" />
+                  <EditCardLabelColor type="radio" name="priority" value="Without" />
                 </EditCardContMark>
               </label>
             </EditCardColorCont>
             <EditCardContCal>
               <EditCardTextCal>DeadLine</EditCardTextCal>
               <EditCardDate
+              name='deadline'
                 selected={startDate}
                 onChange={date => setStartDate(date)}
                 dateFormat={
@@ -94,9 +160,9 @@ export const EditCard = ({ onCloseModal }) => {
               <use xlinkHref={`${sprite}#icon-plus`}></use>
             </EditCardButtonSvg>
           </EditCardSvgContainer>
-          <EditCardSvgButtonText>Add</EditCardSvgButtonText>
+          <EditCardSvgButtonText>Edit</EditCardSvgButtonText>
         </EditCardBtn>
       </EditCardWrapper>
     </Formik>
   );
-};
+              }

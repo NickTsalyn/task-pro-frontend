@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
 
 const PasswordRecoverySchem = Yup.object().shape({
   tempraryPassword: Yup.string()
-    .matches(/^.{12}$/, 'Recovery code must be exactly 12 characters long')
+    .matches(/^.{24}$/, 'Recovery code must be exactly 12 characters long')
     .required('Recovery code is required!'),
   newPassword: Yup.string()
     .min(8, 'Password is too short!')
@@ -55,8 +55,10 @@ export const PasswordRecovery = () => {
     dispatch(
       changePassword({ tempraryPassword, newPassword, confirmNewPassword })
     );
-    navigate('/auth/login');
     resetForm();
+    setTimeout(() => {
+      navigate('/auth/login');
+    }, 3000);
   };
 
   return (

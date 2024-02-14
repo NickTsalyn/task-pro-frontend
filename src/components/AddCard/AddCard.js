@@ -1,7 +1,8 @@
 import { Field, Formik } from 'formik';
-import 'react-datepicker/dist/react-datepicker.css';
+// import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../images/icons.svg';
-
+import toast from 'react-hot-toast';
+import { toastStyles } from '../../ToasterOptions';
 
 import {
   AddCardBtn,
@@ -24,11 +25,13 @@ import {
   AddCardTextCont,
   AddCardTitle,
   AddCardWrapper,
+  DatePickerCalendar,
 } from './AddCard.styled';
 import { useState} from 'react';
 import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
 import { addTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
+import DatePicker from "react-datepicker";
 
 export const AddCard = ({ onCloseModal, id }) => {
   const [startDate, setStartDate] = useState(new Date());
@@ -65,12 +68,20 @@ export const AddCard = ({ onCloseModal, id }) => {
     );
   };
 
+  const successToaster = () => {
+    toast.success('You successfully added card!', {
+      icon: '👍',
+      duration: 4000,
+      style: toastStyles.success,
+    });
+  };
+
   return (
     <Formik
       initialValues={{
         title: '',
         description: '',
-        priority: '',
+        priority: ''?? 'Without',
         deadline: `${startDate}`,
       }}
       onSubmit={(values, { resetForm }) => {
@@ -81,10 +92,10 @@ export const AddCard = ({ onCloseModal, id }) => {
           deadline: values.deadline,
           columnId: id
         };
-        
+        console.log(newCard)
         dispatch(addTask(newCard));
         resetForm();
-
+        successToaster();
       }}
     >
       <AddCardWrapper>
@@ -125,8 +136,21 @@ export const AddCard = ({ onCloseModal, id }) => {
               </label>
             </AddCardColorCont>
             <AddCardContCal>
+           
               <AddCardTextCal>DeadLine</AddCardTextCal>
-              <AddCardDate
+              <DatePickerCalendar          name='deadline'
+          selected={startDate}
+          onChange={date => setStartDate(date)}
+          dateFormat={
+            isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
+          }
+          // showWeekNumbers
+          />
+        {/* <DatePicker
+
+        /> */}
+      {/* </DatePickerCalendar> */}
+              {/* <AddCardDate
               name='deadline'
                 selected={startDate}
                 onChange={date => setStartDate(date)}
@@ -134,7 +158,7 @@ export const AddCard = ({ onCloseModal, id }) => {
                   isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
                 }
                 showWeekNumbers
-              />
+              /> */}
             </AddCardContCal>
           </AddCardOptionCont>
         </AddCardContainer>
