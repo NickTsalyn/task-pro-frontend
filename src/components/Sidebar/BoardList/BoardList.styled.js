@@ -4,7 +4,6 @@ import '../../../index.css';
 export const StyledBoardListWrapper = styled.ul`
   height: 126px;
   overflow-y: scroll;
-
   margin: 0 -14px;
 
   &::-webkit-scrollbar {
@@ -26,7 +25,5 @@ export const StyledBoardListWrapper = styled.ul`
   @media screen and (min-width: 768px) {
     margin: 0 -24px;
   }
-  @media screen and (min-width: 1440px) {
-    margin-bottom: 40px;
-  }
+ 
 `;
