@@ -86,6 +86,14 @@ export const IconUser = styled.svg`
   --color2: ${props => props.theme.colors.white};
   --color1: #ecedfd;
 `;
+export const IconUserInfo = styled.svg`
+  width: 32px;
+  height: 32px;
+  stroke-width: 0;
+
+  --color2: ${props => props.theme.colors.white};
+  --color1: #ecedfd;
+`;
 export const ImageUser = styled.img`
   width: 68px;
   height: 68px;
@@ -130,6 +138,7 @@ export const StyledField = styled(Field)`
     opacity: 1;
   }
   box-sizing: border-box;
+  display: inline;
 `;
 
 export const Button = styled.button`

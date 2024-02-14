@@ -4,20 +4,26 @@ import {
   StyledUserPhoto,
   StyledUserBtn,
 } from './UserInfo.styled';
-import photo from '../../../img/welcome.png';
 import { useSelector } from 'react-redux';
 
 import Modal from 'react-modal';
 import { useState } from 'react';
 import { EditProfileModal } from 'components/EditProfileModal/EditProfileModal';
 import '../../EditProfileModal/EditModal.css';
+import { selectAvatar, selectUser } from 'redux/auth/selectors';
+import { IconUserInfo } from 'components/EditProfileModal/EditProfileModal.styled';
+import sprite from '../../../images/icons.svg';
 
 Modal.setAppElement('#root');
 
 export const UserInfo = () => {
+  const userName = useSelector(selectUser);
+  const userAvatar = useSelector(selectAvatar);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-const userName = useSelector(state => state.auth.user);
-const [isModalOpen, setIsModalOpen] = useState(false);
+  const avatarURL =
+    userAvatar &&
+    new URL(userAvatar, 'https://task-pro-backend-a1c2.onrender.com/public');
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -30,7 +36,18 @@ const [isModalOpen, setIsModalOpen] = useState(false);
     <StyledUserInfo>
       <StyledUserName>{userName.name}</StyledUserName>
       <StyledUserBtn type="button" onClick={openModal}>
-        <StyledUserPhoto src={photo} alt="user_photo" width={32} height={32} />
+        {!!userAvatar ? (
+          <StyledUserPhoto
+            src={avatarURL}
+            alt="user_photo"
+            width={32}
+            height={32}
+          />
+        ) : (
+          <IconUserInfo>
+            <use xlinkHref={`${sprite}#icon-user`}></use>
+          </IconUserInfo>
+        )}
       </StyledUserBtn>
 
       <Modal
@@ -40,7 +57,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
         className={'modal-content'}
         closeTimeoutMS={300}
       >
-        <EditProfileModal onCloseModal={closeModal} />
+        <EditProfileModal onCloseModal={closeModal} avatar={avatarURL} />
       </Modal>
     </StyledUserInfo>
   );
