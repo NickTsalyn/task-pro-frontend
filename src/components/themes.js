@@ -1,6 +1,6 @@
-// import { store } from "redux/store";
-
 export const violetTheme = {
+  taskBgn: '#fff',
+  iconStroke: 'rgba(22, 22, 22, 0.5)',
   sidebarBgn: '#5255bc',
   headerBgn: '#fff',
   screensBgn: '#ecdfd',
@@ -23,6 +23,8 @@ export const violetTheme = {
 };
 
 export const lightTheme = {
+  taskBgn: '#fff',
+  iconStroke: 'rgba(22, 22, 22, 0.5)',
   sidebarBgn: '#fff',
   headerBgn: '#fcfcfc',
   screensBgn: '#f6f6f6',
@@ -45,6 +47,8 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
+  taskBgn: '#121212',
+  iconStroke: 'rgba(225, 225, 225, 0.5)',
   sidebarBgn: '#121212',
   headerBgn: '#161616',
   screensBgn: '#1f1f1f',
@@ -66,9 +70,6 @@ export const darkTheme = {
   hoverBtnPlusFill: '#9dc888',
 };
 
-// const theme = store.getState().selectedTheme;
-// console.log(selectedTheme);
-// const themeName = getTheme(selectedTheme);
 
 export const getTheme = (themeName) => {
   switch (themeName) {
@@ -86,30 +87,6 @@ export const getTheme = (themeName) => {
 //ПРИКЛАД ВИКОРИСТАННЯ В СТИЛІЗАЦІЇ КОМПОНЕНТІВ
 
 // import styled from 'styled-components';
-// import { getTheme } from './themes';
 // const Container = styled.div`
-//     background-color: ${p => getTheme(p.theme.selectedTheme).sidebarBgn};
+//     background-color: ${p => p.theme.currentTheme.sidebarBgn};
 // radius: ${p => p.theme.radius.m};
-
-// `;
-
-//ЛОГІКА ЗМІНИ ТЕМИ ДОДАТИ В Header Home Page
-
-// const dispatch = useDispatch();
-//   const currentTheme = useSelector(selectThemeName);
-
-//   const handleThemeChange = (e) => {
-//     const selectedTheme = e.target.value;
-//      dispatch(changeTheme(selectedTheme));
-//   };
-
-// return (
-//     <div>
-//       <select value={currentTheme} onChange={handleThemeChange}>
-//         <option value="light">Light Theme</option>
-//         <option value="dark">Dark Theme</option>
-//         <option value="green">Blue Theme</option>
-//         <option value="violet">Violet Theme</option>
-//       </select>
-//     </div>
-//   );
