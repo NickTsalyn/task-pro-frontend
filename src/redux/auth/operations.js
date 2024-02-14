@@ -113,7 +113,7 @@ export const changePassword = createAsyncThunk(
 //ЗМІНА ТЕМИ
 export const changeTheme = createAsyncThunk(
   'auth/theme',
-  async (theme, thunkAPI) => {
+  async (credentials, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
@@ -122,7 +122,8 @@ export const changeTheme = createAsyncThunk(
     }
     try {
       setAuthHeader(persistedToken);
-      const response = await axios.patch('/users/theme', { theme });
+      const response = await axios.patch('api/users/changeTheme', credentials );
+      console.log(response.data.theme);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

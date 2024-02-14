@@ -2,11 +2,14 @@
 import React from 'react';
 import Select from 'react-select';
 import '../../Header/ThemeDropDown/theme.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectedTheme } from 'redux/auth/selectors';
+import { changeTheme } from 'redux/auth/operations';
 
 const options = [
-  { value: 'Light', label: 'Light' },
-  { value: 'Dark', label: 'Dark' },
-  { value: 'Violet', label: 'Violet' },
+  { value: 'light', label: 'Light' },
+  { value: 'dark', label: 'Dark' },
+  { value: 'violet', label: 'Violet' },
 ];
 
 const customStyles = {
@@ -47,10 +50,20 @@ const customStyles = {
   }),
 };
 
+
 export const ThemeDropDown = () => {
-  const handleChangeTheme = selectedOption => {
+  const dispatch = useDispatch();
+
+  const handleChangeTheme = ( options) => {
     // i18n.changeLanguage(selectedOption.value);
+    const theme = options.value;
+    console.log(theme);
+    dispatch(changeTheme( {theme} ));
   };
+  
+  const currentTheme = useSelector(selectedTheme);
+  console.log(currentTheme);
+
   return (
     <Select
       options={options}

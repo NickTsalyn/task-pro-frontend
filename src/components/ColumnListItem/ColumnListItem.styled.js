@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export const ColumnWrapper = styled.div`
+
+export const ColumnWrapper = styled.div`  
   display:flex;
   flex-direction: column;  
 `;
@@ -12,7 +13,8 @@ export const ColumnHeader = styled.div`
   align-items: center;
   padding: ${p=>p.theme.spacing(4.5)} 0;
   border-radius: ${p => p.theme.radius.m};  
-  background-color:  ${p => p.theme.colors.white}
+  /* background-color:  ${p => p.theme.colors.white}; */
+ background-color: ${p => p.theme.themeName.accent };
 `;
 export const ColumnTitle = styled.h3`
   margin-left: ${p => p.theme.spacing(5)}; 

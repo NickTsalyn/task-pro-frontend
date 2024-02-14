@@ -1,15 +1,5 @@
-import { store } from 'redux/store';
+import { store } from "redux/store";
 
-export const greenTheme = {
-  white: '#fff',
-  lableColor: '#434455',
-  accentColor: '#5ad9bb',
-  darkColor: '#1b4138',
-  background: '#def7f1',
-  borderColor: '#8e8f99',
-  secondaryColor: '#27a688',
-  errorColor: '#d06a31',
-};
 export const violetTheme = {
   sidebarBgn: '#5255bc',
   headerBgn: '#fff',
@@ -76,11 +66,12 @@ export const darkTheme = {
   hoverBtnPlusFill: '#9dc888',
 };
 
-export const getTheme = () => {
-  const currentState = store.getState();
-  const selectedTheme = currentState.auth.theme;
-  console.log(selectedTheme);
-  switch (selectedTheme) {
+// const theme = store.getState().selectedTheme;
+// console.log(selectedTheme);
+// const themeName = getTheme(selectedTheme);
+
+export const getTheme = (themeName) => {
+  switch (themeName) {
     case 'violet':
       return violetTheme;
     case 'light':
