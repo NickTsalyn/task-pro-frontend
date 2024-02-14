@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { forgetPassword } from 'redux/auth/operations';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const ForgetPasswordSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email!').required('Email is required!'),
@@ -22,6 +23,7 @@ const initialValues = {
 };
 
 export const ForgetPassword = () => {
+  const {t} = useTranslation('global')
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -60,12 +62,12 @@ export const ForgetPassword = () => {
               id="email"
               name="email"
               autoComplete="off"
-              placeholder="Input your Email"
+              placeholder={t('welcomePage.forgot.email')}
             />
             <MessageError name="email" component="div" />
           </StyledLabel>
         </InputContainer>
-        <SendMailBtn type="submit">Send Email</SendMailBtn>
+        <SendMailBtn type="submit">{t('welcomePage.forgot.send')}</SendMailBtn>
       </FormContainer>
     </Formik>
   );

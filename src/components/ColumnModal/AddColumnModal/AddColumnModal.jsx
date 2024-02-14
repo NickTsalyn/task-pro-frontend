@@ -19,8 +19,10 @@ import {
 import { addColumn } from 'redux/columns/operations';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const AddColumnModal = ({ onCloseModal }) => {
+  const {t} = useTranslation('global')
   const dispatch = useDispatch();
   const { boardId } = useParams();
   console.log(boardId);
@@ -88,7 +90,7 @@ export const AddColumnModal = ({ onCloseModal }) => {
 
   return (
     <ModalWrap>
-      <AddColumnTitle>Add column</AddColumnTitle>
+      <AddColumnTitle>{t('screenPage.render.modal.column.addTitle')}</AddColumnTitle>
 
       <ModalCloseButton onClick={onCloseModal}>
         <StyledSvgClose>
@@ -100,7 +102,7 @@ export const AddColumnModal = ({ onCloseModal }) => {
         <AddColumnInput
           type="text"
           name="title"
-          placeholder="Title"
+          placeholder={t('screenPage.render.modal.column.input')}
           autoFocus
         />
 
@@ -110,7 +112,7 @@ export const AddColumnModal = ({ onCloseModal }) => {
               <use xlinkHref={`${sprite}#icon-plus`}></use>
             </StyledSvgDarkPlus>
           </IconWhiteWrap>
-          Add
+          {t('screenPage.render.modal.column.btn')}
         </AddColumnBtn>
       </form>
     </ModalWrap>

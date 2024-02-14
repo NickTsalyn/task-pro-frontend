@@ -31,8 +31,10 @@ import {  editTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 import { toastStyles } from '../../ToasterOptions';
+import { useTranslation } from 'react-i18next';
 
 export const EditCard = ({ onCloseModal,task: {  _id, title, description, priority,deadline } }) => {
+  const {t} = useTranslation('global')
   const [startDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
   
@@ -110,7 +112,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
           </EditCardSvgClose>
           </CLoseButton> */}
         <EditCardContainer>
-          <EditCardHeader>Edit Card</EditCardHeader>
+          <EditCardHeader>{t('screenPage.render.modal.card.editTitle')}</EditCardHeader>
           <EditCardTextCont>
             <EditCardTitle name="title" placeholder="Title" />
             {/* <Field className='AddCardDesc' as='textarea'name="description"></Field> */}
@@ -118,7 +120,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
             as={EditCardDescription}
               name="description"
            
-              placeholder="Description"
+              placeholder={t('screenPage.render.modal.card.descr')}
               // value={Formik.values.description}
               // onChange={(e) => {
               //   AddCardDescription.value = e.target.value;
@@ -129,7 +131,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
           </EditCardTextCont>
           <EditCardOptionCont>
             <EditCardColorCont>
-              <EditCardLabelText>Label color</EditCardLabelText>
+              <EditCardLabelText>{t('screenPage.render.modal.card.color')}</EditCardLabelText>
 
               <label>
                 <EditCardContMark>
@@ -141,7 +143,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
               </label>
             </EditCardColorCont>
             <EditCardContCal>
-              <EditCardTextCal>DeadLine</EditCardTextCal>
+              <EditCardTextCal>{t('screenPage.render.modal.card.deadline')}</EditCardTextCal>
               <EditCardDate
               name='deadline'
                 selected={startDate}
@@ -160,7 +162,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
               <use xlinkHref={`${sprite}#icon-plus`}></use>
             </EditCardButtonSvg>
           </EditCardSvgContainer>
-          <EditCardSvgButtonText>Edit</EditCardSvgButtonText>
+          <EditCardSvgButtonText>{t('screenPage.render.modal.card.editBtn')}</EditCardSvgButtonText>
         </EditCardBtn>
       </EditCardWrapper>
     </Formik>

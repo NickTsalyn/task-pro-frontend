@@ -15,6 +15,16 @@
       "password": "确认密码",
       "email": "输入您的电子邮件",
       "button": "立即登录"
+    },
+    "forgot": {
+      "email": "输入您的电子邮件",
+      "send": "发送电子邮件"
+    },
+    "recovery": {
+      "code": "恢复代码",
+      "new": "新密码",
+      "confirm": "确认新密码",
+      "change": "更改密码"
     }
   },
   "screenPage": {
@@ -56,6 +66,7 @@
         },
         "card": {
           "title": "添加卡片",
+          "editTitle": "编辑卡片",
           "cardTitle": "标题",
           "descr": "描述",
           "color": "标签颜色",
@@ -73,7 +84,8 @@
           "title": "编辑个人资料",
           "name": "输入您的姓名",
           "email": "输入您的电子邮件",
-          "password": "输入您的密码"
+          "password": "输入您的密码",
+          "send": "发送"
         }
       }
     }
