@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import sprite from '../../images/icons.svg';
+
 import {
   FormContainer,
   InputContainer,
@@ -10,6 +10,7 @@ import {
   StyledLabel,
   StyledLink,
   StyledSVG,
+  StyledSVGInv,
   StyledSVGButton,
 } from './LogInForm.styled.jsx';
 import * as Yup from 'yup';
@@ -88,10 +89,8 @@ export const LogInForm = () => {
                 autoComplete="off"
               />
 
-              <StyledSVGButton type="button " onClick={handleTogglePassword}>
-                <StyledSVG>
-                  <use xlinkHref={`${sprite}#icon-eye`}></use>
-                </StyledSVG>
+              <StyledSVGButton type="button" onClick={handleTogglePassword}>
+                {showPassword ? <StyledSVGInv /> : <StyledSVG />}
               </StyledSVGButton>
             </StyledInputContainer>
             <MessageError name="password" component="div" />

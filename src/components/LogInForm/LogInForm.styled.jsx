@@ -1,10 +1,22 @@
 import styled from 'styled-components';
 import { Field, Form, ErrorMessage } from 'formik';
 import { NavLink } from 'react-router-dom';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
-export const StyledSVG = styled.svg`
-  stroke: ${p => p.theme.colors.greyTextColor};
-  fill: ${p => p.theme.colors.darkInputBgn};
+export const StyledSVG = styled(AiOutlineEye)`
+  fill: ${p => p.theme.colors.greyTextColor};
+  opacity: 0.4;
+  cursor: pointer;
+
+  width: 18px;
+  height: 18px;
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+`;
+export const StyledSVGInv = styled(AiOutlineEyeInvisible)`
+  fill: ${p => p.theme.colors.greyTextColor};
   opacity: 0.4;
   cursor: pointer;
 
