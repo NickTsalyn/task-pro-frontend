@@ -70,8 +70,8 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
-export const updateAvatar = createAsyncThunk(
-  'auth/updateAvatar',
+export const updateProfile = createAsyncThunk(
+  'auth/updateProfile',
   async (credentials, thunkAPI) => {
     try {
       const state = thunkAPI.getState();
@@ -81,8 +81,7 @@ export const updateAvatar = createAsyncThunk(
       }
 
       setAuthHeader(persistedToken);
-
-      const res = await axios.patch('/api/users/avatar', credentials);
+      const res = await axios.patchForm('/api/users/edit', credentials);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
