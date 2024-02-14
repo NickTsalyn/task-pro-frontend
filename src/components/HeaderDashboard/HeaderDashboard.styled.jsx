@@ -82,7 +82,7 @@ export const CloseModal = styled.svg`
   height: 18px;
   cursor: pointer;
   transition: all 250ms linear;
-  stroke: ${p => getTheme(p.theme.selectedTheme).plusIconFill};
+  stroke: ${p => getTheme(p.theme.selectedTheme).textColor};
   stroke-width: 1.5px;
 
   &:hover {
