@@ -1,21 +1,16 @@
 import styled from "styled-components";
 
 export const DashBoardWrapper = styled.div`
-  padding: 46px 20px 24px ;
-  max-width: 310px;
-
-  @media only screen and (min-width: 375px) {
-    
-    max-width: 375px;
-  }
+  padding: 46px 0 24px 20px ;
+  max-width: 335px;
   
   @media only screen and (min-width: 768px) {
-    padding: 26px 32px 32px;
-    max-width: 768px;
+    padding: 26px 0 32px 32px;
+    max-width: 704px;
   }
 
   @media only screen and (min-width: 1440px) {
-   padding: 10px 24px 8px ;
+   padding: 10px 0 8px 24px;
     max-width: 1132px;
   }
 `;

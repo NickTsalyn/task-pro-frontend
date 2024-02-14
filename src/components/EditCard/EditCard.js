@@ -18,7 +18,7 @@ import {
   EditCardLabelText,
   EditCardOptionCont,
   EditCardSvgButtonText,
-  // EditCardSvgClose,
+  EditCardSvgClose,
   EditCardSvgContainer,
   EditCardTextCal,
   EditCardTextCont,
@@ -26,7 +26,7 @@ import {
   EditCardWrapper,
 } from './EditCard.styled';
 import { useState} from 'react';
-// import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
+import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
 import {  editTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';

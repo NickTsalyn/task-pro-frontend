@@ -31,10 +31,8 @@ import global_pl from './translations/pl/global.json';
 import global_ro from './translations/ro/global.json';
 import global_ar from './translations/ar/global.json';
 import global_ua from './translations/ua/global.json';
-import { getTheme,
-  //  darkTheme, lightTheme, violetTheme 
-  } from 'components/themes';
-
+import { darkTheme, getTheme, lightTheme, violetTheme } from 'components/themes';
+// import { selectedTheme } from 'redux/auth/selectors';
 
 const themeName = store.getState().selectedTheme;
 const theme = {  

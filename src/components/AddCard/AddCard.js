@@ -11,7 +11,7 @@ import {
   AddCardContCal,
   AddCardContMark,
   AddCardContainer,
-  // AddCardDate,
+  AddCardDate,
   // AddCardDesc,
   AddCardDescription,
   AddCardHeader,
@@ -31,7 +31,7 @@ import { useState } from 'react';
 import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
 import { addTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
-// import DatePicker from 'react-datepicker';
+import DatePicker from 'react-datepicker';
 import { useTranslation } from 'react-i18next';
 
 export const AddCard = ({ onCloseModal, id }) => {

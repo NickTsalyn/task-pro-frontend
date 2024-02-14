@@ -1,5 +1,5 @@
 import { AddColumnButton } from 'components/EditColumnButtons/AddColumnButton/AddColumnButton';
-import { ColumnButtonwrapper, ColumnListStyled, ColumnListWrapper } from './ColumnList.styled';
+import { ColumnListStyled, ColumnListWrapper } from './ColumnList.styled';
 import { ColumnListItem } from 'components/ColumnListItem/ColumnListItem';
 // import { ColumnListItem } from 'components/ColumnListItem/ColumnListItem';
 
@@ -36,9 +36,8 @@ export const ColumnList = ({ columns }) => {
           </li>
         ))}
       </ColumnListStyled>
-      <ColumnButtonwrapper>
+
       <AddColumnButton />
-      </ColumnButtonwrapper>
     </ColumnListWrapper>
   );
 };
