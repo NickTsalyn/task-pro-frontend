@@ -1,7 +1,8 @@
 import { Field, Formik } from 'formik';
 // import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../images/icons.svg';
-
+import toast from 'react-hot-toast';
+import { toastStyles } from '../../ToasterOptions';
 
 import {
   AddCardBtn,
@@ -67,6 +68,14 @@ export const AddCard = ({ onCloseModal, id }) => {
     );
   };
 
+  const successToaster = () => {
+    toast.success('You successfully added card!', {
+      icon: '👍',
+      duration: 4000,
+      style: toastStyles.success,
+    });
+  };
+
   return (
     <Formik
       initialValues={{
@@ -89,7 +98,7 @@ export const AddCard = ({ onCloseModal, id }) => {
         console.log('hi')
         resetForm();
         onCloseModal()
-
+        successToaster();
       }}
     >
       <AddCardWrapper>

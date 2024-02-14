@@ -29,15 +29,13 @@ import { useState} from 'react';
 import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
 import {  editTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
+import { toastStyles } from '../../ToasterOptions';
 
 export const EditCard = ({ onCloseModal,task: {  _id, title, description, priority,deadline } }) => {
   const [startDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
   
-
-
-
-
   // const formik = useFormik({
   //   initialValues: {
   //     title: '',
@@ -70,6 +68,14 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
     );
   };
 
+   const successToaster = () => {
+     toast.success('You successfully edited card!', {
+       icon: '👍',
+       duration: 4000,
+       style: toastStyles.success,
+     });
+   };
+
   return (
     <Formik
       initialValues={{
@@ -89,9 +95,11 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
         };
         console.log(editCard);
         dispatch(editTask(editCard));
+        
         // resetForm();
         
         onCloseModal()
+        successToaster();
 
       }}
     >
