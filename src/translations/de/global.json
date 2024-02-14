@@ -14,7 +14,18 @@
     "login": {
       "password": "Passwort bestätigen",
       "email": "Geben Sie Ihre E-Mail-Adresse ein",
-      "button": "Jetzt einloggen"
+      "button": "Jetzt einloggen",
+      "forgot": "Passwort vergessen?"
+    },
+    "forgot": {
+      "email": "Geben Sie Ihre E-Mail-Adresse ein",
+      "send": "E-Mail senden"
+    },
+    "recovery": {
+      "code": "Wiederherstellungscode",
+      "new": "Neues Passwort",
+      "confirm": "Neues Passwort bestätigen",
+      "change": "Passwort ändern"
     }
   },
   "screenPage": {
@@ -56,6 +67,7 @@
         },
         "card": {
           "title": "Karte hinzufügen",
+          "editTitle": "Karte bearbeiten",
           "cardTitle": "Titel",
           "descr": "Beschreibung",
           "color": "Label-Farbe",
@@ -73,7 +85,8 @@
           "title": "Profil bearbeiten",
           "name": "Geben Sie Ihren Namen ein",
           "email": "Geben Sie Ihre E-Mail-Adresse ein",
-          "password": "Geben Sie Ihr Passwort ein"
+          "password": "Geben Sie Ihr Passwort ein",
+          "send": "Senden"
         }
       }
     }

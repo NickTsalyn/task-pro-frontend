@@ -14,7 +14,18 @@
     "login": {
       "password": "Confirmar contraseña",
       "email": "Ingresa tu correo electrónico",
-      "button": "Iniciar sesión ahora"
+      "button": "Iniciar sesión ahora",
+      "forgot": "¿Olvidaste tu contraseña?"
+    },
+    "forgot": {
+      "email": "Ingrese su correo electrónico",
+      "send": "Enviar correo electrónico"
+    },
+    "recovery": {
+      "code": "Código de recuperación",
+      "new": "Nueva contraseña",
+      "confirm": "Confirmar nueva contraseña",
+      "change": "Cambiar contraseña"
     }
   },
   "screenPage": {
@@ -56,6 +67,7 @@
         },
         "card": {
           "title": "Agregar tarjeta",
+          "editTitle": "Editar tarjeta",
           "cardTitle": "Título",
           "descr": "Descripción",
           "color": "Color de la etiqueta",
@@ -73,7 +85,8 @@
           "title": "Editar perfil",
           "name": "Ingresa tu nombre",
           "email": "Ingresa tu correo electrónico",
-          "password": "Ingresa tu contraseña"
+          "password": "Ingresa tu contraseña",
+          "send": "Enviar"
         }
       }
     }

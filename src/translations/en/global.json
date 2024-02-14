@@ -6,7 +6,7 @@
       "login": "Log In"
     },
     "registration": {
-      "name": "Geben Sie Ihren Namen ein",
+      "name": "Enter your name",
       "email": "Enter your email",
       "password": "Create a password",
       "button": "Register Now"
@@ -14,7 +14,18 @@
     "login": {
       "password": "Confirm a password",
       "email": "Enter your email",
-      "button": "Log In Now"
+      "button": "Log In Now",
+      "forgot": "Forgot your password?"
+    },
+    "forgot": {
+      "email": "Enter your email",
+      "send": "Send email"
+    },
+    "recovery": {
+      "code": "Recovery code",
+      "new": "New Password",
+      "confirm": "Confirm New Password",
+      "change": "Change Password"
     }
   },
   "screenPage": {
@@ -56,6 +67,7 @@
         },
         "card": {
           "title": "Add card",
+          "editTitle": "Edit Card",
           "cardTitle": "Title",
           "descr": "Description",
           "color": "Label color",
@@ -73,7 +85,8 @@
           "title": "Edit profile",
           "name": "Enter your name",
           "email": "Enter your email",
-          "password": "Enter your password"
+          "password": "Enter your password",
+          "send": "Send"
         }
       }
     }

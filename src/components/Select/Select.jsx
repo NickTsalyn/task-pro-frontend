@@ -19,7 +19,7 @@ const IconLanguage = {
 
 const options = [
   { value: 'ua', label: 'Ukraine' },
-  { value: 'en', label: 'United Kingdom' },
+  { value: 'en', label: 'UK' },
   { value: 'cn', label: 'China' },
   { value: 'he', label: 'Israel' },
   { value: 'de', label: 'Germany' },
@@ -29,7 +29,7 @@ const options = [
   { value: 'jp', label: 'Japan' },
   { value: 'pl', label: 'Poland' },
   { value: 'ro', label: 'Romania' },
-  { value: 'tr', label: 'Turkey' },
+  { value: 'ar', label: 'Turkey' },
   { value: 'gr', label: 'Greece' },
 ];
 

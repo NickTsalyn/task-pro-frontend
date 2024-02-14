@@ -14,7 +14,18 @@
     "login": {
       "password": "Conferma password",
       "email": "Inserisci la tua email",
-      "button": "Accedi ora"
+      "button": "Accedi ora",
+      "forgot": "Hai dimenticato la password?"
+    },
+    "forgot": {
+      "email": "Inserisci la tua email",
+      "send": "Invia email"
+    },
+    "recovery": {
+      "code": "Codice di recupero",
+      "new": "Nuova password",
+      "confirm": "Conferma nuova password",
+      "change": "Cambia password"
     }
   },
   "screenPage": {
@@ -56,6 +67,7 @@
         },
         "card": {
           "title": "Aggiungi scheda",
+          "editTitle": "Modifica scheda",
           "cardTitle": "Titolo",
           "descr": "Descrizione",
           "color": "Colore etichetta",
@@ -73,7 +85,8 @@
           "title": "Modifica profilo",
           "name": "Inserisci il tuo nome",
           "email": "Inserisci la tua email",
-          "password": "Inserisci la tua password"
+          "password": "Inserisci la tua password",
+          "send": "Invia"
         }
       }
     }

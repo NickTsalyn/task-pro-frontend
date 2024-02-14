@@ -26,6 +26,7 @@ import * as Yup from 'yup';
 
 import { useDispatch } from 'react-redux';
 import { updateProfile } from 'redux/auth/operations.js';
+import { useTranslation } from 'react-i18next';
 
 const editFormSchema = Yup.object().shape({
   name: Yup.string().min(3, 'To short').max(30, 'To long'),
@@ -37,6 +38,7 @@ const editFormSchema = Yup.object().shape({
 });
 
 export const EditProfileModal = ({ onCloseModal, avatar }) => {
+  const {t} = useTranslation('global')
   const dispatch = useDispatch();
   const handleSubmit = credentials => {
     return dispatch(updateProfile(credentials));
@@ -51,7 +53,7 @@ export const EditProfileModal = ({ onCloseModal, avatar }) => {
 
   return (
     <ModalWrap>
-      <TitleModal>Edit profile</TitleModal>
+      <TitleModal>{t('screenPage.render.modal.profile.title')}</TitleModal>
 
       <CLoseButton onClick={onCloseModal}>
         <IconClose>
@@ -101,7 +103,7 @@ export const EditProfileModal = ({ onCloseModal, avatar }) => {
               <StyledField
                 type="text"
                 name="name"
-                placeholder="Enter username"
+                placeholder={t('screenPage.render.modal.profile.name')}
               ></StyledField>
               <ErrMessage component="span" name="name" />
             </StyledLabel>
@@ -110,7 +112,7 @@ export const EditProfileModal = ({ onCloseModal, avatar }) => {
               <StyledField
                 type="email"
                 name="email"
-                placeholder="Enter email"
+                placeholder={t('screenPage.render.modal.profile.email')}
               ></StyledField>
               <ErrMessage component="span" name="email" />
             </StyledLabel>
@@ -119,7 +121,7 @@ export const EditProfileModal = ({ onCloseModal, avatar }) => {
               <StyledField
                 type={showPassword ? 'text' : 'password'}
                 name="password"
-                placeholder="Enter password"
+                placeholder={t('screenPage.render.modal.profile.password')}
               ></StyledField>
               <ErrMessage component="span" name="password" />
               <HideBtn type="button" onClick={onShowPassword}>
@@ -130,7 +132,7 @@ export const EditProfileModal = ({ onCloseModal, avatar }) => {
             </StyledLabel>
 
             <Button type="submit" onClick={onCloseModal}>
-              Send
+            {t('screenPage.render.modal.profile.send')}
             </Button>
           </StyledForm>
         )}

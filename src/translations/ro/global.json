@@ -14,7 +14,18 @@
     "login": {
       "password": "Confirmați parola",
       "email": "Introdu adresa ta de email",
-      "button": "Autentifică-te acum"
+      "button": "Autentifică-te acum",
+      "forgot": "Ai uitat parola?"
+    },
+    "forgot": {
+      "email": "Introduceți adresa dvs. de email",
+      "send": "Trimiteți email"
+    },
+    "recovery": {
+      "code": "Cod de recuperare",
+      "new": "Parolă nouă",
+      "confirm": "Confirmați parola nouă",
+      "change": "Schimbați parola"
     }
   },
   "screenPage": {
@@ -56,6 +67,7 @@
         },
         "card": {
           "title": "Adaugă o carte",
+          "editTitle": "Editează cardul",
           "cardTitle": "Titlu",
           "descr": "Descriere",
           "color": "Culoarea etichetei",
@@ -73,7 +85,8 @@
           "title": "Editează Profilul",
           "name": "Introdu numele tău",
           "email": "Introdu adresa ta de email",
-          "password": "Introdu parola ta"
+          "password": "Introdu parola ta",
+          "send": "Trimite"
         }
       }
     }

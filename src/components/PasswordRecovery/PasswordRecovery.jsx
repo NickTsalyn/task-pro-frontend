@@ -18,6 +18,7 @@ import { changePassword } from 'redux/auth/operations.js';
 
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 
 const PasswordRecoverySchem = Yup.object().shape({
   tempraryPassword: Yup.string()
@@ -43,6 +44,7 @@ const initialValues = {
 };
 
 export const PasswordRecovery = () => {
+  const { t } = useTranslation('global');
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const handleTogglePassword = e => {
@@ -89,7 +91,7 @@ export const PasswordRecovery = () => {
                 id="tempraryPassword"
                 name="tempraryPassword"
                 autoComplete="temprorary-password"
-                placeholder="Recovery code"
+                placeholder={t('welcomePage.recovery.code')}
               />
             </StyledInputContainer>
 
@@ -104,7 +106,7 @@ export const PasswordRecovery = () => {
                 id="newPassword"
                 name="newPassword"
                 autoComplete="new-password"
-                placeholder="New Password"
+                placeholder={t('welcomePage.recovery.new')}
               />
               <StyledSVGButton type="button " onClick={handleTogglePassword}>
                 <StyledSVG>
@@ -122,14 +124,14 @@ export const PasswordRecovery = () => {
               <Field
                 id="confirmNewPassword"
                 name="confirmNewPassword"
-                placeholder="Confirm New Password"
+                placeholder={t('welcomePage.recovery.confirm')}
                 render={({ field }) => (
                   <StyledInput
                     {...field}
                     type={showPassword ? 'text' : 'password'}
                     autoComplete="new-password"
                     onPaste={e => e.preventDefault()}
-                    placeholder="Confirm New Password"
+                    placeholder={t('welcomePage.recovery.code')}
                   />
                 )}
               />
@@ -144,7 +146,9 @@ export const PasswordRecovery = () => {
           </StyledLabel>
         </InputContainer>
 
-        <SendMailBtn type="submit">Change password</SendMailBtn>
+        <SendMailBtn type="submit">
+          {t('welcomePage.recovery.change')}
+        </SendMailBtn>
       </FormContainer>
     </Formik>
   );
