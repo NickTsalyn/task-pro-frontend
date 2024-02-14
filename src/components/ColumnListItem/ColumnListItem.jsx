@@ -25,6 +25,7 @@ import { selectTasks } from 'redux/tasks/selectors';
 import { fetchTitle } from 'redux/tasks/operations';
 import { EditColumnButton } from 'components/EditColumnButtons/EditColumnButton/EditColumnButton';
 import { deleteColumn } from 'redux/columns/operations';
+import { selectedTheme } from 'redux/auth/selectors';
 
 Modal.setAppElement('#root');
 export const ColumnListItem = ({ column }) => {
@@ -34,7 +35,10 @@ export const ColumnListItem = ({ column }) => {
   const dispatch = useDispatch();
   const tasks = useSelector(selectTasks);
   // console.log(column);
-  console.log(tasks);
+  // console.log(tasks);
+
+  const currentTheme = useSelector(selectedTheme);
+  console.log(currentTheme);
 
   const openModal = () => {
     setIsModalOpen(true);

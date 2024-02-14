@@ -7,7 +7,7 @@ import { pictures_desktop_1x } from 'images/desktop_1x/index'
 import { pictures_desktop_2x } from 'images/desktop_2x/index'
 
 export const ScreensPageWrapper = styled.div`
-  position: relative;
+  /* position: relative; */
   background-color: ${p => p.theme.violetColors.violetFill};
   background-size: cover;
   background-image: url(${ props => pictures_mobile_1x[props.back]});

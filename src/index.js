@@ -31,10 +31,13 @@ import global_pl from './translations/pl/global.json';
 import global_ro from './translations/ro/global.json';
 import global_tr from './translations/tr/global.json';
 import global_ua from './translations/ua/global.json';
-import { getTheme } from 'components/themes';
+import { darkTheme, getTheme, lightTheme, violetTheme } from 'components/themes';
+// import { selectedTheme } from 'redux/auth/selectors';
 
-const theme = {
-  selectedThemeColors: getTheme(),
+const themeName = store.getState().selectedTheme;
+const theme = {  
+   themeName:getTheme(themeName),
+ 
   colors: {
     //кольори для реєстрації і логіну
     white: '#fff',
@@ -71,6 +74,8 @@ const theme = {
   },
   spacing: value => `${value * 4}px`,
 };
+
+
 
 i18next
   .use(LanguageDetector)
@@ -123,17 +128,17 @@ i18next
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <ThemeProvider theme={theme}>
     <I18nextProvider i18n={i18next}>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <BrowserRouter basename="task-pro-frontend">
-            <ThemeProvider theme={theme}>
+          <BrowserRouter basename="task-pro-frontend">            
               <Toaster toastOptions={toastStyles} />
               <App />
-            </ThemeProvider>
           </BrowserRouter>
         </PersistGate>
       </Provider>
     </I18nextProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );

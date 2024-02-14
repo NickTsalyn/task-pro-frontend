@@ -1,13 +1,15 @@
 // import { hover } from '@testing-library/user-event/dist/hover';
 import React from 'react';
 import Select from 'react-select';
-// import { useDispatch, useSelector } from 'react-redux';
+import '../../Header/ThemeDropDown/theme.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectedTheme } from 'redux/auth/selectors';
+import { changeTheme } from 'redux/auth/operations';
 
 const options = [
   { value: 'light', label: 'Light' },
   { value: 'dark', label: 'Dark' },
   { value: 'violet', label: 'Violet' },
-  { value: 'vgreen', label: 'Green' },
 ];
 
 const customStyles = {
@@ -70,18 +72,20 @@ const customStyles = {
   }),
 };
 
+
 export const ThemeDropDown = () => {
-  const handleChangeTheme = selectedOption => {
+  const dispatch = useDispatch();
+
+  const handleChangeTheme = ( options) => {
     // i18n.changeLanguage(selectedOption.value);
+    const theme = options.value;
+    console.log(theme);
+    dispatch(changeTheme( {theme} ));
   };
+  
+  const currentTheme = useSelector(selectedTheme);
+  console.log(currentTheme);
 
-  // const dispatch = useDispatch();
-  // const currentTheme = useSelector(selectThemeName);
-
-  // const handleThemeChange = (e) => {
-  //   const selectedTheme = e.target.value;
-  //    dispatch(changeTheme(selectedTheme));
-  // }
   return (
     <Select 
     // value={currentTheme} 

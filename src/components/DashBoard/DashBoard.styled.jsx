@@ -1,55 +1,16 @@
-// import styled from "styled-components";
-
-// export const Text = styled.p`  
-//   margin: 258px 20px 0;
-//   font-size: 12px;
-//   line-height: 1.3;
-//   letter-spacing: -0.02em;
-//   text-align: center;
-//   color: rgba(22, 22, 22, 0.7);
-
-//   @media only screen and (min-width: 375px) and (max-width: 768px) {
-//     margin: 258px auto 0;
-//     max-width: 335px;    
-//   }
-//   @media only screen and (min-width: 768px) {
-//     margin: 368px auto 0;
-//     max-width:486px;
-//     font-size: 14px;    
-//   }
-//   @media only screen and (min-width: 1440px) {
-//     margin: 247px auto 0; 
-//     /* margin-right: 347px;     */
-//   }
-// `;
-
-// export const ButtonText= styled.button`
-//     padding: 0;
-//     font-size: 12px;
-//     border :none;
-//     background-color: inherit;
-//     color: ${p => p.theme.violetColors.accentColor};
-
-//     @media only screen and (min-width: 768px) {      
-//       font-size: 14px;
-//     }
-// `;
-
 import styled from "styled-components";
 
-// СТИЛІ РУКАМИ НЕ ЧІПАТИ
-
 export const DashBoardWrapper = styled.div`
-  padding: 46px 20px 24px;
+  padding: 46px 0 24px 20px ;
   max-width: 335px;
   
   @media only screen and (min-width: 768px) {
-    padding: 26px 32px 32px;
+    padding: 26px 0 32px 32px;
     max-width: 704px;
   }
 
   @media only screen and (min-width: 1440px) {
-    padding: 10px 24px 8px;
+   padding: 10px 0 8px 24px;
     max-width: 1132px;
   }
 `;
@@ -75,7 +36,6 @@ export const Text = styled.p`
     
   }
 `;
-
 export const ButtonText= styled.button`
     padding: 0;
     font-size: 12px;
