@@ -10,9 +10,10 @@ import {
   StyledInputContainer,
   StyledSVGButton,
   StyledSVG,
+  StyledSVGInv,
 } from './PasswordRecovery.styled.jsx';
 import { useState } from 'react';
-import sprite from '../../images/icons.svg';
+
 import { useDispatch } from 'react-redux';
 import { changePassword } from 'redux/auth/operations.js';
 
@@ -47,9 +48,14 @@ export const PasswordRecovery = () => {
   const { t } = useTranslation('global');
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordOne, setShowPasswordOne] = useState(false);
   const handleTogglePassword = e => {
     e.preventDefault();
     setShowPassword(!showPassword);
+  };
+  const handleTogglePasswordOne = e => {
+    e.preventDefault();
+    setShowPasswordOne(!showPasswordOne);
   };
   const navigate = useNavigate();
   const onSubmit = (values, { resetForm }) => {
@@ -102,16 +108,14 @@ export const PasswordRecovery = () => {
           <StyledLabel>
             <StyledInputContainer>
               <StyledInput
-                type={showPassword ? 'text' : 'password'}
+                type={showPasswordOne ? 'text' : 'password'}
                 id="newPassword"
                 name="newPassword"
                 autoComplete="new-password"
                 placeholder={t('welcomePage.recovery.new')}
               />
-              <StyledSVGButton type="button " onClick={handleTogglePassword}>
-                <StyledSVG>
-                  <use xlinkHref={`${sprite}#icon-eye`}></use>
-                </StyledSVG>
+              <StyledSVGButton type="button " onClick={handleTogglePasswordOne}>
+                {showPassword ? <StyledSVGInv /> : <StyledSVG />}
               </StyledSVGButton>
             </StyledInputContainer>
 
@@ -137,9 +141,7 @@ export const PasswordRecovery = () => {
               />
               ;
               <StyledSVGButton type="button " onClick={handleTogglePassword}>
-                <StyledSVG>
-                  <use xlinkHref={`${sprite}#icon-eye`}></use>
-                </StyledSVG>
+                {showPassword ? <StyledSVGInv /> : <StyledSVG />}
               </StyledSVGButton>
             </StyledInputContainer>
             <MessageError name="confirmNewPassword" component="div" />;
