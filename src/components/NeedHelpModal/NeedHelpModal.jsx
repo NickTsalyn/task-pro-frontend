@@ -1,43 +1,40 @@
 import Modal from 'react-modal';
 import sprite from '../../images/icons.svg';
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Formik, Form, ErrorMessage } from 'formik';
+import { Formik, Form, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
-import { ModalWrapper, CloseButton, ModalTitle, Input, CommentInput, SendButton, StyledSvgClose } from './NeedHelpModal.styled';
-import { sendHelpRequest } from '../../redux/auth/needHelpRequest.jsx'
+import {
+  ModalWrapper,
+  CloseButton,
+  ModalTitle,
+  Input,
+  CommentInput,
+  SendButton,
+  StyledSvgClose,
+} from './NeedHelpModal.styled';
+import { sendHelpRequest } from 'redux/auth/operations';
 
 const validationSchema = Yup.object({
-  email: Yup.string()
-    .email('Please enter a valid email address')
-    .required(''),
-  comment: Yup.string()
-    .required('')
+  email: Yup.string().email('Please enter a valid email address').required(''),
+  comment: Yup.string().required(''),
 });
 
- export const NeedHelpModal = ({ isOpen, onClose }) => {
-  const [email, setEmail] = useState('');
-  const [comment, setComment] = useState('');
+export const NeedHelpModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
-  const needHelpData={
-    email:email,
-    message:comment
-  };
-  
-  const handleSend = async () => {
-    
-    console.log("data",needHelpData)
-    dispatch(sendHelpRequest(needHelpData))
+
+  const handleSend = async ({ email, comment }) => {
+    console.log(comment);
+    dispatch(sendHelpRequest({ email, comment }))
       .then(() => {
         console.log('Request sent successfully');
-        onClose(); 
+        onClose();
       })
-      .catch((error) => {
+      .catch(error => {
         console.error('Error sending request:', error);
       });
-   
-  }
-   
+  };
+
   return (
     <Modal
       isOpen={isOpen}
@@ -60,11 +57,29 @@ const validationSchema = Yup.object({
         >
           {({ isSubmitting }) => (
             <Form>
-                <Input type="email" name="email" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <ErrorMessage name="email" component="div" className="error-message" />
-                <CommentInput type="text" name="comment" placeholder="Comment" value={comment} onChange={(e) => setComment(e.target.value)} />
-                <ErrorMessage name="comment" component="div" className="error-message" />
-              <SendButton type="submit" onClick={handleSend}>Send</SendButton>
+              <Input
+                type="email"
+                name="email"
+                placeholder="Email address"
+                as={Field}
+              />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className="error-message"
+              />
+              <CommentInput
+                type="text"
+                name="comment"
+                placeholder="Comment"
+                as={Field}
+              />
+              <ErrorMessage
+                name="comment"
+                component="div"
+                className="error-message"
+              />
+              <SendButton type="submit">Send</SendButton>
             </Form>
           )}
         </Formik>
@@ -72,4 +87,3 @@ const validationSchema = Yup.object({
     </Modal>
   );
 };
-

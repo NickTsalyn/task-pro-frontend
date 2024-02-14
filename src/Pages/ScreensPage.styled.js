@@ -41,5 +41,4 @@ export const ScreensPageWrapper = styled.div`
       background-image: url(${ props => pictures_desktop_2x[props.back]});
     }
   }
-
 `;

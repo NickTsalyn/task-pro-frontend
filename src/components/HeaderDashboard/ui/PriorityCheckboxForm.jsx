@@ -7,17 +7,12 @@ import { StyledComponentsWrapper } from '../StyledComponentsWrapper';
 const options = ['without', 'low', 'medium', 'high'];
 
 const PriorityCheckboxForm = ({ filtersPriority }) => {
-  // console.log(filtersPriority, filtersPriority);
   const dispatch = useDispatch();
   const initialValues = {
     label: filtersPriority,
   };
   const isCheked = value => {
     return filtersPriority.includes(value);
-  };
-
-  const handleCheckboxChange = e => {
-    dispatch(togglePriority(e.target.id));
   };
 
   return (
@@ -29,10 +24,11 @@ const PriorityCheckboxForm = ({ filtersPriority }) => {
               <input
                 id={el}
                 name="radio"
-                onChange={handleCheckboxChange}
-                // defaultChecked={isCheked(el)}
                 type="checkbox"
                 checked={isCheked(el)}
+                onChange={e => {
+                  dispatch(togglePriority(e.target.id));
+                }}
               />
               <label htmlFor={el} className="radio-label">
                 {el}

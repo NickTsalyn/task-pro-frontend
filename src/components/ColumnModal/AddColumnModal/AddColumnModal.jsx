@@ -1,4 +1,6 @@
 import React from 'react';
+import toast from 'react-hot-toast';
+import { toastStyles } from '../../../ToasterOptions';
 
 import sprite from '../../../images/icons.svg';
 
@@ -23,20 +25,65 @@ export const AddColumnModal = ({ onCloseModal }) => {
   const { boardId } = useParams();
   console.log(boardId);
 
+  // const handlerAddColumn = evt => {
+  //   evt.preventDefault();
+  //   const inputValue = evt.target.title.value.trim();
+  //   if (inputValue !== '') {
+  //     const newColumn = {
+  //       title: inputValue,
+  //       dashboardId: boardId,
+  //     };
+
+  //     dispatch(addColumn(newColumn));
+  //     onCloseModal();
+  //     return;
+  //   }
+  //   return;
+  // };
+
+  const successToaster = () => {
+    toast.success('You successfully added new column!', {
+      icon: '👏',
+      duration: 4000,
+      style: toastStyles.success,
+      // {
+      //   background: 'green',
+      //   color: '#fff',
+      // },
+    });
+  };
+
+  const errorToaster = error => {
+    toast.error(`Something went wrong! It's ${error} error`, {
+      icon: '🤔',
+      duration: 4000,
+      style: toastStyles.error,
+      // {
+      //   background: 'red',
+      //   color: '#fff',
+      // },
+    });
+  };
+
   const handlerAddColumn = evt => {
     evt.preventDefault();
-    const inputValue = evt.target.title.value.trim();
-    if (inputValue !== '') {
-      const newColumn = {
-        title: inputValue,
-        dashboardId: boardId,
-      };
 
-      dispatch(addColumn(newColumn));
-      onCloseModal();
-      return;
+    try {
+      const inputValue = evt.target.title.value.trim();
+
+      if (inputValue !== '') {
+        const newColumn = {
+          title: inputValue,
+          dashboardId: boardId,
+        };
+
+        dispatch(addColumn(newColumn));
+        onCloseModal();
+        successToaster();
+      }
+    } catch (error) {
+      errorToaster(error.message);
     }
-    return;
   };
 
   return (

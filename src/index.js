@@ -65,7 +65,7 @@ const theme = {
     low: '#8FA1D0', //low priority
     medium: '#E09CB5', //medium priority
     high: '#BEDBB0', // high priority=colors.lightGreen
-    without: 'rgba(22, 22, 22, 0.3)', //without priority
+    without: '#1616164d', //without priority
   },
   radius: {
     s: '6px', //button +

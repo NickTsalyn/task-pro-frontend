@@ -6,9 +6,10 @@ import {
   login,
   refreshUser,
   logout,
-  updateAvatar,
+  updateProfile,
   forgetPassword,
   changePassword,
+  sendHelpRequest,
   changeTheme,
 } from './operations';
 
@@ -93,16 +94,16 @@ const authSlice = createSlice({
     [refreshUser.rejected](state) {
       state.isRefreshing = false;
     },
-    [updateAvatar.pending](state) {
+    [updateProfile.pending](state) {
       state.isLoading = true;
       state.isError = false;
       state.errorMessage = null;
     },
-    [updateAvatar.fulfilled](state, action) {
-      state.user.avatar = action.payload.avatar;
+    [updateProfile.fulfilled](state, action) {
+      state.user = {...state.user, ...action.payload.user};
       state.isLoading = false;
     },
-    [updateAvatar.rejected](state, action) {
+    [updateProfile.rejected](state, action) {
       state.isLoading = false;
       state.isError = true;
       state.errorMessage = action.payload;
@@ -130,6 +131,19 @@ const authSlice = createSlice({
       state.isLoading = false;
     },
     [changePassword.rejected](state, action) {
+      state.isLoading = false;
+      state.isError = true;
+      state.errorMessage = action.payload;
+    },
+    [sendHelpRequest.pending](state) {
+      state.isLoading = true;
+      state.isError = false;
+      state.errorMessage = null;
+    },
+    [sendHelpRequest.fulfilled](state) {
+      state.isLoading = false;
+    },
+    [sendHelpRequest.rejected](state, action) {
       state.isLoading = false;
       state.isError = true;
       state.errorMessage = action.payload;

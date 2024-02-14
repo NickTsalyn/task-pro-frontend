@@ -6,11 +6,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const getColor = (props) => {
   switch (props.value) {
-    case 'blue':
+    case 'Low':
       return props.theme.priorityColors.low;
-    case 'pink':
+    case 'Medium':
       return props.theme.priorityColors.medium;
-    case 'green':
+    case 'High':
       return props.theme.priorityColors.high;
     default:
       return props.theme.priorityColors.without;
@@ -104,7 +104,7 @@ padding: 0;
 margin: 0;
 font-size: 12px;
 letter-spacing: -0.02em;
-color: ${p => p.theme.colors.greyIconColor}
+color: ${p => p.theme.colors.greyIconColor};
 `
 export const EditCardLabelColor = styled(Field)`
 
@@ -187,7 +187,7 @@ padding:0;
 margin: 0;
 font-size: 12px;
 letter-spacing: -0.02em;
-color:${p => p.theme.colors.greyIconColor}
+color:${p => p.theme.colors.greyIconColor};
 
 `
 
@@ -220,5 +220,14 @@ letter-spacing: -0.02em;
 color: ${p => p.theme.colors.white};
 padding: 0;
 margin: 0;
+
+`
+
+export const EditCardSvgClose = styled.svg`
+fill: ${p => p.theme.colors.darkTextColor};
+  stroke: ${p => p.theme.colors.darkTextColor};
+  width: 18px;
+  height: 18px;
+
 
 `
