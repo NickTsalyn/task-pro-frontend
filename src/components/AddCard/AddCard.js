@@ -15,6 +15,7 @@ import {
   // AddCardDesc,
   AddCardDescription,
   AddCardHeader,
+  AddCardInputColor,
   AddCardLabelColor,
   AddCardLabelText,
   AddCardOptionCont,
@@ -82,7 +83,7 @@ export const AddCard = ({ onCloseModal, id }) => {
       initialValues={{
         title: '',
         description: '',
-        priority: '' ?? 'Without',
+        priority: '' || 'Without',
         deadline: `${startDate}`,
       }}
       onSubmit={(values, { resetForm }) => {
@@ -93,10 +94,10 @@ export const AddCard = ({ onCloseModal, id }) => {
           deadline: values.deadline,
           columnId: id,
         };
-        console.log('hi');
+     
         console.log(newCard);
         dispatch(addTask(newCard));
-        console.log('hi');
+       
         resetForm();
         onCloseModal();
         successToaster();
@@ -136,26 +137,44 @@ export const AddCard = ({ onCloseModal, id }) => {
                 {t('screenPage.render.modal.card.color')}
               </AddCardLabelText>
 
-              <label>
-                <AddCardContMark>
-                  <AddCardLabelColor type="radio" name="priority" value="Low" />
-                  <AddCardLabelColor
+              <AddCardContMark>
+              <AddCardInputColor
+                    id="priorityLow"
+                    type="radio"
+                    name="priority"
+                    value="Low"
+                  />
+                <label className='radio-label' value="Low" htmlFor="priorityLow">
+                 
+                </label>
+                <AddCardInputColor
+                    id="priorityMedium"
                     type="radio"
                     name="priority"
                     value="Medium"
                   />
-                  <AddCardLabelColor
+                <label className='radio-label' value="Medium" htmlFor="priorityMedium">
+                
+                </label>
+                <AddCardInputColor
+                    id="priorityHigh"
                     type="radio"
                     name="priority"
                     value="High"
                   />
-                  <AddCardLabelColor
+                <label className='radio-label' value="High" htmlFor="priorityHigh">
+                  
+                </label>
+                <AddCardInputColor
+                    id="priorityWithout"
                     type="radio"
                     name="priority"
                     value="Without"
                   />
-                </AddCardContMark>
-              </label>
+                <label className='radio-label' value="Without" htmlFor="priorityWithout">
+                 
+                </label>
+              </AddCardContMark>
             </AddCardColorCont>
             <AddCardContCal>
               <AddCardTextCal>

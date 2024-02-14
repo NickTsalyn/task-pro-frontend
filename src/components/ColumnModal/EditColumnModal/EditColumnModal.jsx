@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import sprite from '../../../images/icons.svg';
 import { toastStyles } from '../../../ToasterOptions'
 
@@ -22,6 +22,7 @@ import { useTranslation } from 'react-i18next';
 export const EditColumnModal = ({ onCloseModal, column }) => {
   const {t} = useTranslation('global')
   const dispatch = useDispatch();
+  const [title,setTitle] = useState(column.title)
 
   // const handlerEditColumn = evt => {
   //   evt.preventDefault();
@@ -98,6 +99,8 @@ export const EditColumnModal = ({ onCloseModal, column }) => {
         <AddColumnInput
           type="text"
           name="title"
+          value={title}
+          onChange = {(event) => setTitle(event.target.value)}
           placeholder={t('screenPage.render.modal.column.input')}
           autoFocus
         />
