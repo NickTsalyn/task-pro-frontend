@@ -7,6 +7,7 @@ import sprite from '../../../images/icons.svg';
 import { BoardList } from '../BoardList/BoardList';
 import { AddBoard } from "components/boardModals/addBoard";
 import {
+  Boards,
   ItemsWrapper,
   SidebarWrapper,
   StyledCreateWrapper,
@@ -30,10 +31,12 @@ const navigate = useNavigate()
   return (
     <SidebarWrapper>
       <StyledText>{t('screenPage.static.my-boards')}</StyledText>
+     <Boards> 
       <StyledCreateWrapper>
         <AddBoard />
       </StyledCreateWrapper>
       <BoardList />
+</Boards>
       <ItemsWrapper>
         <HelpApp />
         <StyledLogoutBtn type="button" onClick={handleClick}>

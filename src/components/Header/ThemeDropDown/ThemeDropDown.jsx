@@ -15,19 +15,41 @@ const options = [
 const customStyles = {
   control: (provided, state) => ({
     ...provided,
-    backgroundColor: 'none',
+    backgroundColor: 'transparent',
     color: state.isFocused ? 'rgba(22, 22, 22)' : 'rgba(22, 22, 22, 0.8)',
     border: 'none ',
     boxShadow: 'none',
     display: 'flex',
-    padding: '14px 0 ',
-    '@media only screen and (min-width: 1440px)': {
-      padding: '18px 0',
-    },
+    margin: 'auto 0',
+    padding: '0',
+    minHeight: '0',
+    lineHeight: '1'
   }),
 
+  downChevron:  provided => ({
+    ...provided,
+    width: '16px',
+    height: '16px',
+    padding: '0',
+    margin: '0 auto'
+   
+  }),
+
+  indicatorSeparator: 
+  provided => ({
+    ...provided,
+   display: 'none'
+  }),
+
+  input: (provided) => ({
+    ...provided,
+    display: 'none'
+  }),
   dropdownIndicator: provided => ({
     ...provided,
+    padding: '0',
+    margin: 'auto 0',
+    
     '&::before': {
       content: 'none',
     },
@@ -36,7 +58,7 @@ const customStyles = {
   option: (provided, state) => ({
     ...provided,
     backgroundColor: '#fff',
-    color: 'rgb(22, 22, 22)',
+    color: state.isSelected ? '#5255BC' :'rgb(22, 22, 22)',
     '&:hover, &:focus': {
       color: '#5255bc',
     },
@@ -65,12 +87,14 @@ export const ThemeDropDown = () => {
   console.log(currentTheme);
 
   return (
-    <Select
+    <Select 
+    // value={currentTheme} 
+    // onChange={handleThemeChange}
       options={options}
       styles={customStyles}
       onChange={handleChangeTheme}
       placeholder="Theme"
-      classNamePrefix="custom-select"
+      // classNamePrefix="custom-select"
     />
   );
 };
