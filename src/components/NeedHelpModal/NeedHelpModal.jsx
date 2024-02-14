@@ -24,7 +24,6 @@ export const NeedHelpModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
 
   const handleSend = async ({ email, comment }) => {
-    console.log(comment);
     dispatch(sendHelpRequest({ email, comment }))
       .then(() => {
         console.log('Request sent successfully');

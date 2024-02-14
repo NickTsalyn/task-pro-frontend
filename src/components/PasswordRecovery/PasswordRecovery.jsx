@@ -17,6 +17,7 @@ import { useDispatch } from 'react-redux';
 import { changePassword } from 'redux/auth/operations.js';
 
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const PasswordRecoverySchem = Yup.object().shape({
   tempraryPassword: Yup.string()
@@ -50,15 +51,27 @@ export const PasswordRecovery = () => {
   };
   const navigate = useNavigate();
   const onSubmit = (values, { resetForm }) => {
-    const { tempraryPassword, newPassword, confirmNewPassword } = values;
+    const { tempraryPassword: resetToken, newPassword } = values;
 
-    dispatch(
-      changePassword({ tempraryPassword, newPassword, confirmNewPassword })
-    );
+    dispatch(changePassword({ resetToken, newPassword }))
+      .then(resp => {
+        if (resp.payload === 'Invalid or expired reset code') {
+          toast.error('Invalid or expired reset code');
+        } else {
+          toast.success(
+            `Your password has been successfully changed to a new one. Log in with your new password.`
+          );
+          setTimeout(() => {
+            navigate('/auth/login');
+          }, 3000);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        toast.error('An error occurred. Please try again.');
+      });
+
     resetForm();
-    setTimeout(() => {
-      navigate('/auth/login');
-    }, 3000);
   };
 
   return (
