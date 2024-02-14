@@ -1,25 +1,45 @@
-import * as React from "react";
-import { useDispatch } from "react-redux";
-import sprite from "../../images/icons.svg";
-import { deleteTask, editTask } from "redux/tasks/operations";
+import * as React from 'react';
+import { useDispatch } from 'react-redux';
+import sprite from '../../images/icons.svg';
+import { deleteTask, editTask } from 'redux/tasks/operations';
 import toast, { Toaster } from 'react-hot-toast';
 import Modal from 'react-modal';
 import { useState } from 'react';
+import { toastStyles } from '../../ToasterOptions';
 
-
-
-import { PrioritySeeContainer, CardPriorityDeadline, 
-  TaskContainer, Title, Text, Line, ToDoContainer, 
-  DeadlineContainer, Bell, Buttons, TextContainer, Svg, 
-  Btn, MenuCard, SubTitle, CirclePriority, TextPriority, 
-  PriorityContainer, MainContainer, TextDate, ButtonsContainer, 
-  SvgBell, DescriptionContainer } from "./TaskCard.styled";
-import { EditCard } from "components/EditCard/EditCard";
+import {
+  PrioritySeeContainer,
+  CardPriorityDeadline,
+  TaskContainer,
+  Title,
+  Text,
+  Line,
+  ToDoContainer,
+  DeadlineContainer,
+  Bell,
+  Buttons,
+  TextContainer,
+  Svg,
+  Btn,
+  MenuCard,
+  SubTitle,
+  CirclePriority,
+  TextPriority,
+  PriorityContainer,
+  MainContainer,
+  TextDate,
+  ButtonsContainer,
+  SvgBell,
+  DescriptionContainer,
+} from './TaskCard.styled';
+import { EditCard } from 'components/EditCard/EditCard';
 // import { PopUpSetColumn } from "components/PopUpSetColumn/PopUpSetColumns";
 
 Modal.setAppElement('#root');
 
-export const TaskCard = ({ task: { _id, title, description, priority,deadline} }) => {
+export const TaskCard = ({
+  task: { _id, title, description, priority, deadline },
+}) => {
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,20 +48,38 @@ export const TaskCard = ({ task: { _id, title, description, priority,deadline} }
   const openEditModal = () => {
     setIsEditModalOpen(true);
   };
-  
+
   const closeEditModal = () => {
     setIsEditModalOpen(false);
   };
 
-
-
-
   const openModal = () => {
     setIsModalOpen(true);
   };
-  
+
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const successToaster = () => {
+    toast.success('You successfully deleted card!', {
+      icon: '👍',
+      duration: 4000,
+      style: toastStyles.success,
+     
+    });
+  };
+
+  const errorToaster = error => {
+    toast.error(`Something went wrong! It's ${error} error`, {
+      icon: '🤔',
+      duration: 4000,
+      style: toastStyles.error,
+      // {
+      //   background: 'red',
+      //   color: '#fff',
+      // },
+    });
   };
 
   const toEditTask = (taskId, updatedData) => {
@@ -49,9 +87,18 @@ export const TaskCard = ({ task: { _id, title, description, priority,deadline} }
     successToaster();
   };
 
+  // const toDeleteTask = taskId => {
+  //   dispatch(deleteTask(taskId));
+  //   successToaster();
+  // };
+
   const toDeleteTask = taskId => {
-    dispatch(deleteTask(taskId));
-    successToaster();
+    try {
+      dispatch(deleteTask(taskId));
+      successToaster();
+    } catch (error) {
+      errorToaster(error.message);
+    }
   };
 
   // const toEditTask = async (taskId, updatedData) => {
@@ -72,40 +119,37 @@ export const TaskCard = ({ task: { _id, title, description, priority,deadline} }
   //   }
   // };
 
+  // const successToaster = () => {
+  //   toast.success("It's success! Congratulations!", {
+  //     position: 'top-right',
+  //     duration: 4000,
+  //     style: {
+  //       background: 'green',
+  //       color: '#fff',
+  //     },
+  //   });
+  // };
 
-  const successToaster = () => {
-    toast.success("It's success! Congratulations!", {
-      position: "top-right",
-      duration: 4000,
-      style: {
-        background: "green",
-        color: "#fff",
-      },
-    });
-  };
-
-  const errorToaster = (error) => {toast.error(`Ooops.... It's ${error} error`, {
-    position: "top-right",
-    duration: 4000,
-    style: {
-      background: "red",
-      color: "#fff",
-    },
-  
-  });}
+  // const errorToaster = error => {
+  //   toast.error(`Ooops.... It's ${error} error`, {
+  //     position: 'top-right',
+  //     duration: 4000,
+  //     style: {
+  //       background: 'red',
+  //       color: '#fff',
+  //     },
+  //   });
+  // };
 
   return (
-
     <TaskContainer>
       <PrioritySeeContainer></PrioritySeeContainer>
       <MainContainer>
-
         <TextContainer>
           <Title>{title}</Title>
           <DescriptionContainer>
             <Text>{description}</Text>
           </DescriptionContainer>
-
         </TextContainer>
 
         <Line></Line>
@@ -118,15 +162,10 @@ export const TaskCard = ({ task: { _id, title, description, priority,deadline} }
                 <CirclePriority />
                 <TextPriority></TextPriority>
               </PriorityContainer>
-
             </ToDoContainer>
             <DeadlineContainer>
-              <SubTitle>
-                Deadline
-              </SubTitle>
-              <TextDate>
-
-              </TextDate>
+              <SubTitle>Deadline</SubTitle>
+              <TextDate></TextDate>
             </DeadlineContainer>
           </CardPriorityDeadline>
           <ButtonsContainer>
@@ -136,22 +175,25 @@ export const TaskCard = ({ task: { _id, title, description, priority,deadline} }
               </SvgBell>
             </Bell>
             <Buttons>
-              <Btn type="button" >
+              <Btn type="button">
                 <Svg>
                   <use xlinkHref={`${sprite}#icon-active`}></use>
                 </Svg>
               </Btn>
               <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        overlayClassName={'modal-overlay'}
-        className={'modal-content'}
-        closeTimeoutMS={300}
-      >
-        <EditCard onCloseModal={closeModal} task = {{ _id,title, description, priority,deadline }}/>
-        {/* <PopUpSetColumn onCloseModal={closeModal} /> */}
-      </Modal>
-              <Btn type="button" onClick={openModal} >
+                isOpen={isModalOpen}
+                onRequestClose={closeModal}
+                overlayClassName={'modal-overlay'}
+                className={'modal-content'}
+                closeTimeoutMS={300}
+              >
+                <EditCard
+                  onCloseModal={closeModal}
+                  task={{ _id, title, description, priority, deadline }}
+                />
+                {/* <PopUpSetColumn onCloseModal={closeModal} /> */}
+              </Modal>
+              <Btn type="button" onClick={openModal}>
                 <Svg>
                   <use xlinkHref={`${sprite}#icon-pencil-01`}></use>
                 </Svg>
@@ -164,13 +206,9 @@ export const TaskCard = ({ task: { _id, title, description, priority,deadline} }
             </Buttons>
           </ButtonsContainer>
         </MenuCard>
-
       </MainContainer>
 
       <Toaster />
-
     </TaskContainer>
   );
-}
-
-
+};
