@@ -48,38 +48,35 @@ const columnSlice = createSlice({
       .addCase(deleteColumn.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const index = state.columns.findIndex(
-          // item => item._id === action.payload._id
-          column => column.id === action.payload.id
+        console.log(action.payload);
+        const columnIndex = state.columns.findIndex(
+          column => column._id === action.payload._id
         );
-        state.columns.splice(index, 1);
-       
+        state.columns.splice(columnIndex, 1);
       })
       .addCase(editColumn.pending, handlePending)
       .addCase(editColumn.rejected, handleRejected)
       .addCase(editColumn.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        // const { _id, title } = action.payload;
-        const { id, title } = action.payload;
-        // const columnIndex = state.columns.findIndex(item => item._id === _id);
-        const columnIndex = state.columns.findIndex(column => column.id === id);
+
+        const { _id, title } = action.payload;
+        const columnIndex = state.columns.findIndex(
+          column => column._id === _id
+        );
         state.columns[columnIndex].title = title;
-        
-      })
-      // .addCase(getColumsById.pending, handlePending)
-      // .addCase(getColumsById.rejected, handleRejected)
-      // .addCase(getColumsById.fulfilled, (state, action) => {
-      //   state.isLoading = false;
-      //   state.error = null;
-      //   // const { _id, title } = action.payload;
-      //   const { id, title } = action.payload;
-      //   // const columnIndex = state.columns.findIndex(item => item._id === _id);
-      //   const columnIndex = state.columns.findIndex(column => column.id === id);
-      //   state.columns[columnIndex].title = title;
-      // })
-      
-      
+      });
+    // .addCase(getColumsById.pending, handlePending)
+    // .addCase(getColumsById.rejected, handleRejected)
+    // .addCase(getColumsById.fulfilled, (state, action) => {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   // const { _id, title } = action.payload;
+    //   const { id, title } = action.payload;
+    //   // const columnIndex = state.columns.findIndex(item => item._id === _id);
+    //   const columnIndex = state.columns.findIndex(column => column.id === id);
+    //   state.columns[columnIndex].title = title;
+    // })
   },
 });
 

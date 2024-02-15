@@ -13,7 +13,7 @@ import {
 import { useTranslation } from 'react-i18next';
 
 export const AddColumnButton = ({ column }) => {
-  const {t} = useTranslation('global')
+  const { t } = useTranslation('global');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -42,7 +42,7 @@ export const AddColumnButton = ({ column }) => {
         className={'modal-content'}
         closeTimeoutMS={300}
       >
-        <AddColumnModal onCloseModal={closeModal} column={column}/>
+        <AddColumnModal onCloseModal={closeModal} column={column} />
       </Modal>
     </>
   );

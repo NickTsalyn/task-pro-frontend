@@ -22,36 +22,24 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 export const AddColumnModal = ({ onCloseModal }) => {
-  const {t} = useTranslation('global')
+  const { t } = useTranslation('global');
   const dispatch = useDispatch();
   const { boardId } = useParams();
   console.log(boardId);
-
-  // const handlerAddColumn = evt => {
-  //   evt.preventDefault();
-  //   const inputValue = evt.target.title.value.trim();
-  //   if (inputValue !== '') {
-  //     const newColumn = {
-  //       title: inputValue,
-  //       dashboardId: boardId,
-  //     };
-
-  //     dispatch(addColumn(newColumn));
-  //     onCloseModal();
-  //     return;
-  //   }
-  //   return;
-  // };
 
   const successToaster = () => {
     toast.success('You successfully added new column!', {
       icon: '👏',
       duration: 4000,
       style: toastStyles.success,
-      // {
-      //   background: 'green',
-      //   color: '#fff',
-      // },
+    });
+  };
+
+  const warningToaster = () => {
+    toast.success('Column title cannot be empty!', {
+      icon: '🔊',
+      duration: 4000,
+      style: toastStyles.warning,
     });
   };
 
@@ -60,10 +48,6 @@ export const AddColumnModal = ({ onCloseModal }) => {
       icon: '🤔',
       duration: 4000,
       style: toastStyles.error,
-      // {
-      //   background: 'red',
-      //   color: '#fff',
-      // },
     });
   };
 
@@ -78,10 +62,11 @@ export const AddColumnModal = ({ onCloseModal }) => {
           title: inputValue,
           dashboardId: boardId,
         };
-
         dispatch(addColumn(newColumn));
         onCloseModal();
         successToaster();
+      } else {
+        warningToaster();
       }
     } catch (error) {
       errorToaster(error.message);
@@ -90,7 +75,9 @@ export const AddColumnModal = ({ onCloseModal }) => {
 
   return (
     <ModalWrap>
-      <AddColumnTitle>{t('screenPage.render.modal.column.addTitle')}</AddColumnTitle>
+      <AddColumnTitle>
+        {t('screenPage.render.modal.column.addTitle')}
+      </AddColumnTitle>
 
       <ModalCloseButton onClick={onCloseModal}>
         <StyledSvgClose>
