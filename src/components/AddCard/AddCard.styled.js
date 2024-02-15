@@ -51,7 +51,7 @@ import { Field, Form } from "formik";
 
   `
   export const AddCardTitle = styled(Field)`
-  width: 100%;
+    width: 100%;
     font-size: 14px;
     line-height: 21px;
     letter-spacing: -0.02em;
