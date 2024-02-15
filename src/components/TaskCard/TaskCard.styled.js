@@ -147,7 +147,7 @@ export const ButtonsContainer = styled.div`
 `;
 
 export const Bell = styled.div`
-    display: none;
+    /* display: none; */
 `;
 
 export const SvgBell = styled.svg`

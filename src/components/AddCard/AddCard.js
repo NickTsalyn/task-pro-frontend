@@ -2,6 +2,9 @@ import { Field, Formik } from 'formik';
 import sprite from '../../images/icons.svg';
 import toast from 'react-hot-toast';
 import { toastStyles } from '../../ToasterOptions';
+import { format } from 'date-fns';
+// import DatePicker from 'react-date-picker';
+// import { DatePicker } from 'rsuite';
 
 import {
   AddCardBtn,
@@ -24,42 +27,60 @@ import {
   AddCardTextCont,
   AddCardTitle,
   AddCardWrapper,
-  DatePickerCalendar,
+  CalendarContainer,
+
+  DayText,
+  // DatePickerCalendar,
+  BtnOpenCal,
+  CustomCalendarContainer
+  
 } from './AddCard.styled';
 import { useState } from 'react';
 import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
 import { addTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
-// import DatePicker from 'react-datepicker';
 import { useTranslation } from 'react-i18next';
+import { DatePickerNew } from 'components/DatePicker/DatePicker';
+// import DatePicker from 'react-date-picker';
+// import { uk } from 'date-fns/locale';
+
 
 export const AddCard = ({ onCloseModal, id }) => {
   const { t } = useTranslation('global');
-  const [startDate, setStartDate] = useState(new Date());
-  const dispatch = useDispatch();
-  // const formik = useFormik({
-  //   initialValues: {
-  //     title: '',
-  //     description: '',
-  //     priority: '',
-  //     deadline: '',
-  //   },
+    // const [fieldValue, setFieldValue] = useState(null);
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const [isCalendarOpen, setIsCalendarOpen] = useState(false);;
+    const [startDate, setStartDate] = useState(false)
 
-  // });
+    const handleDateChange = (date) => {
+      setSelectedDate(date);
+    };
+  
+    const toOpenCalendar = () => {
+      setIsCalendarOpen(!isCalendarOpen);
+    };
+  
+  
+   const dispatch = useDispatch();
+   // const formik = useFormik({
+   //   initialValues: {
+   //     title: '',
+   //     description: '',
+   //     priority: '',
+   //     deadline: '',
+   //   },
+    
+   // });
+   const getFormattedDate = (date) => {
+    const today = new Date();
 
-  //   const saveCard = ()=>{
+    if (isToday(date)) {
+      return `Today, ${format(date, 'MMMM d')}`;
+    }
+    return format(date, 'MMMM d, yyyy');
+  };
 
-  //     const newCard = {
-  //       title: formik.values.title,
-  //       description: formik.values.description,
-  //       priority: formik.values.priority,
-  //       deadline: formik.values.deadline,
-  //     };
-  // dispatch(addTask(newCard));
-
-  //   }
-
-  const isToday = date => {
+  const isToday = (date) => {
     const today = new Date();
     return (
       date.getDate() === today.getDate() &&
@@ -67,6 +88,15 @@ export const AddCard = ({ onCloseModal, id }) => {
       date.getFullYear() === today.getFullYear()
     );
   };
+
+  const currentDate = new Date();
+  const formattedDate = getFormattedDate(currentDate);
+
+ 
+//  const toggleDatePicker = () => {
+//   setIsDatePickerOpen((prevState) => !prevState);
+// };
+ 
 
   const successToaster = () => {
     toast.success('You successfully added card!', {
@@ -101,6 +131,7 @@ export const AddCard = ({ onCloseModal, id }) => {
         successToaster();
       }}
     >
+       {({ values, setFieldValue }) => (
       <AddCardWrapper>
 
         <CLoseButton onClick={onCloseModal} type="button">
@@ -180,28 +211,31 @@ export const AddCard = ({ onCloseModal, id }) => {
               <AddCardTextCal>
                 {t('screenPage.render.modal.card.deadline')}
               </AddCardTextCal>
-              <DatePickerCalendar
-                name="deadline"
-                selected={startDate}
-                onChange={date => setStartDate(date)}
-                dateFormat={
-                  isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
-                }
-                // showWeekNumbers
-              />
-              {/* <DatePicker
 
-        /> */}
-              {/* </DatePickerCalendar> */}
-              {/* <AddCardDate
-              name='deadline'
-                selected={startDate}
-                onChange={date => setStartDate(date)}
-                dateFormat={
-                  isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
-                }
-                showWeekNumbers
-              /> */}
+              <CalendarContainer>
+            <BtnOpenCal
+              type="button"
+              className="sc-gHRYGD jSCLHb"
+              onClick={toOpenCalendar}
+            >
+              <DayText>{formattedDate}</DayText>
+            </BtnOpenCal>
+            {isCalendarOpen && (
+              <CustomCalendarContainer className="custom-calendar-container">
+                <DatePickerNew
+                   selected={selectedDate}
+                   onChange={(date) => {
+                     setSelectedDate(date);
+                     setFieldValue('deadline', getFormattedDate(date));
+                   }}
+                   dateFormat="dd/MM/yyyy"
+                />
+              </CustomCalendarContainer>
+            )}
+          </CalendarContainer>
+
+             
+        
             </AddCardContCal>
           </AddCardOptionCont>
         </AddCardContainer>
@@ -216,6 +250,7 @@ export const AddCard = ({ onCloseModal, id }) => {
           </AddCardSvgButtonText>
         </AddCardBtn>
       </AddCardWrapper>
+       )}
     </Formik>
   );
 };
