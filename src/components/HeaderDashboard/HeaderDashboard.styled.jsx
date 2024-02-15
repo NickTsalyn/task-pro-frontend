@@ -22,7 +22,7 @@ export const IconTextContainer = styled.div`
 `;
 
 export const Icon = styled.svg`
-  stroke: ${p => p.theme.currentTheme.iconStroke};
+  stroke: ${p => p.theme.currentTheme.filterText};
   width: 16px;
   height: 16px;
   stroke-width: 1.5px;
@@ -32,7 +32,7 @@ export const Icon = styled.svg`
 `;
 
 export const Text = styled.span`
-  color: ${p => p.theme.currentTheme.iconStroke};
+  color: ${p => p.theme.currentTheme.filterText};
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02px;
@@ -70,6 +70,7 @@ export const Section = styled.div`
   display: flex;
   flex-direction: column;
   padding: 4px;
+  
 `;
 
 export const CloseModal = styled.svg`
@@ -98,7 +99,7 @@ export const SectionTitle = styled.h4`
 `;
 
 export const Line = styled.div`
-  border-top: 1px solid ${p => p.theme.currentTheme.horizontScroll};
+  border-top: 1px solid ${p => p.theme.currentTheme.line};
   margin-bottom: 14px;
 `;
 

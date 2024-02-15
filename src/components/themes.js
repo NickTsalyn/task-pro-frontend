@@ -23,7 +23,9 @@ export const violetTheme = {
   hoverBtnPlusFill: '#979cea', 
   modalBgn: '#fcfcfc',
   inputBgn: '#fcfcfc',
-  needHelpBgn:'rgba(236, 236, 253, 0.4)'
+  needHelpBgn:'rgba(236, 236, 253, 0.4)',
+  filterText:'rgba(22, 22, 22, 0.8)',
+  line: 'rgba(22, 22, 22, 0.1)', 
 }; 
  
 export const lightTheme = { 
@@ -51,7 +53,9 @@ export const lightTheme = {
   hoverBtnPlusFill: '#9dc888', 
   modalBgn: '#fcfcfc',
   inputBgn: '#fcfcfc',
-  needHelpBgn:'#f6f6f6'
+  needHelpBgn:'#f6f6f6',
+  filterText:'rgba(22, 22, 22, 0.8)',
+  line: 'rgba(22, 22, 22, 0.1)', 
 }; 
  
 export const darkTheme = { 
@@ -79,7 +83,9 @@ export const darkTheme = {
   hoverBtnPlusFill: '#9dc888', 
   modalBgn: '#151515',
   inputBgn:'#1f1f1f', 
-  needHelpBgn:'#1f1f1f'
+  needHelpBgn:'#1f1f1f',
+  filterText:'rgba(255, 255, 255, 0.8)',
+  line: 'rgba(225, 225, 225, 0.1)', 
 }; 
  
  
