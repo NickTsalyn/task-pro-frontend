@@ -4,7 +4,8 @@ import styled from "styled-components";
 export const StyledBoardList = styled.div`
   display: flex;
   padding: 22px 18px 22px 14px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  justify-content: space-between;
 
   background-color: ${({ isActive }) =>
     isActive ? 'rgba(255, 255, 255, 0.2)' : 'transparent'};
