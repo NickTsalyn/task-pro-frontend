@@ -1,11 +1,31 @@
 import styled from 'styled-components';
 import { Form } from 'formik';
+import { Modal } from 'antd';
+
+export const CustomModal = styled(Modal)`
+  position: absolute;
+  width: 300px !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  .ant-modal-content {
+    background-color: ${p => p.theme.currentTheme.modalBgn};
+    button {
+      color: ${p => p.theme.currentTheme.modalFiltersIconClose};
+    }
+  }
+`;
+
+export const ModalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: ${p => p.theme.currentTheme.modalBgn};
+`;
 
 export const HdWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 0 24px;
 `;
 
 export const ProjectName = styled.div`
@@ -66,11 +86,10 @@ export const Button = styled.button`
 `;
 
 export const Section = styled.div`
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   padding: 4px;
-  
 `;
 
 export const CloseModal = styled.svg`
@@ -118,7 +137,8 @@ export const FormTitle = styled.span`
 `;
 
 export const ShowAllLabel = styled.p`
-  color: ${p => p.theme.currentTheme.grayText};
+  color: ${p => p.theme.currentTheme.textModal};
+
   font-weight: 400;
   font-size: 12px;
   letter-spacing: -0.02em;
@@ -144,9 +164,11 @@ export const CheckboxContainer = styled.div`
   $priority: ${props => props.priority};
   font-size: 12px;
   letter-spacing: -0.02em;
+
   input[type='checkbox'] {
     position: absolute;
     opacity: 0;
+
     + .radio-label {
       &:before {
         content: '';
@@ -239,7 +261,7 @@ export const CheckboxContainer = styled.div`
     }
 
     + .radio-label {
-      color: ${p => p.theme.currentTheme.grayText};
+      color: ${p => p.theme.currentTheme.textModal};
 
       &:empty {
         &:before {

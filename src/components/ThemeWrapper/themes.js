@@ -28,6 +28,9 @@ export const violetTheme = {
   line: 'rgba(22, 22, 22, 0.1)',
   greySubtitle: 'rgba(22, 22, 22, 0.5)',
   without: 'rgba(22, 22, 22, 0.1)',
+  modalFiltersBgn: '#fff',
+  modalFiltersIconClose: '#161616',
+  textModal: 'rgba(22, 22, 22, 0.7)',
 };
 
 export const lightTheme = {
@@ -60,6 +63,9 @@ export const lightTheme = {
   line: 'rgba(22, 22, 22, 0.1)',
   greySubtitle: 'rgba(22, 22, 22, 0.5)',
   without: 'rgba(22, 22, 22, 0.1)',
+  modalFiltersBgn: '#fff',
+  modalFiltersIconClose: '#161616',
+  textModal: 'rgba(22, 22, 22, 0.7)',
 };
 
 export const darkTheme = {
@@ -92,6 +98,9 @@ export const darkTheme = {
   line: 'rgba(255, 255, 255, 0.1)',
   greySubtitle: 'rgba(255, 255, 255, 0.5)',
   without: 'rgba(255, 255, 255, 0.1)',
+  modalFiltersBgn: '#161616',
+  modalFiltersIconClose: '#fff',
+  textModal: 'rgba(255, 255, 255, 0.5)',
 };
 
 export const getTheme = themeName => {
