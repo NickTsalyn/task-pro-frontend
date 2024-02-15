@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const DashBoardWrapper = styled.div`
   padding: 46px 20px 24px ;
   max-width: 310px;
+  margin: 0 auto;
 
   @media only screen and (min-width: 375px) {    
     max-width: 375px;
@@ -19,7 +20,7 @@ export const DashBoardWrapper = styled.div`
   }
 `;
 export const Text = styled.p`  
-  margin: 258px 20px 0;
+  margin-top: 258px;
   font-size: 12px;
   line-height: 1.3;
   letter-spacing: -0.02em;
@@ -27,16 +28,16 @@ export const Text = styled.p`
   color: ${p => p.theme.currentTheme.homeText};
 
   @media only screen and (min-width: 375px) and (max-width: 767px) {
-    margin: 258px auto 0;
+    margin-top: 258px;
     max-width: 335px;    
   }
   @media only screen and (min-width: 768px) {
-    margin: 368px auto 0;
+    margin-top: 368px;
     max-width:486px;
     font-size: 14px;    
   }
   @media only screen and (min-width: 1440px) {
-    margin: 247px auto 0; 
+    margin-top: 247px;
     
   }
 `;
