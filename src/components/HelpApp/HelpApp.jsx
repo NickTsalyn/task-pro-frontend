@@ -13,7 +13,7 @@ import flowerImage from './../../images/flower.png';
 import { CiCircleQuestion } from 'react-icons/ci';
 import { useTranslation } from 'react-i18next';
 
-const HelpApp = ({onItemClick}) => {
+const HelpApp = ({ onItemClick }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { t } = useTranslation('global');
   const openModal = () => {
@@ -36,14 +36,17 @@ const HelpApp = ({onItemClick}) => {
           <CiCircleQuestion />
         </IconContainer>
       </HelpButton>
+      <ButtonText onClick={openModal}>
+        {t('screenPage.static.needHelp')}
+      </ButtonText>
 
-      {isModalOpen && 
-        <NeedHelpModal 
+      {isModalOpen && (
+        <NeedHelpModal
           isOpen={isModalOpen}
           onClose={closeModal}
           onItemClick={onItemClick}
         />
-      }
+      )}
     </HelpContainer>
   );
 };
