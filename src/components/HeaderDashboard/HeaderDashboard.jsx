@@ -17,7 +17,6 @@ import {
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { showAll } from 'redux/filters/filtersSlice';
-import { getTheme } from '../../components/themes';
 import PriorityCheckboxForm from './ui/PriorityCheckboxForm';
 import ProjectTitle from './ui/ProjectTitle';
 import { useParams } from 'react-router-dom';
@@ -25,7 +24,7 @@ import { StyledComponentsWrapper } from './StyledComponentsWrapper';
 import { useTranslation } from 'react-i18next';
 
 export const HeaderDashboard = () => {
-  const {t} = useTranslation('global')
+  const { t } = useTranslation('global');
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -46,7 +45,7 @@ export const HeaderDashboard = () => {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      backgroundColor: `${getTheme().headerBgn}`,
+      backgroundColor: `${p => p.currentTheme.screensBgn}`,
     },
   };
 
