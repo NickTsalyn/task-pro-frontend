@@ -22,7 +22,9 @@ export const violetTheme = {
   btnPlusFill: '#b8bcfd',
   hoverBtnPlusFill: '#979cea',
   modalBgn: '#fcfcfc',
-  inputBgn: '#fcfcfc'
+  inputBgn: '#fcfcfc',
+  helpBlockColor: 'rgba(236, 237, 253, 0.4)',
+
 };
 
 export const lightTheme = {
@@ -49,7 +51,8 @@ export const lightTheme = {
   btnPlusFill: '#bedbb0',
   hoverBtnPlusFill: '#9dc888',
   modalBgn: '#fcfcfc',
-  inputBgn: '#fcfcfc'
+  inputBgn: '#fcfcfc',
+  helpBlockColor: 'f6f6f6'
 };
 
 export const darkTheme = {
@@ -76,7 +79,9 @@ export const darkTheme = {
   btnPlusFill: '#bedbb0',
   hoverBtnPlusFill: '#9dc888',
   modalBgn: '#151515',
-  inputBgn: '#1f1f1f'
+  inputBgn: '#1f1f1f',
+  helpBlockColor: '#1f1f1f',
+
 };
 
 
