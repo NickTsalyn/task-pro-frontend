@@ -22,7 +22,7 @@ import { useTranslation } from 'react-i18next';
 export const EditColumnModal = ({ onCloseModal, column }) => {
   const { t } = useTranslation('global');
   const dispatch = useDispatch();
-  console.log(column);
+ 
 
   const [title, setTitle] = useState(column.title);
 
@@ -79,7 +79,7 @@ export const EditColumnModal = ({ onCloseModal, column }) => {
           type="text"
           name="title"
           value={title}
-          onChange={event => setTitle(event.target.value)}
+          onChange = {(event) => setTitle(event.target.value)}
           placeholder={t('screenPage.render.modal.column.input')}
           autoFocus
         />
