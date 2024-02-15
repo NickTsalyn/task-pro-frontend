@@ -15,7 +15,7 @@ export const StyledLogoIcon = styled.span`
   border-radius: ${p => p.theme.radius.m};
   width: 32px;
   height: 32px;
-  background-color: ${p => p.theme.currentTheme.screensBgn};
+  background-color: ${p => p.theme.currentTheme.needHelpBgn};
 `;
 export const StyledLogoText = styled.p`
   display: flex;
@@ -23,9 +23,9 @@ export const StyledLogoText = styled.p`
   font-weight: 600;
   font-size: 16px;
   line-height: 1.5;
-  color: #ffffff;
+  color: ${p => p.theme.currentTheme.iconNeedHelp};
 `;
 
 export const StyledSVGLogo = styled.svg`
-  fill: ${p => p.theme.currentTheme.accent};
+  fill: ${p => p.theme.currentTheme.logo};
 `;

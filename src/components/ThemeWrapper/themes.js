@@ -28,6 +28,8 @@ export const violetTheme = {
   line: 'rgba(22, 22, 22, 0.1)',
   greySubtitle: 'rgba(22, 22, 22, 0.5)',
   without: 'rgba(22, 22, 22, 0.1)',
+  logo: '#5255BC',
+  logoFill: 'rgba(236, 236, 253, 0.4)',
 };
 
 export const lightTheme = {
@@ -60,6 +62,8 @@ export const lightTheme = {
   line: 'rgba(22, 22, 22, 0.1)',
   greySubtitle: 'rgba(22, 22, 22, 0.5)',
   without: 'rgba(22, 22, 22, 0.1)',
+  logo: '#fff',
+  logoFill: '#1f1f1f',
 };
 
 export const darkTheme = {
@@ -92,6 +96,8 @@ export const darkTheme = {
   line: 'rgba(255, 255, 255, 0.1)',
   greySubtitle: 'rgba(255, 255, 255, 0.5)',
   without: 'rgba(255, 255, 255, 0.1)',
+  logo: '#fff',
+  logoFill: '#1f1f1f'
 };
 
 export const getTheme = themeName => {
