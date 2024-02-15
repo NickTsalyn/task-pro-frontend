@@ -37,8 +37,6 @@ import {
 } from './TaskCard.styled';
 import { EditCard } from 'components/EditCard/EditCard';
 import { ChangeColumnButton } from 'components/ChangeColumn/ChangeColumnButton';
-import { ChangeColumnModal } from 'components/ChangeColumn/ChangeColumnModal';
-// import { PopUpSetColumn } from "components/PopUpSetColumn/PopUpSetColumns";
 import { useTranslation } from 'react-i18next';
 
 Modal.setAppElement('#root');
