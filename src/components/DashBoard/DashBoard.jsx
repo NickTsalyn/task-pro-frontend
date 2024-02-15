@@ -28,7 +28,6 @@ const DashBoard = () => {
 
   return (
     <DashBoardWrapper>  
-      {/* {boards.length === 0 ?  */}
       {!boardId ? 
         (<Text>{t('screenPage.static.message1')}
         <ButtonText>{t('screenPage.static.message2')}</ButtonText> 
