@@ -1,8 +1,7 @@
 import { Field, Form } from "formik";
 
 import { styled } from "styled-components";
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import DatePicker from 'react-date-picker';
 
 const getColor = (props) => {
   switch (props.value) {

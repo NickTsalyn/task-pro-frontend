@@ -1,5 +1,5 @@
 import { Field, Formik } from 'formik';
-import 'react-datepicker/dist/react-datepicker.css';
+// import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../images/icons.svg';
 import { CLoseButton } from '../../components/EditProfileModal/EditProfileModal.styled';
 
@@ -30,11 +30,46 @@ import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 import { toastStyles } from '../../ToasterOptions';
 import { useTranslation } from 'react-i18next';
+import { BtnOpenCal, CalendarContainer, CustomCalendarContainer, DayText } from 'components/AddCard/AddCard.styled';
+import { DatePickerNew } from 'components/DatePicker/DatePicker';
+import { format } from 'date-fns';
+
+
 
 export const EditCard = ({ onCloseModal,task: {  _id, title, description, priority,deadline } }) => {
   const {t} = useTranslation('global')
   const [startDate, setStartDate] = useState(new Date());
+  const [isCalendarOpen, setCalendarOpen] = useState(true);
+  const [selectedDate, setSelectedDate] = useState(null);
   const dispatch = useDispatch();
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    // setIsOpen(false);
+  };
+
+  const getFormattedDate = (date) => {
+     const today = new Date();
+   
+     if (isToday(date)) {
+       // Якщо дата - сьогодні
+       return `Today, ${format(date, 'MMMM d')}`;
+     }
+   
+     // Якщо дата не сьогодні
+     return format(date, 'MMMM d, yyyy');
+   };
+   
+   const isToday = (date) => {
+     const today = new Date();
+     return (
+       date.getDate() === today.getDate() &&
+       date.getMonth() === today.getMonth() &&
+       date.getFullYear() === today.getFullYear()
+     );
+   };
+   const currentDate = new Date();
+ const formattedDate = getFormattedDate(currentDate);
   
   // const formik = useFormik({
   //   initialValues: {
@@ -59,14 +94,14 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
 
 //   }
 
-  const isToday = date => {
-    const today = new Date();
-    return (
-      date.getDate() === today.getDate() &&
-      date.getMonth() === today.getMonth() &&
-      date.getFullYear() === today.getFullYear()
-    );
-  };
+  // const isToday = date => {
+  //   const today = new Date();
+  //   return (
+  //     date.getDate() === today.getDate() &&
+  //     date.getMonth() === today.getMonth() &&
+  //     date.getFullYear() === today.getFullYear()
+  //   );
+  // };
 
    const successToaster = () => {
      toast.success('You successfully edited card!', {
@@ -179,7 +214,29 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
               <EditCardTextCal>
                 {t('screenPage.render.modal.card.deadline')}
               </EditCardTextCal>
-              <EditCardDate
+              <CalendarContainer>
+                    <BtnOpenCal
+                    type="button"
+                    className="sc-gHRYGD jSCLHb"
+                     onClick={() => setCalendarOpen(!isCalendarOpen)}
+                    >
+                      <DayText>{formattedDate}</DayText>
+                    {/* <svg>
+                        <use xlinkHref="/task-pro-frontend/static/media/icons.aac6f44bcaee16261ed30d1da75e7958.svg#icon-chevron-down1"></use>
+                      </svg> */}
+                  </BtnOpenCal>
+                  {isCalendarOpen && (
+                   <CustomCalendarContainer className="custom-calendar-container">
+                      <DatePickerNew
+                         selected={selectedDate}
+                         onChange={handleDateChange}
+                         dateFormat={
+                          isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
+                        }
+                     />
+                   </CustomCalendarContainer>)}
+               </CalendarContainer>
+              {/* <EditCardDate
                 name="deadline"
                 selected={startDate}
                 onChange={date => setStartDate(date)}
@@ -187,7 +244,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
                   isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
                 }
                 showWeekNumbers
-              />
+              /> */}
             </EditCardContCal>
           </EditCardOptionCont>
         </EditCardContainer>
