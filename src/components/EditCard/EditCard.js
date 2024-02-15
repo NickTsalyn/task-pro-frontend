@@ -96,9 +96,9 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
         title: `${title}`,
         description: `${description}`,
         priority: `${priority}`,
-        deadline: `${formatDeadlineDate(deadline)} `,
+        deadline: `${new Date(deadline)} `,
       }}
-      onSubmit={values => {
+      onSubmit={(values,{  setSubmitting, setFieldValue }) => {
         const editCard = {
           title: values.title,
           description: values.description,
@@ -115,6 +115,8 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
         successToaster();
       }}
     >
+       {({ values, handleSubmit, setFieldValue }) => (
+        <form onSubmit={handleSubmit}>
       <EditCardWrapper>
         <CLoseButton onClick={onCloseModal} type="button">
           <EditCardSvgClose>
@@ -199,9 +201,10 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
                  
                   <CustomCalendarContainer className="custom-calendar-container">
                     <DatePickerCalendar
-                      selected={startDate}
+                      selected={values.deadline}
                     
                       onChange={date => {
+                        setFieldValue('deadline', date);
                         setStartDate(date);
                         setIsCalendarOpen(isCalendarOpen);
                         // setFieldValue('deadline', date);
@@ -211,7 +214,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
                         
                       }}
                       dateFormat={
-                        isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
+                        isToday(deadline) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
                       }
                       isOpen={!isCalendarOpen}
                     />
@@ -233,6 +236,8 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
           </EditCardSvgButtonText>
         </EditCardBtn>
       </EditCardWrapper>
+      </form>
+        )}
     </Formik>
   );
               }
