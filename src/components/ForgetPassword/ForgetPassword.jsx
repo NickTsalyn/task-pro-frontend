@@ -36,15 +36,16 @@ export const ForgetPassword = () => {
           toast.error('User not found. Please check your email.');
         } else {
           toast.success(`Temporary password sent to ${email} successfully!`);
+          setTimeout(() => {
+            navigate('/auth/changePassword');
+          }, 3000);
         }
       })
       .catch(error => {
         console.log(error);
         toast.error('An error occurred. Please try again.');
       });
-    setTimeout(() => {
-      navigate('/auth/changePassword');
-    }, 3000);
+
     resetForm();
   };
 
