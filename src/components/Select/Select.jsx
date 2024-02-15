@@ -1,21 +1,19 @@
 import React from 'react';
-import Select, {components} from 'react-select';
+import Select, { components } from 'react-select';
 import { useTranslation } from 'react-i18next';
-import { GrLanguage } from "react-icons/gr";
+import { GrLanguage } from 'react-icons/gr';
 
-const CustomDropdownIcon = () => (
-    <GrLanguage/>
-  );
+const CustomDropdownIcon = () => <GrLanguage />;
 
 const IconLanguage = {
-          DropdownIndicator: props => {
-            return (
-              <components.DropdownIndicator {...props}>
-                <CustomDropdownIcon width='32' height='32'/>
-              </components.DropdownIndicator>
-            );
-          },
-        }
+  DropdownIndicator: props => {
+    return (
+      <components.DropdownIndicator {...props}>
+        <CustomDropdownIcon width="32" height="32" />
+      </components.DropdownIndicator>
+    );
+  },
+};
 
 const options = [
   { value: 'ua', label: 'Ukraine' },
@@ -33,7 +31,7 @@ const options = [
   { value: 'gr', label: 'Greece' },
 ];
 
- const customStyles = {
+const customStyles = {
   control: (provided, state) => ({
     ...provided,
     color: state.isFocused ? 'rgba(22, 22, 22)' : 'rgba(22, 22, 22, 0.8)',
@@ -44,44 +42,37 @@ const options = [
     padding: '0',
     minHeight: '0',
     lineHeight: '1',
-
   }),
 
-  downChevron:  provided => ({
+  downChevron: provided => ({
     ...provided,
     width: '32px',
     height: '32px',
     padding: '0',
-   
-  }),
-  
-  IndicatorContainer:  provided => ({
-    ...provided,
-    // width: '32px',
-    // height: '32px',
-    // padding: '0',
-    // margin: '0'
-   display: 'none'
   }),
 
-  indicatorSeparator: 
-  provided => ({
+  IndicatorContainer: provided => ({
     ...provided,
-   display: 'none'
+    display: 'none',
   }),
 
-  input: (provided) => ({
+  indicatorSeparator: provided => ({
     ...provided,
-    display: 'none'
+    display: 'none',
+  }),
+
+  input: provided => ({
+    ...provided,
+    display: 'none',
   }),
 
   dropdownIndicator: provided => ({
     ...provided,
     padding: '0',
-  color: 'rgb(22, 22, 22, 0.8)',
-  '&:hover, &:focus': {
-    color: '#5255bc',
-  },
+    color: 'rgb(22, 22, 22, 0.8)',
+    '&:hover, &:focus': {
+      color: '#5255bc',
+    },
     '&::before': {
       content: 'none',
     },
@@ -91,57 +82,52 @@ const options = [
     ...provided,
     backgroundColor: '#fff',
     color: state.isSelected ? '#5255BC' : 'rgb(22, 22, 22)',
-    
+
     '&:hover': {
       backgroundColor: '#FCFCFC',
-      color: '#5255BC'
-    }
+      color: '#5255BC',
+    },
   }),
-  placeholder: (provided) => ({
+  placeholder: provided => ({
     ...provided,
-    display: 'none'
-}),
-    menu: (provided) => ({
-        ...provided,
-        maxHeight: '120px',
-        width: '110px',
+    display: 'none',
+  }),
+  menu: provided => ({
+    ...provided,
+    maxHeight: '120px',
+    width: '110px',
 
-        backgroundColor: 'white',
-        borderRadius: '8px',
+    backgroundColor: 'white',
+    borderRadius: '8px',
 
-       overflowY: 'auto',
-        '&::-webkit-scrollbar': {
-          width: '4px',
-          
-          
-        },
-        '&::-webkit-scrollbar-thumb': {
-          backgroundColor: 'rgba(22, 22, 22, 0.2)',
-          borderRadius: '8px',
-          
-        },
-        '&::-webkit-scrollbar-track': {
-          backgroundColor: 'transparent',
-        },
-    }),
-    menuList: (provided) => ({
-      ...provided,
-      
-      overflowY: 'none',
-    })
+    overflowY: 'auto',
+    '&::-webkit-scrollbar': {
+      width: '4px',
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: 'rgba(22, 22, 22, 0.2)',
+      borderRadius: '8px',
+    },
+    '&::-webkit-scrollbar-track': {
+      backgroundColor: 'transparent',
+    },
+  }),
+  menuList: provided => ({
+    ...provided,
+
+    overflowY: 'none',
+  }),
 };
 
-
-
 export const CustomDropdown = () => {
-    const { i18n } = useTranslation('global');
+  const { i18n } = useTranslation('global');
 
   const handleChangeLanguage = selectedOption => {
     i18n.changeLanguage(selectedOption.value);
   };
   return (
     <Select
-    components={IconLanguage}
+      components={IconLanguage}
       options={options}
       styles={customStyles}
       onChange={handleChangeLanguage}

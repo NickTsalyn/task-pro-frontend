@@ -14,7 +14,7 @@ export const Container = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
- 
+
   width: 100%;
   max-width: 335px;
 
@@ -33,18 +33,18 @@ export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto ${p=> p.theme.spacing(6)};
+  margin: 0 auto ${p => p.theme.spacing(6)};
 `;
 
 export const StyledImg = styled.img`
   width: 124px;
   height: 124px;
-  margin: 0 auto ${p=> p.theme.spacing(3.5)};
+  margin: 0 auto ${p => p.theme.spacing(3.5)};
 
   @media only screen and (min-width: 768px) {
     width: 162px;
     height: 162px;
-    margin: 0 auto ${p=> p.theme.spacing(6)};
+    margin: 0 auto ${p => p.theme.spacing(6)};
   }
 `;
 
@@ -53,7 +53,7 @@ export const StyledSVG = styled.svg`
   height: 40px;
   fill: ${props => props.theme.colors.darkTextColor};
   stroke: ${props => props.theme.colors.white};
-  margin-right: ${p=> p.theme.spacing(4)};
+  margin-right: ${p => p.theme.spacing(4)};
   @media only screen and (min-width: 768px) {
     width: 48px;
     height: 48px;
@@ -73,12 +73,12 @@ export const StyledText = styled.p`
   line-height: 1.29;
   letter-spacing: -0.02em;
   text-align: center;
-  margin: 0 auto ${p=> p.theme.spacing(12)};
+  margin: 0 auto ${p => p.theme.spacing(12)};
   padding: 0 1px;
 `;
 export const RegistrationBtn = styled.button`
   width: 100%;
-  padding: ${p=> p.theme.spacing(3.5)} 0px;
+  padding: ${p => p.theme.spacing(3.5)} 0px;
   justify-content: center;
   align-items: center;
 
@@ -94,7 +94,7 @@ export const RegistrationBtn = styled.button`
   letter-spacing: -0.02em;
   text-align: center;
 
-  margin: 0 auto ${p=> p.theme.spacing(3.5)};
+  margin: 0 auto ${p => p.theme.spacing(3.5)};
   @media only screen and (min-width: 768px) {
     width: 344px;
   }

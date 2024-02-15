@@ -14,7 +14,7 @@ export const ModalShowButton = styled.button`
   font-family: Poppins;
   font-size: 14px;
   letter-spacing: -0.02px;
-  background-color: ${p => p.theme.currentTheme.btnPlusStroke};
+  background-color: ${p => p.theme.currentTheme.horizontScrollBgn};
   color: ${p => p.theme.currentTheme.mainText};
   border-radius: ${p => p.theme.radius.m};
   border: 0;
