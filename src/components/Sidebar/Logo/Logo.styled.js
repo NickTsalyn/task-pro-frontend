@@ -15,7 +15,7 @@ export const StyledLogoIcon = styled.span`
   border-radius: ${p => p.theme.radius.m};
   width: 32px;
   height: 32px;
-  background-color: #ecedfd;
+  background-color: ${p => p.theme.currentTheme.screensBgn};
 `;
 export const StyledLogoText = styled.p`
   display: flex;
@@ -27,5 +27,5 @@ export const StyledLogoText = styled.p`
 `;
 
 export const StyledSVGLogo = styled.svg`
-  fill: ${p => p.theme.violetColors.accentColor};
+  fill: ${p => p.theme.currentTheme.accent};
 `;

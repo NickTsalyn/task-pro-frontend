@@ -18,7 +18,6 @@ export const AddBoard = () => {
     }
 
     function SubmitForm(info) {
-        console.log(info)
         dispatch(addBoard(info))
         setOpenModal(false)
     }
