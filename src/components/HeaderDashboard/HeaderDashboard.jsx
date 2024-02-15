@@ -2,19 +2,18 @@ import sprite from '../../images/icons.svg';
 import { useState } from 'react';
 import {
   Button,
-  CloseModal,
+  CustomModal,
   FormTitle,
   FormWraper,
   HdWrapper,
   Icon,
   IconTextContainer,
   Line,
-  Section,
+  ModalContainer,
   SectionTitle,
   ShowAllLabel,
   Text,
 } from './HeaderDashboard.styled';
-import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { showAll } from 'redux/filters/filtersSlice';
 import PriorityCheckboxForm from './ui/PriorityCheckboxForm';
@@ -32,23 +31,6 @@ export const HeaderDashboard = () => {
   const filtersPriority = useSelector(state => state.filters.filtersPriority);
   const { boardId } = useParams();
 
-  const customStyles = {
-    overlay: {
-      backgroundColor: 'transparent',
-    },
-    content: {
-      width: '300px',
-      height: '234px',
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-      backgroundColor: `${p => p.theme.currentTheme.modalBgn}`,
-    },
-  };
-
   return (
     <div>
       <StyledComponentsWrapper>
@@ -63,33 +45,27 @@ export const HeaderDashboard = () => {
             </IconTextContainer>
           </Button>
         </HdWrapper>
-        <Modal
-          isOpen={open}
-          onRequestClose={handleClose}
-          style={customStyles}
-          appElement={document.getElementById('root')}
-        >
-          <CloseModal onClick={handleClose} type="button">
-            <use xlinkHref={`${sprite}#icon-x-close`}></use>
-          </CloseModal>
-          <Section>
-            <div>
-              <SectionTitle>{t('screenPage.render.modal.filter.title')}</SectionTitle>
-              <Line />
-              <FormWraper>
-                <FormTitle>{t('screenPage.render.modal.filter.title2')}</FormTitle>
-                <ShowAllLabel
-                  onClick={() => {
-                    dispatch(showAll());
-                  }}
-                >
-                  {t('screenPage.render.modal.filter.show')}
-                </ShowAllLabel>
-              </FormWraper>
-              <PriorityCheckboxForm filtersPriority={filtersPriority} />
-            </div>
-          </Section>
-        </Modal>
+        <CustomModal open={open} onCancel={handleClose} footer={null}>
+          <ModalContainer>
+            <SectionTitle>
+              {t('screenPage.render.modal.filter.title')}
+            </SectionTitle>
+            <Line />
+            <FormWraper>
+              <FormTitle>
+                {t('screenPage.render.modal.filter.title2')}
+              </FormTitle>
+              <ShowAllLabel
+                onClick={() => {
+                  dispatch(showAll());
+                }}
+              >
+                {t('screenPage.render.modal.filter.show')}
+              </ShowAllLabel>
+            </FormWraper>
+            <PriorityCheckboxForm filtersPriority={filtersPriority} />
+          </ModalContainer>
+        </CustomModal>
       </StyledComponentsWrapper>
     </div>
   );
