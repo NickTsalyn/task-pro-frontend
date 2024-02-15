@@ -29,7 +29,7 @@ export const StyledSvgClose = styled.svg`
 export const ModalWrap = styled.div`
   width: 335px;
   padding: 24px;
-  background-color: #fcfcfc;
+  background-color: ${p => p.theme.currentTheme.modalBgn};
 
   box-sizing: border-box;
   border-radius: ${p => p.theme.radius.m};
