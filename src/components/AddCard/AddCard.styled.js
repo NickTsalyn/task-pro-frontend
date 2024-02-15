@@ -51,7 +51,7 @@ import { Field, Form } from "formik";
 
   `
   export const AddCardTitle = styled(Field)`
-  width: 100%;
+    width: 100%;
     font-size: 14px;
     line-height: 21px;
     letter-spacing: -0.02em;
@@ -177,13 +177,6 @@ import { Field, Form } from "formik";
     border: 1px solid ${(props) => getColor(props)};
   }
 
-  /* &:hover::before {
-    background-color: ${(props) => getColor(props)};
-    box-shadow: inset 0 0 0 4px white;
-  } */
-
- 
-
   &:checked + &::before {
     background-color: ${(props) => getColor(props)};
     box-shadow: inset 0 0 0 4px white;
@@ -191,14 +184,9 @@ import { Field, Form } from "formik";
   }
 `;
   export const AddCardContMark = styled.div`
-
   display: flex;
   gap:8px;
-
-
   `
-
-
   export const AddCardBtn = styled.button`
   display: flex;
   align-items: center;
@@ -207,39 +195,14 @@ import { Field, Form } from "formik";
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: ${p => p.theme.violetColors.accentColor};
+  background-color: ${p => p.theme.currentTheme.accent};
   border-radius:8px;
   border-color:transparent;
   font-size: 14px;
   font-weight: 500;
   line-height: 21px;
   letter-spacing: -2%;
-
-
   `
-
-  // export const AddCardDate = styled(DatePicker)`
-  // padding: 0;
-  // background-color: ${p => p.theme.violetColors.bgColor};
-  //  border:none;
-  //  color: ${p => p.theme.violetColors.accentColor};
-  //  outline: none;
-  //  font-weight: 500;
-  // font-size: 14px;
-  // letter-spacing: -0.02em;
-  // .react-datepicker__month-container{
-  // background-color: '#ECEDFD';
-  // color:'#ECEDFD';
-
-
-  // }
-  // .react-datepicker__header  {
-  //     background-color: #4caf50;
-  //     color: #fff;
-  //   }
-
-  // `
-
   export const AddCardContCal = styled.div`
   display: flex;
   flex-direction: column;
@@ -250,18 +213,14 @@ import { Field, Form } from "formik";
   flex-direction: column;
   gap:14px;
   margin-bottom: 40px;
-
-
   `
   export const AddCardTextCal = styled.p`
   padding:0;
   margin: 0;
   font-size: 12px;
   letter-spacing: -0.02em;
-  color:${p => p.theme.colors.greyIconColor};
-
+  color:${p => p.theme.currentTheme.grayText};
   `
-
   export const AddCardSvgContainer = styled.span`
   display: flex;
   align-items: 'center';
@@ -270,7 +229,7 @@ import { Field, Form } from "formik";
 
   width: 28px;
   height: 28px;
-  background-color:${p => p.theme.colors.white};
+  background-color:${p => p.theme.currentTheme.plusIconFill};
 
 
 
@@ -280,27 +239,21 @@ import { Field, Form } from "formik";
 
   export const AddCardButtonSvg = styled.svg`
 
-
-
-  fill: ${p => p.theme.colors.darkTextColor};
-    stroke: ${p => p.theme.colors.darkTextColor};
+    fill: ${p => p.theme.currentTheme.plusIconFill};
+    stroke: ${p => p.theme.currentTheme.plusIconStroke};
   
     width: 14px;
     height: 14px;
     margin:auto;
-  
-
-  `
+    `
   export const AddCardSvgButtonText = styled.p`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.currentTheme.plusIconFill};
   padding: 0;
   margin: 0;
-
   `
-
   export const AddAnotherCard = styled.button`
   margin-bottom:24px;
   display: flex;
@@ -310,7 +263,7 @@ import { Field, Form } from "formik";
   width: 334px;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: ${p => p.theme.violetColors.accentColor};
+  background-color: ${p => p.theme.currentTheme.accent};
   border-radius:8px;
   border-color:transparent;
   font-weight: 500;
@@ -326,8 +279,8 @@ import { Field, Form } from "formik";
   `
 
   export const AddCardSvgClose = styled.svg`
-  fill: ${p => p.theme.colors.darkTextColor};
-    stroke: ${p => p.theme.colors.darkTextColor};
+  fill: ${p => p.theme.currentTheme.mainText};
+    stroke: ${p => p.theme.currentTheme.mainText};
     width: 18px;
     height: 18px;
   `
@@ -336,14 +289,12 @@ display: flex;
 gap: 4px;
 position: relative;
 
-
-
 `;
 
 export const DayText = styled.p`
 font-weight: 500;
 letter-spacing: -0.02em;
-color: #5255bc;
+color:  ${p => p.theme.currentTheme.accent};
 `;
 
 export const BtnOpenCal = styled.button`
@@ -360,9 +311,9 @@ border: none;
 svg {
   width: 18px;
   height: 18px;
-  fill: #fff;
+  fill:  ${p => p.theme.currentTheme.plusIconFill};
   stroke-width: 2px;
-  stroke: #5255bc;
+  stroke:  ${p => p.theme.currentTheme.accent};
 }
 `;
 
@@ -380,5 +331,3 @@ svg {
   display: block;
 }
  `
-
- 
