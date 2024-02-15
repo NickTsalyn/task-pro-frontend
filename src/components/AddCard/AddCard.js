@@ -18,7 +18,7 @@ import {
   // AddCardDesc,
   AddCardDescription,
   AddCardHeader,
-  AddCardLabelColor,
+  AddCardInputColor,
   AddCardLabelText,
   AddCardOptionCont,
   AddCardSvgButtonText,
@@ -147,7 +147,7 @@ const CustomDatePickerButton = ({ value, onClick }) => (
       initialValues={{
         title: '',
         description: '',
-        priority: '' ?? 'Without',
+        priority: '' || 'Without',
         deadline: `${startDate}`,
       }}
       onSubmit={(values, { resetForm }) => {
@@ -158,10 +158,10 @@ const CustomDatePickerButton = ({ value, onClick }) => (
           deadline: values.deadline,
           columnId: id,
         };
-        console.log('hi');
+     
         console.log(newCard);
         dispatch(addTask(newCard));
-        console.log('hi');
+       
         resetForm();
         onCloseModal();
         successToaster();
@@ -169,10 +169,12 @@ const CustomDatePickerButton = ({ value, onClick }) => (
     >
        {({ values, setFieldValue }) => (
       <AddCardWrapper>
+
         <CLoseButton onClick={onCloseModal} type="button">
           <AddCardSvgClose>
             <use xlinkHref={`${sprite}#icon-x-close`}></use>
           </AddCardSvgClose>
+          
         </CLoseButton>
         <AddCardContainer>
           <AddCardHeader>
@@ -202,26 +204,44 @@ const CustomDatePickerButton = ({ value, onClick }) => (
                 {t('screenPage.render.modal.card.color')}
               </AddCardLabelText>
 
-              <label>
-                <AddCardContMark>
-                  <AddCardLabelColor type="radio" name="priority" value="Low" />
-                  <AddCardLabelColor
+              <AddCardContMark>
+              <AddCardInputColor
+                    id="priorityLow"
+                    type="radio"
+                    name="priority"
+                    value="Low"
+                  />
+                <label className='radio-label' value="Low" htmlFor="priorityLow">
+                 
+                </label>
+                <AddCardInputColor
+                    id="priorityMedium"
                     type="radio"
                     name="priority"
                     value="Medium"
                   />
-                  <AddCardLabelColor
+                <label className='radio-label' value="Medium" htmlFor="priorityMedium">
+                
+                </label>
+                <AddCardInputColor
+                    id="priorityHigh"
                     type="radio"
                     name="priority"
                     value="High"
                   />
-                  <AddCardLabelColor
+                <label className='radio-label' value="High" htmlFor="priorityHigh">
+                  
+                </label>
+                <AddCardInputColor
+                    id="priorityWithout"
                     type="radio"
                     name="priority"
                     value="Without"
                   />
-                </AddCardContMark>
-              </label>
+                <label className='radio-label' value="Without" htmlFor="priorityWithout">
+                 
+                </label>
+              </AddCardContMark>
             </AddCardColorCont>
             <AddCardContCal>
               <AddCardTextCal>

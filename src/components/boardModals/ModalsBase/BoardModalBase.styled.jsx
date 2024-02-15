@@ -5,7 +5,7 @@ export const StyledModal = styled(Modal)`
     position: relative;
     width: 100%;
     height: fit-content;
-    max-height: 433px;
+    /* max-height: 433px; */
     max-width: 350px;
     background-color: ${props => props.theme.colors.white};
     border-radius: 8px;

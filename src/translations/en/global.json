@@ -26,6 +26,14 @@
       "new": "New Password",
       "confirm": "Confirm New Password",
       "change": "Change Password"
+    },
+    "error": {
+      "name": "Name is required!",
+      "email": "Email is required!",
+      "emailWrong": "Invalid email!",
+      "password": "Password is required!",
+      "passwordShort": "Password is too short!",
+      "passwordValid": "The password must contain a minimum of 8 characters, at least one letter, one number, and one special character!"
     }
   },
   "screenPage": {
@@ -39,7 +47,7 @@
       "logout": "Log Out",
       "message1": "Before starting your project, it is essential ",
       "message2": "to create a board ",
-      "message3": "to visualize and track all the necessary tasks and milestones. This board serves as a powerful tool to organize the workflow and ensure effective collaboration among team members.",
+      "message3": " to visualize and track all the necessary tasks and milestones. This board serves as a powerful tool to organize the workflow and ensure effective collaboration among team members.",
       "filters": "Filters",
       "priority": {
         "without": "Without priority",
@@ -87,6 +95,15 @@
           "email": "Enter your email",
           "password": "Enter your password",
           "send": "Send"
+        },
+        "filter": {
+          "title": "Filters",
+          "title2": "Label color",
+          "without": "without",
+          "low": "low",
+          "medium": "medium",
+          "high": "high",
+          "show": "Show all"
         }
       }
     }

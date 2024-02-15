@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 
 
 
+import { CLoseButton } from '../../components/EditProfileModal/EditProfileModal.styled';
 
 import {
   EditCardBtn,
@@ -13,11 +14,10 @@ import {
   EditCardContCal,
   EditCardContMark,
   EditCardContainer,
-  // EditCardDate,
-  // AddCardDesc,
+  EditCardDate,
   EditCardDescription,
   EditCardHeader,
-  EditCardLabelColor,
+  EditCardInputColor,
   EditCardLabelText,
   EditCardOptionCont,
   EditCardSvgButtonText,
@@ -120,41 +120,41 @@ const toOpenCalendar = () => {
         priority: `${priority}`,
         deadline: `${deadline} ?? ${startDate}`,
       }}
-      onSubmit={(values ) => {
+      onSubmit={values => {
         const editCard = {
           title: values.title,
           description: values.description,
           priority: values.priority,
           deadline: values.deadline,
-          taskId: _id
-         
+          taskId: _id,
         };
         console.log(editCard);
         dispatch(editTask(editCard));
-        
-        // resetForm();
-        
-        onCloseModal()
-        successToaster();
 
+        // resetForm();
+
+        onCloseModal();
+        successToaster();
       }}
     >
       {({ values, setFieldValue }) => (
       <EditCardWrapper>
         <CLoseButton type="button" onClick = {onCloseModal}>
           <EditCardSvgClose>
-          <use xlinkHref={`${sprite}#icon-x-close`}></use>
+            <use xlinkHref={`${sprite}#icon-x-close`}></use>
           </EditCardSvgClose>
           </CLoseButton>
         <EditCardContainer>
-          <EditCardHeader>{t('screenPage.render.modal.card.editTitle')}</EditCardHeader>
+          <EditCardHeader>
+            {t('screenPage.render.modal.card.editTitle')}
+          </EditCardHeader>
           <EditCardTextCont>
             <EditCardTitle name="title" placeholder="Title" />
+
             {/* <Field className='AddCardDesc' as='textarea'name="description"></Field> */}
             <Field
-            as={EditCardDescription}
+              as={EditCardDescription}
               name="description"
-           
               placeholder={t('screenPage.render.modal.card.descr')}
               // value={Formik.values.description}
               // onChange={(e) => {
@@ -166,14 +166,48 @@ const toOpenCalendar = () => {
           </EditCardTextCont>
           <EditCardOptionCont>
             <EditCardColorCont>
-              <EditCardLabelText>{t('screenPage.render.modal.card.color')}</EditCardLabelText>
+              <EditCardLabelText>
+                {t('screenPage.render.modal.card.color')}
+              </EditCardLabelText>
 
               <label>
                 <EditCardContMark>
-                  <EditCardLabelColor type="radio" name="priority" value="Low" />
-                  <EditCardLabelColor type="radio" name="priority" value="Medium" />
-                  <EditCardLabelColor type="radio" name="priority" value="High" />
-                  <EditCardLabelColor type="radio" name="priority" value="Without" />
+                <EditCardInputColor
+                    id="priorityLow"
+                    type="radio"
+                    name="priority"
+                    value="Low"
+                  />
+                <label className='radio-label' value="Low" htmlFor="priorityLow">
+                 
+                </label>
+                <EditCardInputColor
+                    id="priorityMedium"
+                    type="radio"
+                    name="priority"
+                    value="Medium"
+                  />
+                <label className='radio-label' value="Medium" htmlFor="priorityMedium">
+                
+                </label>
+                <EditCardInputColor
+                    id="priorityHigh"
+                    type="radio"
+                    name="priority"
+                    value="High"
+                  />
+                <label className='radio-label' value="High" htmlFor="priorityHigh">
+                  
+                </label>
+                <EditCardInputColor
+                    id="priorityWithout"
+                    type="radio"
+                    name="priority"
+                    value="Without"
+                  />
+                <label className='radio-label' value="Without" htmlFor="priorityWithout">
+                 
+                </label>
                 </EditCardContMark>
               </label>
             </EditCardColorCont>
@@ -217,7 +251,9 @@ const toOpenCalendar = () => {
               <use xlinkHref={`${sprite}#icon-plus`}></use>
             </EditCardButtonSvg>
           </EditCardSvgContainer>
-          <EditCardSvgButtonText>{t('screenPage.render.modal.card.editBtn')}</EditCardSvgButtonText>
+          <EditCardSvgButtonText>
+            {t('screenPage.render.modal.card.editBtn')}
+          </EditCardSvgButtonText>
         </EditCardBtn>
       </EditCardWrapper>
       )}
