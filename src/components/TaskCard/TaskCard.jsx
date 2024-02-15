@@ -35,6 +35,8 @@ import {
   DescriptionContainer,
 } from './TaskCard.styled';
 import { EditCard } from 'components/EditCard/EditCard';
+import { ChangeColumnButton } from 'components/ChangeColumn/ChangeColumnButton';
+import { ChangeColumnModal } from 'components/ChangeColumn/ChangeColumnModal';
 // import { PopUpSetColumn } from "components/PopUpSetColumn/PopUpSetColumns";
 
 Modal.setAppElement('#root');
@@ -187,11 +189,12 @@ export const TaskCard = ({
               </SvgBell>
             </Bell>
             <Buttons>
-              <Btn type="button">
+              <ChangeColumnButton/>
+              {/* <Btn type="button">
                 <Svg>
                   <use xlinkHref={`${sprite}#icon-active`}></use>
                 </Svg>
-              </Btn>
+              </Btn> */}
               <Modal
                 isOpen={isModalOpen}
                 onRequestClose={closeModal}
