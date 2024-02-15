@@ -23,7 +23,7 @@ const initialValues = {
 };
 
 export const ForgetPassword = () => {
-  const {t} = useTranslation('global')
+  const { t } = useTranslation('global');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

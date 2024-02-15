@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-// import { selectAllBoards } from 'redux/boards/selectors';
 import { getAllColumns } from 'redux/columns/operations';
 import { selectColumns } from 'redux/columns/selectors';
 import { ButtonText, DashBoardWrapper, Text } from './DashBoard.styled';
@@ -13,8 +12,6 @@ const DashBoard = () => {
   const { boardId } = useParams();
 
   const dispatch = useDispatch();
-
-  // const boards = useSelector(selectAllBoards);
   const columns = useSelector(selectColumns);
 
   useEffect(() => {

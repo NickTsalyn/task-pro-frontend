@@ -115,7 +115,7 @@ export const SendButton = styled.button`
 `;
 export const StyledSvgClose = styled.svg`
   fill:  ${p => p.theme.currentTheme.modalBgn};
-  stroke: ${props => props.theme.currentTheme.iconNeedHelp};
+  stroke: ${props => props.theme.currentTheme.mainText};
   display: flex;
   position: absolute;
   align-items: center;
