@@ -22,4 +22,5 @@ export const HomeWrapper = styled.div`
 export const HeaderWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
