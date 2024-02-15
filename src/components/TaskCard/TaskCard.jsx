@@ -51,10 +51,14 @@ export const TaskCard = ({
 
   const formatDeadlineDate = deadline => {
     const formattedDeadlineDate = new Date(deadline);
+    formattedDeadlineDate.setDate(formattedDeadlineDate.getDate());
 
     const day = formattedDeadlineDate.getDate();
     const month = String(formattedDeadlineDate.getMonth() + 1).padStart(2, '0');
     const year = formattedDeadlineDate.getFullYear();
+    // const day = deadline.getDate();
+    // const month = String(deadline.getMonth() + 1).padStart(2, '0');
+    // const year = deadline.getFullYear();
 
     return `${day}/${month}/${year}`;
   };

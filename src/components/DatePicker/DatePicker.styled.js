@@ -27,14 +27,14 @@ export const DatePickerCalendar = styled(DatePicker)`
 
 .react-date-picker__calendar {
   width: 233px; 
-  /* height: auto; */
+
   height: auto !important;
   padding: 18px;
   background-color: ${p => p.theme.currentTheme.headerBgn};
   border: 1px solid ${p => p.theme.currentTheme.accent}; //#5255bc;
   border-radius: ${p => p.theme.radius.m};
   box-shadow: 0 4px 8px ${p => p.theme.colors.grayText}; //rgba(0, 0, 0, 0.1)
-  /* position: absolute; */
+
   position: fixed;
   z-index: 1000;
   top: auto; 
@@ -81,6 +81,10 @@ border: none;
 } */
 .react-date-picker__calendar--open {
   display: block;
+  /* opacity:${(props) => (props.isOpen ? 1 : 0)};; */
+}
+.react-date-picker__calendar--closed {
+  display: none;
 }
 .react-date-picker__inputGroup{
     display: none;
@@ -183,7 +187,7 @@ border: none;
   &--rangeEnd,
   &--rangeBothEnds {
     background-color: ${p => p.theme.colors.accent}; //#5255BC
-    color: ${p => p.theme.colors.white}; //#fff
+    /* color: ${p => p.theme.colors.white}; //#fff */
     border-radius: 50%;
     border-color: transparent;
   }

@@ -28,12 +28,10 @@ import {
   AddCardTitle,
   AddCardWrapper,
   CalendarContainer,
-
   DayText,
   // DatePickerCalendar,
   BtnOpenCal,
-  CustomCalendarContainer
-  
+  CustomCalendarContainer,
 } from './AddCard.styled';
 import { useState } from 'react';
 import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
@@ -41,38 +39,29 @@ import { addTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { DatePickerNew } from 'components/DatePicker/DatePicker';
+import { DatePickerCalendar } from 'components/DatePicker/DatePicker.styled';
 // import DatePicker from 'react-date-picker';
 // import { uk } from 'date-fns/locale';
 
-
 export const AddCard = ({ onCloseModal, id }) => {
   const { t } = useTranslation('global');
-    // const [fieldValue, setFieldValue] = useState(null);
-    const [selectedDate, setSelectedDate] = useState(new Date());
-    const [isCalendarOpen, setIsCalendarOpen] = useState(false);;
-    const [startDate] = useState(false)
+  // const [fieldValue, setFieldValue] = useState(null);
+  // const [selectedDate, setSelectedDate] = useState(new Date());
+  const [isCalendarOpen, setIsCalendarOpen] = useState(true);
+  const [startDate, setStartDate] = useState(new Date());
 
-    // const handleDateChange = (date) => {
-    //   setSelectedDate(date);
-    // };
-  
-    const toOpenCalendar = () => {
-      setIsCalendarOpen(!isCalendarOpen);
-    };
-  
-  
-   const dispatch = useDispatch();
-   // const formik = useFormik({
-   //   initialValues: {
-   //     title: '',
-   //     description: '',
-   //     priority: '',
-   //     deadline: '',
-   //   },
-    
-   // });
-   const getFormattedDate = (date) => {
-    // const today = new Date();
+  // const handleDateChange = (date) => {
+  //   setSelectedDate(date);
+  // };
+
+  const toOpenCalendar = () => {
+    setIsCalendarOpen(!isCalendarOpen);
+  };
+
+  const dispatch = useDispatch();
+
+  const getFormattedDate = date => {
+    const today = new Date();
 
     if (isToday(date)) {
       return `Today, ${format(date, 'MMMM d')}`;
@@ -80,7 +69,7 @@ export const AddCard = ({ onCloseModal, id }) => {
     return format(date, 'MMMM d, yyyy');
   };
 
-  const isToday = (date) => {
+  const isToday = date => {
     const today = new Date();
     return (
       date.getDate() === today.getDate() &&
@@ -89,14 +78,7 @@ export const AddCard = ({ onCloseModal, id }) => {
     );
   };
 
-  const currentDate = new Date();
-  const formattedDate = getFormattedDate(currentDate);
-
- 
-//  const toggleDatePicker = () => {
-//   setIsDatePickerOpen((prevState) => !prevState);
-// };
- 
+  const formattedDate = getFormattedDate(startDate);
 
   const successToaster = () => {
     toast.success('You successfully added card!', {
@@ -112,7 +94,7 @@ export const AddCard = ({ onCloseModal, id }) => {
         title: '',
         description: '',
         priority: '' || 'Without',
-        deadline: `${startDate}`,
+        deadline: `${formattedDate}`,
       }}
       onSubmit={(values, { resetForm }) => {
         const newCard = {
@@ -122,135 +104,132 @@ export const AddCard = ({ onCloseModal, id }) => {
           deadline: values.deadline,
           columnId: id,
         };
-     
+
         console.log(newCard);
         dispatch(addTask(newCard));
-       
+
         resetForm();
         onCloseModal();
         successToaster();
       }}
     >
-       {({ values, setFieldValue }) => (
-      <AddCardWrapper>
+      {({ values, setFieldValue }) => (
+        <AddCardWrapper>
+          <CLoseButton onClick={onCloseModal} type="button">
+            <AddCardSvgClose>
+              <use xlinkHref={`${sprite}#icon-x-close`}></use>
+            </AddCardSvgClose>
+          </CLoseButton>
+          <AddCardContainer>
+            <AddCardHeader>
+              {t('screenPage.render.modal.card.title')}
+            </AddCardHeader>
+            <AddCardTextCont>
+              <AddCardTitle
+                name="title"
+                placeholder={t('screenPage.render.modal.card.cardTitle')}
+              />
 
-        <CLoseButton onClick={onCloseModal} type="button">
-          <AddCardSvgClose>
-            <use xlinkHref={`${sprite}#icon-x-close`}></use>
-          </AddCardSvgClose>
-          
-        </CLoseButton>
-        <AddCardContainer>
-          <AddCardHeader>
-            {t('screenPage.render.modal.card.title')}
-          </AddCardHeader>
-          <AddCardTextCont>
-            <AddCardTitle
-              name="title"
-              placeholder={t('screenPage.render.modal.card.cardTitle')}
-            />
-            {/* <Field className='AddCardDesc' as='textarea'name="description"></Field> */}
-            <Field
-              as={AddCardDescription}
-              name="description"
-              placeholder={t('screenPage.render.modal.card.descr')}
-              // value={Formik.values.description}
-              // onChange={(e) => {
-              //   AddCardDescription.value = e.target.value;
-              //   console.dir(AddCardDescription.value);
-              // }}
-              // onBlur={Formik.handleBlur}
-            />
-          </AddCardTextCont>
-          <AddCardOptionCont>
-            <AddCardColorCont>
-              <AddCardLabelText>
-                {t('screenPage.render.modal.card.color')}
-              </AddCardLabelText>
+              <Field
+                as={AddCardDescription}
+                name="description"
+                placeholder={t('screenPage.render.modal.card.descr')}
+              />
+            </AddCardTextCont>
+            <AddCardOptionCont>
+              <AddCardColorCont>
+                <AddCardLabelText>
+                  {t('screenPage.render.modal.card.color')}
+                </AddCardLabelText>
 
-              <AddCardContMark>
-              <AddCardInputColor
+                <AddCardContMark>
+                  <AddCardInputColor
                     id="priorityLow"
                     type="radio"
                     name="priority"
                     value="Low"
                   />
-                <label className='radio-label' value="Low" htmlFor="priorityLow">
-                 
-                </label>
-                <AddCardInputColor
+                  <label
+                    className="radio-label"
+                    value="Low"
+                    htmlFor="priorityLow"
+                  ></label>
+                  <AddCardInputColor
                     id="priorityMedium"
                     type="radio"
                     name="priority"
                     value="Medium"
                   />
-                <label className='radio-label' value="Medium" htmlFor="priorityMedium">
-                
-                </label>
-                <AddCardInputColor
+                  <label
+                    className="radio-label"
+                    value="Medium"
+                    htmlFor="priorityMedium"
+                  ></label>
+                  <AddCardInputColor
                     id="priorityHigh"
                     type="radio"
                     name="priority"
                     value="High"
                   />
-                <label className='radio-label' value="High" htmlFor="priorityHigh">
-                  
-                </label>
-                <AddCardInputColor
+                  <label
+                    className="radio-label"
+                    value="High"
+                    htmlFor="priorityHigh"
+                  ></label>
+                  <AddCardInputColor
                     id="priorityWithout"
                     type="radio"
                     name="priority"
                     value="Without"
                   />
-                <label className='radio-label' value="Without" htmlFor="priorityWithout">
-                 
-                </label>
-              </AddCardContMark>
-            </AddCardColorCont>
-            <AddCardContCal>
-              <AddCardTextCal>
-                {t('screenPage.render.modal.card.deadline')}
-              </AddCardTextCal>
+                  <label
+                    className="radio-label"
+                    value="Without"
+                    htmlFor="priorityWithout"
+                  ></label>
+                </AddCardContMark>
+              </AddCardColorCont>
+              <AddCardContCal>
+                <AddCardTextCal>
+                  {t('screenPage.render.modal.card.deadline')}
+                </AddCardTextCal>
 
-              <CalendarContainer>
-            <BtnOpenCal
-              type="button"
-              className="sc-gHRYGD jSCLHb"
-              onClick={toOpenCalendar}
-            >
-              <DayText>{formattedDate}</DayText>
-            </BtnOpenCal>
-            {isCalendarOpen && (
-              <CustomCalendarContainer className="custom-calendar-container">
-                <DatePickerNew
-                   selected={selectedDate}
-                   onChange={(date) => {
-                     setSelectedDate(date);
-                     setFieldValue('deadline', getFormattedDate(date));
-                   }}
-                   dateFormat="dd/MM/yyyy"
-                />
-              </CustomCalendarContainer>
-            )}
-          </CalendarContainer>
+                <CalendarContainer>
+                  <BtnOpenCal type="button" className="sc-gHRYGD jSCLHb">
+                    <DayText>{formattedDate}</DayText>
+                  </BtnOpenCal>
 
-             
-        
-            </AddCardContCal>
-          </AddCardOptionCont>
-        </AddCardContainer>
-        <AddCardBtn type="submit">
-          <AddCardSvgContainer>
-            <AddCardButtonSvg>
-              <use xlinkHref={`${sprite}#icon-plus`}></use>
-            </AddCardButtonSvg>
-          </AddCardSvgContainer>
-          <AddCardSvgButtonText>
-            {t('screenPage.render.addCard')}
-          </AddCardSvgButtonText>
-        </AddCardBtn>
-      </AddCardWrapper>
-       )}
+                  <CustomCalendarContainer className="custom-calendar-container">
+                    <DatePickerCalendar
+                      selected={startDate}
+                      onChange={date => {
+                        setStartDate(date);
+                        setIsCalendarOpen(isCalendarOpen);
+
+                        console.log(isCalendarOpen);
+                      }}
+                      dateFormat={
+                        isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
+                      }
+                      isOpen={!isCalendarOpen}
+                    />
+                  </CustomCalendarContainer>
+                </CalendarContainer>
+              </AddCardContCal>
+            </AddCardOptionCont>
+          </AddCardContainer>
+          <AddCardBtn type="submit">
+            <AddCardSvgContainer>
+              <AddCardButtonSvg>
+                <use xlinkHref={`${sprite}#icon-plus`}></use>
+              </AddCardButtonSvg>
+            </AddCardSvgContainer>
+            <AddCardSvgButtonText>
+              {t('screenPage.render.addCard')}
+            </AddCardSvgButtonText>
+          </AddCardBtn>
+        </AddCardWrapper>
+      )}
     </Formik>
   );
 };

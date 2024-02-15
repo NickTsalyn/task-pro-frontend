@@ -1,5 +1,5 @@
 import { Field, Formik } from 'formik';
-// import 'react-datepicker/dist/react-datepicker.css';
+
 import sprite from '../../images/icons.svg';
 import { CLoseButton } from '../../components/EditProfileModal/EditProfileModal.styled';
 
@@ -31,32 +31,30 @@ import toast from 'react-hot-toast';
 import { toastStyles } from '../../ToasterOptions';
 import { useTranslation } from 'react-i18next';
 import { BtnOpenCal, CalendarContainer, CustomCalendarContainer, DayText } from 'components/AddCard/AddCard.styled';
-import { DatePickerNew } from 'components/DatePicker/DatePicker';
+
 import { format } from 'date-fns';
+import { DatePickerCalendar } from 'components/DatePicker/DatePicker.styled';
 
 
 
 export const EditCard = ({ onCloseModal,task: {  _id, title, description, priority,deadline } }) => {
   const {t} = useTranslation('global')
-  const [startDate] = useState(new Date());
-  const [isCalendarOpen, setCalendarOpen] = useState(true);
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [startDate, setStartDate] = useState(new Date());
+  const [isCalendarOpen, setIsCalendarOpen] = useState(true);
+
   const dispatch = useDispatch();
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-    // setIsOpen(false);
-  };
+
 
   const getFormattedDate = (date) => {
     //  const today = new Date();
    
      if (isToday(date)) {
-       // Якщо дата - сьогодні
+      
        return `Today, ${format(date, 'MMMM d')}`;
      }
    
-     // Якщо дата не сьогодні
+     
      return format(date, 'MMMM d, yyyy');
    };
    
@@ -68,40 +66,10 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
        date.getFullYear() === today.getFullYear()
      );
    };
-   const currentDate = new Date();
- const formattedDate = getFormattedDate(currentDate);
-  
-  // const formik = useFormik({
-  //   initialValues: {
-  //     title: '',
-  //     description: '',
-  //     priority: '',
-  //     deadline: '',
-  //   },
    
-  // });
-
-//   const saveCard = ()=>{
-
-//     const newCard = {
-//       title: formik.values.title,
-//       description: formik.values.description,
-//       priority: formik.values.priority,
-//       deadline: formik.values.deadline,
-//     };
-// dispatch(addTask(newCard));
-
-
-//   }
-
-  // const isToday = date => {
-  //   const today = new Date();
-  //   return (
-  //     date.getDate() === today.getDate() &&
-  //     date.getMonth() === today.getMonth() &&
-  //     date.getFullYear() === today.getFullYear()
-  //   );
-  // };
+ const formattedDate = getFormattedDate(startDate);
+  
+  
 
    const successToaster = () => {
      toast.success('You successfully edited card!', {
@@ -127,10 +95,10 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
           deadline: values.deadline,
           taskId: _id,
         };
-        console.log(editCard);
+     
         dispatch(editTask(editCard));
 
-        // resetForm();
+      
 
         onCloseModal();
         successToaster();
@@ -150,17 +118,12 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
           <EditCardTextCont>
             <EditCardTitle name="title" placeholder="Title" />
 
-            {/* <Field className='AddCardDesc' as='textarea'name="description"></Field> */}
+          
             <Field
               as={EditCardDescription}
               name="description"
               placeholder={t('screenPage.render.modal.card.descr')}
-              // value={Formik.values.description}
-              // onChange={(e) => {
-              //   AddCardDescription.value = e.target.value;
-              //   console.dir(AddCardDescription.value);
-              // }}
-              // onBlur={Formik.handleBlur}
+          
             />
           </EditCardTextCont>
           <EditCardOptionCont>
@@ -215,36 +178,35 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
                 {t('screenPage.render.modal.card.deadline')}
               </EditCardTextCal>
               <CalendarContainer>
-                    <BtnOpenCal
+                  <BtnOpenCal
                     type="button"
                     className="sc-gHRYGD jSCLHb"
-                     onClick={() => setCalendarOpen(!isCalendarOpen)}
-                    >
-                      <DayText>{formattedDate}</DayText>
-                    {/* <svg>
-                        <use xlinkHref="/task-pro-frontend/static/media/icons.aac6f44bcaee16261ed30d1da75e7958.svg#icon-chevron-down1"></use>
-                      </svg> */}
+                   
+                  >
+                    <DayText>{formattedDate}</DayText>
                   </BtnOpenCal>
-                  {isCalendarOpen && (
-                   <CustomCalendarContainer className="custom-calendar-container">
-                      <DatePickerNew
-                         selected={selectedDate}
-                         onChange={handleDateChange}
-                         dateFormat={
-                          isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
-                        }
-                     />
-                   </CustomCalendarContainer>)}
-               </CalendarContainer>
-              {/* <EditCardDate
-                name="deadline"
-                selected={startDate}
-                onChange={date => setStartDate(date)}
-                dateFormat={
-                  isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
-                }
-                showWeekNumbers
-              /> */}
+                 
+                  <CustomCalendarContainer className="custom-calendar-container">
+                    <DatePickerCalendar
+                      selected={startDate}
+                    
+                      onChange={date => {
+                        setStartDate(date);
+                        setIsCalendarOpen(isCalendarOpen);
+                        
+
+                     
+                        
+                      }}
+                      dateFormat={
+                        isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
+                      }
+                      isOpen={!isCalendarOpen}
+                    />
+                  </CustomCalendarContainer>
+                 
+                </CalendarContainer>
+          
             </EditCardContCal>
           </EditCardOptionCont>
         </EditCardContainer>
