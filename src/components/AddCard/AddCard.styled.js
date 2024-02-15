@@ -289,14 +289,12 @@ display: flex;
 gap: 4px;
 position: relative;
 
-
-
 `;
 
 export const DayText = styled.p`
 font-weight: 500;
 letter-spacing: -0.02em;
-color: #5255bc;
+color:  ${p => p.theme.currentTheme.accent};
 `;
 
 export const BtnOpenCal = styled.button`
@@ -313,9 +311,9 @@ border: none;
 svg {
   width: 18px;
   height: 18px;
-  fill: #fff;
+  fill:  ${p => p.theme.currentTheme.plusIconFill};
   stroke-width: 2px;
-  stroke: #5255bc;
+  stroke:  ${p => p.theme.currentTheme.accent};
 }
 `;
 
