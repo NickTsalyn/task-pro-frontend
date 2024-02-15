@@ -22,6 +22,7 @@ import { useTranslation } from 'react-i18next';
 export const EditColumnModal = ({ onCloseModal, column }) => {
   const {t} = useTranslation('global')
   const dispatch = useDispatch();
+  console.log(column);
 
   // const handlerEditColumn = evt => {
   //   evt.preventDefault();
@@ -70,6 +71,7 @@ export const EditColumnModal = ({ onCloseModal, column }) => {
      const inputValue = evt.target.title.value.trim();
 
      if (inputValue !== '') {
+      console.log(column._id);
        const newTitle = {
          title: { title: inputValue },
          id: column._id,
