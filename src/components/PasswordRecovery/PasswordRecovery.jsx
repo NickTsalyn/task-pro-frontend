@@ -115,7 +115,7 @@ export const PasswordRecovery = () => {
                 placeholder={t('welcomePage.recovery.new')}
               />
               <StyledSVGButton type="button " onClick={handleTogglePasswordOne}>
-                {showPassword ? <StyledSVGInv /> : <StyledSVG />}
+                {showPasswordOne ? <StyledSVGInv /> : <StyledSVG />}
               </StyledSVGButton>
             </StyledInputContainer>
 

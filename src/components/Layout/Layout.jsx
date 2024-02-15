@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 const StyledLayout = styled.div`
   min-height: 100vh;
-  margin: 0 ;  
+  margin: 0;
 `;
 
 export const Layout = () => {

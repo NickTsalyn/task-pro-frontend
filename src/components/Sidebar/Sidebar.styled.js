@@ -14,7 +14,7 @@ export const DarkBackground = styled.div`
 export const StyledSidebar = styled.aside`
   width: 225px;
   height: 100vh;
-  background-color: ${p => p.theme.violetColors.accentColor};
+  background-color: ${p => p.theme.currentTheme.sidebarBgn};
   z-index: 999;
   position: absolute;
   top: 0;
