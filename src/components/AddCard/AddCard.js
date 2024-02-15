@@ -38,7 +38,7 @@ import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled
 import { addTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { DatePickerNew } from 'components/DatePicker/DatePicker';
+// import { DatePickerNew } from 'components/DatePicker/DatePicker';
 import { DatePickerCalendar } from 'components/DatePicker/DatePicker.styled';
 // import DatePicker from 'react-date-picker';
 // import { uk } from 'date-fns/locale';
@@ -54,14 +54,14 @@ export const AddCard = ({ onCloseModal, id }) => {
   //   setSelectedDate(date);
   // };
 
-  const toOpenCalendar = () => {
-    setIsCalendarOpen(!isCalendarOpen);
-  };
+  // const toOpenCalendar = () => {
+  //   setIsCalendarOpen(!isCalendarOpen);
+  // };
 
   const dispatch = useDispatch();
 
   const getFormattedDate = date => {
-    const today = new Date();
+    // const today = new Date();
 
     if (isToday(date)) {
       return `Today, ${format(date, 'MMMM d')}`;
