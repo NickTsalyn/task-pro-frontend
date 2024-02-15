@@ -1,18 +1,16 @@
-import { getTheme } from "components/themes";
-import { useSelector } from "react-redux";
-import { selectedTheme } from "redux/auth/selectors";
-import { ThemeProvider } from "styled-components";
+import { getTheme } from 'components/themes';
+import { useSelector } from 'react-redux';
+import { selectedTheme } from 'redux/auth/selectors';
+import { ThemeProvider } from 'styled-components';
 
 export const ThemeWrapper = ({ children }) => {
-
   const themeName = useSelector(selectedTheme);
   const currentTheme = getTheme(themeName),
-
-    theme = {  
+    theme = {
       currentTheme,
-      
+
       colors: {
-        //кольори для реєстрації і логіну        
+        //кольори для реєстрації і логіну
         white: '#fff',
         darkTextColor: '#161616',
         greyTextColor: 'rgba(255, 255, 255, 0.3)',
@@ -24,7 +22,8 @@ export const ThemeWrapper = ({ children }) => {
         shadowColor: 'rgba(22, 22, 22, 0.08)',
         colorFilterSVG: '',
       },
-      violetColors: {//
+      violetColors: {
+        //
         //кольори для VioletTheme
         violetFill: '#ECEDFD', //фон Screen Page
         accentColor: '#5255bc', //button
@@ -47,8 +46,6 @@ export const ThemeWrapper = ({ children }) => {
       },
       spacing: value => `${value * 4}px`,
     };
-    
-    return (
-        <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    )
+
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
