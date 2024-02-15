@@ -11,8 +11,8 @@ export const ModalCloseButton = styled.button`
   transition: stroke 0.3s;
 `;
 export const StyledSvgClose = styled.svg`
-  fill: ${props => props.theme.colors.darkTextColor};
-  stroke: ${props => props.theme.colors.darkTextColor};
+  fill: ${p => p.theme.currentTheme.mainText};
+  stroke: ${p => p.theme.currentTheme.mainText};
   display: flex;
   position: absolute;
   align-items: center;
@@ -32,7 +32,7 @@ export const ModalWrap = styled.div`
   background-color: #fcfcfc;
 
   box-sizing: border-box;
-  border-radius: ${props => props.theme.radius.m};
+  border-radius: ${p => p.theme.radius.m};
 
   width: 335px;
   padding: ${p => p.theme.spacing(6)};
