@@ -69,11 +69,12 @@ export const NeedHelpModal = ({ isOpen, onClose }) => {
                 component="div"
                 className="error-message"
               />
-              <CommentInput
+              <Field
                 type="text"
                 name="comment"
                 placeholder="Comment"
-                as={Field}
+                as={CommentInput} 
+                            
               />
               <ErrorMessage
                 name="comment"

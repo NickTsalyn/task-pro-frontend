@@ -87,7 +87,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <I18nextProvider i18n={i18next}>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <BrowserRouter basename="task-pro-frontend">
+          <BrowserRouter basename="/task-pro-frontend">
             <ThemeWrapper>            
               <Toaster toastOptions={toastStyles} />
               <App />
@@ -96,6 +96,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </PersistGate>
       </Provider>
     </I18nextProvider>    
-  </React.StrictMode>
-    
+  </React.StrictMode>    
 );

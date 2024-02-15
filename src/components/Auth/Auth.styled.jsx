@@ -8,15 +8,14 @@ export const WelcomeWrapper = styled.div`
   height: 100vh;
   background: linear-gradient(
     180deg,
-    rgba(196, 196, 196, 0) 25%,
-    #bedbb0 92.19%
+    rgba(196, 196, 196, 0) 25%,${p => p.theme.colors.lightGreen} 92.19%
   );
 `;
 export const FormContainer = styled.div`
   width: calc(100%-84px);
-  background-color: #151515;
+  background-color: ${p => p.theme.colors.darkBgn};
   padding: 24px;
-  border-radius: 8px;
+  border-radius: ${p=> p.theme.radius.m};
   border: 1px solid black;
 
   @media (min-width: 375px) {
@@ -33,7 +32,7 @@ export const FormContainer = styled.div`
 export const LinkWrapper = styled.div`
   display: flex;
   margin-bottom: 40px;
-  gap: 14px;
+  gap: ${p=> p.theme.spacing(3.5)};
 `;
 
 export const AuthLinks = styled(NavLink)`

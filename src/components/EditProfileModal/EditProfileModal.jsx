@@ -14,6 +14,7 @@ import {
   StyledField,
   StyledForm,
   StyledLabel,
+  Thumb,
   TitleModal,
 } from './EditProfileModal.styled.js';
 
@@ -38,7 +39,7 @@ const editFormSchema = Yup.object().shape({
 });
 
 export const EditProfileModal = ({ onCloseModal, avatar }) => {
-  const {t} = useTranslation('global')
+  const { t } = useTranslation('global');
   const dispatch = useDispatch();
   const handleSubmit = credentials => {
     return dispatch(updateProfile(credentials));
@@ -77,20 +78,22 @@ export const EditProfileModal = ({ onCloseModal, avatar }) => {
         {({ values, setFieldValue }) => (
           <StyledForm>
             <ProfileFotoBox>
-              <input
-                hidden
-                ref={fileRef}
-                type="file"
-                name="avatar"
-                onChange={e => {
-                  setFieldValue('avatar', e.target.files[0]);
-                }}
-              />
-              {values.avatar ? (
-                <PreviewUploadAvatar file={values.avatar} />
-              ) : (
-                <PreviewAvatar avatar={avatar} />
-              )}
+              <Thumb>
+                <input
+                  hidden
+                  ref={fileRef}
+                  type="file"
+                  name="avatar"
+                  onChange={e => {
+                    setFieldValue('avatar', e.target.files[0]);
+                  }}
+                />
+                {values.avatar ? (
+                  <PreviewUploadAvatar file={values.avatar} />
+                ) : (
+                  <PreviewAvatar avatar={avatar} />
+                )}
+              </Thumb>
 
               <AddButton type="button" onClick={() => fileRef.current.click()}>
                 <IconPlus>
@@ -132,7 +135,7 @@ export const EditProfileModal = ({ onCloseModal, avatar }) => {
             </StyledLabel>
 
             <Button type="submit" onClick={onCloseModal}>
-            {t('screenPage.render.modal.profile.send')}
+              {t('screenPage.render.modal.profile.send')}
             </Button>
           </StyledForm>
         )}

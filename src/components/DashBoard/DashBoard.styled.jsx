@@ -4,8 +4,7 @@ export const DashBoardWrapper = styled.div`
   padding: 46px 20px 24px ;
   max-width: 310px;
 
-  @media only screen and (min-width: 375px) {
-    
+  @media only screen and (min-width: 375px) {    
     max-width: 375px;
   }
   
@@ -25,9 +24,9 @@ export const Text = styled.p`
   line-height: 1.3;
   letter-spacing: -0.02em;
   text-align: center;
-  color: rgba(22, 22, 22, 0.7);
+  color: ${p => p.theme.currentTheme.homeText};
 
-  @media only screen and (min-width: 375px) and (max-width: 768px) {
+  @media only screen and (min-width: 375px) and (max-width: 767px) {
     margin: 258px auto 0;
     max-width: 335px;    
   }
@@ -46,7 +45,7 @@ export const ButtonText= styled.button`
     font-size: 12px;
     border :none;
     background-color: inherit;
-    color: ${p => p.theme.violetColors.accentColor};
+    color: ${p => p.theme.currentTheme.accent};
 
     @media only screen and (min-width: 768px) {      
       font-size: 14px;
