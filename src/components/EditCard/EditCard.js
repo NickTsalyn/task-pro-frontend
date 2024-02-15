@@ -96,7 +96,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
         title: `${title}`,
         description: `${description}`,
         priority: `${priority}`,
-        deadline: `${formatDeadlineDate(deadline)} ?? ${startDate}`,
+        deadline: `${formatDeadlineDate(deadline)} `,
       }}
       onSubmit={values => {
         const editCard = {
