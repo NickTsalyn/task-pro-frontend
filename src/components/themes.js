@@ -1,12 +1,13 @@
 export const violetTheme = {
   taskBgn: '#fff',
+  homeText: 'rgba(22, 22, 22, 0.7)',
   iconStroke: 'rgba(22, 22, 22, 0.5)',
-  sidebarBgn: '#5255bc',
+  sidebarBgn: '#5255BC',
   headerBgn: '#fff',
-  screensBgn: '#ecdfd',
+  screensBgn: '#ECEDFD',
   mainText: '#161616',
   grayText: 'rgba(22, 22, 22, 0.5)',
-  accent: '#5255bc', //hoverIcon, button, inputBorder, calendarText, calendarIcon
+  accent: '#5255BC', //hoverIcon, button, inputBorder, calendarText, calendarIcon
   hoverButton: '#7b7ede',
   plusIconStroke: '#161616',
   plusIconFill: '#fff',
@@ -20,10 +21,12 @@ export const violetTheme = {
   btnPlusStroke: '#fff', //create a new board
   btnPlusFill: '#b8bcfd',
   hoverBtnPlusFill: '#979cea',
+  modalBgn: '#fcfcfc',
 };
 
 export const lightTheme = {
   taskBgn: '#fff',
+  homeText: 'rgba(22, 22, 22, 0.7)',
   iconStroke: 'rgba(22, 22, 22, 0.5)',
   sidebarBgn: '#fff',
   headerBgn: '#fcfcfc',
@@ -39,15 +42,17 @@ export const lightTheme = {
   hoverIconLogout: '#9dc888',
   horizontScrollBgn: '#fff',
   horizontScroll: '#e8e8e8',
-  verticalScrollBgn: '#e8e8e8',
-  verticalScroll: '#rgba(22, 22, 22, 0.1)',
+  verticalScrollBgn: '#fff',
+  verticalScroll: '#e8e8e8',
   btnPlusStroke: '#121212', //create a new board
   btnPlusFill: '#bedbb0',
   hoverBtnPlusFill: '#9dc888',
+  modalBgn: '#fcfcfc',
 };
 
 export const darkTheme = {
   taskBgn: '#121212',
+  homeText: 'rgba(225, 225, 225, 0.5)',
   iconStroke: 'rgba(225, 225, 225, 0.5)',
   sidebarBgn: '#121212',
   headerBgn: '#161616',
@@ -62,12 +67,13 @@ export const darkTheme = {
   iconLogout: '#bedbb0',
   hoverIconLogout: '#9dc888',
   horizontScrollBgn: '#161616',
-  horizontScroll: '#rgba(225, 225, 225, 0.1)',
-  verticalScrollBgn: '#fff', // додати opacity: 0.008
+  horizontScroll: 'rgba(225, 225, 225, 0.08)',
+  verticalScrollBgn: 'rgba(255, 255, 255, 0.08)',
   verticalScroll: '#121212',
   btnPlusStroke: '#121212', //create a new board
   btnPlusFill: '#bedbb0',
   hoverBtnPlusFill: '#9dc888',
+  modalBgn: '#151515',
 };
 
 

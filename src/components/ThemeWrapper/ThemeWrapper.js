@@ -12,7 +12,7 @@ export const ThemeWrapper = ({ children }) => {
       currentTheme,
       
       colors: {
-        //кольори для реєстрації і логіну
+        //кольори для реєстрації і логіну        
         white: '#fff',
         darkTextColor: '#161616',
         greyTextColor: 'rgba(255, 255, 255, 0.3)',
