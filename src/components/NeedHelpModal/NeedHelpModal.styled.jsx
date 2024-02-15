@@ -1,3 +1,4 @@
+import { Field } from 'formik';
 import styled from 'styled-components';
 
 export const ModalWrapper = styled.div`
@@ -9,7 +10,7 @@ export const ModalWrapper = styled.div`
   width: 100%;
   max-width: 335px;
   min-width: 320px;
-  height: 355px;
+  height: 355px;  
   background: ${p => p.theme.currentTheme.modalBgn};
   border-radius: ${p => p.theme.radius.m};
   border: none;
@@ -33,6 +34,7 @@ export const ModalTitle = styled.h2`
   letter-spacing: -0.02em;
   text-align: left;
   margin-bottom: ${p => p.theme.spacing(6)};
+  color:  ${p => p.theme.currentTheme.mainText};
 `;
 
 export const CloseButton = styled.button`
@@ -47,90 +49,73 @@ export const CloseButton = styled.button`
   padding: 0;
 `;
 
-export const Input = styled.input`
+export const Input = styled(Field)`
   width: 100%;
   height: 49px;
   padding: 14px 18px;
-  border: 1px solid ${p => p.theme.currentTheme.accent};;
+  border: 1px solid ${p => p.theme.currentTheme.accent};
   border-radius: ${p => p.theme.radius.m};
   box-sizing: border-box;
   opacity: 0.4;
-  margin-bottom: 14px;
-  
-  font-size: 14px;  
-  line-height: 21px;
-  letter-spacing: -0.02em;
-  text-align: left;
+  margin-bottom: 14px; 
+  letter-spacing: -0.02em;  
   outline: none;
+  background: ${p => p.theme.currentTheme.inputBgn};
+  color:  ${p => p.theme.currentTheme.maintext};
+  &:placeholder {
+    font-size: 14px;
+
+  }
+
   &:focus {
     opacity: 1;
   }
 `;
 
 export const CommentInput = styled.textarea`
-  /* width: 100%;
-  height: 120px;
-  padding: 14px 18px;
-  /* padding-left: ; */
-
+  width: 100%;
+  height: 120px;   
+  padding: 14px 18px; 
   border: 1px solid  ${p => p.theme.currentTheme.accent};
   border-radius: ${p => p.theme.radius.m};
   box-sizing: border-box;
   resize: none;
-  opacity: 0.4;  
-  /* line-height: 21px; */
+  opacity: 0.4;    
   letter-spacing: -0.02em;
-  /* text-align: left; */
   margin-bottom: 24px;
-  outline: none;
-
-  /* &::placeholder {   
-    color: ${p => p.theme.colors.greyTextColor};
-  } */
-  /* &:focus {
+  outline: none; 
+  background: ${p => p.theme.currentTheme.inputBgn};
+  color:  ${p => p.theme.currentTheme.maintext};
+  &:placeholder {
+    font-size: 14px;    
+  }
+   &:focus {
     opacity: 1;
-  }  */
+  } 
 
-  width: 100%;
-  height: 120px;
-  padding: 14px;
-  padding-left:18px;
-  
-  border: 1px solid #5255BC;
-  border-radius: 8px;
-  box-sizing: border-box;
-  resize: none;
-
-  font-family: Poppins;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: -0.02em;
-  text-align: left;
-margin-bottom:24px;
 `;
-
 
 export const SendButton = styled.button`
-  width: 100%;
-  color: #ffffff;
-  padding: 14px, 126px, 14px, 126px;
-  padding-top: 14px;
-  padding-bottom: 14px;
+  width: 100%;  
+  padding: 14px;
   border: none;
-  border-radius: 8px;
+  border-radius: ${p => p.theme.radius.m};
   cursor: pointer;
-  background: rgba(82, 85, 188, 1);
-
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 21px;
+  background-color: ${p => p.theme.currentTheme.accent};
+ color:${p => p.theme.colors.white};
+  font-weight: 500;  
   letter-spacing: -0.02em;
   text-align: center;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+&:hover {
+  background-color: ${props => props.theme.currentTheme.hoverButton};
+}
 `;
 export const StyledSvgClose = styled.svg`
-  fill: ${props => props.theme.colors.darkTextColor};
-  stroke: ${props => props.theme.colors.darkTextColor};
+  fill:  ${p => p.theme.currentTheme.modalBgn};
+  stroke: ${props => props.theme.currentTheme.iconNeedHelp};
   display: flex;
   position: absolute;
   align-items: center;

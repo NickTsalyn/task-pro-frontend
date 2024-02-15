@@ -22,6 +22,7 @@ export const violetTheme = {
   btnPlusFill: '#b8bcfd',
   hoverBtnPlusFill: '#979cea',
   modalBgn: '#fcfcfc',
+  inputBgn: '#fcfcfc'
 };
 
 export const lightTheme = {
@@ -48,6 +49,7 @@ export const lightTheme = {
   btnPlusFill: '#bedbb0',
   hoverBtnPlusFill: '#9dc888',
   modalBgn: '#fcfcfc',
+  inputBgn: '#fcfcfc'
 };
 
 export const darkTheme = {
@@ -74,6 +76,7 @@ export const darkTheme = {
   btnPlusFill: '#bedbb0',
   hoverBtnPlusFill: '#9dc888',
   modalBgn: '#151515',
+  inputBgn: '#1f1f1f'
 };
 
 
