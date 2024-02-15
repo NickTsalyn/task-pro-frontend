@@ -1,5 +1,4 @@
 import { Field, Formik } from 'formik';
-// import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../images/icons.svg';
 import toast from 'react-hot-toast';
 import { toastStyles } from '../../ToasterOptions';
@@ -16,7 +15,6 @@ import {
   AddCardDescription,
   AddCardHeader,
   AddCardInputColor,
-  AddCardLabelColor,
   AddCardLabelText,
   AddCardOptionCont,
   AddCardSvgButtonText,
