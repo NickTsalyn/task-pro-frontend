@@ -3,8 +3,7 @@ import {
   getAllColumns,
   addColumn,
   deleteColumn,
-  editColumn,
-  // getColumsById
+  editColumn,  
 } from './operations';
 
 const handlePending = state => {

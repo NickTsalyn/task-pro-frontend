@@ -27,7 +27,7 @@ const tasksSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.tasks = action.payload;
-      // console.log(state.tasks); // змінено з state.cards на state.tasks
+     
     },
     [fetchTitle.rejected](state, action) {
       state.isLoading = false;

@@ -26,7 +26,6 @@ export const SidebarNav = ({ onItemClick }) => {
   };
 
   const handleClickSidebar = () => {
-    console.log('Clicked on sidebar item');
     onItemClick();
   };
 
