@@ -1,9 +1,15 @@
 import { AddColumnButton } from 'components/EditColumnButtons/AddColumnButton/AddColumnButton';
-import { ColumnButtonwrapper, ColumnListStyled, ColumnListWrapper } from './ColumnList.styled';
+import {
+  ColumnButtonwrapper,
+  ColumnListStyled,
+  ColumnListWrapper,
+} from './ColumnList.styled';
 import { ColumnListItem } from 'components/ColumnListItem/ColumnListItem';
+
 // import { ColumnListItem } from 'components/ColumnListItem/ColumnListItem';
 
-export const ColumnList = ({ columns }) => {
+export const ColumnList = ({columns}) => {
+  
   //   const {boardId} = useParams();
 
   //   const dispatch = useDispatch();
@@ -37,7 +43,7 @@ export const ColumnList = ({ columns }) => {
         ))}
       </ColumnListStyled>
       <ColumnButtonwrapper>
-      <AddColumnButton />
+        <AddColumnButton />
       </ColumnButtonwrapper>
     </ColumnListWrapper>
   );

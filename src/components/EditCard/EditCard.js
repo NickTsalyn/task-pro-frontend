@@ -1,7 +1,7 @@
 import { Field, Formik } from 'formik';
 import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../images/icons.svg';
-
+import { CLoseButton } from '../../components/EditProfileModal/EditProfileModal.styled';
 
 import {
   EditCardBtn,
@@ -19,7 +19,7 @@ import {
   EditCardLabelText,
   EditCardOptionCont,
   EditCardSvgButtonText,
-  // EditCardSvgClose,
+  EditCardSvgClose,
   EditCardSvgContainer,
   EditCardTextCal,
   EditCardTextCont,
@@ -87,40 +87,41 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
         priority: `${priority}`,
         deadline: `${deadline} ?? ${startDate}`,
       }}
-      onSubmit={(values ) => {
+      onSubmit={values => {
         const editCard = {
           title: values.title,
           description: values.description,
           priority: values.priority,
           deadline: values.deadline,
-          taskId: _id
-         
+          taskId: _id,
         };
         console.log(editCard);
         dispatch(editTask(editCard));
-        
-        // resetForm();
-        
-        onCloseModal()
-        successToaster();
 
+        // resetForm();
+
+        onCloseModal();
+        successToaster();
       }}
     >
       <EditCardWrapper>
-        {/* <CLoseButton onClick = {onCloseModal}>
+        <CLoseButton onClick={onCloseModal} type="button">
           <EditCardSvgClose>
-          <use xlinkHref={`${sprite}#icon-x-close`}></use>
+            <use xlinkHref={`${sprite}#icon-x-close`}></use>
           </EditCardSvgClose>
-          </CLoseButton> */}
+        </CLoseButton>
+
         <EditCardContainer>
-          <EditCardHeader>{t('screenPage.render.modal.card.editTitle')}</EditCardHeader>
+          <EditCardHeader>
+            {t('screenPage.render.modal.card.editTitle')}
+          </EditCardHeader>
           <EditCardTextCont>
             <EditCardTitle name="title" placeholder="Title" />
+
             {/* <Field className='AddCardDesc' as='textarea'name="description"></Field> */}
             <Field
-            as={EditCardDescription}
+              as={EditCardDescription}
               name="description"
-           
               placeholder={t('screenPage.render.modal.card.descr')}
               // value={Formik.values.description}
               // onChange={(e) => {
@@ -132,7 +133,9 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
           </EditCardTextCont>
           <EditCardOptionCont>
             <EditCardColorCont>
-              <EditCardLabelText>{t('screenPage.render.modal.card.color')}</EditCardLabelText>
+              <EditCardLabelText>
+                {t('screenPage.render.modal.card.color')}
+              </EditCardLabelText>
 
               <label>
                 <EditCardContMark>
@@ -176,9 +179,11 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
               </label>
             </EditCardColorCont>
             <EditCardContCal>
-              <EditCardTextCal>{t('screenPage.render.modal.card.deadline')}</EditCardTextCal>
+              <EditCardTextCal>
+                {t('screenPage.render.modal.card.deadline')}
+              </EditCardTextCal>
               <EditCardDate
-              name='deadline'
+                name="deadline"
                 selected={startDate}
                 onChange={date => setStartDate(date)}
                 dateFormat={
@@ -195,7 +200,9 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
               <use xlinkHref={`${sprite}#icon-plus`}></use>
             </EditCardButtonSvg>
           </EditCardSvgContainer>
-          <EditCardSvgButtonText>{t('screenPage.render.modal.card.editBtn')}</EditCardSvgButtonText>
+          <EditCardSvgButtonText>
+            {t('screenPage.render.modal.card.editBtn')}
+          </EditCardSvgButtonText>
         </EditCardBtn>
       </EditCardWrapper>
     </Formik>
