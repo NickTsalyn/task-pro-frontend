@@ -134,6 +134,7 @@ const customStyles = {
     padding: '0',
     minHeight: '0',
     lineHeight: '1',
+    backgroundColor: 'transparent'
   }),
 
   downChevron: provided => ({
@@ -141,6 +142,7 @@ const customStyles = {
     width: '32px',
     height: '32px',
     padding: '0',
+    color: 'white'
   }),
 
   IndicatorContainer: provided => ({
@@ -161,7 +163,7 @@ const customStyles = {
   dropdownIndicator: provided => ({
     ...provided,
     padding: '0',
-    color: 'rgb(22, 22, 22, 0.8)',
+    stroke: `${p => p.theme.currentTheme.mainText}`,
     '&:hover, &:focus': {
       color: '#5255bc',
     },
