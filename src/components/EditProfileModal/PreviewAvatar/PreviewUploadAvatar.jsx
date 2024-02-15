@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { UploadImage } from '../EditProfileModal.styled';
 
 export const PreviewUploadAvatar = ({ file }) => {
   const [preview, setPreview] = useState(null);
@@ -8,6 +9,6 @@ export const PreviewUploadAvatar = ({ file }) => {
     setPreview(reader.result);
   };
   return (
-    <>{preview && <img src={preview} alt="user-avatar" />}</>
+    <>{preview && <UploadImage src={preview} alt="user-avatar" />}</>
   );
 };
