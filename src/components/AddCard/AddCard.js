@@ -41,6 +41,8 @@ import { addTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { DatePickerNew } from 'components/DatePicker/DatePicker';
+import { DatePickerCalendar } from 'components/DatePicker/DatePicker.styled';
+;
 // import DatePicker from 'react-date-picker';
 // import { uk } from 'date-fns/locale';
 
@@ -48,13 +50,13 @@ import { DatePickerNew } from 'components/DatePicker/DatePicker';
 export const AddCard = ({ onCloseModal, id }) => {
   const { t } = useTranslation('global');
     // const [fieldValue, setFieldValue] = useState(null);
-    const [selectedDate, setSelectedDate] = useState(new Date());
+    // const [selectedDate, setSelectedDate] = useState(new Date());
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);;
-    const [startDate, setStartDate] = useState(false)
+    const [startDate, setStartDate] = useState(new Date())
 
-    const handleDateChange = (date) => {
-      setSelectedDate(date);
-    };
+    // const handleDateChange = (date) => {
+    //   setSelectedDate(date);
+    // };
   
     const toOpenCalendar = () => {
       setIsCalendarOpen(!isCalendarOpen);
@@ -89,8 +91,8 @@ export const AddCard = ({ onCloseModal, id }) => {
     );
   };
 
-  const currentDate = new Date();
-  const formattedDate = getFormattedDate(currentDate);
+  
+  const formattedDate = getFormattedDate(startDate);
 
  
 //  const toggleDatePicker = () => {
@@ -216,23 +218,44 @@ export const AddCard = ({ onCloseModal, id }) => {
             <BtnOpenCal
               type="button"
               className="sc-gHRYGD jSCLHb"
-              onClick={toOpenCalendar}
+              // onClick={toOpenCalendar}
             >
               <DayText>{formattedDate}</DayText>
             </BtnOpenCal>
-            {isCalendarOpen && (
+            {/* {isCalendarOpen && ( */}
               <CustomCalendarContainer className="custom-calendar-container">
-                <DatePickerNew
-                   selected={selectedDate}
+                <DatePickerCalendar
+                   selected={startDate}
                    onChange={(date) => {
-                     setSelectedDate(date);
-                     setFieldValue('deadline', getFormattedDate(date));
+                    setStartDate(date);
+                    setIsCalendarOpen(false);
+                    console.log(date)
+                    //  setFieldValue('deadline', getFormattedDate(date));
                    }}
-                   dateFormat="dd/MM/yyyy"
+                   dateFormat={ isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'}
                 />
               </CustomCalendarContainer>
-            )}
+            {/* )} */}
           </CalendarContainer>
+             {/* <CalendarContainer> */}
+            {/* <BtnOpenCal
+              type="button"
+              className="sc-gHRYGD jSCLHb"
+              onClick={toOpenCalendar}
+            > */}
+              {/* <DayText>{formattedDate}</DayText> */}
+            {/* </BtnOpenCal> */}
+            {/* {isCalendarOpen && ( */}
+              {/* <CustomCalendarContainer className="custom-calendar-container">
+              <DatePickerCalendar selected={startDate}
+        onChange={(date) => {
+          setStartDate(date)}}
+        dateFormat={ isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'}/>
+       
+              </CustomCalendarContainer> */}
+            {/* )} */}
+          {/* </CalendarContainer> */}
+
 
              
         

@@ -5,6 +5,8 @@ import { DatePickerCalendar } from "./DatePicker.styled";
 
 
 export const DatePickerNew = ({ selectedDate, handleDateChange }) => {
+
+  
     
   return (
       <DatePickerCalendar>
