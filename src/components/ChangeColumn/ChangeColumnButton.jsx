@@ -8,7 +8,7 @@ Modal.setAppElement('#root');
 
 export const ChangeColumnButton = props => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { id, filteredColumns } = props;
+  const { taskId } = props;
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -31,7 +31,7 @@ export const ChangeColumnButton = props => {
         className={'modal-content'}
         closeTimeoutMS={300}
       >
-        <ChangeColumnModal taskId={id} columns={filteredColumns} />
+        <ChangeColumnModal Id={taskId} />
       </Modal>
     </div>
   );
