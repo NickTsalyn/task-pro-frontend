@@ -43,19 +43,20 @@ export const TaskCard = ({
   task: { _id, title, description, priority, deadline },
 }) => {
   const dispatch = useDispatch();
-
+  const [selectedDate, setSelectedDate] = useState(null);
+  const isDeadLinePassed = selectedDate && setSelectedDate > new Date()
   const [isModalOpen, setIsModalOpen] = useState(false);
   // const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
-  const formatDeadlineDate = deadline => {
-    const formattedDeadlineDate = new Date(deadline);
+  // const formatDeadlineDate = deadline => {
+  //   const formattedDeadlineDate = new Date(deadline);
 
-    const day = formattedDeadlineDate.getDate();
-    const month = String(formattedDeadlineDate.getMonth() + 1).padStart(2, '0');
-    const year = formattedDeadlineDate.getFullYear();
+  //   const day = formattedDeadlineDate.getDate();
+  //   const month = String(formattedDeadlineDate.getMonth() + 1).padStart(2, '0');
+  //   const year = formattedDeadlineDate.getFullYear();
 
-    return `${day}/${month}/${year}`;
-  };
+  //   return `${day}/${month}/${year}`;
+  // };
 
   // const openEditModal = () => {
   //   setIsEditModalOpen(true);
@@ -177,15 +178,20 @@ export const TaskCard = ({
             </ToDoContainer>
             <DeadlineContainer>
               <SubTitle>Deadline</SubTitle>
-              <TextDate>{formatDeadlineDate(deadline)}</TextDate>
+              {/* <TextDate>{formatDeadlineDate(deadline)}</TextDate> */}
+              <TextDate> 
+                {selectedDate ? selectedDate.toLocaleDateString() : "No deadline"}
+              </TextDate>
             </DeadlineContainer>
           </CardPriorityDeadline>
           <ButtonsContainer>
-            <Bell>
-              <SvgBell>
-                <use xlinkHref={`${sprite}#icon-bell-01`}></use>
-              </SvgBell>
-            </Bell>
+          {isDeadLinePassed ? null : (
+                <Bell >
+                 <SvgBell>
+                    <use xlinkHref= {`${sprite}#icon-bell-01`}></use>
+                 </SvgBell>
+                </Bell> 
+                )}
             <Buttons>
               <Btn type="button">
                 <Svg>
