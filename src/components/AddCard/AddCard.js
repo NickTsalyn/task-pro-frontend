@@ -50,11 +50,11 @@ export const AddCard = ({ onCloseModal, id }) => {
     // const [fieldValue, setFieldValue] = useState(null);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);;
-    const [startDate, setStartDate] = useState(false)
+    const [startDate] = useState(false)
 
-    const handleDateChange = (date) => {
-      setSelectedDate(date);
-    };
+    // const handleDateChange = (date) => {
+    //   setSelectedDate(date);
+    // };
   
     const toOpenCalendar = () => {
       setIsCalendarOpen(!isCalendarOpen);
@@ -72,7 +72,7 @@ export const AddCard = ({ onCloseModal, id }) => {
     
    // });
    const getFormattedDate = (date) => {
-    const today = new Date();
+    // const today = new Date();
 
     if (isToday(date)) {
       return `Today, ${format(date, 'MMMM d')}`;

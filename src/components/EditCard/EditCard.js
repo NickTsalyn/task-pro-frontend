@@ -10,7 +10,7 @@ import {
   EditCardContCal,
   EditCardContMark,
   EditCardContainer,
-  EditCardDate,
+  // EditCardDate,
   EditCardDescription,
   EditCardHeader,
   EditCardInputColor,
@@ -38,7 +38,7 @@ import { format } from 'date-fns';
 
 export const EditCard = ({ onCloseModal,task: {  _id, title, description, priority,deadline } }) => {
   const {t} = useTranslation('global')
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate] = useState(new Date());
   const [isCalendarOpen, setCalendarOpen] = useState(true);
   const [selectedDate, setSelectedDate] = useState(null);
   const dispatch = useDispatch();
@@ -49,7 +49,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
   };
 
   const getFormattedDate = (date) => {
-     const today = new Date();
+    //  const today = new Date();
    
      if (isToday(date)) {
        // Якщо дата - сьогодні
