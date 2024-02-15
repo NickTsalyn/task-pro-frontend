@@ -6,7 +6,7 @@ export const violetTheme = {
   screensBgn: '#ecdfd',
   mainText: '#161616',
   grayText: 'rgba(22, 22, 22, 0.5)',
-  accent: '#5255bc', //hoverIcon, button, inputBorder, calendarText, calendarIcon
+  accent: '#5255bc', //hoverIcon, button, inputBorder, calendarText, calendarIcon 
   hoverButton: '#7b7ede',
   plusIconStroke: '#161616',
   plusIconFill: '#fff',
