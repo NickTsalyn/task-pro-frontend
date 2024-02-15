@@ -38,6 +38,7 @@ const boardsSlice = createSlice({
             state.isLoading = false
             state.error = null
             state.boards.push(action.payload)
+            state.currentBoard = action.payload
         },
         [getBoardById.fulfilled](state, action) {
             state.isLoading = false
