@@ -1,5 +1,5 @@
 import sprite from '../../images/icons.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   ChangeButton,
@@ -8,19 +8,26 @@ import {
 } from './ChangeColumn.styled';
 
 import { editTask } from 'redux/tasks/operations';
+import { selectColumns } from 'redux/columns/selectors';
+import { useParams } from 'react-router-dom';
 
 export const ChangeColumnModal = props => {
+  const { boardId } = useParams();
   const dispatch = useDispatch();
-  const { taskId, columns } = props;
+  const columns = useSelector(selectColumns);
+  const { Id } = props;
 
+  const filteredColumns = columns.filter(column => column.board === boardId);
   return (
     <ChangeWrapper>
       <ul>
-        {columns.map(column => (
+        {filteredColumns.map(column => (
           <li key={column._id}>
             <ChangeButton
               type="button"
-              onClick={() => dispatch(editTask({ taskId, column: column._id }))}
+              onClick={() =>
+                dispatch(editTask({ taskId: Id, column: column._id }))
+              }
             >
               {column.title}
               <StyledSVGChange>

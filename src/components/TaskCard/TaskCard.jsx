@@ -157,7 +157,7 @@ export const TaskCard = ({
               </Bell>
             )}
             <Buttons>
-              <ChangeColumnButton />
+              <ChangeColumnButton taskId={_id} />
               <Modal
                 isOpen={isModalOpen}
                 onRequestClose={closeModal}
