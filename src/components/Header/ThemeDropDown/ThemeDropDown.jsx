@@ -65,7 +65,7 @@ const customStyles = {
     fontWeight: '500',
     fontSize: '14px',
     letterSpacing: '-0.02em',
-    color: 'rgba(22, 22, 22, 0.8)',
+    color: `${p => p.theme.currentTheme.mainText}`,
   }),
 };
 
