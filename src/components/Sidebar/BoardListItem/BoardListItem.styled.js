@@ -28,22 +28,20 @@ export const StyledBoardItem = styled.button`
   padding: 0;
   display: flex;
   gap: 4px;
-  color: ${({ isActive }) =>
-    isActive ? 'rgba(255, 255, 255)' : 'rgba(255, 255, 255, 0.5)'};
+  color: ${({ isActive, theme }) =>
+    isActive ? theme.currentTheme.iconNeedHelp : theme.currentTheme.greySubtitle};
   cursor: pointer;
   &:hover,
   &:focus {
-    color: ${p => p.theme.colors.white};
-    svg {
-      stroke: ${p => p.theme.colors.white};
-    }
+    color: ${p => p.theme.currentTheme.iconNeedHelp};
+   
   }
   svg {
     width: 18px;
     height: 18px;
     fill: transparent;
-    stroke: ${({ isActive }) =>
-      isActive ? 'rgba(255, 255, 255)' : 'rgba(255, 255, 255, 0.5)'};
+    stroke: ${({ isActive,theme }) =>
+      isActive ?  theme.currentTheme.iconNeedHelp : theme.currentTheme.greySubtitle};
   }
 
   @media screen and (min-width: 768px) {
@@ -53,24 +51,24 @@ export const StyledBoardItem = styled.button`
 
 export const StyledSVGPensil = styled.svg`
   fill: transparent;
-  stroke: rgba(255, 255, 255, 0.5);
+  stroke:  ${p => p.theme.currentTheme.iconNeedHelp};
   width: 16px;
   height: 16px;
   &:hover,
   &:focus {
-    stroke: ${p => p.theme.colors.white};
+    stroke: ${p => p.theme.currentTheme.accent};
   }
 `;
 
 export const StyledSVGTrash = styled.svg`
   fill: transparent;
-  stroke: rgba(255, 255, 255, 0.5);
+  stroke: ${p => p.theme.currentTheme.iconNeedHelp};
 
   width: 16px;
   height: 16px;
   &:hover,
   &:focus {
-    stroke: ${p => p.theme.colors.white};
+    stroke: ${p => p.theme.currentTheme.accent};
   }
 `;
 

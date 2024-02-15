@@ -12,15 +12,15 @@ export const SidebarWrapper = styled.div`
 
 export const StyledText = styled.p`
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
+  color: ${p => p.theme.currentTheme.greySubtitle};
   padding-bottom: ${p => p.theme.spacing(2)};
   letter-spacing: -0.02em;
 `;
 
 export const StyledCreateWrapper = styled.div`
   padding: ${p => p.theme.spacing(3.5)} 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid ${p => p.theme.currentTheme.line};
+  border-bottom: 1px solid ${p => p.theme.currentTheme.line};
 `;
 export const StyledLogoutBtn = styled.button`
   border: none;
@@ -30,7 +30,7 @@ export const StyledLogoutBtn = styled.button`
   font-size: 16px;
   line-height: 1.5;
 
-  color: rgb(255, 255, 255);
+  color: ${p => p.theme.currentTheme.iconNeedHelp};
   padding: 0;
   display: flex;
   gap: ${p => p.theme.spacing(3.5)};
@@ -48,13 +48,13 @@ export const StyledLogoutBtn = styled.button`
 
 export const StyledSVGLogout = styled.svg`
   fill: transparent;
-  stroke: white;
+  stroke: ${p => p.theme.currentTheme.iconLogout};
 
   width: 32px;
   height: 32px;
   &:hover,
   &:focus {
-    stroke: ${p => p.theme.colors.darkTextColor};
+    stroke: ${p => p.theme.currentTheme.hoverIconLogout};;
     opacity: 0.5;
   }
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
