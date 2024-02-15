@@ -22,6 +22,7 @@ import { useTranslation } from 'react-i18next';
 export const EditColumnModal = ({ onCloseModal, column }) => {
   const { t } = useTranslation('global');
   const dispatch = useDispatch();
+  console.log(column);
 
   const [title, setTitle] = useState(column.title);
 
