@@ -8,10 +8,7 @@ import { refreshUser } from 'redux/auth/operations';
 import { PrivateRoute } from 'components/PrivateRoute';
 import { RestrictedRoute } from 'components/RestrictedRoute';
 import { Layout } from 'components/Layout/Layout';
-
 import { Loader } from 'components/Loader/Loader';
-
-// import HomePage from 'Pages/HomePage';
 
 const WelcomePage = lazy(() => import('./Pages/WelcomePage.jsx'));
 const AuthPage = lazy(() => import('./Pages/AuthPage.jsx'));
@@ -43,9 +40,7 @@ export const App = () => {
             <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
           }
         >
-          {/* <Route path="/home" component={<HomePage />} > */}
           <Route path=":boardId" element={<ScreensPage />} />
-          {/* </Route>  */}
         </Route>
       </Route>
     </Routes>

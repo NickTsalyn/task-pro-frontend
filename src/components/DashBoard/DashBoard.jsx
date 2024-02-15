@@ -31,8 +31,8 @@ const DashBoard = () => {
       {/* {boards.length === 0 ?  */}
       {!boardId ? 
         (<Text>{t('screenPage.static.message1')}
-        <ButtonText>{t('screenPage.static.message2')}</ButtonText>
-        {t('screenPage.static.message3')}</Text> )
+        <ButtonText>{t('screenPage.static.message2')}</ButtonText> 
+         {t('screenPage.static.message3')}</Text> )
         : <ColumnList columns={filteredColumns}/>  }
     </DashBoardWrapper>
   );
