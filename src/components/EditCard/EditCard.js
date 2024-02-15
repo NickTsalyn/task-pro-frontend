@@ -1,7 +1,7 @@
 import { Field, Formik } from 'formik';
 import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../images/icons.svg';
-
+import { CLoseButton } from '../../components/EditProfileModal/EditProfileModal.styled';
 
 import {
   EditCardBtn,
@@ -11,14 +11,13 @@ import {
   EditCardContMark,
   EditCardContainer,
   EditCardDate,
-  // AddCardDesc,
   EditCardDescription,
   EditCardHeader,
-  EditCardLabelColor,
+  EditCardInputColor,
   EditCardLabelText,
   EditCardOptionCont,
   EditCardSvgButtonText,
-  // EditCardSvgClose,
+  EditCardSvgClose,
   EditCardSvgContainer,
   EditCardTextCal,
   EditCardTextCont,
@@ -26,7 +25,6 @@ import {
   EditCardWrapper,
 } from './EditCard.styled';
 import { useState} from 'react';
-// import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
 import {  editTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
@@ -86,40 +84,41 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
         priority: `${priority}`,
         deadline: `${deadline} ?? ${startDate}`,
       }}
-      onSubmit={(values ) => {
+      onSubmit={values => {
         const editCard = {
           title: values.title,
           description: values.description,
           priority: values.priority,
           deadline: values.deadline,
-          taskId: _id
-         
+          taskId: _id,
         };
         console.log(editCard);
         dispatch(editTask(editCard));
-        
-        // resetForm();
-        
-        onCloseModal()
-        successToaster();
 
+        // resetForm();
+
+        onCloseModal();
+        successToaster();
       }}
     >
       <EditCardWrapper>
-        {/* <CLoseButton onClick = {onCloseModal}>
+        <CLoseButton onClick={onCloseModal} type="button">
           <EditCardSvgClose>
-          <use xlinkHref={`${sprite}#icon-x-close`}></use>
+            <use xlinkHref={`${sprite}#icon-x-close`}></use>
           </EditCardSvgClose>
-          </CLoseButton> */}
+        </CLoseButton>
+
         <EditCardContainer>
-          <EditCardHeader>{t('screenPage.render.modal.card.editTitle')}</EditCardHeader>
+          <EditCardHeader>
+            {t('screenPage.render.modal.card.editTitle')}
+          </EditCardHeader>
           <EditCardTextCont>
             <EditCardTitle name="title" placeholder="Title" />
+
             {/* <Field className='AddCardDesc' as='textarea'name="description"></Field> */}
             <Field
-            as={EditCardDescription}
+              as={EditCardDescription}
               name="description"
-           
               placeholder={t('screenPage.render.modal.card.descr')}
               // value={Formik.values.description}
               // onChange={(e) => {
@@ -131,21 +130,57 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
           </EditCardTextCont>
           <EditCardOptionCont>
             <EditCardColorCont>
-              <EditCardLabelText>{t('screenPage.render.modal.card.color')}</EditCardLabelText>
+              <EditCardLabelText>
+                {t('screenPage.render.modal.card.color')}
+              </EditCardLabelText>
 
               <label>
                 <EditCardContMark>
-                  <EditCardLabelColor type="radio" name="priority" value="Low" />
-                  <EditCardLabelColor type="radio" name="priority" value="Medium" />
-                  <EditCardLabelColor type="radio" name="priority" value="High" />
-                  <EditCardLabelColor type="radio" name="priority" value="Without" />
+                <EditCardInputColor
+                    id="priorityLow"
+                    type="radio"
+                    name="priority"
+                    value="Low"
+                  />
+                <label className='radio-label' value="Low" htmlFor="priorityLow">
+                 
+                </label>
+                <EditCardInputColor
+                    id="priorityMedium"
+                    type="radio"
+                    name="priority"
+                    value="Medium"
+                  />
+                <label className='radio-label' value="Medium" htmlFor="priorityMedium">
+                
+                </label>
+                <EditCardInputColor
+                    id="priorityHigh"
+                    type="radio"
+                    name="priority"
+                    value="High"
+                  />
+                <label className='radio-label' value="High" htmlFor="priorityHigh">
+                  
+                </label>
+                <EditCardInputColor
+                    id="priorityWithout"
+                    type="radio"
+                    name="priority"
+                    value="Without"
+                  />
+                <label className='radio-label' value="Without" htmlFor="priorityWithout">
+                 
+                </label>
                 </EditCardContMark>
               </label>
             </EditCardColorCont>
             <EditCardContCal>
-              <EditCardTextCal>{t('screenPage.render.modal.card.deadline')}</EditCardTextCal>
+              <EditCardTextCal>
+                {t('screenPage.render.modal.card.deadline')}
+              </EditCardTextCal>
               <EditCardDate
-              name='deadline'
+                name="deadline"
                 selected={startDate}
                 onChange={date => setStartDate(date)}
                 dateFormat={
@@ -162,7 +197,9 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
               <use xlinkHref={`${sprite}#icon-plus`}></use>
             </EditCardButtonSvg>
           </EditCardSvgContainer>
-          <EditCardSvgButtonText>{t('screenPage.render.modal.card.editBtn')}</EditCardSvgButtonText>
+          <EditCardSvgButtonText>
+            {t('screenPage.render.modal.card.editBtn')}
+          </EditCardSvgButtonText>
         </EditCardBtn>
       </EditCardWrapper>
     </Formik>

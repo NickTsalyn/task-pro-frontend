@@ -7,8 +7,7 @@ import styled from "styled-components";
  width: 197px;
   border: 1px solid #9092D6;
   padding: 14px;
-  /* position: relative; */
-  background: #9092D6;
+  background-color: ${p => p.theme.currentTheme.helpBlockColor};
   border-radius: 8px;
   
   @media (min-width: 768px) {
@@ -30,7 +29,7 @@ export const HelpText = styled.p`
   line-height: 16px;
   letter-spacing: -0.02em;
   text-align: left;
-  color:#FFFFFF;
+  color:${p => p.theme.currentTheme.iconNeedHelp};
   margin-bottom:18px;
   @media (min-width: 768px) {
     font-size: 14px;
@@ -44,14 +43,14 @@ export const HelpButton = styled.button`
   display:flex;
   border-radius: 50%;
   border:none;
-  color: #FFFFFF;
+  color:  ${p => p.theme.currentTheme.iconNeedHelp};
   cursor: pointer;
   margin-right: 11px;
   padding:0;
   position: relative; 
-  background: #9092D6;
-  `;
-  // border: 1.8px solid #161616;
+  background: transparent;
+`;
+  
   
   export const ButtonText= styled.div`
   display:flex;  
@@ -61,8 +60,8 @@ export const HelpButton = styled.button`
   letter-spacing: -0.02em;
   text-align: left;
   cursor: pointer;
-  color: #FFFFFF;
-  `;
+  color: ${p => p.theme.currentTheme.iconNeedHelp};
+`;
   
   export const IconContainer = styled.div`
   font-size: 1.7em;
@@ -71,14 +70,15 @@ export const HelpButton = styled.button`
   top: 0%;
   left: 0%;
   transform: translate(-10%, -10%); 
-  `;
+`;
 
  export const TaskPro = styled.span`
-  color: #5255BC; 
+  color: ${p => p.theme.currentTheme.accent};
   font-size: 12px;
   line-height: 20px;
   letter-spacing: -0.02em;
   text-align: left;
+  
   @media (min-width: 768px) {
     font-size: 14px;
   };

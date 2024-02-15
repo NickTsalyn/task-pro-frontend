@@ -41,21 +41,20 @@ export const BoardListItem = ({ board, isActive, onClick }) => {
   return (
     <StyledBoardList isActive={isActive} onClick={onClick}>
       {/* <StyledBoardItem to={`/home/${board._id}`}></StyledBoardItem> */}
-      
+
       <StyledBoardItem
         type="button"
         isActive={isActive}
         onClick={() => {
-          onClick()
-          dispatch(getBoardById(board._id))
+          onClick();
+          dispatch(getBoardById(board._id));
         }}
       >
         <svg>
-        <use xlinkHref={`${sprite}#${board.iconURL}`}></use>
-      </svg>
-      
-        <Link to={`/home/${board._id}`}>{board.title}</Link>
+          <use xlinkHref={`${sprite}#${board.iconURL}`}></use>
+        </svg>
 
+        <Link to={`/home/${board._id}`}>{board.title}</Link>
       </StyledBoardItem>
 
       <StyledBtnWrapper isActive={isActive} onClick={onClick}>

@@ -29,7 +29,6 @@ export const CardList = ({ columnId }) => {
     return priorityCondition && columnCondition;
   });
   return (
-    
     <CardListStyled>
       {filteredTasks.map(task => (
         <li key={task._id}>
@@ -37,6 +36,5 @@ export const CardList = ({ columnId }) => {
         </li>
       ))}
     </CardListStyled>
-   
   );
 };

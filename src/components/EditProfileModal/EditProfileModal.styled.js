@@ -60,6 +60,19 @@ export const ProfileFotoBox = styled.div`
   position: relative;
 `;
 
+export const Thumb = styled.div`
+  width: 68px;
+  height: 68px;
+  border-radius: ${p => p.theme.spacing(2)};
+  overflow: hidden;
+`;
+export const UploadImage = styled.img`
+     width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+`;
+
 export const AddButton = styled.button`
   width: 24px;
   height: 24px;

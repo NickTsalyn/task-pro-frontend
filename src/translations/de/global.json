@@ -26,6 +26,14 @@
       "new": "Neues Passwort",
       "confirm": "Neues Passwort bestätigen",
       "change": "Passwort ändern"
+    },
+    "error": {
+      "name": "Name ist erforderlich!",
+      "email": "E-Mail ist erforderlich!",
+      "emailWrong": "Ungültige E-Mail-Adresse!",
+      "password": "Passwort ist erforderlich!",
+      "passwordShort": "Passwort ist zu kurz!",
+      "passwordValid": "Das Passwort muss mindestens 8 Zeichen, mindestens einen Buchstaben, eine Zahl und ein Sonderzeichen enthalten!"
     }
   },
   "screenPage": {
@@ -38,7 +46,7 @@
       "needHelp": "Hilfe benötigt",
       "logout": "Abmelden",
       "message1": "Bevor Sie Ihr Projekt starten, ist es unerlässlich, ",
-      "message2": "ein Board zu erstellen, ",
+      "message2": " ein Board zu erstellen, ",
       "message3": "um alle notwendigen Aufgaben und Meilensteine zu visualisieren und zu verfolgen. Dieses Board dient als leistungsstolles Werkzeug zur Organisation des Arbeitsablaufs und zur Sicherstellung einer effektiven Zusammenarbeit zwischen Teammitgliedern.",
       "filters": "Filter",
       "priority": {
@@ -87,6 +95,15 @@
           "email": "Geben Sie Ihre E-Mail-Adresse ein",
           "password": "Geben Sie Ihr Passwort ein",
           "send": "Senden"
+        },
+        "filter": {
+          "title": "Filter",
+          "title2": "Label-Farbe",
+          "without": "ohne",
+          "low": "niedrig",
+          "medium": "mittel",
+          "high": "hoch",
+          "show": "Alle anzeigen"
         }
       }
     }

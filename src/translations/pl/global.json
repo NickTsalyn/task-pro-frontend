@@ -25,6 +25,14 @@
       "new": "Nowe hasło",
       "confirm": "Potwierdź nowe hasło",
       "change": "Zmień hasło"
+    },
+    "error": {
+      "name": "Imię jest wymagane!",
+      "email": "E-mail jest wymagany!",
+      "emailWrong": "Nieprawidłowy adres e-mail!",
+      "password": "Hasło jest wymagane!",
+      "passwordShort": "Hasło jest za krótkie!",
+      "passwordValid": "Hasło musi zawierać co najmniej 8 znaków, co najmniej jedną literę, jedną liczbę i jeden znak specjalny!"
     }
   },
   "screenPage": {
@@ -38,7 +46,7 @@
       "logout": "Log Out",
       "message1": "Przed rozpoczęciem projektu jest niezbędne",
       "message2": "utworzenie tablicy",
-      "message3": "w celu wizualizacji i śledzenia wszystkich niezbędnych zadań i kamieni milowych. Ta tablica pełni rolę potężnego narzędzia do organizacji pracy i zapewnienia efektywnej współpracy między członkami zespołu.",
+      "message3": " w celu wizualizacji i śledzenia wszystkich niezbędnych zadań i kamieni milowych. Ta tablica pełni rolę potężnego narzędzia do organizacji pracy i zapewnienia efektywnej współpracy między członkami zespołu.",
       "filters": "Filtry",
       "priority": {
         "without": "Bez priorytetu",
@@ -86,6 +94,15 @@
           "email": "Wprowadź swój adres email",
           "password": "Wprowadź swoje hasło",
           "send": "Wyślij"
+        },
+        "filter": {
+          "title": "Filtry",
+          "title2": "Kolor etykiety",
+          "without": "bez",
+          "low": "niski",
+          "medium": "średni",
+          "high": "wysoki",
+          "show": "Pokaż wszystko"
         }
       }
     }
