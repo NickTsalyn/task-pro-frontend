@@ -7,9 +7,10 @@ export const StyledModal = styled(Modal)`
     height: fit-content;
     /* max-height: 433px; */
     max-width: 350px;
-    background-color: ${props => props.theme.colors.white};
+    background-color: ${props => props.theme.currentTheme.modalBgn};
     border-radius: 8px;
-    box-shadow: 0px 4px 16px 0px ${props => props.theme.colors.greyIconColor};
+    box-shadow: 0px 4px 16px 0px ${props => props.theme.currentTheme.grayText};
+    z-index: 3000;
     transition: transform 0.3s;
 `
 
@@ -32,11 +33,11 @@ export const CloseButton = styled.button`
 export const CloseSVG = styled.svg`
     width: 18px;
     height: 18px;
-    stroke: ${props => props.theme.colors.darkTextColor};
+    stroke: ${props => props.theme.currentTheme.mainText};
 `
 
 export const BigHeader = styled.p`
-    color: ${props => props.theme.colors.darkTextColor};
+    color: ${props => props.theme.currentTheme.mainText};
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
@@ -48,10 +49,10 @@ export const TitleInput = styled.input`
     height: 49px;
     max-width: 302px;
     background-color: transparent;
-    border: 1px ${props => props.theme.violetColors.accentColor} solid;
+    border: 1px ${props => props.theme.currentTheme.accent} solid;
     border-radius: 8px;
     padding: 0 18px;
-    color: ${props => props.theme.colors.darkTextColor};
+    color: ${props => props.theme.currentTheme.mainText};
     font-family: inherit;
     line-height: 21px;
     letter-spacing: 0.02em;
@@ -59,7 +60,7 @@ export const TitleInput = styled.input`
     opacity: 0.4;
 
     &::placeholder {
-        color: ${props => props.theme.colors.darkTextColor};
+        color: ${props => props.theme.currentTheme.mainText};
         font-family: inherit;
         line-height: 21px;
         letter-spacing: 0.02em;
@@ -71,7 +72,7 @@ export const TitleInput = styled.input`
 `
 
 export const SmallHeader = styled.p`
-    color: ${props => props.theme.colors.darkTextColor};
+    color: ${props => props.theme.currentTheme.mainText};
     line-height: 21px;
     letter-spacing: 0.02em;
     letter-spacing: -2%;
@@ -92,12 +93,12 @@ export const Radio = styled.input`
     display: none;
 
     &:checked + svg {
-        stroke: ${props => props.theme.colors.darkTextColor};
+        stroke: ${props => props.theme.currentTheme.mainText};
         cursor: default;
     }
 
     &:checked + span {
-        border-color: ${props => props.theme.colors.darkTextColor};
+        border-color: ${props => props.theme.currentTheme.accent};
         cursor: default;
     }
 `
@@ -105,7 +106,7 @@ export const Radio = styled.input`
 export const IconSVG = styled.svg`
     display: inline-block;
     vertical-align: middle;
-    stroke: ${props => props.theme.colors.greyIconColor};
+    stroke: ${props => props.theme.currentTheme.iconStroke};
     cursor: pointer;
     fill: transparent;
     width: 18px;
@@ -131,11 +132,11 @@ export const SubmitButton = styled.button`
     display: flex;
     max-width: 100%;
     height: 49px;
-    color: ${props => props.theme.colors.white};
+    color: ${props => props.theme.currentTheme.plusIconFill};
     border-radius: 8px;
     border-color: transparent;
     font-weight: 500;
-    background-color: ${props => props.theme.violetColors.accentColor};
+    background-color: ${props => props.theme.currentTheme.accent};
     font-family: inherit;
     font-size: 14px;
     line-height: 21px;
@@ -147,14 +148,14 @@ export const SubmitButton = styled.button`
     margin-top: 16px;
 
     &:hover {
-        background-color: ${props => props.theme.violetColors.hoverViolet};
+        background-color: ${props => props.theme.currentTheme.hoverButton};
     }
 
     & > span {
         display: flex;
         width: 28px;
         height: 28px;
-        background-color: ${props => props.theme.colors.white};
+        background-color: ${props => props.theme.currentTheme.plusIconFill};
         border-radius: 8px;
         justify-content: center;
         align-items: center;
@@ -163,6 +164,6 @@ export const SubmitButton = styled.button`
     & > span > svg {
         width: 14px;
         height: 14px;
-        stroke: ${props => props.theme.colors.darkTextColor};
+        stroke: ${props => props.theme.currentTheme.plusIconStroke};
     }
 `
