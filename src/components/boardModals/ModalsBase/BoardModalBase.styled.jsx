@@ -98,7 +98,7 @@ export const Radio = styled.input`
     }
 
     &:checked + span {
-        border-color: ${props => props.theme.currentTheme.mainText};
+        border-color: ${props => props.theme.currentTheme.accent};
         cursor: default;
     }
 `
