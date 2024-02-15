@@ -1,28 +1,35 @@
-
 import sprite from '../../images/icons.svg';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { ChangeButton, ChangeWrapper, StyledSVGChange } from './ChangeColumn.styled';
-import { selectColumns } from 'redux/columns/selectors';
+import {
+  ChangeButton,
+  ChangeWrapper,
+  StyledSVGChange,
+} from './ChangeColumn.styled';
 
+import { editTask } from 'redux/tasks/operations';
 
-export const ChangeColumnModal = () => {
+export const ChangeColumnModal = props => {
+  const dispatch = useDispatch();
+  const { taskId, columns } = props;
 
-const columns = useSelector(selectColumns)
   return (
     <ChangeWrapper>
       <ul>
         {columns.map(column => (
           <li key={column._id}>
-            <ChangeButton type="button">{column.title} 
-            <StyledSVGChange>
-            <use xlinkHref={`${sprite}#icon-active`}></use>
-          </StyledSVGChange>
+            <ChangeButton
+              type="button"
+              onClick={() => dispatch(editTask({ taskId, column: column._id }))}
+            >
+              {column.title}
+              <StyledSVGChange>
+                <use xlinkHref={`${sprite}#icon-active`}></use>
+              </StyledSVGChange>
             </ChangeButton>
           </li>
         ))}
       </ul>
-
     </ChangeWrapper>
   );
 };

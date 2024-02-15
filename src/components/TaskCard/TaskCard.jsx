@@ -43,6 +43,7 @@ Modal.setAppElement('#root');
 
 export const TaskCard = ({
   task: { _id, title, description, priority, deadline },
+  columns,
 }) => {
   const { t } = useTranslation('global');
 
@@ -190,7 +191,7 @@ export const TaskCard = ({
               </SvgBell>
             </Bell>
             <Buttons>
-              <ChangeColumnButton/>
+              <ChangeColumnButton id={_id} filteredColumns={columns} />
               {/* <Btn type="button">
                 <Svg>
                   <use xlinkHref={`${sprite}#icon-active`}></use>

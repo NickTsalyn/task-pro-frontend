@@ -11,7 +11,7 @@ import { ColumnList } from 'components/ColumnList/ColumnList';
 
 const DashBoard = () => {
   const { boardId } = useParams();
-  console.log(boardId);
+
   const dispatch = useDispatch();
 
   // const boards = useSelector(selectAllBoards);
@@ -24,15 +24,18 @@ const DashBoard = () => {
   const { t } = useTranslation('global');
 
   const filteredColumns = columns.filter(column => column.board === boardId);
-  
 
   return (
-    <DashBoardWrapper>  
-      {!boardId ? 
-        (<Text>{t('screenPage.static.message1')}
-        <ButtonText>{t('screenPage.static.message2')}</ButtonText> 
-         {t('screenPage.static.message3')}</Text> )
-        : <ColumnList columns={filteredColumns}/>  }
+    <DashBoardWrapper>
+      {!boardId ? (
+        <Text>
+          {t('screenPage.static.message1')}
+          <ButtonText>{t('screenPage.static.message2')}</ButtonText>
+          {t('screenPage.static.message3')}
+        </Text>
+      ) : (
+        <ColumnList columns={filteredColumns} />
+      )}
     </DashBoardWrapper>
   );
 };
