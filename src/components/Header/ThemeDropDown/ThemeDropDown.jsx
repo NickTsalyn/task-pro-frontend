@@ -4,6 +4,7 @@ import Select from 'react-select';
 // import '../../Header/ThemeDropDown/theme.css';
 import { useDispatch} from 'react-redux';
 import { changeTheme } from 'redux/auth/operations';
+import { useTranslation } from 'react-i18next';
 
 const options = [
   { value: 'light', label: 'Light' },
@@ -73,6 +74,7 @@ const customStyles = {
 
 
 export const ThemeDropDown = () => {
+  const {t} = useTranslation('global')
   const dispatch = useDispatch();
 
   const handleChangeTheme = ( options) => {
@@ -89,7 +91,7 @@ export const ThemeDropDown = () => {
       options={options}
       styles={customStyles}
       onChange={handleChangeTheme}
-      placeholder="Theme"
+      placeholder={t('screenPage.static.theme')}
       // classNamePrefix="custom-select"
     />
   );

@@ -26,6 +26,14 @@
       "new": "Nueva contraseña",
       "confirm": "Confirmar nueva contraseña",
       "change": "Cambiar contraseña"
+    },
+    "error": {
+      "name": "¡El nombre es obligatorio!",
+      "email": "¡El correo electrónico es obligatorio!",
+      "emailWrong": "¡Correo electrónico no válido!",
+      "password": "¡La contraseña es obligatoria!",
+      "passwordShort": "¡La contraseña es demasiado corta!",
+      "passwordValid": "La contraseña debe tener al menos 8 caracteres, al menos una letra, un número y un carácter especial!"
     }
   },
   "screenPage": {
@@ -87,6 +95,15 @@
           "email": "Ingresa tu correo electrónico",
           "password": "Ingresa tu contraseña",
           "send": "Enviar"
+        },
+        "filter": {
+          "title": "Filtros",
+          "title2": "Color de etiqueta",
+          "without": "sin",
+          "low": "bajo",
+          "medium": "medio",
+          "high": "alto",
+          "show": "Mostrar todo"
         }
       }
     }
