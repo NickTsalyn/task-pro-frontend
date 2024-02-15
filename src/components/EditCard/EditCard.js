@@ -11,11 +11,9 @@ import {
   EditCardContMark,
   EditCardContainer,
   EditCardDate,
-  // AddCardDesc,
   EditCardDescription,
   EditCardHeader,
   EditCardInputColor,
-  EditCardLabelColor,
   EditCardLabelText,
   EditCardOptionCont,
   EditCardSvgButtonText,
@@ -27,7 +25,6 @@ import {
   EditCardWrapper,
 } from './EditCard.styled';
 import { useState} from 'react';
-// import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
 import {  editTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
