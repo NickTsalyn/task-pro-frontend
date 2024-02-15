@@ -29,7 +29,7 @@ export const StyledCreateBtn = styled.button`
     line-height: 1.5;
     text-align: start;
 
-    color:  ${p => p.theme.currentTheme.mainText};
+    color:  ${p => p.theme.currentTheme.iconNeedHelp};
     padding: 0;
     display: flex;
     justify-content: space-between;
