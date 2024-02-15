@@ -7,7 +7,7 @@ export const Sidebar = forwardRef((props, ref) => {
   return (
     <StyledSidebar ref={ref}>
       <Logo />
-      <SidebarNav />
+      <SidebarNav onItemClick={props.onItemClick}/>
     </StyledSidebar>
   );
 });
