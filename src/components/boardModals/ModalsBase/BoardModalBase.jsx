@@ -39,6 +39,7 @@ export const BoardModalBase = ({ isModalOpen, info, onCloseModal, action, Submit
         <StyledModal
             isOpen={isModalOpen}
             overlayClassName={'modal-overlay'}
+            className={'modal-content'}
             onRequestClose={close}
             ariaHideApp={false}
         >

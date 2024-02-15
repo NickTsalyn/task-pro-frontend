@@ -70,7 +70,7 @@ export const EditCardTitle = styled(Field)`
     opacity: 1;
   }
 `
-export const EditCardDescription = styled(Field)`
+export const EditCardDescription = styled.textarea`
  width: 100%;
   font-size: 14px;
   line-height: 21px;
@@ -106,35 +106,36 @@ font-size: 12px;
 letter-spacing: -0.02em;
 color: ${p => p.theme.colors.greyIconColor};
 `
-export const EditCardLabelColor = styled(Field)`
+export const EditCardInputColor = styled(Field)`
 
-position: relative;
-width: 14px;
-height: 14px;
-&::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  background-color:  ${getColor};
-}
-/* input[type="radio"]:checked + &::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  background-color:  ${getColor};
-
-   opacity:0; 
-} */
+position: absolute;
+    opacity: 0;
+    left:90%;
+    
+    + .radio-label {
+      &:before {
+        content: '';
+        background-color: ${(props) => getColor(props)
+        };
+        border-radius: 100%;
+        border: 1px solid
+          ${(props) => getColor(props)};
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        position: relative;
+       
+        cursor: pointer;
+        text-align: center;
+        transition: all 250ms ease;
+      }
+    }
+    &:checked {
+      + .radio-label {
+        &:before {
+          background-color: ${(props) => getColor(props)};
+          box-shadow: inset 0 0 0 4px white;
+        }}}
 `
 export const EditCardContMark = styled.div`
 
