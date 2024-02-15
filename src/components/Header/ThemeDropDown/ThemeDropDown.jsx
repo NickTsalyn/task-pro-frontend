@@ -1,4 +1,3 @@
-// import { hover } from '@testing-library/user-event/dist/hover';
 import React, { useEffect, useRef, useState } from 'react';
 import Select from 'react-select';
 import { useDispatch } from 'react-redux';
@@ -75,9 +74,8 @@ export const ThemeDropDown = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const selectRef = useRef(null);
   const handleChangeTheme = options => {
-    // i18n.changeLanguage(selectedOption.value);
-    const theme = options.value;
-    console.log(theme);
+    
+    const theme = options.value;    
     dispatch(changeTheme({ theme }));
     setMenuIsOpen(false);
   };
@@ -100,9 +98,7 @@ export const ThemeDropDown = () => {
   }, []);
   return (
     <div ref={selectRef}>
-      <Select
-        // value={currentTheme}
-        // onChange={handleThemeChange}
+      <Select 
         options={options}
         styles={customStyles}
         onChange={handleChangeTheme}
