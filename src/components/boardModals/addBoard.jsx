@@ -25,7 +25,7 @@ export const AddBoard = () => {
     return (
         <>
             <AddBoardButton onClick={(event) => OpenModal(event)} />
-            <BoardModalBase isModalOpen={isModalOpen} info={{ title: '', iconURL: 'icon-Project', backgroundURL: '0' }} onCloseModal={CloseModal} action={'add'} SubmitForm={SubmitForm}/>
+            <BoardModalBase isModalOpen={isModalOpen} info={{ title: '', iconURL: 'icon-Project', backgroundURL: 'p0' }} onCloseModal={CloseModal} action={'add'} SubmitForm={SubmitForm}/>
         </>
     )
 }

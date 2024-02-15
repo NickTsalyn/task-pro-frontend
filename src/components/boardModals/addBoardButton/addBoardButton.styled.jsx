@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledSVG = styled.svg`
-  stroke: ${props => props.theme.colors.white};
+  stroke: ${props => props.theme.currentTheme.plusIconFill};
   width: 20px;
   height: 20px;
 `
@@ -11,14 +11,14 @@ export const StyledButton = styled.span`
   width: 40px;
   height: 36px;
   border-radius: 6px;
-  background-color: rgb(184, 188, 253);
+  background-color: ${props => props.theme.currentTheme.btnPlusFill};
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
 
   &:hover {
-    background-color: rgba(151, 156, 234, 1);
+    background-color: ${props => props.theme.currentTheme.hoverBtnPlusFill};
   }
 `
 
@@ -30,7 +30,7 @@ export const StyledCreateBtn = styled.button`
     line-height: 1.5;
     text-align: start;
 
-    color: rgb(255, 255, 255);
+    color: ${props => props.theme.currentTheme.iconNeedHelp};
     padding: 0;
     display: flex;
     justify-content: space-between;
