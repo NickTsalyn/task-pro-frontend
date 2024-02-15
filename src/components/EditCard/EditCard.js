@@ -43,6 +43,17 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
   const [isCalendarOpen, setIsCalendarOpen] = useState(true);
 
   const dispatch = useDispatch();
+  const formatDeadlineDate = deadline => {
+    const formattedDeadlineDate = new Date(deadline);
+    formattedDeadlineDate.setDate(formattedDeadlineDate.getDate());
+
+    const day = formattedDeadlineDate.getDate();
+    const month = String(formattedDeadlineDate.getMonth() + 1).padStart(2, '0');
+    const year = formattedDeadlineDate.getFullYear();
+   
+
+    return `${day}/${month}/${year}`;
+  };
 
 
 
@@ -85,7 +96,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
         title: `${title}`,
         description: `${description}`,
         priority: `${priority}`,
-        deadline: `${deadline} ?? ${startDate}`,
+        deadline: `${formatDeadlineDate(deadline)} ?? ${startDate}`,
       }}
       onSubmit={values => {
         const editCard = {
