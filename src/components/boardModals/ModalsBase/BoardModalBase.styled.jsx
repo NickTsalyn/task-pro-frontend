@@ -7,7 +7,7 @@ export const StyledModal = styled(Modal)`
     height: fit-content;
     /* max-height: 433px; */
     max-width: 350px;
-    background-color: ${props => props.theme.currentTheme.taskBgn};
+    background-color: ${props => props.theme.currentTheme.modalBgn};
     border-radius: 8px;
     box-shadow: 0px 4px 16px 0px ${props => props.theme.currentTheme.grayText};
     z-index: 3000;
