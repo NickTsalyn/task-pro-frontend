@@ -29,7 +29,7 @@ export const StyledBoardItem = styled.button`
   display: flex;
   gap: 4px;
   color: ${({ isActive, theme }) =>
-    isActive ? theme.currentTheme.iconNeedHelp : theme.currentTheme.greySubtitle};
+    isActive ? theme.currentTheme.iconNeedHelp : theme.currentTheme.greyBoard};
   cursor: pointer;
   &:hover,
   &:focus {
@@ -41,7 +41,7 @@ export const StyledBoardItem = styled.button`
     height: 18px;
     fill: transparent;
     stroke: ${({ isActive,theme }) =>
-      isActive ?  theme.currentTheme.iconNeedHelp : theme.currentTheme.greySubtitle};
+      isActive ?  theme.currentTheme.iconNeedHelp : theme.currentTheme.greyBoard};
   }
 
   @media screen and (min-width: 768px) {

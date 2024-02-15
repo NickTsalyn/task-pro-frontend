@@ -34,6 +34,7 @@ export const violetTheme = {
   modalFiltersIconClose: '#161616',
   textModal: 'rgba(22, 22, 22, 0.7)',
   withoutbl: 'rgba(22, 22, 22, 0.3);', //without priority
+  greyBoard: 'rgba(255, 255, 255, 0.5)',
 };
 
 export const lightTheme = {
@@ -72,6 +73,7 @@ export const lightTheme = {
   modalFiltersIconClose: '#161616',
   textModal: 'rgba(22, 22, 22, 0.7)',
   withoutbl: 'rgba(22, 22, 22, 0.3);', //without priority
+  greyBoard: 'rgba(22, 22, 22, 0.5)',
 };
 
 export const darkTheme = {
@@ -110,6 +112,7 @@ export const darkTheme = {
   modalFiltersIconClose: '#fff',
   textModal: 'rgba(255, 255, 255, 0.5)',
   withoutbl: 'rgba(255, 255, 255, 0.3);', //without priority black thema
+  greyBoard: 'rgba(255, 255, 255, 0.5)',
 };
 
 export const getTheme = themeName => {
