@@ -28,7 +28,7 @@ import { selectedTheme } from 'redux/auth/selectors';
 import { useTranslation } from 'react-i18next';
 
 Modal.setAppElement('#root');
-export const ColumnListItem = ({ column }) => {
+export const ColumnListItem = ({ column, columns }) => {
   const { t } = useTranslation('global');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { _id } = column;
@@ -91,7 +91,7 @@ export const ColumnListItem = ({ column }) => {
           </EditButton>
         </EditBlock>
       </ColumnHeader>
-      <CardList columnId={column._id} />
+      <CardList columnId={column._id} filtColumns={columns} />
       <AddAnotherCard onClick={openModal} type="submit">
         <AddCardSvgContainer>
           <AddCardButtonSvg>

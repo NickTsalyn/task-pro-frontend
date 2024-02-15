@@ -40,11 +40,13 @@ Modal.setAppElement('#root');
 
 export const TaskCard = ({
   task: { _id, title, description, priority, deadline },
+  columns,
 }) => {
   const { t } = useTranslation('global');
 
   const dispatch = useDispatch();
-
+  const [selectedDate, setSelectedDate] = useState(null);
+  const isDeadLinePassed = selectedDate && setSelectedDate > new Date();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const formatDeadlineDate = deadline => {
@@ -114,18 +116,22 @@ export const TaskCard = ({
             </ToDoContainer>
             <DeadlineContainer>
               <SubTitle>{t('screenPage.render.modal.card.deadline')}</SubTitle>
+              {/* <TextDate> {selectedDate ? selectedDate.toLocaleDateString() : "No deadline"}
+</TextDate> */}
+
               <TextDate>{formatDeadlineDate(deadline)}</TextDate>
             </DeadlineContainer>
           </CardPriorityDeadline>
           <ButtonsContainer>
-            <Bell>
-              <SvgBell>
-                <use xlinkHref={`${sprite}#icon-bell-01`}></use>
-              </SvgBell>
-            </Bell>
+            {isDeadLinePassed ? null : (
+              <Bell>
+                <SvgBell>
+                  <use xlinkHref={`${sprite}#icon-bell-01`}></use>
+                </SvgBell>
+              </Bell>
+            )}
             <Buttons>
-              <ChangeColumnButton />
-
+              <ChangeColumnButton taskId={_id} />
               <Modal
                 isOpen={isModalOpen}
                 onRequestClose={closeModal}

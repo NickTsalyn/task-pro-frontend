@@ -10,7 +10,7 @@ import { ColumnList } from 'components/ColumnList/ColumnList';
 
 const DashBoard = () => {
   const { boardId } = useParams();
-  console.log(boardId);
+
   const dispatch = useDispatch();
   const columns = useSelector(selectColumns);
 

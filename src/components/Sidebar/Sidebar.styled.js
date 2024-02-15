@@ -14,21 +14,21 @@ export const DarkBackground = styled.div`
 export const StyledSidebar = styled.aside`
   width: 225px;
   height: 100vh;
-  background-color: ${p => p.theme.violetColors.accentColor};
+  background-color: ${p => p.theme.currentTheme.sidebarBgn};
   z-index: 999;
   position: absolute;
   top: 0;
   left: 0;
-  
+
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
-flex-direction: column;;
+  flex-direction: column;
 
   @media screen and (min-width: 768px) {
     width: 260px;
   }
   ${() => {
-  const {i18n} = useTranslation('global')
+    const { i18n } = useTranslation('global');
     const dir = i18n.dir(i18n.language);
 
     if (dir === 'rtl') {

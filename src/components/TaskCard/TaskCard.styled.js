@@ -9,7 +9,7 @@ const getColor = props => {
     case 'High':
       return props.theme.priorityColors.high;
     default:
-      // return props.theme.priorityColors.without;
+    
       return props.theme.currentTheme.without;
   }
 };
@@ -147,7 +147,7 @@ export const ButtonsContainer = styled.div`
 `;
 
 export const Bell = styled.div`
-  display: none;
+    /* display: none; */
 `;
 
 export const SvgBell = styled.svg`

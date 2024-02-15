@@ -1,4 +1,4 @@
-/*.modal-overlay {
+.modal-overlay-board {
     position: fixed;
     top: 0;
     left: 0;
@@ -6,10 +6,11 @@
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     padding: 40px 10px 40px 10px;
     overflow: hidden;
     overflow-y: auto;
-    z-index: 100;
+    z-index: 2000;
     transition: opacity 0.3s;
-}*/
+}

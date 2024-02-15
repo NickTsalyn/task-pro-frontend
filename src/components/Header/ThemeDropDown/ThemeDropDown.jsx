@@ -1,8 +1,7 @@
 // import { hover } from '@testing-library/user-event/dist/hover';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Select from 'react-select';
-// import '../../Header/ThemeDropDown/theme.css';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { changeTheme } from 'redux/auth/operations';
 import { useTranslation } from 'react-i18next';
 
@@ -23,33 +22,31 @@ const customStyles = {
     margin: 'auto 0',
     padding: '0',
     minHeight: '0',
-    lineHeight: '1'
+    lineHeight: '1',
   }),
 
-  downChevron:  provided => ({
+  downChevron: provided => ({
     ...provided,
     width: '16px',
     height: '16px',
     padding: '0',
-    margin: '0 auto'
-   
+    margin: '0 auto',
   }),
 
-  indicatorSeparator: 
-  provided => ({
+  indicatorSeparator: provided => ({
     ...provided,
-   display: 'none'
+    display: 'none',
   }),
 
-  input: (provided) => ({
+  input: provided => ({
     ...provided,
-    display: 'none'
+    display: 'none',
   }),
   dropdownIndicator: provided => ({
     ...provided,
     padding: '0',
     margin: 'auto 0',
-    
+
     '&::before': {
       content: 'none',
     },
@@ -58,7 +55,7 @@ const customStyles = {
   option: (provided, state) => ({
     ...provided,
     backgroundColor: '#fff',
-    color: state.isSelected ? '#5255BC' :'rgb(22, 22, 22)',
+    color: state.isSelected ? '#5255BC' : 'rgb(22, 22, 22)',
     '&:hover, &:focus': {
       color: '#5255bc',
     },
@@ -68,31 +65,52 @@ const customStyles = {
     fontWeight: '500',
     fontSize: '14px',
     letterSpacing: '-0.02em',
-    color: 'rgba(22, 22, 22, 0.8)',
+    color: `${p => p.theme.currentTheme.mainText}`,
   }),
 };
 
-
 export const ThemeDropDown = () => {
-  const {t} = useTranslation('global')
+  const { t } = useTranslation('global');
   const dispatch = useDispatch();
-
-  const handleChangeTheme = ( options) => {
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const selectRef = useRef(null);
+  const handleChangeTheme = options => {
     // i18n.changeLanguage(selectedOption.value);
     const theme = options.value;
     console.log(theme);
-    dispatch(changeTheme( {theme} ));
+    dispatch(changeTheme({ theme }));
+    setMenuIsOpen(false);
   };
- 
+  const handleClickOutside = event => {
+    if (selectRef.current && !selectRef.current.contains(event.target)) {
+      setMenuIsOpen(false);
+    }
+  };
+
+  const toggleSelect = () => {
+    setMenuIsOpen(!menuIsOpen);
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
   return (
-    <Select 
-    // value={currentTheme} 
-    // onChange={handleThemeChange}
-      options={options}
-      styles={customStyles}
-      onChange={handleChangeTheme}
-      placeholder={t('screenPage.static.theme')}
-      // classNamePrefix="custom-select"
-    />
+    <div ref={selectRef}>
+      <Select
+        // value={currentTheme}
+        // onChange={handleThemeChange}
+        options={options}
+        styles={customStyles}
+        onChange={handleChangeTheme}
+        menuIsOpen={menuIsOpen}
+        onMenuOpen={toggleSelect}
+        onMenuClose={toggleSelect}
+        placeholder={t('screenPage.static.theme')}
+      />{' '}
+    </div>
   );
 };
