@@ -52,15 +52,15 @@ export const TaskCard = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   // const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
-  // const formatDeadlineDate = deadline => {
-  //   const formattedDeadlineDate = new Date(deadline);
+  const formatDeadlineDate = deadline => {
+    const formattedDeadlineDate = new Date(deadline);
 
-  //   const day = formattedDeadlineDate.getDate();
-  //   const month = String(formattedDeadlineDate.getMonth() + 1).padStart(2, '0');
-  //   const year = formattedDeadlineDate.getFullYear();
+    const day = formattedDeadlineDate.getDate();
+    const month = String(formattedDeadlineDate.getMonth() + 1).padStart(2, '0');
+    const year = formattedDeadlineDate.getFullYear();
 
-  //   return `${day}/${month}/${year}`;
-  // };
+    return `${day}/${month}/${year}`;
+  };
 
   // const openEditModal = () => {
   //   setIsEditModalOpen(true);
@@ -117,45 +117,7 @@ export const TaskCard = ({
     }
   };
 
-  // const toEditTask = async (taskId, updatedData) => {
-  //   try {
-  //     await dispatch(editTask({ id: taskId, updatedData }));
-  //     successToaster();
-  //   } catch (error) {
-  //     errorToaster(error.message);
-  //   }
-  // };
-
-  // const toDeleteTask = async (taskId) => {
-  //   try {
-  //     await dispatch(deleteTask(taskId));
-  //     successToaster();
-  //   } catch (error) {
-  //     errorToaster(error.message);
-  //   }
-  // };
-
-  // const successToaster = () => {
-  //   toast.success("It's success! Congratulations!", {
-  //     position: 'top-right',
-  //     duration: 4000,
-  //     style: {
-  //       background: 'green',
-  //       color: '#fff',
-  //     },
-  //   });
-  // };
-
-  // const errorToaster = error => {
-  //   toast.error(`Ooops.... It's ${error} error`, {
-  //     position: 'top-right',
-  //     duration: 4000,
-  //     style: {
-  //       background: 'red',
-  //       color: '#fff',
-  //     },
-  //   });
-  // };
+  
 
   return (
     <TaskContainer>
@@ -181,6 +143,9 @@ export const TaskCard = ({
             </ToDoContainer>
             <DeadlineContainer>
               <SubTitle>{t('screenPage.render.modal.card.deadline')}</SubTitle>
+              {/* <TextDate> {selectedDate ? selectedDate.toLocaleDateString() : "No deadline"}
+</TextDate> */}
+
               <TextDate>{formatDeadlineDate(deadline)}</TextDate>
             </DeadlineContainer>
           </CardPriorityDeadline>
@@ -194,11 +159,6 @@ export const TaskCard = ({
                 )}
             <Buttons>
               <ChangeColumnButton/>
-              {/* <Btn type="button">
-                <Svg>
-                  <use xlinkHref={`${sprite}#icon-active`}></use>
-                </Svg>
-              </Btn> */}
               <Modal
                 isOpen={isModalOpen}
                 onRequestClose={closeModal}
@@ -210,7 +170,6 @@ export const TaskCard = ({
                   onCloseModal={closeModal}
                   task={{ _id, title, description, priority, deadline }}
                 />
-                {/* <PopUpSetColumn onCloseModal={closeModal} /> */}
               </Modal>
               <Btn type="button" onClick={openModal}>
                 <Svg>
