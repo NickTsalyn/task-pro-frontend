@@ -34,8 +34,7 @@ export const addBoard = createAsyncThunk(
 
 export const editBoard = createAsyncThunk(
     'boards/editBoard', async (data, thunkAPI) => {
-        try {
-            console.log(data);
+        try {            
             const res = await axios.patch(`/api/boards/${data._id}`, data.info)
             return res.data
         } catch(error) {

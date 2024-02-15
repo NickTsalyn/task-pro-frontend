@@ -45,7 +45,7 @@ export const HeaderDashboard = () => {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      backgroundColor: `${p => p.currentTheme.screensBgn}`,
+      backgroundColor: `${p => p.theme.currentTheme.modalBgn}`,
     },
   };
 

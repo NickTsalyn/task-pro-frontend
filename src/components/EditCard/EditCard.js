@@ -10,7 +10,7 @@ import {
   EditCardContCal,
   EditCardContMark,
   EditCardContainer,
-  EditCardDate,
+  // EditCardDate,
   EditCardDescription,
   EditCardHeader,
   EditCardInputColor,
@@ -47,7 +47,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
 
 
   const getFormattedDate = (date) => {
-     const today = new Date();
+    //  const today = new Date();
    
      if (isToday(date)) {
       

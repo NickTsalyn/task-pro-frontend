@@ -25,7 +25,6 @@ export const AddColumnModal = ({ onCloseModal }) => {
   const { t } = useTranslation('global');
   const dispatch = useDispatch();
   const { boardId } = useParams();
-  console.log(boardId);
 
   const successToaster = () => {
     toast.success('You successfully added new column!', {

@@ -30,7 +30,7 @@ export const StyledBurgerMenu = styled.button`
 `;
 
 export const StyledSVGBurger = styled.svg`
-  stroke: rgb(22, 22, 22);
+  stroke: ${p => p.theme.currentTheme.mainText};
   width: 100%;
   height: 100%;
 `;

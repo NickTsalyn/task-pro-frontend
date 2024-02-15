@@ -18,10 +18,10 @@ const filtersSlice = createSlice({
   },
   reducers: {
     togglePriority: (state, { payload }) => {
-      console.log({ payload });
+      
       if (state.filtersPriority.includes(payload)) {
         const foundItemIndex = state.filtersPriority.indexOf(payload);
-        console.log({ foundItemIndex });
+        
         state.filtersPriority.splice(foundItemIndex, 1);
         // find index
       } else {

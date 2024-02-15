@@ -20,23 +20,20 @@ import {
 } from 'components/AddCard/AddCard.styled';
 import { CardList } from 'components/CardList/CardList';
 import { AddCard } from 'components/AddCard/AddCard';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchTitle } from 'redux/tasks/operations';
 import { EditColumnButton } from 'components/EditColumnButtons/EditColumnButton/EditColumnButton';
 import { deleteColumn } from 'redux/columns/operations';
-import { selectedTheme } from 'redux/auth/selectors';
+
 import { useTranslation } from 'react-i18next';
 
 Modal.setAppElement('#root');
-export const ColumnListItem = ({ column }) => {
+export const ColumnListItem = ({ column, columns }) => {
   const { t } = useTranslation('global');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { _id } = column;
 
   const dispatch = useDispatch();
-
-  const currentTheme = useSelector(selectedTheme);
-  console.log(currentTheme);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -69,7 +66,7 @@ export const ColumnListItem = ({ column }) => {
   const handlerDeleteColumn = () => {
     try {
       const columnId = _id;
-      console.log(columnId);
+
       dispatch(deleteColumn(columnId));
       successToaster();
     } catch (error) {
@@ -91,7 +88,7 @@ export const ColumnListItem = ({ column }) => {
           </EditButton>
         </EditBlock>
       </ColumnHeader>
-      <CardList columnId={column._id} />
+      <CardList columnId={column._id} filtColumns={columns} />
       <AddAnotherCard onClick={openModal} type="submit">
         <AddCardSvgContainer>
           <AddCardButtonSvg>
