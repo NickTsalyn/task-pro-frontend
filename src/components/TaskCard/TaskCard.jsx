@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import sprite from '../../images/icons.svg';
-import { deleteTask, 
-  // editTask 
+import {
+  deleteTask,
+  // editTask
 } from 'redux/tasks/operations';
 import toast, { Toaster } from 'react-hot-toast';
 import Modal from 'react-modal';
@@ -38,12 +39,15 @@ import { EditCard } from 'components/EditCard/EditCard';
 import { ChangeColumnButton } from 'components/ChangeColumn/ChangeColumnButton';
 import { ChangeColumnModal } from 'components/ChangeColumn/ChangeColumnModal';
 // import { PopUpSetColumn } from "components/PopUpSetColumn/PopUpSetColumns";
+import { useTranslation } from 'react-i18next';
 
 Modal.setAppElement('#root');
 
 export const TaskCard = ({
   task: { _id, title, description, priority, deadline },
 }) => {
+  const { t } = useTranslation('global');
+
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -80,7 +84,6 @@ export const TaskCard = ({
       icon: '👍',
       duration: 4000,
       style: toastStyles.success,
-     
     });
   };
 
@@ -178,7 +181,7 @@ export const TaskCard = ({
               </PriorityContainer>
             </ToDoContainer>
             <DeadlineContainer>
-              <SubTitle>Deadline</SubTitle>
+              <SubTitle>{t('screenPage.render.modal.card.deadline')}</SubTitle>
               <TextDate>{formatDeadlineDate(deadline)}</TextDate>
             </DeadlineContainer>
           </CardPriorityDeadline>

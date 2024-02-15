@@ -26,6 +26,14 @@
       "new": "Nuova password",
       "confirm": "Conferma nuova password",
       "change": "Cambia password"
+    },
+    "error": {
+      "name": "Il nome è obbligatorio!",
+      "email": "L'e-mail è obbligatoria!",
+      "emailWrong": "Indirizzo e-mail non valido!",
+      "password": "La password è obbligatoria!",
+      "passwordShort": "La password è troppo corta!",
+      "passwordValid": "La password deve contenere almeno 8 caratteri, almeno una lettera, un numero e un carattere speciale!"
     }
   },
   "screenPage": {
@@ -87,6 +95,15 @@
           "email": "Inserisci la tua email",
           "password": "Inserisci la tua password",
           "send": "Invia"
+        },
+        "filter": {
+          "title": "Filtri",
+          "title2": "Colore dell'etichetta",
+          "without": "senza",
+          "low": "basso",
+          "medium": "medio",
+          "high": "alto",
+          "show": "Mostra tutto"
         }
       }
     }

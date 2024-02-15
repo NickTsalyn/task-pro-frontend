@@ -61,7 +61,7 @@ export const NeedHelpModal = ({ isOpen, onClose }) => {
               <Input
                 type="email"
                 name="email"
-                placeholder="Email address"
+                placeholder={t('screenPage.render.modal.help.email')}
                 as={Field}
               />
               <ErrorMessage
@@ -72,7 +72,7 @@ export const NeedHelpModal = ({ isOpen, onClose }) => {
               <Field
                 type="text"
                 name="comment"
-                placeholder="Comment"
+                placeholder={t('screenPage.render.modal.help.text')}
                 as={CommentInput} 
                             
               />
@@ -81,7 +81,7 @@ export const NeedHelpModal = ({ isOpen, onClose }) => {
                 component="div"
                 className="error-message"
               />
-              <SendButton type="submit">Send</SendButton>
+              <SendButton type="submit">{t('screenPage.render.modal.profile.send')}</SendButton>
             </Form>
           )}
         </Formik>

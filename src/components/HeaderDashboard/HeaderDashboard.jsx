@@ -74,16 +74,16 @@ export const HeaderDashboard = () => {
           </CloseModal>
           <Section>
             <div>
-              <SectionTitle>Filters</SectionTitle>
+              <SectionTitle>{t('screenPage.render.modal.filter.title')}</SectionTitle>
               <Line />
               <FormWraper>
-                <FormTitle>Label color</FormTitle>
+                <FormTitle>{t('screenPage.render.modal.filter.title2')}</FormTitle>
                 <ShowAllLabel
                   onClick={() => {
                     dispatch(showAll());
                   }}
                 >
-                  Show all
+                  {t('screenPage.render.modal.filter.show')}
                 </ShowAllLabel>
               </FormWraper>
               <PriorityCheckboxForm filtersPriority={filtersPriority} />
