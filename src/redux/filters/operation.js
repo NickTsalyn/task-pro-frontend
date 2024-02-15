@@ -4,8 +4,7 @@ import axios from 'axios';
 export const getProjectData = createAsyncThunk(
   'project/getData',
   async (_, thunkAPI) => {
-    try {
-      //   Todo fix url
+    try {      
       const res = await axios.get('project');
       return res.data;
     } catch (error) {

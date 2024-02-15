@@ -22,6 +22,15 @@ export const ThemeWrapper = ({ children }) => {
         shadowColor: 'rgba(22, 22, 22, 0.08)',
         colorFilterSVG: '',
       },
+      violetColors: {//
+        //додаткові кольори для VioletTheme
+        violetFill: '#ECEDFD', //фон Screen Page
+        accentColor: '#5255bc', //button
+        hoverViolet: '#7b7ede', //hover button
+        lightViolet: '#b8bcfd', //button +
+        violet: '#979cea', //hover button +
+        helpBlockColor: 'rgba(236, 237, 253, 0.4)',
+      },
       priorityColors: {
         // task's priority colors
         low: '#8FA1D0', //low priority
