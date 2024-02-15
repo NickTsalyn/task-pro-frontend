@@ -48,7 +48,8 @@ export const TaskCard = ({
   const { t } = useTranslation('global');
 
   const dispatch = useDispatch();
-
+  const [selectedDate, setSelectedDate] = useState(null);
+  const isDeadLinePassed = selectedDate && setSelectedDate > new Date();
   const [isModalOpen, setIsModalOpen] = useState(false);
   // const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
@@ -117,46 +118,6 @@ export const TaskCard = ({
     }
   };
 
-  // const toEditTask = async (taskId, updatedData) => {
-  //   try {
-  //     await dispatch(editTask({ id: taskId, updatedData }));
-  //     successToaster();
-  //   } catch (error) {
-  //     errorToaster(error.message);
-  //   }
-  // };
-
-  // const toDeleteTask = async (taskId) => {
-  //   try {
-  //     await dispatch(deleteTask(taskId));
-  //     successToaster();
-  //   } catch (error) {
-  //     errorToaster(error.message);
-  //   }
-  // };
-
-  // const successToaster = () => {
-  //   toast.success("It's success! Congratulations!", {
-  //     position: 'top-right',
-  //     duration: 4000,
-  //     style: {
-  //       background: 'green',
-  //       color: '#fff',
-  //     },
-  //   });
-  // };
-
-  // const errorToaster = error => {
-  //   toast.error(`Ooops.... It's ${error} error`, {
-  //     position: 'top-right',
-  //     duration: 4000,
-  //     style: {
-  //       background: 'red',
-  //       color: '#fff',
-  //     },
-  //   });
-  // };
-
   return (
     <TaskContainer>
       <PrioritySeeContainer value={priority}></PrioritySeeContainer>
@@ -181,22 +142,22 @@ export const TaskCard = ({
             </ToDoContainer>
             <DeadlineContainer>
               <SubTitle>{t('screenPage.render.modal.card.deadline')}</SubTitle>
+              {/* <TextDate> {selectedDate ? selectedDate.toLocaleDateString() : "No deadline"}
+</TextDate> */}
+
               <TextDate>{formatDeadlineDate(deadline)}</TextDate>
             </DeadlineContainer>
           </CardPriorityDeadline>
           <ButtonsContainer>
-            <Bell>
-              <SvgBell>
-                <use xlinkHref={`${sprite}#icon-bell-01`}></use>
-              </SvgBell>
-            </Bell>
+            {isDeadLinePassed ? null : (
+              <Bell>
+                <SvgBell>
+                  <use xlinkHref={`${sprite}#icon-bell-01`}></use>
+                </SvgBell>
+              </Bell>
+            )}
             <Buttons>
-              <ChangeColumnButton id={_id} filteredColumns={columns} />
-              {/* <Btn type="button">
-                <Svg>
-                  <use xlinkHref={`${sprite}#icon-active`}></use>
-                </Svg>
-              </Btn> */}
+              <ChangeColumnButton />
               <Modal
                 isOpen={isModalOpen}
                 onRequestClose={closeModal}
@@ -208,7 +169,6 @@ export const TaskCard = ({
                   onCloseModal={closeModal}
                   task={{ _id, title, description, priority, deadline }}
                 />
-                {/* <PopUpSetColumn onCloseModal={closeModal} /> */}
               </Modal>
               <Btn type="button" onClick={openModal}>
                 <Svg>

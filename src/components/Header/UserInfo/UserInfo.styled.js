@@ -16,7 +16,7 @@ export const StyledUserBtn = styled.button`
 `;
 
 export const StyledUserName = styled.p`
-  color: ${p => p.theme.colors.darkTextColor};
+  color: ${p => p.theme.currentTheme.mainText};
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: -0.02em;

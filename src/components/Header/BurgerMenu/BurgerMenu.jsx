@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import sprite from '../../../images/icons.svg';
 import {
   BurgerMenuWrapper,
@@ -13,36 +13,19 @@ export const BurgerMenu = () => {
   const burgerMenuRef = useRef(null);
   const sidebarRef = useRef(null);
 
-  const hendleOpenSidebar = () => {
-    console.log('Opening sidebar');
+  const handleOpenSidebar = () => {
     setOpen(!isOpen);
   };
 
-  useEffect(() => {
-    console.log('burgerMenuRef:', burgerMenuRef.current);
-    console.log('sidebarRef:', sidebarRef.current);
-    const handleClickClose = event => {
-      if (
-        burgerMenuRef.current &&
-        !burgerMenuRef.current.contains(event.target) &&
-        sidebarRef.current &&
-        !sidebarRef.current.contains(event.target)
-      ) {
-        setOpen(false);
-      }
-    };
-
-    document.addEventListener('click', handleClickClose);
-
-    return () => document.removeEventListener('click', handleClickClose);
-  }, [burgerMenuRef, sidebarRef]);
+  const handleCloseSidebar = () => {
+    setOpen(false);
+  };
 
   return (
     <BurgerMenuWrapper>
       <StyledBurgerMenu
         type="button"
-        onClick={hendleOpenSidebar}
-        isOpen={isOpen}
+        onClick={handleOpenSidebar}
         ref={burgerMenuRef}
       >
         <StyledSVGBurger>
@@ -51,8 +34,8 @@ export const BurgerMenu = () => {
       </StyledBurgerMenu>
       {isOpen && (
         <div>
-          <DarkBackground />
-          <Sidebar ref={sidebarRef} />
+          <DarkBackground onClick={handleCloseSidebar}/>
+          <Sidebar ref={sidebarRef} onItemClick={handleCloseSidebar}/>
         </div>
       )}
     </BurgerMenuWrapper>

@@ -21,7 +21,7 @@ const validationSchema = Yup.object({
   comment: Yup.string().required(''),
 });
 
-export const NeedHelpModal = ({ isOpen, onClose }) => {
+export const NeedHelpModal = ({ isOpen, onClose, onItemClick }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation('global');
 
@@ -81,7 +81,7 @@ export const NeedHelpModal = ({ isOpen, onClose }) => {
                 component="div"
                 className="error-message"
               />
-              <SendButton type="submit">{t('screenPage.render.modal.profile.send')}</SendButton>
+              <SendButton type="submit" onClick={onItemClick}>{t('screenPage.render.modal.profile.send')}</SendButton>
             </Form>
           )}
         </Formik>

@@ -1,3 +1,9 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase';
+import { getBoardById, deleteBoard, editBoard } from 'redux/boards/operations';
 import sprite from '../../../images/icons.svg';
 import {
   StyledBoardItem,
@@ -7,14 +13,11 @@ import {
   StyledSVGPensil,
   StyledSVGTrash,
 } from './BoardListItem.styled';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getBoardById, deleteBoard, editBoard } from 'redux/boards/operations';
-import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase';
-import { Link } from 'react-router-dom';
+
 
 export const BoardListItem = ({ board, isActive, onClick }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const [isModalOpen, setOpenModal] = useState(false);
 
   function CloseModal() {
@@ -33,6 +36,7 @@ export const BoardListItem = ({ board, isActive, onClick }) => {
 
   function HandleDelete() {
     dispatch(deleteBoard(board._id));
+    navigate('/home')
   }
 
   return (
