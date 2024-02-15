@@ -204,6 +204,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
                       onChange={date => {
                         setStartDate(date);
                         setIsCalendarOpen(isCalendarOpen);
+                        // setFieldValue('deadline', date);
                         
 
                      

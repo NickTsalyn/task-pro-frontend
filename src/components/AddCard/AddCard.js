@@ -61,7 +61,7 @@ export const AddCard = ({ onCloseModal, id }) => {
   const dispatch = useDispatch();
 
   const getFormattedDate = date => {
-    const today = new Date();
+   
 
     if (isToday(date)) {
       return `Today, ${format(date, 'MMMM d')}`;
@@ -205,8 +205,8 @@ export const AddCard = ({ onCloseModal, id }) => {
                       onChange={date => {
                         setStartDate(date);
                         setIsCalendarOpen(isCalendarOpen);
-
-                        console.log(isCalendarOpen);
+                        setFieldValue('deadline', date);
+                       
                       }}
                       dateFormat={
                         isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
