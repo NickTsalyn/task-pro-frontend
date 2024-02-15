@@ -29,11 +29,11 @@ import { useTranslation } from 'react-i18next';
 
 Modal.setAppElement('#root');
 export const ColumnListItem = ({ column }) => {
-  const {t} = useTranslation('global')
+  const { t } = useTranslation('global');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { _id } = column;
 
-  const dispatch = useDispatch();  
+  const dispatch = useDispatch();
 
   const currentTheme = useSelector(selectedTheme);
   console.log(currentTheme);
@@ -47,27 +47,14 @@ export const ColumnListItem = ({ column }) => {
   };
 
   useEffect(() => {
-    dispatch(fetchTitle())
-  }, [dispatch])
-  
-  
-  // const dispatch = useDispatch();
-  // const handlerEditColumn = (columnId, updatedData) => {
-  //   dispatch(editColumn({ id: columnId, ...updatedData }));
-  // };
-  // const handlerDeleteColumn = columnId => {
-  //   dispatch(deleteColumn(columnId));
-  // };
+    dispatch(fetchTitle());
+  }, [dispatch]);
 
   const successToaster = () => {
     toast.success('You successfully deleted column!', {
       icon: '👍',
       duration: 4000,
       style: toastStyles.success,
-      // {
-      //   background: 'green',
-      //   color: '#fff',
-      // },
     });
   };
 
@@ -76,18 +63,8 @@ export const ColumnListItem = ({ column }) => {
       icon: '🤔',
       duration: 4000,
       style: toastStyles.error,
-      // {
-      //   background: 'red',
-      //   color: '#fff',
-      // },
     });
   };
-
-  // const handlerDeleteColumn = () => {
-  //   const columnId = _id;
-  //   console.log(columnId);
-  //   dispatch(deleteColumn(columnId));
-  // };
 
   const handlerDeleteColumn = () => {
     try {
@@ -99,14 +76,12 @@ export const ColumnListItem = ({ column }) => {
       errorToaster(error.message);
     }
   };
- 
 
   return (
     <ColumnWrapper>
       <ColumnHeader>
         <ColumnTitle>{column.title}</ColumnTitle>
         <EditBlock>
-
           <EditColumnButton column={column} />
 
           <EditButton type="button" onClick={handlerDeleteColumn}>
@@ -114,18 +89,18 @@ export const ColumnListItem = ({ column }) => {
               <use xlinkHref={`${sprite}#icon-trash-04`} />
             </EditSVG>
           </EditButton>
-
         </EditBlock>
       </ColumnHeader>
       <CardList columnId={column._id} />
-      {/* <AddColumnButton/> */}
       <AddAnotherCard onClick={openModal} type="submit">
         <AddCardSvgContainer>
           <AddCardButtonSvg>
             <use xlinkHref={`${sprite}#icon-plus`}></use>
           </AddCardButtonSvg>
         </AddCardSvgContainer>
-        <AddCardSvgButtonText>{t('screenPage.render.addCard')}</AddCardSvgButtonText>
+        <AddCardSvgButtonText>
+          {t('screenPage.render.addCard')}
+        </AddCardSvgButtonText>
       </AddAnotherCard>
 
       <Modal

@@ -103,10 +103,12 @@ export const AddCard = ({ onCloseModal, id }) => {
       }}
     >
       <AddCardWrapper>
+
         <CLoseButton onClick={onCloseModal} type="button">
           <AddCardSvgClose>
             <use xlinkHref={`${sprite}#icon-x-close`}></use>
           </AddCardSvgClose>
+          
         </CLoseButton>
         <AddCardContainer>
           <AddCardHeader>
