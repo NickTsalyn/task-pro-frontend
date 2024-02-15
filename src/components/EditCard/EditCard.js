@@ -1,10 +1,6 @@
 import { Field, Formik } from 'formik';
+// import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../images/icons.svg';
-// import DatePicker from 'react-date-picker';
-import { format } from 'date-fns';
-
-
-
 import { CLoseButton } from '../../components/EditProfileModal/EditProfileModal.styled';
 
 import {
@@ -29,48 +25,51 @@ import {
   EditCardWrapper,
 } from './EditCard.styled';
 import { useState} from 'react';
-import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
 import {  editTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 import { toastStyles } from '../../ToasterOptions';
 import { useTranslation } from 'react-i18next';
-import { CalendarContainer, DatePickerCalendar, DayText, BtnOpenCal } from 'components/AddCard/AddCard.styled';
+import { BtnOpenCal, CalendarContainer, CustomCalendarContainer, DayText } from 'components/AddCard/AddCard.styled';
+import { DatePickerNew } from 'components/DatePicker/DatePicker';
+import { format } from 'date-fns';
+
+
 
 export const EditCard = ({ onCloseModal,task: {  _id, title, description, priority,deadline } }) => {
   const {t} = useTranslation('global')
   const [startDate, setStartDate] = useState(new Date());
+  const [isCalendarOpen, setCalendarOpen] = useState(true);
+  const [selectedDate, setSelectedDate] = useState(null);
   const dispatch = useDispatch();
-  const [selectedDate, setselectedDate] = useState(null);
-   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
-
-   const getFormattedDate = (date) => {
-    // const today = new Date();
-  
-    if (isToday(date)) {
-      // Якщо дата - сьогодні
-      return `Today, ${format(date, 'MMMM d')}`;
-    }
-  
-    // Якщо дата не сьогодні
-    return format(date, 'MMMM d, yyyy');
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    // setIsOpen(false);
   };
-  
-  const isToday = (date) => {
-    const today = new Date();
-    return (
-      date.getDate() === today.getDate() &&
-      date.getMonth() === today.getMonth() &&
-      date.getFullYear() === today.getFullYear()
-    );
-  };
-  const currentDate = new Date();
-const formattedDate = getFormattedDate(currentDate);
 
-const toOpenCalendar = () => {
-  setIsCalendarOpen(!isCalendarOpen);
-};
+  const getFormattedDate = (date) => {
+     const today = new Date();
+   
+     if (isToday(date)) {
+       // Якщо дата - сьогодні
+       return `Today, ${format(date, 'MMMM d')}`;
+     }
+   
+     // Якщо дата не сьогодні
+     return format(date, 'MMMM d, yyyy');
+   };
+   
+   const isToday = (date) => {
+     const today = new Date();
+     return (
+       date.getDate() === today.getDate() &&
+       date.getMonth() === today.getMonth() &&
+       date.getFullYear() === today.getFullYear()
+     );
+   };
+   const currentDate = new Date();
+ const formattedDate = getFormattedDate(currentDate);
   
   // const formik = useFormik({
   //   initialValues: {
@@ -137,13 +136,13 @@ const toOpenCalendar = () => {
         successToaster();
       }}
     >
-      {({ values, setFieldValue }) => (
       <EditCardWrapper>
-        <CLoseButton type="button" onClick = {onCloseModal}>
+        <CLoseButton onClick={onCloseModal} type="button">
           <EditCardSvgClose>
             <use xlinkHref={`${sprite}#icon-x-close`}></use>
           </EditCardSvgClose>
-          </CLoseButton>
+        </CLoseButton>
+
         <EditCardContainer>
           <EditCardHeader>
             {t('screenPage.render.modal.card.editTitle')}
@@ -212,29 +211,33 @@ const toOpenCalendar = () => {
               </label>
             </EditCardColorCont>
             <EditCardContCal>
-              <EditCardTextCal>{t('screenPage.render.modal.card.deadline')}</EditCardTextCal>
-              <CalendarContainer> 
-                  <DayText>{formattedDate}</DayText>
-                  <BtnOpenCal type="button" onClick={toOpenCalendar}>
-                    <svg>
-                      <use xlinkHref= {`${sprite}#icon-chevron-down1`}></use>
-                    </svg>
+              <EditCardTextCal>
+                {t('screenPage.render.modal.card.deadline')}
+              </EditCardTextCal>
+              <CalendarContainer>
+                    <BtnOpenCal
+                    type="button"
+                    className="sc-gHRYGD jSCLHb"
+                     onClick={() => setCalendarOpen(!isCalendarOpen)}
+                    >
+                      <DayText>{formattedDate}</DayText>
+                    {/* <svg>
+                        <use xlinkHref="/task-pro-frontend/static/media/icons.aac6f44bcaee16261ed30d1da75e7958.svg#icon-chevron-down1"></use>
+                      </svg> */}
                   </BtnOpenCal>
-                <DatePickerCalendar
-                 selected={selectedDate}
-                 onChange={(date) => {
-                  setStartDate(date);
-                 setselectedDate(date);
-                 setFieldValue('deadline', date);
-                 }}
-                  format="EEEE, MMMM d"
-                  formatDay={(date) => format(date, 'd')}
-                  isCalendarOpen={isCalendarOpen}
-
-               />
-              </CalendarContainer>
+                  {isCalendarOpen && (
+                   <CustomCalendarContainer className="custom-calendar-container">
+                      <DatePickerNew
+                         selected={selectedDate}
+                         onChange={handleDateChange}
+                         dateFormat={
+                          isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
+                        }
+                     />
+                   </CustomCalendarContainer>)}
+               </CalendarContainer>
               {/* <EditCardDate
-              name='deadline'
+                name="deadline"
                 selected={startDate}
                 onChange={date => setStartDate(date)}
                 dateFormat={
@@ -256,7 +259,6 @@ const toOpenCalendar = () => {
           </EditCardSvgButtonText>
         </EditCardBtn>
       </EditCardWrapper>
-      )}
     </Formik>
   );
               }
