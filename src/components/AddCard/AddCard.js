@@ -94,7 +94,7 @@ export const AddCard = ({ onCloseModal, id }) => {
         title: '',
         description: '',
         priority: '' || 'Without',
-        deadline: `${startDate}`,
+        deadline: `${formattedDate}`,
       }}
       onSubmit={(values, { resetForm }) => {
         const newCard = {
