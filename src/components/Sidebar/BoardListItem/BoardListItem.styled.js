@@ -5,7 +5,7 @@ export const StyledBoardList = styled.div`
   display: flex;
   padding: 22px 18px 22px 14px;
   margin: 0 auto;
-
+justify-content: space-between;
   background-color: ${({ isActive }) =>
     isActive ? 'rgba(255, 255, 255, 0.2)' : 'transparent'};
  
@@ -88,6 +88,5 @@ export const StyledBtnWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-left: auto;
   display: ${({ isActive }) => (isActive ? 'flex' : 'none')};
 `;
