@@ -1,6 +1,9 @@
 import { Field, Formik } from 'formik';
-import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../images/icons.svg';
+// import DatePicker from 'react-date-picker';
+import { format } from 'date-fns';
+
+
 
 
 import {
@@ -10,7 +13,7 @@ import {
   EditCardContCal,
   EditCardContMark,
   EditCardContainer,
-  EditCardDate,
+  // EditCardDate,
   // AddCardDesc,
   EditCardDescription,
   EditCardHeader,
@@ -18,7 +21,7 @@ import {
   EditCardLabelText,
   EditCardOptionCont,
   EditCardSvgButtonText,
-  // EditCardSvgClose,
+  EditCardSvgClose,
   EditCardSvgContainer,
   EditCardTextCal,
   EditCardTextCont,
@@ -26,17 +29,48 @@ import {
   EditCardWrapper,
 } from './EditCard.styled';
 import { useState} from 'react';
-// import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
+import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled';
 import {  editTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 import { toastStyles } from '../../ToasterOptions';
 import { useTranslation } from 'react-i18next';
+import { CalendarContainer, DatePickerCalendar, DayText, BtnOpenCal } from 'components/AddCard/AddCard.styled';
 
 export const EditCard = ({ onCloseModal,task: {  _id, title, description, priority,deadline } }) => {
   const {t} = useTranslation('global')
   const [startDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
+  const [selectedDate, setselectedDate] = useState(null);
+   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+
+
+   const getFormattedDate = (date) => {
+    // const today = new Date();
+  
+    if (isToday(date)) {
+      // Якщо дата - сьогодні
+      return `Today, ${format(date, 'MMMM d')}`;
+    }
+  
+    // Якщо дата не сьогодні
+    return format(date, 'MMMM d, yyyy');
+  };
+  
+  const isToday = (date) => {
+    const today = new Date();
+    return (
+      date.getDate() === today.getDate() &&
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear()
+    );
+  };
+  const currentDate = new Date();
+const formattedDate = getFormattedDate(currentDate);
+
+const toOpenCalendar = () => {
+  setIsCalendarOpen(!isCalendarOpen);
+};
   
   // const formik = useFormik({
   //   initialValues: {
@@ -61,14 +95,14 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
 
 //   }
 
-  const isToday = date => {
-    const today = new Date();
-    return (
-      date.getDate() === today.getDate() &&
-      date.getMonth() === today.getMonth() &&
-      date.getFullYear() === today.getFullYear()
-    );
-  };
+  // const isToday = date => {
+  //   const today = new Date();
+  //   return (
+  //     date.getDate() === today.getDate() &&
+  //     date.getMonth() === today.getMonth() &&
+  //     date.getFullYear() === today.getFullYear()
+  //   );
+  // };
 
    const successToaster = () => {
      toast.success('You successfully edited card!', {
@@ -105,12 +139,13 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
 
       }}
     >
+      {({ values, setFieldValue }) => (
       <EditCardWrapper>
-        {/* <CLoseButton onClick = {onCloseModal}>
+        <CLoseButton type="button" onClick = {onCloseModal}>
           <EditCardSvgClose>
           <use xlinkHref={`${sprite}#icon-x-close`}></use>
           </EditCardSvgClose>
-          </CLoseButton> */}
+          </CLoseButton>
         <EditCardContainer>
           <EditCardHeader>{t('screenPage.render.modal.card.editTitle')}</EditCardHeader>
           <EditCardTextCont>
@@ -144,7 +179,27 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
             </EditCardColorCont>
             <EditCardContCal>
               <EditCardTextCal>{t('screenPage.render.modal.card.deadline')}</EditCardTextCal>
-              <EditCardDate
+              <CalendarContainer> 
+                  <DayText>{formattedDate}</DayText>
+                  <BtnOpenCal type="button" onClick={toOpenCalendar}>
+                    <svg>
+                      <use xlinkHref= {`${sprite}#icon-chevron-down1`}></use>
+                    </svg>
+                  </BtnOpenCal>
+                <DatePickerCalendar
+                 selected={selectedDate}
+                 onChange={(date) => {
+                  setStartDate(date);
+                 setselectedDate(date);
+                 setFieldValue('deadline', date);
+                 }}
+                  format="EEEE, MMMM d"
+                  formatDay={(date) => format(date, 'd')}
+                  isCalendarOpen={isCalendarOpen}
+
+               />
+              </CalendarContainer>
+              {/* <EditCardDate
               name='deadline'
                 selected={startDate}
                 onChange={date => setStartDate(date)}
@@ -152,7 +207,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
                   isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
                 }
                 showWeekNumbers
-              />
+              /> */}
             </EditCardContCal>
           </EditCardOptionCont>
         </EditCardContainer>
@@ -165,6 +220,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
           <EditCardSvgButtonText>{t('screenPage.render.modal.card.editBtn')}</EditCardSvgButtonText>
         </EditCardBtn>
       </EditCardWrapper>
+      )}
     </Formik>
   );
               }
