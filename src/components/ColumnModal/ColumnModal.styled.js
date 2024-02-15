@@ -7,7 +7,7 @@ export const ModalCloseButton = styled.button`
   width: 18px;
   height: 18px;
   border-color: transparent;
-  background-color: #fcfcfc;
+  background-color: {p => p.theme.currentTheme.inputBgn};
   transition: stroke 0.3s;
 `;
 export const StyledSvgClose = styled.svg`
