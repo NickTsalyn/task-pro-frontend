@@ -14,6 +14,7 @@ import {
   // AddCardDesc,
   EditCardDescription,
   EditCardHeader,
+  EditCardInputColor,
   EditCardLabelColor,
   EditCardLabelText,
   EditCardOptionCont,
@@ -138,26 +139,42 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
 
               <label>
                 <EditCardContMark>
-                  <EditCardLabelColor
+                <EditCardInputColor
+                    id="priorityLow"
                     type="radio"
                     name="priority"
                     value="Low"
                   />
-                  <EditCardLabelColor
+                <label className='radio-label' value="Low" htmlFor="priorityLow">
+                 
+                </label>
+                <EditCardInputColor
+                    id="priorityMedium"
                     type="radio"
                     name="priority"
                     value="Medium"
                   />
-                  <EditCardLabelColor
+                <label className='radio-label' value="Medium" htmlFor="priorityMedium">
+                
+                </label>
+                <EditCardInputColor
+                    id="priorityHigh"
                     type="radio"
                     name="priority"
                     value="High"
                   />
-                  <EditCardLabelColor
+                <label className='radio-label' value="High" htmlFor="priorityHigh">
+                  
+                </label>
+                <EditCardInputColor
+                    id="priorityWithout"
                     type="radio"
                     name="priority"
                     value="Without"
                   />
+                <label className='radio-label' value="Without" htmlFor="priorityWithout">
+                 
+                </label>
                 </EditCardContMark>
               </label>
             </EditCardColorCont>

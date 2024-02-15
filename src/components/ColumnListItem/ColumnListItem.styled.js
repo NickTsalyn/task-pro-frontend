@@ -16,7 +16,8 @@ export const ColumnHeader = styled.div`
   background-color: ${p => p.theme.currentTheme.taskBgn };
 `;
 export const ColumnTitle = styled.h3`
-  margin-left: ${p => p.theme.spacing(5)};   
+  margin-left: ${p => p.theme.spacing(5)};
+  font-weight: 500;   
   letter-spacing: -0.28px;
   color: ${p => p.theme.currentTheme.mainText };
 `;

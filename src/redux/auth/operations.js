@@ -103,12 +103,13 @@ export const changePassword = createAsyncThunk(
   'auth/changePassword',
   async (credentials, thunkAPI) => {
     try {
-      await axios.post('/api/users/changePassword', credentials);
+      await axios.patch('/api/users/reset-password', credentials);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
+
 //ЗМІНА ТЕМИ
 export const changeTheme = createAsyncThunk(
   'auth/theme',
@@ -121,7 +122,7 @@ export const changeTheme = createAsyncThunk(
     }
     try {
       setAuthHeader(persistedToken);
-      const response = await axios.patch('api/users/changeTheme', credentials );
+      const response = await axios.patch('api/users/changeTheme', credentials);
       console.log(response.data.theme);
       return response.data;
     } catch (error) {

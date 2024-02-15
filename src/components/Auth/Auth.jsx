@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 
 import { PasswordRecovery } from 'components/PasswordRecovery/PasswordRecovery';
 import { ForgetPassword } from 'components/ForgetPassword/ForgetPassword';
+import { Helmet } from 'react-helmet';
 
 const Auth = () => {
   const { id } = useParams();
@@ -23,6 +24,9 @@ const Auth = () => {
       <FormContainer>
         <LinkWrapper>
           <AuthLinks to="/auth/register">
+            <Helmet>
+              <title>Authorization</title>
+            </Helmet>
             {t('welcomePage.welcome.registration')}
           </AuthLinks>
           <AuthLinks to="/auth/login">
