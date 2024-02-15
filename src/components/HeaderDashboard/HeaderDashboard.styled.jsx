@@ -174,7 +174,7 @@ export const CheckboxContainer = styled.div`
         content: '';
         background-color: ${p => {
           if (p.priority === 'without') {
-            return p.theme.priorityColors.without;
+            return p.theme.currentTheme.withoutbl;
           }
           if (p.priority === 'low') {
             return p.theme.priorityColors.low;
@@ -219,7 +219,7 @@ export const CheckboxContainer = styled.div`
         &:before {
           background-color: ${p => {
             if (p.priority === 'without') {
-              return p.theme.priorityColors.without;
+              return p.theme.priorityColors.withoutbl;
             }
             if (p.priority === 'low') {
               return p.theme.priorityColors.low;
