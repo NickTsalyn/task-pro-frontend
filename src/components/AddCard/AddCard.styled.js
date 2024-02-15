@@ -23,7 +23,7 @@
   flex-direction: column;
 
   width: 287px;
-  background-color: ${p => p.theme.colors.white};
+  background-color: ${p => p.theme.currentTheme.taskBgn};
 
   `
   export const AddCardContainer = styled.div`
@@ -38,7 +38,7 @@
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
-  color: ${p=> p.theme.colors.darkTextColor};
+  color: ${p=> p.theme.currentTheme.mainText};
   width: 100%;
 
   `
@@ -57,16 +57,16 @@
     letter-spacing: -0.02em;
     padding: 14px 18px;
     border-radius: ${p => p.theme.radius.m};
-    border: 1px solid ${p => p.theme.violetColors.accentColor};
-    background: ${p => p.theme.violetColors.bgColor};
-    color: ${p => p.theme.colors.darkTextColor};
+    border: 1px solid ${p => p.theme.currentTheme.accent};
+    background: ${p => p.theme.currentTheme.inputBgn};
+    color: ${p => p.theme.currentTheme.mainText};
     opacity: 0.4;
     outline: none;
     box-shadow: 0px 4px 16px 0px ${p => p.theme.colors.shadowColor};
     box-sizing: border-box;
     &::placeholder {
       font-size: 14px;
-      color: ${p => p.theme.colors.darkTextColor};
+      color: ${p => p.theme.currentTheme.mainText};
       letter-spacing: -0.02em;
     }
     &:focus {
@@ -82,9 +82,9 @@
     letter-spacing: -0.02em;
     padding: 14px 18px;
     border-radius: ${p => p.theme.radius.m};
-    border: 1px solid ${p => p.theme.violetColors.accentColor};
-    background: ${p => p.theme.violetColors.bgColor};
-    color: ${p => p.theme.colors.darkTextColor};
+    border: 1px solid ${p => p.theme.currentTheme.accent};
+    background: ${p => p.theme.currentTheme.inputBgn};
+    color: ${p => p.theme.currentTheme.mainText};
     opacity: 0.4;
     outline: none;
     box-shadow: 0px 4px 16px 0px ${p => p.theme.colors.shadowColor};
@@ -92,7 +92,7 @@
     resize:none;
     &::placeholder {
       font-size: 14px;
-      color: ${p => p.theme.colors.darkTextColor};
+      color: ${p => p.theme.currentTheme.mainText};
     }
     &:focus {
       opacity: 1;
@@ -124,7 +124,7 @@
   margin: 0;
   font-size: 12px;
   letter-spacing: -0.02em;
-  color: ${p => p.theme.colors.greyIconColor};
+  color: ${p => p.theme.currentTheme.grayText};
 
 
   `
