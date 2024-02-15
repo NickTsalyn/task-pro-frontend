@@ -28,7 +28,7 @@ export const addTask = createAsyncThunk(
       priority,
       deadline,
     });
-    console.log(response);
+    
     return response.data;
     // }
     // } catch (error) {
@@ -86,5 +86,3 @@ export const deleteTask = createAsyncThunk(
     }
   }
 );
-
-// move textDecorationSkip:

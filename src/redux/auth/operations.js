@@ -122,8 +122,7 @@ export const changeTheme = createAsyncThunk(
     }
     try {
       setAuthHeader(persistedToken);
-      const response = await axios.patch('api/users/changeTheme', credentials);
-      console.log(response.data.theme);
+      const response = await axios.patch('api/users/changeTheme', credentials);      
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
