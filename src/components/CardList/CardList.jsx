@@ -6,7 +6,7 @@ import { fetchTitle } from 'redux/tasks/operations';
 import { useEffect } from 'react';
 import { selectFiltersPriority } from 'redux/filters/selectors';
 
-export const CardList = ({ columnId }) => {
+export const CardList = ({ columnId, filtColumns }) => {
   const dispatch = useDispatch();
   const selectedPriority = useSelector(selectFiltersPriority);
   const formattedPriority = selectedPriority.map(
@@ -32,7 +32,7 @@ export const CardList = ({ columnId }) => {
     <CardListStyled>
       {filteredTasks.map(task => (
         <li key={task._id}>
-          <TaskCard task={task} />
+          <TaskCard task={task} columns={filtColumns} />
         </li>
       ))}
     </CardListStyled>

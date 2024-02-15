@@ -12,7 +12,7 @@ export const ColumnList = ({ columns }) => {
       <ColumnListStyled>
         {columns.map(column => (
           <li key={column._id}>
-            <ColumnListItem column={column} />
+            <ColumnListItem column={column} columns={columns} />
           </li>
         ))}
       </ColumnListStyled>

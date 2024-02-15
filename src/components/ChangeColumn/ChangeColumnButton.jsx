@@ -6,8 +6,9 @@ import { ChangeButtonCard, StyledSVGChangeColumn } from './ChangeColumn.styled';
 
 Modal.setAppElement('#root');
 
-export const ChangeColumnButton = () => {
+export const ChangeColumnButton = props => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { id, filteredColumns } = props;
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -30,7 +31,7 @@ export const ChangeColumnButton = () => {
         className={'modal-content'}
         closeTimeoutMS={300}
       >
-        <ChangeColumnModal />
+        <ChangeColumnModal taskId={id} columns={filteredColumns} />
       </Modal>
     </div>
   );

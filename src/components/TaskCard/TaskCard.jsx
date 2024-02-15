@@ -43,12 +43,13 @@ Modal.setAppElement('#root');
 
 export const TaskCard = ({
   task: { _id, title, description, priority, deadline },
+  columns,
 }) => {
   const { t } = useTranslation('global');
 
   const dispatch = useDispatch();
   const [selectedDate, setSelectedDate] = useState(null);
-  const isDeadLinePassed = selectedDate && setSelectedDate > new Date()
+  const isDeadLinePassed = selectedDate && setSelectedDate > new Date();
   const [isModalOpen, setIsModalOpen] = useState(false);
   // const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
@@ -117,8 +118,6 @@ export const TaskCard = ({
     }
   };
 
-  
-
   return (
     <TaskContainer>
       <PrioritySeeContainer value={priority}></PrioritySeeContainer>
@@ -150,15 +149,15 @@ export const TaskCard = ({
             </DeadlineContainer>
           </CardPriorityDeadline>
           <ButtonsContainer>
-          {isDeadLinePassed ? null : (
-                <Bell >
-                 <SvgBell>
-                    <use xlinkHref= {`${sprite}#icon-bell-01`}></use>
-                 </SvgBell>
-                </Bell> 
-                )}
+            {isDeadLinePassed ? null : (
+              <Bell>
+                <SvgBell>
+                  <use xlinkHref={`${sprite}#icon-bell-01`}></use>
+                </SvgBell>
+              </Bell>
+            )}
             <Buttons>
-              <ChangeColumnButton/>
+              <ChangeColumnButton />
               <Modal
                 isOpen={isModalOpen}
                 onRequestClose={closeModal}
