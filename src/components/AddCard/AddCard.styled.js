@@ -179,13 +179,6 @@
     border: 1px solid ${(props) => getColor(props)};
   }
 
-  /* &:hover::before {
-    background-color: ${(props) => getColor(props)};
-    box-shadow: inset 0 0 0 4px white;
-  } */
-
- 
-
   &:checked + &::before {
     background-color: ${(props) => getColor(props)};
     box-shadow: inset 0 0 0 4px white;
@@ -193,14 +186,9 @@
   }
 `;
   export const AddCardContMark = styled.div`
-
   display: flex;
   gap:8px;
-
-
   `
-
-
   export const AddCardBtn = styled.button`
   display: flex;
   align-items: center;
@@ -209,39 +197,14 @@
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: ${p => p.theme.violetColors.accentColor};
+  background-color: ${p => p.theme.currentTheme.accent};
   border-radius:8px;
   border-color:transparent;
   font-size: 14px;
   font-weight: 500;
   line-height: 21px;
   letter-spacing: -2%;
-
-
   `
-
-  // export const AddCardDate = styled(DatePicker)`
-  // padding: 0;
-  // background-color: ${p => p.theme.violetColors.bgColor};
-  //  border:none;
-  //  color: ${p => p.theme.violetColors.accentColor};
-  //  outline: none;
-  //  font-weight: 500;
-  // font-size: 14px;
-  // letter-spacing: -0.02em;
-  // .react-datepicker__month-container{
-  // background-color: '#ECEDFD';
-  // color:'#ECEDFD';
-
-
-  // }
-  // .react-datepicker__header  {
-  //     background-color: #4caf50;
-  //     color: #fff;
-  //   }
-
-  // `
-
   export const AddCardContCal = styled.div`
   display: flex;
   flex-direction: column;
@@ -252,18 +215,14 @@
   flex-direction: column;
   gap:14px;
   margin-bottom: 40px;
-
-
   `
   export const AddCardTextCal = styled.p`
   padding:0;
   margin: 0;
   font-size: 12px;
   letter-spacing: -0.02em;
-  color:${p => p.theme.colors.greyIconColor};
-
+  color:${p => p.theme.currentTheme.grayText};
   `
-
   export const AddCardSvgContainer = styled.span`
   display: flex;
   align-items: 'center';
@@ -272,7 +231,7 @@
 
   width: 28px;
   height: 28px;
-  background-color:${p => p.theme.colors.white};
+  background-color:${p => p.theme.currentTheme.plusIconFill};
 
 
 
@@ -282,27 +241,21 @@
 
   export const AddCardButtonSvg = styled.svg`
 
-
-
-  fill: ${p => p.theme.colors.darkTextColor};
-    stroke: ${p => p.theme.colors.darkTextColor};
+    fill: ${p => p.theme.currentTheme.plusIconFill};
+    stroke: ${p => p.theme.currentTheme.plusIconStroke};
   
     width: 14px;
     height: 14px;
     margin:auto;
-  
-
-  `
+    `
   export const AddCardSvgButtonText = styled.p`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.currentTheme.plusIconFill};
   padding: 0;
   margin: 0;
-
   `
-
   export const AddAnotherCard = styled.button`
   margin-bottom:24px;
   display: flex;
@@ -312,7 +265,7 @@
   width: 334px;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: ${p => p.theme.violetColors.accentColor};
+  background-color: ${p => p.theme.currentTheme.accent};
   border-radius:8px;
   border-color:transparent;
   font-weight: 500;
@@ -328,8 +281,8 @@
   `
 
   export const AddCardSvgClose = styled.svg`
-  fill: ${p => p.theme.colors.darkTextColor};
-    stroke: ${p => p.theme.colors.darkTextColor};
+  fill: ${p => p.theme.currentTheme.mainText};
+    stroke: ${p => p.theme.currentTheme.mainText};
     width: 18px;
     height: 18px;
 
@@ -339,10 +292,10 @@
       width: 233px; 
       height: auto;
       padding: 18px;
-      background-color: ${p => p.theme.colors.headerBgn};
-      border: 1px solid ${p => p.theme.colors.accent}; //#5255bc;
+      background-color: ${p => p.theme.currentTheme.headerBgn};
+      border: 1px solid ${p => p.theme.currentTheme.accent}; //#5255bc;
       border-radius: ${p => p.theme.radius.m};
-      box-shadow: 0 4px 8px ${p => p.theme.colors.grayText}; //rgba(0, 0, 0, 0.1)
+      box-shadow: 0 4px 8px ${p => p.theme.currentTheme.grayText}; //rgba(0, 0, 0, 0.1)
       position: absolute;
       z-index: 1000;
       top: 40px; 
@@ -364,7 +317,7 @@
       padding-bottom: ${p => p.theme.spacing(3.5)};
       margin-bottom: ${p => p.theme.spacing(3.5)};
       border-color: transparent;
-      border-bottom: 1px solid ${p => p.theme.colors.horizontScroll}; //#16161633;
+      border-bottom: 1px solid ${p => p.theme.currentTheme.horizontScroll}; //#16161633;
     }
 
     .react-calendar__navigation__label{
@@ -377,13 +330,13 @@
     .react-calendar__navigation__next-button {
       width: 6px;
       height: 10px;
-      color: ${p => p.theme.colors.mainText}; //#161616
+      color: ${p => p.theme.currentTheme.mainText}; //#161616
       background: transparent;
       border: none;
       transition: 200ms ease-out;
 
       &:hover {
-      color: ${p => p.theme.colors.accent}; //#5255BC
+      color: ${p => p.theme.currentTheme.accent}; //#5255BC
       }
     }
 
@@ -393,7 +346,7 @@
       font-size: 16px;
       font-weight: 500;
       letter-spacing: -0.02em;
-      color: ${p => p.theme.colors.mainText}; //#161616
+      color: ${p => p.theme.currentTheme.mainText}; //#161616
       margin-bottom: ${p => p.theme.spacing(3.5)};
     }
 
@@ -408,7 +361,7 @@
       text-align: center;
       font-weight: 500;
       letter-spacing: -0.02em;
-      color: ${p => p.theme.colors.grayText}; //#16161680 || #rgba(225, 225, 225, 0.5);
+      color: ${p => p.theme.currentTheme.grayText}; //#16161680 || #rgba(225, 225, 225, 0.5);
 
       abbr{
         text-decoration: none;
@@ -427,7 +380,7 @@
       flex: 0 0 14.2857%;  
       overflow: hidden; 
       margin-inline-end: 0px;
-      color: ${p => p.theme.colors.mainText}; //#161616
+      color: ${p => p.theme.currentTheme.mainText}; //#161616
       opacity: 20%;
       font-size: 14px;
       line-height: 1.3;
@@ -441,7 +394,7 @@
       transition: 200ms ease-out;
 
       &:hover {
-        background-color: ${p => p.theme.colors.accent}; //#5255BC
+        background-color: ${p => p.theme.currentTheme.accent}; //#5255BC
         border-radius: 50%;
         border-color: transparent;
       }
@@ -451,7 +404,7 @@
       &--rangeStart,
       &--rangeEnd,
       &--rangeBothEnds {
-        background-color: ${p => p.theme.colors.accent}; //#5255BC
+        background-color: ${p => p.theme.currentTheme.accent}; //#5255BC
         color: ${p => p.theme.colors.white}; //#fff
         border-radius: 50%;
         border-color: transparent;
