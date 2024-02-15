@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { App } from 'App';
 import './index.css';
 import { Provider } from 'react-redux';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistor, store } from 'redux/store';
 import { Toaster } from 'react-hot-toast';
@@ -87,12 +87,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <I18nextProvider i18n={i18next}>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <HashRouter basename="/task-pro-frontend">
+          <BrowserRouter basename="/task-pro-frontend">
             <ThemeWrapper>            
               <Toaster toastOptions={toastStyles} />
               <App />
             </ThemeWrapper>  
-          </HashRouter>
+          </BrowserRouter>
         </PersistGate>
       </Provider>
     </I18nextProvider>    
