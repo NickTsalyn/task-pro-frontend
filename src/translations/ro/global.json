@@ -87,6 +87,23 @@
           "email": "Introdu adresa ta de email",
           "password": "Introdu parola ta",
           "send": "Trimite"
+        },
+        "filter": {
+          "title": "Filtre",
+          "title2": "Culoare etichetă",
+          "without": "fără",
+          "low": "scăzut",
+          "medium": "mediu",
+          "high": "ridicat",
+          "show": "Afișează tot"
+        },
+        "error": {
+          "name": "Numele este obligatoriu!",
+          "email": "E-mailul este obligatoriu!",
+          "emailWrong": "Adresa de e-mail nu este validă!",
+          "password": "Parola este obligatorie!",
+          "passwordShort": "Parola este prea scurtă!",
+          "passwordValid": "Parola trebuie să conțină cel puțin 8 caractere, cel puțin o literă, un număr și un caracter special!"
         }
       }
     }
