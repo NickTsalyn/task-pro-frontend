@@ -1,3 +1,7 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { getBoardById, deleteBoard, editBoard } from 'redux/boards/operations';
 import sprite from '../../../images/icons.svg';
 import {
   StyledBoardItem,
@@ -7,11 +11,7 @@ import {
   StyledSVGPensil,
   StyledSVGTrash,
 } from './BoardListItem.styled';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getBoardById, deleteBoard, editBoard } from 'redux/boards/operations';
 import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase';
-import { Link } from 'react-router-dom';
 
 export const BoardListItem = ({ board, isActive, onClick }) => {
   const dispatch = useDispatch();
