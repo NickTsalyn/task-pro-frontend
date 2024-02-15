@@ -25,7 +25,7 @@ export const Container = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    width: 473px;
+    min-width: 473px;
     height: 438px;
   }
 `;
@@ -74,6 +74,7 @@ export const StyledText = styled.p`
   letter-spacing: -0.02em;
   text-align: center;
   margin: 0 auto ${p=> p.theme.spacing(12)};
+  padding: 0 1px;
 `;
 export const RegistrationBtn = styled.button`
   width: 100%;
