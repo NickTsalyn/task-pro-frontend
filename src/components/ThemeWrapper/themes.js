@@ -35,6 +35,7 @@ export const violetTheme = {
   textModal: 'rgba(22, 22, 22, 0.7)',
   withoutbl: 'rgba(22, 22, 22, 0.3);', //without priority
   greyBoard: 'rgba(255, 255, 255, 0.5)',
+  addClmnBtn: '#5255BC',
 };
 
 export const lightTheme = {
@@ -74,6 +75,7 @@ export const lightTheme = {
   textModal: 'rgba(22, 22, 22, 0.7)',
   withoutbl: 'rgba(22, 22, 22, 0.3);', //without priority
   greyBoard: 'rgba(22, 22, 22, 0.5)',
+  addClmnBtn: '#161616',
 };
 
 export const darkTheme = {
@@ -113,6 +115,7 @@ export const darkTheme = {
   textModal: 'rgba(255, 255, 255, 0.5)',
   withoutbl: 'rgba(255, 255, 255, 0.3);', //without priority black thema
   greyBoard: 'rgba(255, 255, 255, 0.5)',
+  addClmnBtn: '#fff',
 };
 
 export const getTheme = themeName => {

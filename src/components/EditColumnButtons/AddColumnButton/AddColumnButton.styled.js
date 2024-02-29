@@ -93,6 +93,7 @@ export const IconWhiteWrap = styled.span`
   width: 28px;
   height: 28px;
   background-color: ${p => p.theme.currentTheme.btnPlusStroke};
+    
   border-radius: ${p => p.theme.radius.m};
 `;
 
@@ -102,13 +103,14 @@ export const IconVioletWrap = styled.span`
   justify-content: center;
   width: 28px;
   height: 28px;
-  background-color: ${p => p.theme.currentTheme.hoverButton};
+  // background-color: ${p => p.theme.currentTheme.hoverButton};
+  background-color: ${p => p.theme.currentTheme.addClmnBtn};
   border-radius: ${p => p.theme.radius.m};
 `;
 
 export const StyledSvgWhitePlus = styled.svg`
-  fill: ${p => p.theme.currentTheme.plusIconFill};
-  stroke: ${p => p.theme.currentTheme.plusIconFill};
+  fill: ${p => p.theme.currentTheme.horizontScrollBgn};
+  stroke: ${p => p.theme.currentTheme.horizontScrollBgn};
   display: flex;
   align-items: center;
   justify-content: center;
