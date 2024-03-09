@@ -11,8 +11,7 @@ export default function ScreensPage() {
   return (
     <ScreensPageWrapper back={board.backgroundURL}>
       <HeaderDashboard />
-      <DashBoard />
-      {/* {(boards.length === 0 && filteredColumns.length === 0) ? <ColumnList columns={filteredColumns}/> : <AddColumnButton/> } */}
+      <DashBoard />    
     </ScreensPageWrapper>
   );
 }

@@ -13,11 +13,11 @@ const getColor = props => {
   }
 };
 
-export const TaskContainer = styled.div`
+export const TaskContainer = styled.li`
   display: grid;
   grid-template-columns: 4px 1fr;
   gap: ${p => p.theme.spacing(3.5)};
-  width: 335px;
+  width: 334px;
   height: 154px;
   margin: 0;
   background-color: ${p => p.theme.currentTheme.taskBgn};

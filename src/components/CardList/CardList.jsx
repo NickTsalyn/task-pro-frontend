@@ -31,9 +31,7 @@ export const CardList = ({ columnId, filtColumns }) => {
   return (
     <CardListStyled>
       {filteredTasks.map(task => (
-        <li key={task._id}>
-          <TaskCard task={task} columns={filtColumns} />
-        </li>
+        <TaskCard key={task._id} task={task} columns={filtColumns} />
       ))}
     </CardListStyled>
   );

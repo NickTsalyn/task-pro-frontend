@@ -39,13 +39,10 @@ export const HelpButton = styled.button`
   width: 20px;
   height: 20px;
   display: flex;
-  border-radius: 50%;
+  align-items: center; 
   border: none;
-  color: ${p => p.theme.currentTheme.iconNeedHelp};
-  cursor: pointer;
   margin-right: 11px;
   padding: 0;
-  position: relative;
   background: transparent;
 `;
 
@@ -61,13 +58,15 @@ export const ButtonText = styled.div`
   color: ${p => p.theme.currentTheme.iconNeedHelp};
 `;
 
-export const IconContainer = styled.div`
-  font-size: 1.7em;
-
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  transform: translate(-10%, -10%);
+export const QuestionSVG = styled.svg`
+  stroke: ${p => p.theme.currentTheme.iconNeedHelp};
+  fill: transparent;
+  width: 20px;
+  height: 20px;
+  &:hover,
+  &:focus {
+    stroke: ${p => p.theme.currentTheme.accent};
+  }
 `;
 
 export const TaskPro = styled.span`
