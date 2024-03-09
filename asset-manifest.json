@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/task-pro-frontend/static/css/main.0c2f3af0.css",
-    "main.js": "/task-pro-frontend/static/js/main.0a1365a8.js",
+    "main.js": "/task-pro-frontend/static/js/main.1b93f03f.js",
     "static/js/393.30bcc249.chunk.js": "/task-pro-frontend/static/js/393.30bcc249.chunk.js",
     "static/js/577.990e514b.chunk.js": "/task-pro-frontend/static/js/577.990e514b.chunk.js",
-    "static/css/902.fed9bb9e.chunk.css": "/task-pro-frontend/static/css/902.fed9bb9e.chunk.css",
-    "static/js/902.bf9c374e.chunk.js": "/task-pro-frontend/static/js/902.bf9c374e.chunk.js",
-    "static/css/737.cbc9610f.chunk.css": "/task-pro-frontend/static/css/737.cbc9610f.chunk.css",
+    "static/css/354.f15eb15b.chunk.css": "/task-pro-frontend/static/css/354.f15eb15b.chunk.css",
+    "static/js/354.14788319.chunk.js": "/task-pro-frontend/static/js/354.14788319.chunk.js",
+    "static/js/928.3851ed1c.chunk.js": "/task-pro-frontend/static/js/928.3851ed1c.chunk.js",
     "static/js/859.38035aae.chunk.js": "/task-pro-frontend/static/js/859.38035aae.chunk.js",
     "static/js/270.1c08bf28.chunk.js": "/task-pro-frontend/static/js/270.1c08bf28.chunk.js",
     "static/js/657.fecf04bc.chunk.js": "/task-pro-frontend/static/js/657.fecf04bc.chunk.js",
@@ -14,7 +14,6 @@
     "static/css/382.887b4093.chunk.css": "/task-pro-frontend/static/css/382.887b4093.chunk.css",
     "static/js/382.0360b809.chunk.js": "/task-pro-frontend/static/js/382.0360b809.chunk.js",
     "static/js/108.e9f1ac6e.chunk.js": "/task-pro-frontend/static/js/108.e9f1ac6e.chunk.js",
-    "static/js/709.e9816b21.chunk.js": "/task-pro-frontend/static/js/709.e9816b21.chunk.js",
     "static/media/desktop_3@2x.webp": "/task-pro-frontend/static/media/desktop_3@2x.a0cd888234e849f47dec.webp",
     "static/media/tablet_3@2x.webp": "/task-pro-frontend/static/media/tablet_3@2x.1e84de7c274c5db7b6f1.webp",
     "static/media/desktop_13@2x.webp": "/task-pro-frontend/static/media/desktop_13@2x.5fce0d9257f58d061bd1.webp",
@@ -399,23 +398,22 @@
     "static/media/id.svg": "/task-pro-frontend/static/media/id.f624e2c8444a7794b357.svg",
     "static/media/mini_0.webp": "/task-pro-frontend/static/media/mini_0.aeacba2585f76274939e.webp",
     "main.0c2f3af0.css.map": "/task-pro-frontend/static/css/main.0c2f3af0.css.map",
-    "main.0a1365a8.js.map": "/task-pro-frontend/static/js/main.0a1365a8.js.map",
+    "main.1b93f03f.js.map": "/task-pro-frontend/static/js/main.1b93f03f.js.map",
     "393.30bcc249.chunk.js.map": "/task-pro-frontend/static/js/393.30bcc249.chunk.js.map",
     "577.990e514b.chunk.js.map": "/task-pro-frontend/static/js/577.990e514b.chunk.js.map",
-    "902.fed9bb9e.chunk.css.map": "/task-pro-frontend/static/css/902.fed9bb9e.chunk.css.map",
-    "902.bf9c374e.chunk.js.map": "/task-pro-frontend/static/js/902.bf9c374e.chunk.js.map",
-    "737.cbc9610f.chunk.css.map": "/task-pro-frontend/static/css/737.cbc9610f.chunk.css.map",
+    "354.f15eb15b.chunk.css.map": "/task-pro-frontend/static/css/354.f15eb15b.chunk.css.map",
+    "354.14788319.chunk.js.map": "/task-pro-frontend/static/js/354.14788319.chunk.js.map",
+    "928.3851ed1c.chunk.js.map": "/task-pro-frontend/static/js/928.3851ed1c.chunk.js.map",
     "859.38035aae.chunk.js.map": "/task-pro-frontend/static/js/859.38035aae.chunk.js.map",
     "270.1c08bf28.chunk.js.map": "/task-pro-frontend/static/js/270.1c08bf28.chunk.js.map",
     "657.fecf04bc.chunk.js.map": "/task-pro-frontend/static/js/657.fecf04bc.chunk.js.map",
     "217.2aad51d5.chunk.js.map": "/task-pro-frontend/static/js/217.2aad51d5.chunk.js.map",
     "382.887b4093.chunk.css.map": "/task-pro-frontend/static/css/382.887b4093.chunk.css.map",
     "382.0360b809.chunk.js.map": "/task-pro-frontend/static/js/382.0360b809.chunk.js.map",
-    "108.e9f1ac6e.chunk.js.map": "/task-pro-frontend/static/js/108.e9f1ac6e.chunk.js.map",
-    "709.e9816b21.chunk.js.map": "/task-pro-frontend/static/js/709.e9816b21.chunk.js.map"
+    "108.e9f1ac6e.chunk.js.map": "/task-pro-frontend/static/js/108.e9f1ac6e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0c2f3af0.css",
-    "static/js/main.0a1365a8.js"
+    "static/js/main.1b93f03f.js"
   ]
 }
