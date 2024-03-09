@@ -9,13 +9,17 @@ import { ColumnListItem } from 'components/ColumnListItem/ColumnListItem';
 export const ColumnList = ({ columns }) => {
   return (
     <ColumnListWrapper>
-      <ColumnListStyled>
-        {columns.map(column => (
-          <li key={column._id}>
-            <ColumnListItem column={column} columns={columns} />
-          </li>
-        ))}
-      </ColumnListStyled>
+      {columns.length !== 0 && (
+        <ColumnListStyled>
+          {columns.map(column => (
+            <ColumnListItem
+              key={column._id}
+              column={column}
+              columns={columns}
+            />
+          ))}
+        </ColumnListStyled>
+      )}
       <ColumnButtonwrapper>
         <AddColumnButton />
       </ColumnButtonwrapper>

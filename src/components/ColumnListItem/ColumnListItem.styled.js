@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const ColumnWrapper = styled.div`
+export const ColumnWrapper = styled.li`
   display: flex;
   flex-direction: column;
 `;
 export const ColumnHeader = styled.div`
-  width: 335px;
+  width: 334px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -15,10 +15,11 @@ export const ColumnHeader = styled.div`
   border-radius: ${p => p.theme.radius.m};
   background-color: ${p => p.theme.currentTheme.taskBgn};
 `;
-export const ColumnTitle = styled.h3`
+export const ColumnTitle = styled.p`
   margin-left: ${p => p.theme.spacing(5)};
   font-weight: 500;
-  letter-spacing: -0.28px;
+  letter-spacing: -0.02em;
+  line-height: 1.43;
   color: ${p => p.theme.currentTheme.mainText};
 `;
 export const EditBlock = styled.div`

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import sprite from '../../images/icons.svg';
 import { NeedHelpModal } from 'components/NeedHelpModal/NeedHelpModal.jsx';
 import {
   HelpContainer,
@@ -6,12 +8,10 @@ import {
   HelpButton,
   HelpText,
   ButtonText,
-  IconContainer,
   TaskPro,
+  QuestionSVG,
 } from './HelpApp.styled.js';
 import flowerImage from './../../images/flower.png';
-import { CiCircleQuestion } from 'react-icons/ci';
-import { useTranslation } from 'react-i18next';
 
 const HelpApp = ({ onItemClick }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,9 +32,9 @@ const HelpApp = ({ onItemClick }) => {
         {t('screenPage.static.help2')}
       </HelpText>
       <HelpButton onClick={openModal}>
-        <IconContainer>
-          <CiCircleQuestion />
-        </IconContainer>
+        <QuestionSVG>
+          <use xlinkHref={`${sprite}#icon-help-circle`} />
+        </QuestionSVG>
       </HelpButton>
       <ButtonText onClick={openModal}>
         {t('screenPage.static.needHelp')}

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const CardListStyled = styled.ul`
-  padding-right: ${p => p.theme.spacing(1)};
   margin: ${p => p.theme.spacing(3.5)} 0;
   width: 347px;
   display: flex;
@@ -12,7 +11,7 @@ export const CardListStyled = styled.ul`
   overflow-x: hidden;
 
   @media only screen and (min-width: 768px) {
-    padding-right: ${p => p.theme.spacing(2)};
+    width: 350px;
     max-height: 640px;
   }
 
@@ -21,16 +20,18 @@ export const CardListStyled = styled.ul`
   }
 
   &::-webkit-scrollbar {
-    width: 8px; /* Ширина скроллбару */
+    width: 8px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: ${p => p.theme.currentTheme.verticalScroll}; /* Колір скроллбару */
-    border-radius: ${p => p.theme.radius.l}; /* Округлення країв скроллбару */
+    background-color: ${p =>
+      p.theme.currentTheme.verticalScroll}; 
+    border-radius: ${p => p.theme.radius.l};
   }
 
   &::-webkit-scrollbar-track {
-    background-color: ${p => p.theme.currentTheme.verticalScrollBgn}; /* Колір фону скроллбару */
+    background-color: ${p =>
+      p.theme.currentTheme.verticalScrollBgn};
     border-radius: ${p => p.theme.radius.l};
   }
 `;
