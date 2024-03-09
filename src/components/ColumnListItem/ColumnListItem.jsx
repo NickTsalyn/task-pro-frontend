@@ -27,6 +27,7 @@ import { deleteColumn } from 'redux/columns/operations';
 
 import { useTranslation } from 'react-i18next';
 
+
 Modal.setAppElement('#root');
 export const ColumnListItem = ({ column, columns }) => {
   const { t } = useTranslation('global');
