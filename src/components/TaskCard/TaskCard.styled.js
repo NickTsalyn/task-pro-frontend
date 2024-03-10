@@ -180,6 +180,7 @@ export const Svg = styled.svg`
   width: 16px;
   fill: ${p => p.theme.currentTheme.modalBgn};
   stroke: ${p => p.theme.currentTheme.iconStroke};
+  opacity: 50%;
   transition: 200ms ease-out;
 
   :hover,
