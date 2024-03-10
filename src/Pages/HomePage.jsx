@@ -9,10 +9,7 @@ import ScreensPage from './ScreensPage';
 
 export default function HomePage() {
   const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1440);
-  const {
-    // t,
-    i18n,
-  } = useTranslation('global');
+  const { i18n } = useTranslation('global');
 
   useEffect(() => {
     const dir = i18n.dir(i18n.language);

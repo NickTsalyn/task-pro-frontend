@@ -25,12 +25,21 @@ export const EditColumnModal = ({ onCloseModal, column }) => {
  
 
   const [title, setTitle] = useState(column.title);
+  const [previousInputValue, setPreviousInputValue] = useState(column.title);
 
   const successToaster = () => {
     toast.success('You successfully edited column!', {
       icon: '👌',
       duration: 4000,
       style: toastStyles.success,
+    });
+  };
+
+  const warningToaster = () => {
+    toast.success("You didn't change anything, please try again!", {
+      icon: '🔊',
+      duration: 4000,
+      style: toastStyles.warning,
     });
   };
 
@@ -42,13 +51,14 @@ export const EditColumnModal = ({ onCloseModal, column }) => {
     });
   };
 
+
   const handlerEditColumn = evt => {
     evt.preventDefault();
 
     try {
       const inputValue = evt.target.title.value.trim();
 
-      if (inputValue !== '') {
+      if (inputValue !== previousInputValue) {
         const newTitle = {
           title: { title: inputValue },
           id: column._id,
@@ -57,7 +67,10 @@ export const EditColumnModal = ({ onCloseModal, column }) => {
         dispatch(editColumn(newTitle));
         onCloseModal();
         successToaster();
-      }
+
+        setPreviousInputValue(inputValue)
+      } else {warningToaster();}
+     
     } catch (error) {
       errorToaster(error.message);
     }
