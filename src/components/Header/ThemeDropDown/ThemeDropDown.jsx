@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Select from 'react-select';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeTheme } from 'redux/auth/operations';
 import { useTranslation } from 'react-i18next';
+import { selectedUserTheme } from 'redux/auth/selectors';
 
 const options = [
   { value: 'light', label: 'Light' },
@@ -73,9 +74,10 @@ export const ThemeDropDown = () => {
   const dispatch = useDispatch();
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const selectRef = useRef(null);
+
+  const userTheme = useSelector(selectedUserTheme);
   const handleChangeTheme = options => {
-    
-    const theme = options.value;    
+    const theme = options.value;
     dispatch(changeTheme({ theme }));
     setMenuIsOpen(false);
   };
@@ -88,6 +90,9 @@ export const ThemeDropDown = () => {
   const toggleSelect = () => {
     setMenuIsOpen(!menuIsOpen);
   };
+  const themeSelect = () => {
+    options.find(option => option.value === userTheme);
+  };
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
@@ -98,7 +103,7 @@ export const ThemeDropDown = () => {
   }, []);
   return (
     <div ref={selectRef}>
-      <Select 
+      <Select
         options={options}
         styles={customStyles}
         onChange={handleChangeTheme}
@@ -106,6 +111,7 @@ export const ThemeDropDown = () => {
         onMenuOpen={toggleSelect}
         onMenuClose={toggleSelect}
         placeholder={t('screenPage.static.theme')}
+        value={themeSelect}
       />{' '}
     </div>
   );

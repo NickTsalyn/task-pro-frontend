@@ -3,19 +3,19 @@ import {
   selectUser,
   selectIsLoggedIn,
   selectIsRefreshing,
-  selectedTheme,
+  selectedUserTheme,
 } from 'redux/auth/selectors';
 
 export const useAuth = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const isRefreshing = useSelector(selectIsRefreshing);
   const user = useSelector(selectUser);
-  const theme = useSelector(selectedTheme);
+  const userTheme = useSelector(selectedUserTheme);
 
   return {
     isLoggedIn,
     isRefreshing,
     user,
-    theme
+    userTheme
   };
 };

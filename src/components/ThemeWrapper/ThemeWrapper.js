@@ -1,11 +1,10 @@
 import { getTheme } from 'components/ThemeWrapper/themes';
-import { useSelector } from 'react-redux';
-import { selectedTheme } from 'redux/auth/selectors';
+import { useAuth } from 'hooks';
 import { ThemeProvider } from 'styled-components';
 
 export const ThemeWrapper = ({ children }) => {
-  const themeName = useSelector(selectedTheme);
-  const currentTheme = getTheme(themeName),
+  const { userTheme } = useAuth();
+  const currentTheme = getTheme(userTheme),
     theme = {
       currentTheme,
 
@@ -22,7 +21,7 @@ export const ThemeWrapper = ({ children }) => {
         shadowColor: 'rgba(22, 22, 22, 0.08)',
         colorFilterSVG: '',
       },
-      violetColors: {//
+      violetColors: {
         //додаткові кольори для VioletTheme
         violetFill: '#ECEDFD', //фон Screen Page
         accentColor: '#5255bc', //button
@@ -32,7 +31,6 @@ export const ThemeWrapper = ({ children }) => {
         helpBlockColor: 'rgba(236, 237, 253, 0.4)',
       },
       priorityColors: {
-        // task's priority colors
         low: '#8FA1D0', //low priority
         medium: '#E09CB5', //medium priority
         high: '#BEDBB0', // high priority=colors.lightGreen
