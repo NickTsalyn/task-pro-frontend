@@ -14,14 +14,13 @@ import {
 } from './operations';
 
 const initialState = {
-  user: { name: null, email: null, avatar: null },
+  user: { name: null, email: null, avatar: null, theme: null },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
   isLoading: false,
   isError: false,
-  errorMessage: null, 
-  theme: "violet"
+  errorMessage: null,
 };
 
 const authSlice = createSlice({
@@ -33,7 +32,7 @@ const authSlice = createSlice({
       state.isError = false;
       state.errorMessage = null;
     },
-    [register.fulfilled](state, { payload }) {      
+    [register.fulfilled](state, { payload }) {
       state.user = payload.user;
       state.token = payload.token;
       state.isLoading = false;
@@ -99,7 +98,7 @@ const authSlice = createSlice({
       state.errorMessage = null;
     },
     [updateProfile.fulfilled](state, action) {
-      state.user = {...state.user, ...action.payload.user};
+      state.user = { ...state.user, ...action.payload.user };
       state.isLoading = false;
     },
     [updateProfile.rejected](state, action) {
@@ -147,15 +146,14 @@ const authSlice = createSlice({
       state.isError = true;
       state.errorMessage = action.payload;
     },
-    //ЗМІНА ТЕМИ
-    [changeTheme.pending](state,action) {
+    [changeTheme.pending](state) {
       state.isLoading = true;
       state.isError = false;
       state.errorMessage = null;
     },
-    [changeTheme.fulfilled](state, action) {      
-      state.isLoading = false;      
-      state.theme = action.payload.theme;
+    [changeTheme.fulfilled](state, action) {
+      state.isLoading = false;
+      state.user.theme = action.payload.theme;
     },
     [changeTheme.rejected](state, action) {
       state.isLoading = false;
