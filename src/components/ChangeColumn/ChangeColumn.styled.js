@@ -12,14 +12,14 @@ export const ChangeButtonCard = styled.button`
 export const StyledSVGChangeColumn = styled.svg`
   height: 16px;
   width: 16px;
-  fill: ${p => p.theme.colors.white};
-  stroke: ${p => p.theme.colors.darkTextColor};
+  fill: ${p => p.theme.currentTheme.modalBgn};
+  stroke: ${p => p.theme.currentTheme.iconStroke};
   opacity: 50%;
   transition: 200ms ease-out;
 
   :hover,
   :focus {
-    stroke: ${p => p.theme.violetColors.accentColor};
+    stroke: ${p => p.theme.currentTheme.accent};
   }
 `;
 
@@ -27,7 +27,7 @@ export const StyledSVGChangeColumn = styled.svg`
 export const ChangeWrapper = styled.div`
   width: 135px;
   padding: 18px;
-  background: #fcfcfc;
+  background-color: ${p => p.theme.currentTheme.taskBgn};
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -39,24 +39,24 @@ export const ChangeButton = styled.button`
   background-color: transparent;
   width: 100%;
   text-align: start;
-  color: rgb(22, 22, 22);
+  color: ${p => p.theme.currentTheme.mainText};
   padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: 200ms ease-out;
   &:hover,
   &:focus {
-    color: #5255bc;
+    color: ${p => p.theme.currentTheme.accent};
     svg {
-      stroke: #5255bc;
+      stroke: ${p => p.theme.currentTheme.accent};
     }
   }
 `;
 
 export const StyledSVGChange = styled.svg`
-  stroke: rgb(22, 22, 22);
-  fill: none;
+  fill: ${p => p.theme.currentTheme.modalBgn};
+  stroke: ${p => p.theme.currentTheme.iconStroke};
   width: 16px;
   height: 16px;
 `;
-

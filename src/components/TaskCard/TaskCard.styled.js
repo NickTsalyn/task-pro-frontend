@@ -152,8 +152,14 @@ export const Bell = styled.div`
 export const SvgBell = styled.svg`
   height: 16px;
   width: 16px;
-  fill: ${p => p.theme.currentTheme.modalBgn};
+  fill: none;
   stroke: ${p => p.theme.currentTheme.accent};
+  filter: drop-shadow(0px 0px 6px ${p => p.theme.currentTheme.accent});
+  transition: 200ms ease-out;
+
+  &:hover {
+    filter: drop-shadow(0px 0px 22px #bedbb0);
+  }
 `;
 
 export const Buttons = styled.div`
@@ -174,6 +180,7 @@ export const Svg = styled.svg`
   width: 16px;
   fill: ${p => p.theme.currentTheme.modalBgn};
   stroke: ${p => p.theme.currentTheme.iconStroke};
+  opacity: 50%;
   transition: 200ms ease-out;
 
   :hover,
