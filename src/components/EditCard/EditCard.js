@@ -39,8 +39,8 @@ import { DatePickerCalendar } from 'components/DatePicker/DatePicker.styled';
 
 export const EditCard = ({ onCloseModal,task: {  _id, title, description, priority,deadline } }) => {
   const {t} = useTranslation('global')
-  const [startDate, setStartDate] = useState(new Date());
-  const [isCalendarOpen, setIsCalendarOpen] = useState(true);
+  const [startDate, setStartDate] = useState(new Date(deadline));
+  // const [isCalendarOpen, setIsCalendarOpen] = useState(true);
 
   const dispatch = useDispatch();
 
@@ -85,7 +85,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
         title: `${title}`,
         description: `${description}`,
         priority: `${priority}`,
-        deadline: `${deadline} ?? ${startDate}`,
+        deadline: `${deadline}`,
       }}
       onSubmit={values => {
         const editCard = {
@@ -95,7 +95,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
           deadline: values.deadline,
           taskId: _id,
         };
-     
+     console.log(editCard.deadline)
         dispatch(editTask(editCard));
 
       
@@ -104,6 +104,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
         successToaster();
       }}
     >
+       {({ values, setFieldValue }) => (
       <EditCardWrapper>
         <CLoseButton onClick={onCloseModal} type="button">
           <EditCardSvgClose>
@@ -189,10 +190,11 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
                   <CustomCalendarContainer className="custom-calendar-container">
                     <DatePickerCalendar
                       selected={startDate}
-                    
+                      minDate={new Date()}
                       onChange={date => {
                         setStartDate(date);
-                        setIsCalendarOpen(isCalendarOpen);
+                        setFieldValue('deadline', date);
+                        // setIsCalendarOpen(isCalendarOpen);
                         
 
                      
@@ -201,7 +203,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
                       dateFormat={
                         isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
                       }
-                      isOpen={!isCalendarOpen}
+                      // isOpen={!isCalendarOpen}
                     />
                   </CustomCalendarContainer>
                  
@@ -221,6 +223,7 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
           </EditCardSvgButtonText>
         </EditCardBtn>
       </EditCardWrapper>
+        )}
     </Formik>
   );
               }

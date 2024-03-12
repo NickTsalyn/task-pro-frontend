@@ -95,7 +95,7 @@ export const TaskCard = ({
       errorToaster(error.message);
     }
   };
-
+console.log(deadline)
   return (
     <TaskContainer>
       <PrioritySeeContainer value={priority}></PrioritySeeContainer>
