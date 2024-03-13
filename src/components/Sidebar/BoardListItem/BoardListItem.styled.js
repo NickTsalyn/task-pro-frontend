@@ -5,14 +5,14 @@ export const StyledBoardList = styled.div`
   padding: 22px 18px 22px 14px;
   margin: 0 auto;
   justify-content: space-between;
-  background-color: ${({ isActive }) =>
-    isActive ? 'rgba(255, 255, 255, 0.2)' : 'transparent'};
+  background-color: ${({ isActive, theme }) =>
+    isActive ? theme.currentTheme.activeBoard : 'transparent'};
 
-  &:hover,
+  /* &:hover,
   &:focus {
     color: ${p => p.theme.colors.white};
     stroke: ${p => p.theme.colors.white};
-  }
+  } */
 
   @media screen and (min-width: 768px) {
     padding: 21px 24px;
@@ -34,7 +34,9 @@ export const StyledBoardItem = styled.button`
   &:hover,
   &:focus {
     color: ${p => p.theme.currentTheme.iconNeedHelp};
-   
+   svg {
+    stroke: ${p => p.theme.currentTheme.iconNeedHelp};
+   }
   }
   svg {
     width: 18px;
@@ -51,24 +53,27 @@ export const StyledBoardItem = styled.button`
 
 export const StyledSVGPensil = styled.svg`
   fill: transparent;
-  stroke:  ${p => p.theme.currentTheme.iconNeedHelp};
+  stroke:  ${p => p.theme.currentTheme.greyBoard};
   width: 16px;
   height: 16px;
   &:hover,
   &:focus {
     stroke: ${p => p.theme.currentTheme.accent};
+    filter: drop-shadow(0px 0px 6px ${p => p.theme.currentTheme.accent});
+    transition: 200ms ease-out;
   }
 `;
 
 export const StyledSVGTrash = styled.svg`
   fill: transparent;
-  stroke: ${p => p.theme.currentTheme.iconNeedHelp};
-
+  stroke: ${p => p.theme.currentTheme.greyBoard};
   width: 16px;
   height: 16px;
   &:hover,
   &:focus {
     stroke: ${p => p.theme.currentTheme.accent};
+    filter: drop-shadow(0px 0px 6px ${p => p.theme.currentTheme.accent});
+    transition: 200ms ease-out;
   }
 `;
 

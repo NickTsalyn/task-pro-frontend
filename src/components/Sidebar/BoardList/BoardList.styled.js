@@ -14,7 +14,7 @@ export const StyledBoardListWrapper = styled.ul`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #fff;
+    background-color: ${p => p.theme.currentTheme.iconLogout};
     border-radius: 4px 0 0 4px;
   }
 

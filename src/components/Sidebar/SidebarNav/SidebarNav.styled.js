@@ -12,7 +12,7 @@ export const SidebarWrapper = styled.div`
 
 export const StyledText = styled.p`
   font-size: 12px;
-  color: ${p => p.theme.currentTheme.greySubtitle};
+  color: ${p => p.theme.currentTheme.greyBoard};
   padding-bottom: ${p => p.theme.spacing(2)};
   letter-spacing: -0.02em;
 `;
