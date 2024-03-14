@@ -126,7 +126,7 @@ const options = [
 const customStyles = {
   control: (provided, state) => ({
     ...provided,
-    color: state.isFocused ? 'rgba(22, 22, 22)' : 'rgba(22, 22, 22, 0.8)',
+    color: state.isFocused ? 'rgb(22, 22, 22)' : 'rgba(22, 22, 22, 0.8)',
     border: 'none ',
     boxShadow: 'none',
     display: 'flex',
@@ -142,7 +142,6 @@ const customStyles = {
     width: '32px',
     height: '32px',
     padding: '0',
-    color: 'white'
   }),
 
   IndicatorContainer: provided => ({
@@ -163,7 +162,7 @@ const customStyles = {
   dropdownIndicator: provided => ({
     ...provided,
     padding: '0',
-    stroke: `${p => p.theme.currentTheme.mainText}`,
+    color: `hsl(0, 0%, 50%)`,
     '&:hover, &:focus': {
       color: '#5255bc',
     },
@@ -172,10 +171,10 @@ const customStyles = {
     },
   }),
 
-  option: (provided, state) => ({
+  option: (provided, {isSelected}) => ({
     ...provided,
     backgroundColor: '#fff',
-    color: state.isSelected ? '#5255BC' : 'rgb(22, 22, 22)',
+    color: isSelected ? 'rgb(22, 22, 22)' : 'rgba(22, 22, 22, 0.6)',
 
     '&:hover': {
       backgroundColor: '#FCFCFC',
@@ -185,6 +184,10 @@ const customStyles = {
   placeholder: provided => ({
     ...provided,
     display: 'none',
+  }),
+  singleValue: provided => ({
+...provided,
+color: 'hsl(0, 0%, 50%)',
   }),
   menu: provided => ({
     ...provided,

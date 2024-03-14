@@ -8,12 +8,6 @@ export const StyledBoardList = styled.div`
   background-color: ${({ isActive, theme }) =>
     isActive ? theme.currentTheme.activeBoard : 'transparent'};
 
-  /* &:hover,
-  &:focus {
-    color: ${p => p.theme.colors.white};
-    stroke: ${p => p.theme.colors.white};
-  } */
-
   @media screen and (min-width: 768px) {
     padding: 21px 24px;
   }

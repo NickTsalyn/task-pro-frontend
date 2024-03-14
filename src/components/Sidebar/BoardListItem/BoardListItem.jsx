@@ -41,8 +41,6 @@ export const BoardListItem = ({ board, isActive, onClick }) => {
 
   return (
     <StyledBoardList isActive={isActive} onClick={onClick}>
-      {/* <StyledBoardItem to={`/home/${board._id}`}></StyledBoardItem> */}
-
       <StyledBoardItem
         type="button"
         isActive={isActive}

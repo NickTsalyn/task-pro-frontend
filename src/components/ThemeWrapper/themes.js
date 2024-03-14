@@ -37,7 +37,8 @@ export const violetTheme = {
   greyBoard: 'rgba(255, 255, 255, 0.5)',
   addClmnBtn: '#5255BC',
   sidebarBackdrop: 'rgba(21, 21, 21, 0.3)',
-  activeBoard: 'rgba(255, 255, 255, 0.4)'
+  activeBoard: 'rgba(255, 255, 255, 0.4)',
+  themeSelect: 'rgba(22, 22, 22, 0.8)',
 };
 
 export const lightTheme = {
@@ -79,7 +80,8 @@ export const lightTheme = {
   greyBoard: 'rgba(22, 22, 22, 0.5)',
   addClmnBtn: '#161616',
   sidebarBackdrop: 'rgba(21, 21, 21, 0.3)',
-  activeBoard: 'rgba(246, 246, 247, 0.4)'
+  activeBoard: 'rgba(246, 246, 247, 0.4)',
+  themeSelect: 'rgba(22, 22, 22, 0.8)',
 };
 
 export const darkTheme = {
@@ -121,7 +123,8 @@ export const darkTheme = {
   greyBoard: 'rgba(255, 255, 255, 0.5)',
   addClmnBtn: '#fff',
   sidebarBackdrop: 'rgba(21, 21, 21, 0.5)',
-  activeBoard: 'rgba(31, 31, 31, 0.4)'
+  activeBoard: 'rgba(31, 31, 31, 0.4)',
+  themeSelect: 'rgba(255, 255, 255, 0.8)',
 };
 
 export const getTheme = themeName => {
