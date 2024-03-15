@@ -14,10 +14,9 @@ import {
   StyledSVGTrash,
 } from './BoardListItem.styled';
 
-
-export const BoardListItem = ({ board, isActive, onClick }) => {
+export const BoardListItem = ({ board, active, onClick }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [isModalOpen, setOpenModal] = useState(false);
 
   function CloseModal() {
@@ -36,14 +35,14 @@ export const BoardListItem = ({ board, isActive, onClick }) => {
 
   function HandleDelete() {
     dispatch(deleteBoard(board._id));
-    navigate('/home')
+    navigate('/home');
   }
 
   return (
-    <StyledBoardList isActive={isActive} onClick={onClick}>
+    <StyledBoardList active={active.toString()} onClick={onClick}>
       <StyledBoardItem
         type="button"
-        isActive={isActive}
+        active={active.toString()}
         onClick={() => {
           onClick();
           dispatch(getBoardById(board._id));
@@ -56,7 +55,7 @@ export const BoardListItem = ({ board, isActive, onClick }) => {
         <Link to={`/home/${board._id}`}>{board.title}</Link>
       </StyledBoardItem>
 
-      <StyledBtnWrapper isActive={isActive} onClick={onClick}>
+      <StyledBtnWrapper active={active.toString()} onClick={onClick}>
         <StyledBoardListBtn onClick={OpenModal} type="button">
           <StyledSVGPensil>
             <use xlinkHref={`${sprite}#icon-pencil-01`}></use>

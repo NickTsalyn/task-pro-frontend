@@ -34,8 +34,8 @@ export const BurgerMenu = () => {
       </StyledBurgerMenu>
       {isOpen && (
         <div>
-          <DarkBackground onClick={handleCloseSidebar}/>
-          <Sidebar ref={sidebarRef} onItemClick={handleCloseSidebar}/>
+          <DarkBackground onClick={handleCloseSidebar} />
+          <Sidebar ref={sidebarRef} onItemClick={handleCloseSidebar} />
         </div>
       )}
     </BurgerMenuWrapper>

@@ -5,8 +5,8 @@ export const StyledBoardList = styled.div`
   padding: 22px 18px 22px 14px;
   margin: 0 auto;
   justify-content: space-between;
-  background-color: ${({ isActive, theme }) =>
-    isActive ? theme.currentTheme.activeBoard : 'transparent'};
+  background-color: ${({ active, theme }) =>
+    active === 'true' ? theme.currentTheme.activeBoard : 'transparent'};
 
   @media screen and (min-width: 768px) {
     padding: 21px 24px;
@@ -22,22 +22,26 @@ export const StyledBoardItem = styled.button`
   padding: 0;
   display: flex;
   gap: 4px;
-  color: ${({ isActive, theme }) =>
-    isActive ? theme.currentTheme.iconNeedHelp : theme.currentTheme.greyBoard};
+  color: ${({ active, theme }) =>
+    active === 'true'
+      ? theme.currentTheme.iconNeedHelp
+      : theme.currentTheme.greyBoard};
   cursor: pointer;
   &:hover,
   &:focus {
     color: ${p => p.theme.currentTheme.iconNeedHelp};
-   svg {
-    stroke: ${p => p.theme.currentTheme.iconNeedHelp};
-   }
+    svg {
+      stroke: ${p => p.theme.currentTheme.iconNeedHelp};
+    }
   }
   svg {
     width: 18px;
     height: 18px;
     fill: transparent;
-    stroke: ${({ isActive,theme }) =>
-      isActive ?  theme.currentTheme.iconNeedHelp : theme.currentTheme.greyBoard};
+    stroke: ${({ active, theme }) =>
+      active === 'true'
+        ? theme.currentTheme.iconNeedHelp
+        : theme.currentTheme.greyBoard};
   }
 
   @media screen and (min-width: 768px) {
@@ -47,7 +51,7 @@ export const StyledBoardItem = styled.button`
 
 export const StyledSVGPensil = styled.svg`
   fill: transparent;
-  stroke:  ${p => p.theme.currentTheme.greyBoard};
+  stroke: ${p => p.theme.currentTheme.greyBoard};
   width: 16px;
   height: 16px;
   &:hover,
@@ -83,5 +87,5 @@ export const StyledBtnWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  display: ${({ isActive }) => (isActive ? 'flex' : 'none')};
+  display: ${({ active }) => (active === 'true' ? 'flex' : 'none')};
 `;

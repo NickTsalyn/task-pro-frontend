@@ -63,7 +63,7 @@ const customStyles = {
   singleValue: provided => ({
     ...provided,
     color: 'hsl(0, 0%, 50%)',
-      }),
+  }),
   placeholder: provided => ({
     ...provided,
     fontWeight: '500',

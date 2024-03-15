@@ -21,7 +21,7 @@ const options = [
     value: 'ua',
     label: (
       <span>
-        <span class="fi fi-ua"></span> Ukraine
+        <span className="fi fi-ua"></span> Ukraine
       </span>
     ),
   },
@@ -29,7 +29,7 @@ const options = [
     value: 'en',
     label: (
       <span>
-        <span class="fi fi-gb"></span> UK
+        <span className="fi fi-gb"></span> UK
       </span>
     ),
   },
@@ -37,7 +37,7 @@ const options = [
     value: 'cn',
     label: (
       <span>
-        <span class="fi fi-cn"></span> China
+        <span className="fi fi-cn"></span> China
       </span>
     ),
   },
@@ -45,7 +45,7 @@ const options = [
     value: 'he',
     label: (
       <span>
-        <span class="fi fi-il"></span> Israel
+        <span className="fi fi-il"></span> Israel
       </span>
     ),
   },
@@ -53,7 +53,7 @@ const options = [
     value: 'de',
     label: (
       <span>
-        <span class="fi fi-de"></span> Germany
+        <span className="fi fi-de"></span> Germany
       </span>
     ),
   },
@@ -61,7 +61,7 @@ const options = [
     value: 'es',
     label: (
       <span>
-        <span class="fi fi-es"></span> Spain
+        <span className="fi fi-es"></span> Spain
       </span>
     ),
   },
@@ -69,7 +69,7 @@ const options = [
     value: 'ita',
     label: (
       <span>
-        <span class="fi fi-it"></span> Italy
+        <span className="fi fi-it"></span> Italy
       </span>
     ),
   },
@@ -77,7 +77,7 @@ const options = [
     value: 'fr',
     label: (
       <span>
-        <span class="fi fi-fr"></span> France
+        <span className="fi fi-fr"></span> France
       </span>
     ),
   },
@@ -85,7 +85,7 @@ const options = [
     value: 'jp',
     label: (
       <span>
-        <span class="fi fi-jp"></span> Japan
+        <span className="fi fi-jp"></span> Japan
       </span>
     ),
   },
@@ -93,7 +93,7 @@ const options = [
     value: 'pl',
     label: (
       <span>
-        <span class="fi fi-pl"></span> Poland
+        <span className="fi fi-pl"></span> Poland
       </span>
     ),
   },
@@ -101,7 +101,7 @@ const options = [
     value: 'ro',
     label: (
       <span>
-        <span class="fi fi-ro"></span> Romania
+        <span className="fi fi-ro"></span> Romania
       </span>
     ),
   },
@@ -109,7 +109,7 @@ const options = [
     value: 'ar',
     label: (
       <span>
-        <span class="fi fi-sa"></span> Saudi Arabia
+        <span className="fi fi-sa"></span> Saudi Arabia
       </span>
     ),
   },
@@ -117,7 +117,7 @@ const options = [
     value: 'gr',
     label: (
       <span>
-        <span class="fi fi-gr"></span> Greece
+        <span className="fi fi-gr"></span> Greece
       </span>
     ),
   },
@@ -134,7 +134,7 @@ const customStyles = {
     padding: '0',
     minHeight: '0',
     lineHeight: '1',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   }),
 
   downChevron: provided => ({
@@ -171,7 +171,7 @@ const customStyles = {
     },
   }),
 
-  option: (provided, {isSelected}) => ({
+  option: (provided, { isSelected }) => ({
     ...provided,
     backgroundColor: '#fff',
     color: isSelected ? 'rgb(22, 22, 22)' : 'rgba(22, 22, 22, 0.6)',
@@ -186,8 +186,8 @@ const customStyles = {
     display: 'none',
   }),
   singleValue: provided => ({
-...provided,
-color: 'hsl(0, 0%, 50%)',
+    ...provided,
+    color: 'hsl(0, 0%, 50%)',
   }),
   menu: provided => ({
     ...provided,
