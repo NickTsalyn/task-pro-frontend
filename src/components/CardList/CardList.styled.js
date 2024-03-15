@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CardListStyled = styled.ul`
-  margin: ${p => p.theme.spacing(3.5)} 0;
+  margin-top: ${p => p.theme.spacing(3.5)} ;
   width: 347px;
   display: flex;
   flex-direction: column;

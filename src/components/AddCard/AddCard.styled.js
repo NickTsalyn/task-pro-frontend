@@ -256,6 +256,7 @@ import { Field, Form } from "formik";
   `
   export const AddAnotherCard = styled.button`
   margin-bottom:24px;
+  margin-top: ${p => p.theme.spacing(3.5)} ;
   display: flex;
   align-items: center;
   justify-content: center;

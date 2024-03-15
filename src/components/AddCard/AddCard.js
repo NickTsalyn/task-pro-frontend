@@ -47,7 +47,7 @@ export const AddCard = ({ onCloseModal, id }) => {
   const { t } = useTranslation('global');
   // const [fieldValue, setFieldValue] = useState(null);
   // const [selectedDate, setSelectedDate] = useState(new Date());
-  const [isCalendarOpen, setIsCalendarOpen] = useState(true);
+  // const [isCalendarOpen, setIsCalendarOpen] = useState(true);
   const [startDate, setStartDate] = useState(new Date());
 
   // const handleDateChange = (date) => {
@@ -80,6 +80,7 @@ export const AddCard = ({ onCloseModal, id }) => {
 
   const formattedDate = getFormattedDate(startDate);
 
+
   const successToaster = () => {
     toast.success('You successfully added card!', {
       icon: '👍',
@@ -94,7 +95,7 @@ export const AddCard = ({ onCloseModal, id }) => {
         title: '',
         description: '',
         priority: '' || 'Without',
-        deadline: `${formattedDate}`,
+        deadline: `${startDate}`,
       }}
       onSubmit={(values, { resetForm }) => {
         const newCard = {
@@ -104,8 +105,8 @@ export const AddCard = ({ onCloseModal, id }) => {
           deadline: values.deadline,
           columnId: id,
         };
-
-        console.log(newCard);
+      
+      
         dispatch(addTask(newCard));
 
         resetForm();
@@ -201,17 +202,20 @@ export const AddCard = ({ onCloseModal, id }) => {
 
                   <CustomCalendarContainer className="custom-calendar-container">
                     <DatePickerCalendar
+                   name='deadline'
                       selected={startDate}
+                      minDate={new Date()}
                       onChange={date => {
                         setStartDate(date);
-                        setIsCalendarOpen(isCalendarOpen);
+                        setFieldValue('deadline', date);
+                        // setIsCalendarOpen(isCalendarOpen);
 
-                        console.log(isCalendarOpen);
+                    
                       }}
                       dateFormat={
                         isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
                       }
-                      isOpen={!isCalendarOpen}
+                      // isOpen={!isCalendarOpen}
                     />
                   </CustomCalendarContainer>
                 </CalendarContainer>
