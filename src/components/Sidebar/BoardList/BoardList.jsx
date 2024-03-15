@@ -5,7 +5,7 @@ import { selectAllBoards } from 'redux/boards/selectors';
 import { StyledBoardListWrapper } from './BoardList.styled';
 import { BoardListItem } from '../BoardListItem/BoardListItem';
 
-export const BoardList = ({ onItemClick }) => {
+export const BoardList = () => {
   const dispatch = useDispatch();
   const boards = useSelector(selectAllBoards);
 
@@ -17,7 +17,6 @@ export const BoardList = ({ onItemClick }) => {
 
   const handleBoardClick = board => {
     setActiveItem(board);
-    onItemClick();
   };
   return (
     <>
@@ -27,7 +26,7 @@ export const BoardList = ({ onItemClick }) => {
             <li key={board._id}>
               <BoardListItem
                 board={board}
-                isActive={board === activeItem}
+                active={board === activeItem}
                 onClick={() => handleBoardClick(board)}
               />
             </li>

@@ -2,9 +2,6 @@ import styled from 'styled-components';
 
 export const BurgerMenuWrapper = styled.div`
   display: flex;
-  /* @media screen and (max-width: 375px) {
-    padding-left: ${p => p.theme.spacing(5)};
-  } */
 `;
 
 export const StyledBurgerMenu = styled.button`

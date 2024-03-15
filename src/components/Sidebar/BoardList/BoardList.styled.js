@@ -14,7 +14,7 @@ export const StyledBoardListWrapper = styled.ul`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #fff;
+    background-color: ${p => p.theme.currentTheme.iconLogout};
     border-radius: 4px 0 0 4px;
   }
 
@@ -25,5 +25,4 @@ export const StyledBoardListWrapper = styled.ul`
   @media screen and (min-width: 768px) {
     margin: 0 -24px;
   }
- 
 `;

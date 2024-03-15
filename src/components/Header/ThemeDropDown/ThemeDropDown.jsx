@@ -16,7 +16,7 @@ const customStyles = {
     ...provided,
     backgroundColor: 'transparent',
     color: state.isFocused ? 'rgba(22, 22, 22)' : 'rgba(22, 22, 22, 0.8)',
-    border: 'none ',
+    border: 'none',
     boxShadow: 'none',
     display: 'flex',
     margin: 'auto 0',
@@ -55,17 +55,20 @@ const customStyles = {
   option: (provided, state) => ({
     ...provided,
     backgroundColor: '#fff',
-    color: state.isSelected ? '#5255BC' : 'rgb(22, 22, 22)',
+    color: state.isSelected ? '#5255BC' : 'rgba(22, 22, 22)',
     '&:hover, &:focus': {
       color: '#5255bc',
     },
+  }),
+  singleValue: provided => ({
+    ...provided,
+    color: 'hsl(0, 0%, 50%)',
   }),
   placeholder: provided => ({
     ...provided,
     fontWeight: '500',
     fontSize: '14px',
     letterSpacing: '-0.02em',
-    color: `${p => p.theme.currentTheme.mainText}`,
   }),
 };
 
@@ -111,7 +114,7 @@ export const ThemeDropDown = () => {
         onMenuOpen={toggleSelect}
         onMenuClose={toggleSelect}
         placeholder={t('screenPage.static.theme')}
-        value={themeSelect}
+        value={themeSelect()}
       />{' '}
     </div>
   );

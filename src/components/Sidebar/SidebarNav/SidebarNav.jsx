@@ -37,7 +37,7 @@ export const SidebarNav = ({ onItemClick }) => {
         <StyledCreateWrapper>
           <AddBoard onItemClick={handleClickSidebar} />
         </StyledCreateWrapper>
-        <BoardList onItemClick={handleClickSidebar} />
+        <BoardList />
       </Boards>
       <ItemsWrapper>
         <HelpApp onItemClick={handleClickSidebar} />

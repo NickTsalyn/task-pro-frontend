@@ -7,8 +7,8 @@ export const DarkBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(21, 21, 21, 0.3);
-  z-index: 999;
+  background: ${p => p.theme.currentTheme.sidebarBackdrop};
+  z-index: 998;
 `;
 
 export const StyledSidebar = styled.aside`
