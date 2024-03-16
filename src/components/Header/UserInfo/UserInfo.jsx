@@ -23,7 +23,7 @@ export const UserInfo = () => {
 
   const avatarURL =
     userAvatar &&
-    new URL(userAvatar, 'https://task-pro-backend-a1c2.onrender.com/public');
+    new URL(userAvatar, 'https://task-pro-backend-a1c2.onrender.com');
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -32,6 +32,7 @@ export const UserInfo = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
   return (
     <StyledUserInfo>
       <StyledUserName>{userName.name}</StyledUserName>
@@ -50,6 +51,7 @@ export const UserInfo = () => {
         )}
       </StyledUserBtn>
 
+      {isModalOpen && (
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
@@ -59,6 +61,7 @@ export const UserInfo = () => {
       >
         <EditProfileModal onCloseModal={closeModal} avatar={avatarURL} />
       </Modal>
+      )}
     </StyledUserInfo>
   );
 };
