@@ -50,15 +50,17 @@ export const AddColumnButton = ({ column }) => {
         {t('screenPage.render.addColumn')}
       </ModalShowButton>
 
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        overlayClassName={'modal-overlay'}
-        closeTimeoutMS={300}
-        style={customStyles}
-      >
-        <AddColumnModal onCloseModal={closeModal} column={column} />
-      </Modal>
+      {isModalOpen && (
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          overlayClassName={'modal-overlay'}
+          closeTimeoutMS={300}
+          style={customStyles}
+        >
+          <AddColumnModal onCloseModal={closeModal} column={column} />
+        </Modal>
+      )}
     </>
   );
 };

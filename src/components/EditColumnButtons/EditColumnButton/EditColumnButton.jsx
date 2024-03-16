@@ -41,15 +41,17 @@ export const EditColumnButton = ({ column }) => {
         </EditSVG>
       </EditButton>
 
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        overlayClassName={'modal-overlay'}
-        closeTimeoutMS={300}
-        style={customStyles}
-      >
-        <EditColumnModal onCloseModal={closeModal} column={column} />
-      </Modal>
+      {isModalOpen && (
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          overlayClassName={'modal-overlay'}
+          closeTimeoutMS={300}
+          style={customStyles}
+        >
+          <EditColumnModal onCloseModal={closeModal} column={column} />
+        </Modal>
+      )}
     </>
   );
 };
