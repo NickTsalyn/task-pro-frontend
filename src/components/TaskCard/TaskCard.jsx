@@ -95,7 +95,7 @@ export const TaskCard = ({
       errorToaster(error.message);
     }
   };
-console.log(deadline)
+  console.log(deadline);
   return (
     <TaskContainer>
       <PrioritySeeContainer value={priority}></PrioritySeeContainer>
@@ -136,18 +136,20 @@ console.log(deadline)
             )}
             <Buttons>
               <ChangeColumnButton taskId={_id} />
-              <Modal
-                isOpen={isModalOpen}
-                onRequestClose={closeModal}
-                overlayClassName={'modal-overlay'}
-                className={'modal-content'}
-                closeTimeoutMS={300}
-              >
-                <EditCard
-                  onCloseModal={closeModal}
-                  task={{ _id, title, description, priority, deadline }}
-                />
-              </Modal>
+              {isModalOpen && (
+                <Modal
+                  isOpen={isModalOpen}
+                  onRequestClose={closeModal}
+                  overlayClassName={'modal-overlay'}
+                  className={'modal-content'}
+                  closeTimeoutMS={300}
+                >
+                  <EditCard
+                    onCloseModal={closeModal}
+                    task={{ _id, title, description, priority, deadline }}
+                  />
+                </Modal>
+              )}
               <Btn type="button" onClick={openModal}>
                 <Svg>
                   <use xlinkHref={`${sprite}#icon-pencil-01`}></use>

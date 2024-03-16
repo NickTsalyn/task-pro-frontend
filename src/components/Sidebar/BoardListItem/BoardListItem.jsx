@@ -69,13 +69,15 @@ export const BoardListItem = ({ board, active, onClick }) => {
         </StyledBoardListBtn>
       </StyledBtnWrapper>
 
-      <BoardModalBase
-        isModalOpen={isModalOpen}
-        info={board}
-        onCloseModal={CloseModal}
-        action={'edit'}
-        SubmitForm={SubmitForm}
-      />
+      {isModalOpen && (
+        <BoardModalBase
+          isModalOpen={isModalOpen}
+          info={board}
+          onCloseModal={CloseModal}
+          action={'edit'}
+          SubmitForm={SubmitForm}
+        />
+      )}
     </StyledBoardList>
   );
 };
