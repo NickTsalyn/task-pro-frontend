@@ -3,9 +3,6 @@ import sprite from '../../images/icons.svg';
 import toast from 'react-hot-toast';
 import { toastStyles } from '../../ToasterOptions';
 import { format } from 'date-fns';
-// import DatePicker from 'react-date-picker';
-// import { DatePicker } from 'rsuite';
-
 import {
   AddCardBtn,
   AddCardButtonSvg,
@@ -13,8 +10,6 @@ import {
   AddCardContCal,
   AddCardContMark,
   AddCardContainer,
-  // AddCardDate,
-  // AddCardDesc,
   AddCardDescription,
   AddCardHeader,
   AddCardInputColor,
@@ -29,7 +24,6 @@ import {
   AddCardWrapper,
   CalendarContainer,
   DayText,
-  // DatePickerCalendar,
   BtnOpenCal,
   CustomCalendarContainer,
 } from './AddCard.styled';
@@ -38,31 +32,14 @@ import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled
 import { addTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-// import { DatePickerNew } from 'components/DatePicker/DatePicker';
 import { DatePickerCalendar } from 'components/DatePicker/DatePicker.styled';
-// import DatePicker from 'react-date-picker';
-// import { uk } from 'date-fns/locale';
 
 export const AddCard = ({ onCloseModal, id }) => {
   const { t } = useTranslation('global');
-  // const [fieldValue, setFieldValue] = useState(null);
-  // const [selectedDate, setSelectedDate] = useState(new Date());
-  // const [isCalendarOpen, setIsCalendarOpen] = useState(true);
   const [startDate, setStartDate] = useState(new Date());
-
-  // const handleDateChange = (date) => {
-  //   setSelectedDate(date);
-  // };
-
-  // const toOpenCalendar = () => {
-  //   setIsCalendarOpen(!isCalendarOpen);
-  // };
-
   const dispatch = useDispatch();
 
   const getFormattedDate = date => {
-    // const today = new Date();
-
     if (isToday(date)) {
       return `Today, ${format(date, 'MMMM d')}`;
     }
@@ -79,7 +56,6 @@ export const AddCard = ({ onCloseModal, id }) => {
   };
 
   const formattedDate = getFormattedDate(startDate);
-
 
   const successToaster = () => {
     toast.success('You successfully added card!', {
@@ -105,8 +81,7 @@ export const AddCard = ({ onCloseModal, id }) => {
           deadline: values.deadline,
           columnId: id,
         };
-      
-      
+
         dispatch(addTask(newCard));
 
         resetForm();
@@ -202,20 +177,16 @@ export const AddCard = ({ onCloseModal, id }) => {
 
                   <CustomCalendarContainer className="custom-calendar-container">
                     <DatePickerCalendar
-                   name='deadline'
+                      name="deadline"
                       selected={startDate}
                       minDate={new Date()}
                       onChange={date => {
                         setStartDate(date);
                         setFieldValue('deadline', date);
-                        // setIsCalendarOpen(isCalendarOpen);
-
-                    
                       }}
                       dateFormat={
                         isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
                       }
-                      // isOpen={!isCalendarOpen}
                     />
                   </CustomCalendarContainer>
                 </CalendarContainer>

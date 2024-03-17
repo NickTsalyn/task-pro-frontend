@@ -10,7 +10,7 @@ export const ScreensPageWrapper = styled.div`
   background-color: ${p => p.theme.currentTheme.screensBgn};
   background-size: cover;
   background-image: url(${props => pictures_mobile_1x[props.back]});
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   display: flex;
   flex-direction: column;

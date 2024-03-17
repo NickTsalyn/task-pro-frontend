@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addBoard } from 'redux/boards/operations';
 import { useTranslation } from 'react-i18next';
 
-import { ButtonText, Text } from './DefaultTextBlock.styled';
+import { ButtonText, Text, TextWrapper } from './DefaultTextBlock.styled';
 import { BoardModalBase } from 'components/boardModals/ModalsBase/BoardModalBase';
 
 export const DefaultTextBlock = () => {
@@ -26,7 +26,7 @@ export const DefaultTextBlock = () => {
   }
 
   return (
-    <>
+    <TextWrapper>
       <Text>
         {t('screenPage.static.message1')}
         <ButtonText type="button" onClick={event => OpenModal(event)}>
@@ -43,6 +43,6 @@ export const DefaultTextBlock = () => {
           SubmitForm={SubmitForm}
         />
       )}
-    </>
+    </TextWrapper>
   );
 };
