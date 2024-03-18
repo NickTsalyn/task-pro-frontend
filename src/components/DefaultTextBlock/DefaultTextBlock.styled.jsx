@@ -6,7 +6,7 @@ export const TextWrapper = styled.div`
   /* margin: 0 auto; */
 `;
 export const Text = styled.p`
-  /* margin-top: 212px; */
+  margin-top: 212px;
   margin: 212px auto 0; 
   font-size: 12px;
   line-height: 1.3;

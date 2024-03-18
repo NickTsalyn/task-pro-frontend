@@ -3,7 +3,6 @@ import {
   ColumnButtonwrapper,
   ColumnListStyled,
   ColumnListWrapper,
-  // DashBoardWrapper,
 } from './ColumnList.styled';
 import { ColumnListItem } from 'components/ColumnListItem/ColumnListItem';
 
