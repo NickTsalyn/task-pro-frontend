@@ -56,9 +56,6 @@ export const TaskCard = ({
     const day = formattedDeadlineDate.getDate();
     const month = String(formattedDeadlineDate.getMonth() + 1).padStart(2, '0');
     const year = formattedDeadlineDate.getFullYear();
-    // const day = deadline.getDate();
-    // const month = String(deadline.getMonth() + 1).padStart(2, '0');
-    // const year = deadline.getFullYear();
 
     return `${day}/${month}/${year}`;
   };
@@ -95,7 +92,6 @@ export const TaskCard = ({
       errorToaster(error.message);
     }
   };
-  console.log(deadline);
   return (
     <TaskContainer>
       <PrioritySeeContainer value={priority}></PrioritySeeContainer>
@@ -106,9 +102,7 @@ export const TaskCard = ({
             <Text>{description}</Text>
           </DescriptionContainer>
         </TextContainer>
-
         <Line></Line>
-
         <MenuCard>
           <CardPriorityDeadline>
             <ToDoContainer>
@@ -120,9 +114,6 @@ export const TaskCard = ({
             </ToDoContainer>
             <DeadlineContainer>
               <SubTitle>{t('screenPage.render.modal.card.deadline')}</SubTitle>
-              {/* <TextDate> {selectedDate ? selectedDate.toLocaleDateString() : "No deadline"}
-</TextDate> */}
-
               <TextDate>{formatDeadlineDate(deadline)}</TextDate>
             </DeadlineContainer>
           </CardPriorityDeadline>
@@ -164,7 +155,6 @@ export const TaskCard = ({
           </ButtonsContainer>
         </MenuCard>
       </MainContainer>
-
       <Toaster />
     </TaskContainer>
   );

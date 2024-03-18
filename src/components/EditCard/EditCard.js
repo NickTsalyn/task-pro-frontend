@@ -10,7 +10,6 @@ import {
   EditCardContCal,
   EditCardContMark,
   EditCardContainer,
-  // EditCardDate,
   EditCardDescription,
   EditCardHeader,
   EditCardInputColor,
@@ -24,60 +23,57 @@ import {
   EditCardTitle,
   EditCardWrapper,
 } from './EditCard.styled';
-import { useState} from 'react';
-import {  editTask } from 'redux/tasks/operations';
+import { useState } from 'react';
+import { editTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 import { toastStyles } from '../../ToasterOptions';
 import { useTranslation } from 'react-i18next';
-import { BtnOpenCal, CalendarContainer, CustomCalendarContainer, DayText } from 'components/AddCard/AddCard.styled';
+import {
+  BtnOpenCal,
+  CalendarContainer,
+  CustomCalendarContainer,
+  DayText,
+} from 'components/AddCard/AddCard.styled';
 
 import { format } from 'date-fns';
-import { DatePickerCalendar } from 'components/DatePicker/DatePicker.styled';
+import { DatePickerCalendar } from 'components/EditCard/DatePicker.styled';
 
-
-
-export const EditCard = ({ onCloseModal,task: {  _id, title, description, priority,deadline } }) => {
-  const {t} = useTranslation('global')
+export const EditCard = ({
+  onCloseModal,
+  task: { _id, title, description, priority, deadline },
+}) => {
+  const { t } = useTranslation('global');
   const [startDate, setStartDate] = useState(new Date(deadline));
-  // const [isCalendarOpen, setIsCalendarOpen] = useState(true);
 
   const dispatch = useDispatch();
 
+  const getFormattedDate = date => {
+    if (isToday(date)) {
+      return `Today, ${format(date, 'MMMM d')}`;
+    }
 
+    return format(date, 'MMMM d, yyyy');
+  };
 
-  const getFormattedDate = (date) => {
-    //  const today = new Date();
-   
-     if (isToday(date)) {
-      
-       return `Today, ${format(date, 'MMMM d')}`;
-     }
-   
-     
-     return format(date, 'MMMM d, yyyy');
-   };
-   
-   const isToday = (date) => {
-     const today = new Date();
-     return (
-       date.getDate() === today.getDate() &&
-       date.getMonth() === today.getMonth() &&
-       date.getFullYear() === today.getFullYear()
-     );
-   };
-   
- const formattedDate = getFormattedDate(startDate);
-  
-  
+  const isToday = date => {
+    const today = new Date();
+    return (
+      date.getDate() === today.getDate() &&
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear()
+    );
+  };
 
-   const successToaster = () => {
-     toast.success('You successfully edited card!', {
-       icon: '👍',
-       duration: 4000,
-       style: toastStyles.success,
-     });
-   };
+  const formattedDate = getFormattedDate(startDate);
+
+  const successToaster = () => {
+    toast.success('You successfully edited card!', {
+      icon: '👍',
+      duration: 4000,
+      style: toastStyles.success,
+    });
+  };
 
   return (
     <Formik
@@ -95,98 +91,98 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
           deadline: values.deadline,
           taskId: _id,
         };
-     console.log(editCard.deadline)
+        console.log(editCard.deadline);
         dispatch(editTask(editCard));
-
-      
 
         onCloseModal();
         successToaster();
       }}
     >
-       {({ values, setFieldValue }) => (
-      <EditCardWrapper>
-        <CLoseButton onClick={onCloseModal} type="button">
-          <EditCardSvgClose>
-            <use xlinkHref={`${sprite}#icon-x-close`}></use>
-          </EditCardSvgClose>
-        </CLoseButton>
+      {({ values, setFieldValue }) => (
+        <EditCardWrapper>
+          <CLoseButton onClick={onCloseModal} type="button">
+            <EditCardSvgClose>
+              <use xlinkHref={`${sprite}#icon-x-close`}></use>
+            </EditCardSvgClose>
+          </CLoseButton>
 
-        <EditCardContainer>
-          <EditCardHeader>
-            {t('screenPage.render.modal.card.editTitle')}
-          </EditCardHeader>
-          <EditCardTextCont>
-            <EditCardTitle name="title" placeholder="Title" />
+          <EditCardContainer>
+            <EditCardHeader>
+              {t('screenPage.render.modal.card.editTitle')}
+            </EditCardHeader>
+            <EditCardTextCont>
+              <EditCardTitle name="title" placeholder="Title" />
 
-          
-            <Field
-              as={EditCardDescription}
-              name="description"
-              placeholder={t('screenPage.render.modal.card.descr')}
-          
-            />
-          </EditCardTextCont>
-          <EditCardOptionCont>
-            <EditCardColorCont>
-              <EditCardLabelText>
-                {t('screenPage.render.modal.card.color')}
-              </EditCardLabelText>
+              <Field
+                as={EditCardDescription}
+                name="description"
+                placeholder={t('screenPage.render.modal.card.descr')}
+              />
+            </EditCardTextCont>
+            <EditCardOptionCont>
+              <EditCardColorCont>
+                <EditCardLabelText>
+                  {t('screenPage.render.modal.card.color')}
+                </EditCardLabelText>
 
-              <label>
-                <EditCardContMark>
-                <EditCardInputColor
-                    id="priorityLow"
-                    type="radio"
-                    name="priority"
-                    value="Low"
-                  />
-                <label className='radio-label' value="Low" htmlFor="priorityLow">
-                 
+                <label>
+                  <EditCardContMark>
+                    <EditCardInputColor
+                      id="priorityLow"
+                      type="radio"
+                      name="priority"
+                      value="Low"
+                    />
+                    <label
+                      className="radio-label"
+                      value="Low"
+                      htmlFor="priorityLow"
+                    ></label>
+                    <EditCardInputColor
+                      id="priorityMedium"
+                      type="radio"
+                      name="priority"
+                      value="Medium"
+                    />
+                    <label
+                      className="radio-label"
+                      value="Medium"
+                      htmlFor="priorityMedium"
+                    ></label>
+                    <EditCardInputColor
+                      id="priorityHigh"
+                      type="radio"
+                      name="priority"
+                      value="High"
+                    />
+                    <label
+                      className="radio-label"
+                      value="High"
+                      htmlFor="priorityHigh"
+                    ></label>
+                    <EditCardInputColor
+                      id="priorityWithout"
+                      type="radio"
+                      name="priority"
+                      value="Without"
+                    />
+                    <label
+                      className="radio-label"
+                      value="Without"
+                      htmlFor="priorityWithout"
+                    ></label>
+                  </EditCardContMark>
                 </label>
-                <EditCardInputColor
-                    id="priorityMedium"
-                    type="radio"
-                    name="priority"
-                    value="Medium"
-                  />
-                <label className='radio-label' value="Medium" htmlFor="priorityMedium">
-                
-                </label>
-                <EditCardInputColor
-                    id="priorityHigh"
-                    type="radio"
-                    name="priority"
-                    value="High"
-                  />
-                <label className='radio-label' value="High" htmlFor="priorityHigh">
-                  
-                </label>
-                <EditCardInputColor
-                    id="priorityWithout"
-                    type="radio"
-                    name="priority"
-                    value="Without"
-                  />
-                <label className='radio-label' value="Without" htmlFor="priorityWithout">
-                 
-                </label>
-                </EditCardContMark>
-              </label>
-            </EditCardColorCont>
-            <EditCardContCal>
-              <EditCardTextCal>
-                {t('screenPage.render.modal.card.deadline')}
-              </EditCardTextCal>
-              <CalendarContainer>
-                  <BtnOpenCal
-                    type="button"
-                    className="sc-gHRYGD jSCLHb"
-                   
-                  >
+              </EditCardColorCont>
+              <EditCardContCal>
+                <EditCardTextCal>
+                  {t('screenPage.render.modal.card.deadline')}
+                </EditCardTextCal>
+                <CalendarContainer>
+                  <BtnOpenCal type="button" className="sc-gHRYGD jSCLHb">
                     <DayText>{formattedDate}</DayText>
                   </BtnOpenCal>
-                 
+
                   <CustomCalendarContainer className="custom-calendar-container">
                     <DatePickerCalendar
                       selected={startDate}
@@ -194,36 +190,28 @@ export const EditCard = ({ onCloseModal,task: {  _id, title, description, priori
                       onChange={date => {
                         setStartDate(date);
                         setFieldValue('deadline', date);
-                        // setIsCalendarOpen(isCalendarOpen);
-                        
-
-                     
-                        
                       }}
                       dateFormat={
                         isToday(startDate) ? "'Today,' MMMM d" : 'EEEE,MMMM d'
                       }
-                      // isOpen={!isCalendarOpen}
                     />
                   </CustomCalendarContainer>
-                 
                 </CalendarContainer>
-          
-            </EditCardContCal>
-          </EditCardOptionCont>
-        </EditCardContainer>
-        <EditCardBtn type="submit">
-          <EditCardSvgContainer>
-            <EditCardButtonSvg>
-              <use xlinkHref={`${sprite}#icon-plus`}></use>
-            </EditCardButtonSvg>
-          </EditCardSvgContainer>
-          <EditCardSvgButtonText>
-            {t('screenPage.render.modal.card.editBtn')}
-          </EditCardSvgButtonText>
-        </EditCardBtn>
-      </EditCardWrapper>
-        )}
+              </EditCardContCal>
+            </EditCardOptionCont>
+          </EditCardContainer>
+          <EditCardBtn type="submit">
+            <EditCardSvgContainer>
+              <EditCardButtonSvg>
+                <use xlinkHref={`${sprite}#icon-plus`}></use>
+              </EditCardButtonSvg>
+            </EditCardSvgContainer>
+            <EditCardSvgButtonText>
+              {t('screenPage.render.modal.card.editBtn')}
+            </EditCardSvgButtonText>
+          </EditCardBtn>
+        </EditCardWrapper>
+      )}
     </Formik>
   );
-              }
+};

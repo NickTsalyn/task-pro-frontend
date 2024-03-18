@@ -3,8 +3,15 @@ import styled from 'styled-components';
 export const ColumnWrapper = styled.li`
   display: flex;
   flex-direction: column;
+  width: 347px;
+
+  @media only screen and (min-width: 768px) {
+    width: 350px;
+  }
 `;
+
 export const ColumnHeader = styled.div`
+  margin-bottom: ${p => p.theme.spacing(3.5)};
   width: 334px;
   display: flex;
   flex-direction: row;
