@@ -32,7 +32,7 @@ import { CLoseButton } from 'components/EditProfileModal/EditProfileModal.styled
 import { addTask } from 'redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { DatePickerCalendar } from 'components/DatePicker/DatePicker.styled';
+import { DatePickerCalendar } from 'components/EditCard/DatePicker.styled';
 
 export const AddCard = ({ onCloseModal, id }) => {
   const { t } = useTranslation('global');
