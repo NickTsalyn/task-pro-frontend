@@ -73,6 +73,7 @@ export const EditProfileModal = ({ onCloseModal, avatar }) => {
         onSubmit={(values, actions) => {
           handleSubmit(values);
           actions.resetForm();
+          onCloseModal();
         }}
       >
         {({ values, setFieldValue }) => (
@@ -134,7 +135,7 @@ export const EditProfileModal = ({ onCloseModal, avatar }) => {
               </HideBtn>
             </StyledLabel>
 
-            <Button type="submit" onClick={onCloseModal}>
+            <Button type="submit" /*onClick={onCloseModal}*/>
               {t('screenPage.render.modal.profile.send')}
             </Button>
           </StyledForm>

@@ -27,7 +27,6 @@ import { deleteColumn } from 'redux/columns/operations';
 
 import { useTranslation } from 'react-i18next';
 
-
 Modal.setAppElement('#root');
 export const ColumnListItem = ({ column, columns }) => {
   const { t } = useTranslation('global');
@@ -101,15 +100,17 @@ export const ColumnListItem = ({ column, columns }) => {
         </AddCardSvgButtonText>
       </AddAnotherCard>
 
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        overlayClassName={'modal-overlay'}
-        className={'modal-content'}
-        closeTimeoutMS={300}
-      >
-        <AddCard onCloseModal={closeModal} id={column._id} />
-      </Modal>
+      {isModalOpen && (
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          overlayClassName={'modal-overlay'}
+          className={'modal-content'}
+          closeTimeoutMS={300}
+        >
+          <AddCard onCloseModal={closeModal} id={column._id} />
+        </Modal>
+      )}
     </ColumnWrapper>
   );
 };
