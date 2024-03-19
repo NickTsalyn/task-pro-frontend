@@ -26,8 +26,8 @@ export const BoardModalBase = ({
 }) => {
   const { t } = useTranslation('global');
   const [title, setTitle] = useState(info.title);
-  const [iconURL, setIcon] = useState(info.iconURL);
-  const [backgroundURL, setBackground] = useState(info.backgroundURL);
+  const [icon, setIcon] = useState(info.icon);
+  const [background, setBackground] = useState(info.background);
 
   const Icons = [
     { value: 'icon-Project' },
@@ -62,16 +62,16 @@ export const BoardModalBase = ({
   function close() {
     onCloseModal();
     setTitle(info.title);
-    setIcon(info.iconURL);
-    setBackground(info.backgroundURL);
+    setIcon(info.icon);
+    setBackground(info.background);
   }
 
   function sub(event) {
     event.preventDefault();
-    SubmitForm({ title, iconURL, backgroundURL });
+    SubmitForm({ title, icon, background });
     setTitle(info.title);
-    setIcon(info.iconURL);
-    setBackground(info.backgroundURL);
+    setIcon(info.icon);
+    setBackground(info.background);
   }
 
   function handleChange(e) {
@@ -116,7 +116,7 @@ export const BoardModalBase = ({
                 type="radio"
                 name="icon"
                 value={Icon.value}
-                checked={Icon.value === iconURL ? true : false}
+                checked={Icon.value === icon ? true : false}
                 onChange={() => setIcon(Icon.value)}
               ></Radio>
               <IconSVG aria-hidden="true">
@@ -134,7 +134,7 @@ export const BoardModalBase = ({
                 type="radio"
                 name="background"
                 value={Background.value}
-                checked={Background.value === backgroundURL ? true : false}
+                checked={Background.value === background ? true : false}
                 onChange={() => setBackground(Background.value)}
               ></Radio>
               <Pic>

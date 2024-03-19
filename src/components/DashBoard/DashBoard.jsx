@@ -18,7 +18,7 @@ const DashBoard = () => {
     dispatch(getAllColumns());
   }, [dispatch, boardId]);
 
-  const filteredColumns = columns.filter(column => column.board === boardId);
+  const filteredColumns = columns.filter(column => column.boardID === boardId);
 
   return (
     <DashBoardWrapper>

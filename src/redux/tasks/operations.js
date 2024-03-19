@@ -17,12 +17,11 @@ export const fetchTitle = createAsyncThunk(
 );
 
 // add card
-
 export const addTask = createAsyncThunk(
   'tasks/addTask',
   async ({ title, description, priority, deadline, columnId }, thunkAPI) => {
     // try {
-    const response = await axios.post(`/api/tasks/${columnId}/addTask`, {
+    const response = await axios.post(`/api/tasks/${columnId}`, {
       title,
       description,
       priority,
@@ -52,7 +51,6 @@ export const getTask = createAsyncThunk(
 );
 
 //  edit card
-
 export const editTask = createAsyncThunk(
   'tasks/editTask',
   async (
@@ -60,12 +58,12 @@ export const editTask = createAsyncThunk(
     thunkAPI
   ) => {
     try {
-      const response = await axios.patch(`/api/tasks/${taskId}`, {
+      const response = await axios.put(`/api/tasks/${taskId}`, {
         title,
         description,
         priority,
         deadline,
-        column,
+        columnID: column,
       });
       return response.data;
     } catch (error) {

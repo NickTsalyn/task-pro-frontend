@@ -34,10 +34,9 @@ export const addColumn = createAsyncThunk(
   async ({ dashboardId, title }, thunkAPI) => {
     try {
       const response = await axios.post(
-        `/api/columns/${dashboardId}/addColumn`,
+        `/api/columns/${dashboardId}`,
         {
-          title,
-          dashboardId,
+          title
         }
       );
 
@@ -53,7 +52,7 @@ export const editColumn = createAsyncThunk(
   'columns/editColumn',
   async ({ id, title }, thunkAPI) => {
     try {
-      const response = await axios.patch(`/api/columns/${id}`, title);      
+      const response = await axios.put(`/api/columns/${id}`, title);      
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
