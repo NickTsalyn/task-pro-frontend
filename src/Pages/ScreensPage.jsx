@@ -9,7 +9,7 @@ export default function ScreensPage() {
   const board = useSelector(selectBoardById);
 
   return (
-    <ScreensPageWrapper back={board.backgroundURL}>
+    <ScreensPageWrapper back={board.background}>
       <HeaderDashboard />
       <DashBoard />    
     </ScreensPageWrapper>

@@ -24,7 +24,7 @@ export const CardList = ({ columnId, filtColumns }) => {
       formattedPriority.length === 0 ||
       formattedPriority.includes(task.priority);
 
-    const columnCondition = task.column === columnId;
+    const columnCondition = task.columnID === columnId;
 
     return priorityCondition && columnCondition;
   });

@@ -49,7 +49,7 @@ export const BoardListItem = ({ board, active, onClick }) => {
         }}
       >
         <svg>
-          <use xlinkHref={`${sprite}#${board.iconURL}`}></use>
+          <use xlinkHref={`${sprite}#${board.icon}`}></use>
         </svg>
 
         <Link to={`/home/${board._id}`}>{board.title}</Link>

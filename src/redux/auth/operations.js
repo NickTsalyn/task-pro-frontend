@@ -4,13 +4,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 axios.defaults.baseURL = 'https://task-pro-backend-a1c2.onrender.com';
 
 // Utility to add JWT
-
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 // Utility to remove JWT
-
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
@@ -81,7 +79,7 @@ export const updateProfile = createAsyncThunk(
       }
 
       setAuthHeader(persistedToken);
-      const res = await axios.patchForm('/api/users/edit', credentials);
+      const res = await axios.putForm('/api/users/edit', credentials);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);

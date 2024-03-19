@@ -17,7 +17,7 @@ export const ChangeColumnModal = props => {
   const columns = useSelector(selectColumns);
   const { Id } = props;
 
-  const filteredColumns = columns.filter(column => column.board === boardId);
+  const filteredColumns = columns.filter(column => column.boardID === boardId);
   return (
     <ChangeWrapper>
       <ul>

@@ -28,7 +28,7 @@ export const AddBoard = () => {
       {isModalOpen && (
         <BoardModalBase
           isModalOpen={isModalOpen}
-          info={{ title: '', iconURL: 'icon-Project', backgroundURL: '0' }}
+          info={{ title: '', icon: 'icon-Project', background: '0' }}
           onCloseModal={CloseModal}
           action={'add'}
           SubmitForm={SubmitForm}
