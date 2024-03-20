@@ -256,6 +256,9 @@ export const AddAnotherCard = styled.button`
   @media only screen and (min-width: 1440px) {
     margin-bottom: 16px;
   }
+  @media only screen and (min-width: 1920px) {
+    margin-bottom: 8px;    
+  }
 `;
 
 export const AddCardSvgClose = styled.svg`

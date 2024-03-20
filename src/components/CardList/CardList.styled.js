@@ -5,7 +5,7 @@ export const CardListStyled = styled.ul`
   display: flex;
   flex-direction: column;
   gap: ${p => p.theme.spacing(2)};
-  max-height: 154px;
+  max-height: 478px;
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -18,6 +18,7 @@ export const CardListStyled = styled.ul`
   }
 
   @media only screen and (min-width: 1920px) {
+    margin-bottom: ${p => p.theme.spacing(2)};
     max-height: 964px;
   }
 
