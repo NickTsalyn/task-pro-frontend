@@ -7,7 +7,12 @@ import {
   deleteBoard,
 } from './operations';
 import { addColumn, deleteColumn, editColumn } from 'redux/columns/operations';
-import { addTask, deleteTask, editTask } from 'redux/tasks/operations';
+import {
+  addTask,
+  changeColumnTask,
+  deleteTask,
+  editTask,
+} from 'redux/tasks/operations';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -45,6 +50,7 @@ const boardsSlice = createSlice({
     [addTask.pending]: handlePending,
     [deleteTask.pending]: handlePending,
     [editTask.pending]: handlePending,
+    [changeColumnTask.pending]: handlePending,
 
     [fetchBoards.rejected]: handleRejected,
     [addBoard.rejected]: handleRejected,
@@ -57,6 +63,7 @@ const boardsSlice = createSlice({
     [addTask.rejected]: handleRejected,
     [deleteTask.rejected]: handleRejected,
     [editTask.rejected]: handleRejected,
+    [changeColumnTask.rejected]: handleRejected,
 
     [fetchBoards.fulfilled](state, action) {
       state.isLoading = false;
@@ -163,7 +170,32 @@ const boardsSlice = createSlice({
       const taskIndex = state.currentBoard.columns[columnIndex].tasks.findIndex(
         task => task._id === action.payload._id
       );
-      state.currentBoard.columns[columnIndex].tasks[taskIndex] = {...state.currentBoard.columns[columnIndex].tasks[taskIndex],...action.payload};
+      state.currentBoard.columns[columnIndex].tasks[taskIndex] = {
+        ...state.currentBoard.columns[columnIndex].tasks[taskIndex],
+        ...action.payload,
+      };
+    },
+    [changeColumnTask.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+
+      const { id, prevColumnID, newColumnID } = action.payload;
+      const prevColumnIndex = state.currentBoard.columns.findIndex(
+        column => column._id === prevColumnID
+      );
+      const newColumnIndex = state.currentBoard.columns.findIndex(
+        column => column._id === newColumnID
+      );
+      const taskIndex = state.currentBoard.columns[
+        prevColumnIndex
+      ].tasks.findIndex(task => task._id === id);
+      const deletedTask = state.currentBoard.columns[
+        prevColumnIndex
+      ].tasks.splice(taskIndex, 1);
+      state.currentBoard.columns[newColumnIndex].tasks = [
+        ...state.currentBoard.columns[newColumnIndex].tasks,
+        ...deletedTask,
+      ];
     },
   },
 });

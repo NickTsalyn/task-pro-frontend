@@ -7,7 +7,7 @@ import {
   StyledSVGChange,
 } from './ChangeColumn.styled';
 
-import { editTask } from 'redux/tasks/operations';
+import { changeColumnTask } from 'redux/tasks/operations';
 import { selectBoardById } from 'redux/boards/selectors';
 
 export const ChangeColumnModal = props => {
@@ -24,8 +24,7 @@ export const ChangeColumnModal = props => {
             <ChangeButton
               type="button"
               onClick={() =>
-                console.log('need new controller+router -> changeColumn')
-                // dispatch(editTask({ taskId: Id, columnID: column._id }))
+                dispatch(changeColumnTask({ taskId: Id, columnID: column._id }))
               }
             >
               {column.title}
