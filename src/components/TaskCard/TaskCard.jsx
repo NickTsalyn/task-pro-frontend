@@ -39,8 +39,7 @@ import { useTranslation } from 'react-i18next';
 Modal.setAppElement('#root');
 
 export const TaskCard = ({
-  task: { _id, title, description, priority, deadline },
-  columns,
+  task: { _id, title, description, priority, deadline, columnID },
 }) => {
   const { t } = useTranslation('global');
 
@@ -126,7 +125,7 @@ export const TaskCard = ({
               </Bell>
             )}
             <Buttons>
-              <ChangeColumnButton taskId={_id} />
+              <ChangeColumnButton taskId={_id} columnID={columnID}  />
               {isModalOpen && (
                 <Modal
                   isOpen={isModalOpen}
@@ -137,7 +136,14 @@ export const TaskCard = ({
                 >
                   <EditCard
                     onCloseModal={closeModal}
-                    task={{ _id, title, description, priority, deadline }}
+                    task={{
+                      _id,
+                      title,
+                      description,
+                      priority,
+                      deadline,
+                      columnID,
+                    }}
                   />
                 </Modal>
               )}

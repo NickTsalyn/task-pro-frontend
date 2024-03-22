@@ -6,6 +6,8 @@ import {
   editBoard,
   deleteBoard,
 } from './operations';
+import { addColumn, deleteColumn, editColumn } from 'redux/columns/operations';
+import { addTask, deleteTask, editTask } from 'redux/tasks/operations';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -19,7 +21,14 @@ const handleRejected = (state, action) => {
 const boardsSlice = createSlice({
   name: 'boards',
   initialState: {
-    currentBoard: {},
+    currentBoard: {
+      _id: '',
+      title: '',
+      columns: [],
+      owner: '',
+      background: '',
+      icon: '',
+    },
     boards: [],
     isLoading: false,
     error: null,
@@ -30,19 +39,35 @@ const boardsSlice = createSlice({
     [getBoardById.pending]: handlePending,
     [editBoard.pending]: handlePending,
     [deleteBoard.pending]: handlePending,
+    [addColumn.pending]: handlePending,
+    [deleteColumn.pending]: handlePending,
+    [editColumn.pending]: handlePending,
+    [addTask.pending]: handlePending,
+    [deleteTask.pending]: handlePending,
+    [editTask.pending]: handlePending,
+
     [fetchBoards.rejected]: handleRejected,
     [addBoard.rejected]: handleRejected,
     [getBoardById.rejected]: handleRejected,
     [editBoard.rejected]: handleRejected,
     [deleteBoard.rejected]: handleRejected,
+    [addColumn.rejected]: handleRejected,
+    [deleteColumn.rejected]: handleRejected,
+    [editColumn.rejected]: handleRejected,
+    [addTask.rejected]: handleRejected,
+    [deleteTask.rejected]: handleRejected,
+    [editTask.rejected]: handleRejected,
+
     [fetchBoards.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
+
       state.boards = action.payload;
     },
     [addBoard.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
+
       state.boards.push(action.payload);
     },
     [getBoardById.fulfilled](state, action) {
@@ -53,20 +78,92 @@ const boardsSlice = createSlice({
     [editBoard.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
+
       const index = state.boards.findIndex(
         board => board._id === action.payload._id
       );
       state.boards[index] = action.payload;
-      state.currentBoard = action.payload;
+
+      const { title, icon, background } = action.payload;
+      state.currentBoard = { ...state.currentBoard, title, icon, background };
     },
     [deleteBoard.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
+
       const index = state.boards.findIndex(
         board => board._id === action.payload._id
       );
       state.boards.splice(index, 1);
-      state.currentBoard = {};
+      state.currentBoard = {
+        _id: '',
+        title: '',
+        columns: [],
+        owner: '',
+        background: '',
+        icon: '',
+      };
+    },
+
+    [addColumn.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+
+      state.currentBoard.columns.push(action.payload);
+    },
+    [deleteColumn.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+
+      const columnIndex = state.currentBoard.columns.findIndex(
+        column => column._id === action.payload._id
+      );
+      state.currentBoard.columns.splice(columnIndex, 1);
+    },
+    [editColumn.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+
+      const { _id, title } = action.payload;
+      const columnIndex = state.currentBoard.columns.findIndex(
+        column => column._id === _id
+      );
+      state.currentBoard.columns[columnIndex].title = title;
+    },
+
+    [addTask.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+
+      const columnIndex = state.currentBoard.columns.findIndex(
+        column => column._id === action.payload.columnID
+      );
+      state.currentBoard.columns[columnIndex].tasks.push(action.payload);
+    },
+    [deleteTask.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+
+      const { id, columnID } = action.payload;
+      const columnIndex = state.currentBoard.columns.findIndex(
+        column => column._id === columnID
+      );
+      const taskIndex = state.currentBoard.columns[columnIndex].tasks.findIndex(
+        task => task._id === id
+      );
+      state.currentBoard.columns[columnIndex].tasks.splice(taskIndex, 1);
+    },
+    [editTask.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+
+      const columnIndex = state.currentBoard.columns.findIndex(
+        column => column._id === action.payload.columnID
+      );
+      const taskIndex = state.currentBoard.columns[columnIndex].tasks.findIndex(
+        task => task._id === action.payload._id
+      );
+      state.currentBoard.columns[columnIndex].tasks[taskIndex] = {...state.currentBoard.columns[columnIndex].tasks[taskIndex],...action.payload};
     },
   },
 });

@@ -1,6 +1,6 @@
 import sprite from '../../images/icons.svg';
 import Modal from 'react-modal';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { toastStyles } from '../../ToasterOptions';
 import {
@@ -11,7 +11,6 @@ import {
   EditButton,
   EditSVG,
 } from './ColumnListItem.styled';
-
 import {
   AddAnotherCard,
   AddCardButtonSvg,
@@ -21,14 +20,13 @@ import {
 import { CardList } from 'components/CardList/CardList';
 import { AddCard } from 'components/AddCard/AddCard';
 import { useDispatch } from 'react-redux';
-import { fetchTitle } from 'redux/tasks/operations';
 import { EditColumnButton } from 'components/EditColumnButtons/EditColumnButton/EditColumnButton';
 import { deleteColumn } from 'redux/columns/operations';
 
 import { useTranslation } from 'react-i18next';
 
 Modal.setAppElement('#root');
-export const ColumnListItem = ({ column, columns }) => {
+export const ColumnListItem = ({ column }) => {
   const { t } = useTranslation('global');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { _id } = column;
@@ -42,10 +40,6 @@ export const ColumnListItem = ({ column, columns }) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
-  useEffect(() => {
-    dispatch(fetchTitle());
-  }, [dispatch]);
 
   const successToaster = () => {
     toast.success('You successfully deleted column!', {
@@ -88,7 +82,9 @@ export const ColumnListItem = ({ column, columns }) => {
           </EditButton>
         </EditBlock>
       </ColumnHeader>
-      <CardList columnId={column._id} filtColumns={columns} />
+
+      <CardList tasks={column.tasks} />
+
       <AddAnotherCard onClick={openModal} type="submit">
         <AddCardSvgContainer>
           <AddCardButtonSvg>

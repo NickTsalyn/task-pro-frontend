@@ -8,16 +8,14 @@ import {
 } from './ChangeColumn.styled';
 
 import { editTask } from 'redux/tasks/operations';
-import { selectColumns } from 'redux/columns/selectors';
-import { useParams } from 'react-router-dom';
+import { selectBoardById } from 'redux/boards/selectors';
 
 export const ChangeColumnModal = props => {
-  const { boardId } = useParams();
   const dispatch = useDispatch();
-  const columns = useSelector(selectColumns);
-  const { Id } = props;
+  const currentBoard = useSelector(selectBoardById);
+  const { Id, columnID: currentColumnID } = props;
+  const filteredColumns = currentBoard.columns.filter(column => column._id !== currentColumnID);
 
-  const filteredColumns = columns.filter(column => column.boardID === boardId);
   return (
     <ChangeWrapper>
       <ul>
@@ -26,7 +24,8 @@ export const ChangeColumnModal = props => {
             <ChangeButton
               type="button"
               onClick={() =>
-                dispatch(editTask({ taskId: Id, column: column._id }))
+                console.log('need new controller+router -> changeColumn')
+                // dispatch(editTask({ taskId: Id, columnID: column._id }))
               }
             >
               {column.title}
