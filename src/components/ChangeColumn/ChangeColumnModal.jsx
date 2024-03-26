@@ -15,9 +15,12 @@ export const ChangeColumnModal = props => {
   const { boardId } = useParams();
   const dispatch = useDispatch();
   const columns = useSelector(selectColumns);
-  const { Id } = props;
+  const { Id, columnId } = props;
 
-  const filteredColumns = columns.filter(column => column.boardID === boardId);
+  const filteredColumns = columns.filter(
+    column => column.boardID === boardId && column._id !== columnId
+  );
+
   return (
     <ChangeWrapper>
       <ul>
@@ -30,6 +33,7 @@ export const ChangeColumnModal = props => {
               }
             >
               {column.title}
+
               <StyledSVGChange>
                 <use xlinkHref={`${sprite}#icon-active`}></use>
               </StyledSVGChange>
