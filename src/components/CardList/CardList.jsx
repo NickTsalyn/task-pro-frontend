@@ -33,7 +33,12 @@ export const CardList = ({ columnId, filtColumns }) => {
       {filteredTasks.length > 0 && (
         <CardListStyled>
           {filteredTasks.map(task => (
-            <TaskCard key={task._id} task={task} columns={filtColumns} />
+            <TaskCard
+              key={task._id}
+              task={task}
+              columns={filtColumns}
+              id={columnId}
+            />
           ))}
         </CardListStyled>
       )}

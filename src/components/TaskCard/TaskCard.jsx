@@ -41,6 +41,7 @@ Modal.setAppElement('#root');
 export const TaskCard = ({
   task: { _id, title, description, priority, deadline },
   columns,
+  id,
 }) => {
   const { t } = useTranslation('global');
 
@@ -126,7 +127,7 @@ export const TaskCard = ({
               </Bell>
             )}
             <Buttons>
-              <ChangeColumnButton taskId={_id} />
+              <ChangeColumnButton taskId={_id} columnId={id} />
               {isModalOpen && (
                 <Modal
                   isOpen={isModalOpen}
