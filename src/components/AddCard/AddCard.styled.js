@@ -1,8 +1,6 @@
 import { Field, Form } from 'formik';
 
 import { styled } from 'styled-components';
-// import DatePicker from 'react-datepicker';
-// import 'react-datepicker/dist/react-datepicker.css';
 
 const getColor = props => {
   switch (props.value) {
@@ -255,6 +253,9 @@ export const AddAnotherCard = styled.button`
   }
   @media only screen and (min-width: 1440px) {
     margin-bottom: 16px;
+  }
+  @media only screen and (min-width: 1920px) {
+    margin-bottom: 8px;
   }
 `;
 

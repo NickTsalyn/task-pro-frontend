@@ -35,12 +35,13 @@ import {
 import { EditCard } from 'components/EditCard/EditCard';
 import { ChangeColumnButton } from 'components/ChangeColumn/ChangeColumnButton';
 import { useTranslation } from 'react-i18next';
+import { Draggable } from 'react-beautiful-dnd';
 
 Modal.setAppElement('#root');
 
 export const TaskCard = ({
-  task: { _id, title, description, priority, deadline },
-  columns,
+  task: { _id, title, description, priority, deadline, columnID },
+  index,
 }) => {
   const { t } = useTranslation('global');
 
@@ -93,69 +94,89 @@ export const TaskCard = ({
     }
   };
   return (
-    <TaskContainer>
-      <PrioritySeeContainer value={priority}></PrioritySeeContainer>
-      <MainContainer>
-        <TextContainer>
-          <Title>{title}</Title>
-          <DescriptionContainer>
-            <Text>{description}</Text>
-          </DescriptionContainer>
-        </TextContainer>
-        <Line></Line>
-        <MenuCard>
-          <CardPriorityDeadline>
-            <ToDoContainer>
-              <SubTitle>Priority</SubTitle>
-              <PriorityContainer>
-                <CirclePriority value={priority} />
-                <TextPriority>{priority}</TextPriority>
-              </PriorityContainer>
-            </ToDoContainer>
-            <DeadlineContainer>
-              <SubTitle>{t('screenPage.render.modal.card.deadline')}</SubTitle>
-              <TextDate>{formatDeadlineDate(deadline)}</TextDate>
-            </DeadlineContainer>
-          </CardPriorityDeadline>
-          <ButtonsContainer>
-            {isDeadLinePassed ? null : (
-              <Bell>
-                <SvgBell>
-                  <use xlinkHref={`${sprite}#icon-bell-01`}></use>
-                </SvgBell>
-              </Bell>
-            )}
-            <Buttons>
-              <ChangeColumnButton taskId={_id} />
-              {isModalOpen && (
-                <Modal
-                  isOpen={isModalOpen}
-                  onRequestClose={closeModal}
-                  overlayClassName={'modal-overlay'}
-                  className={'modal-content'}
-                  closeTimeoutMS={300}
-                >
-                  <EditCard
-                    onCloseModal={closeModal}
-                    task={{ _id, title, description, priority, deadline }}
-                  />
-                </Modal>
-              )}
-              <Btn type="button" onClick={openModal}>
-                <Svg>
-                  <use xlinkHref={`${sprite}#icon-pencil-01`}></use>
-                </Svg>
-              </Btn>
-              <Btn type="button" onClick={() => toDeleteTask(_id)}>
-                <Svg>
-                  <use xlinkHref={`${sprite}#icon-trash-04`}></use>
-                </Svg>
-              </Btn>
-            </Buttons>
-          </ButtonsContainer>
-        </MenuCard>
-      </MainContainer>
-      <Toaster />
-    </TaskContainer>
+    <Draggable draggableId={_id} index={index}>
+      {provided => (
+        <TaskContainer
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+        >
+          <PrioritySeeContainer value={priority}></PrioritySeeContainer>
+          <MainContainer>
+            <TextContainer>
+              <Title>{title}</Title>
+              <DescriptionContainer>
+                <Text>{description}</Text>
+              </DescriptionContainer>
+            </TextContainer>
+
+            <Line></Line>
+            
+            <MenuCard>
+              <CardPriorityDeadline>
+                <ToDoContainer>
+                  <SubTitle>Priority</SubTitle>
+                  <PriorityContainer>
+                    <CirclePriority value={priority} />
+                    <TextPriority>{priority}</TextPriority>
+                  </PriorityContainer>
+                </ToDoContainer>
+                <DeadlineContainer>
+                  <SubTitle>
+                    {t('screenPage.render.modal.card.deadline')}
+                  </SubTitle>
+                  <TextDate>{formatDeadlineDate(deadline)}</TextDate>
+                </DeadlineContainer>
+              </CardPriorityDeadline>
+              <ButtonsContainer>
+                {isDeadLinePassed ? null : (
+                  <Bell>
+                    <SvgBell>
+                      <use xlinkHref={`${sprite}#icon-bell-01`}></use>
+                    </SvgBell>
+                  </Bell>
+                )}
+                <Buttons>
+                  <ChangeColumnButton taskId={_id} columnID={columnID} />
+                  {isModalOpen && (
+                    <Modal
+                      isOpen={isModalOpen}
+                      onRequestClose={closeModal}
+                      overlayClassName={'modal-overlay'}
+                      className={'modal-content'}
+                      closeTimeoutMS={300}
+                    >
+                      <EditCard
+                        onCloseModal={closeModal}
+                        task={{
+                          _id,
+                          title,
+                          description,
+                          priority,
+                          deadline,
+                          columnID,
+                        }}
+                      />
+                    </Modal>
+                  )}
+                  <Btn type="button" onClick={openModal}>
+                    <Svg>
+                      <use xlinkHref={`${sprite}#icon-pencil-01`}></use>
+                    </Svg>
+                  </Btn>
+                  <Btn type="button" onClick={() => toDeleteTask(_id)}>
+                    <Svg>
+                      <use xlinkHref={`${sprite}#icon-trash-04`}></use>
+                    </Svg>
+                  </Btn>
+                </Buttons>
+              </ButtonsContainer>
+            </MenuCard>
+          </MainContainer>
+
+          <Toaster />
+        </TaskContainer>
+      )}
+    </Draggable>
   );
 };

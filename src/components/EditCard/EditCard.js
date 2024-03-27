@@ -41,7 +41,7 @@ import { DatePickerCalendar } from 'components/EditCard/DatePicker.styled';
 
 export const EditCard = ({
   onCloseModal,
-  task: { _id, title, description, priority, deadline },
+  task: { _id, title, description, priority, deadline, columnID },
 }) => {
   const { t } = useTranslation('global');
   const [startDate, setStartDate] = useState(new Date(deadline));
@@ -90,8 +90,8 @@ export const EditCard = ({
           priority: values.priority,
           deadline: values.deadline,
           taskId: _id,
+          columnID,
         };
-        console.log(editCard.deadline);
         dispatch(editTask(editCard));
 
         onCloseModal();

@@ -3,7 +3,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://task-pro-backend-a1c2.onrender.com';
 
-//get all tasks
 export const fetchTitle = createAsyncThunk(
   'tasks/fetchAll',
   async (_, thunkAPI) => {
@@ -16,27 +15,23 @@ export const fetchTitle = createAsyncThunk(
   }
 );
 
-// add card
 export const addTask = createAsyncThunk(
   'tasks/addTask',
   async ({ title, description, priority, deadline, columnId }, thunkAPI) => {
-    // try {
-    const response = await axios.post(`/api/tasks/${columnId}`, {
-      title,
-      description,
-      priority,
-      deadline,
-    });
-    
-    return response.data;
-    // }
-    // } catch (error) {
-    //     return thunkAPI.rejectWithValue(error.message);
-    // }
+    try {
+      const response = await axios.post(`/api/tasks/${columnId}`, {
+        title,
+        description,
+        priority,
+        deadline,
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
 );
 
-// get taskId
 export const getTask = createAsyncThunk(
   'tasks/getTask',
   async ({ id }, thunkAPI) => {
@@ -50,11 +45,10 @@ export const getTask = createAsyncThunk(
   }
 );
 
-//  edit card
 export const editTask = createAsyncThunk(
   'tasks/editTask',
   async (
-    { title, description, priority, deadline, taskId, column },
+    { title, description, priority, deadline, taskId, columnID },
     thunkAPI
   ) => {
     try {
@@ -63,7 +57,7 @@ export const editTask = createAsyncThunk(
         description,
         priority,
         deadline,
-        columnID: column,
+        columnID,
       });
       return response.data;
     } catch (error) {
@@ -72,7 +66,37 @@ export const editTask = createAsyncThunk(
   }
 );
 
-// delete card
+export const changeColumnTask = createAsyncThunk(
+  'tasks/changeColumn',
+  async ({ taskId, columnID }, thunkAPI) => {
+    try {
+      const res = await axios.patch(`/api/tasks/${taskId}`, { columnID });
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const dndMovement = createAsyncThunk(
+  'tasks/dndMovement',
+  async (
+    { taskID, finishTaskIndex, startColumnID, finishColumnID },
+    thunkAPI
+  ) => {
+    try {
+      const res = await axios.patch(`/api/tasks/dnd/${taskID}`, {
+        finishTaskIndex,
+        startColumnID,
+        finishColumnID,
+      });
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const deleteTask = createAsyncThunk(
   'tasks/deleteTask',
   async (Id, thunkAPI) => {

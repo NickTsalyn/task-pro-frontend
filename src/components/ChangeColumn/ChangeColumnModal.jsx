@@ -7,17 +7,14 @@ import {
   StyledSVGChange,
 } from './ChangeColumn.styled';
 
-import { editTask } from 'redux/tasks/operations';
-import { selectColumns } from 'redux/columns/selectors';
-import { useParams } from 'react-router-dom';
+import { changeColumnTask } from 'redux/tasks/operations';
+import { selectCurrBoardColumns } from 'redux/boards/selectors';
 
-export const ChangeColumnModal = props => {
-  const { boardId } = useParams();
+export const ChangeColumnModal = ({ Id, columnID: currentColumnID }) => {
   const dispatch = useDispatch();
-  const columns = useSelector(selectColumns);
-  const { Id } = props;
+  const columns = useSelector(selectCurrBoardColumns);
+  const filteredColumns = columns.filter(column => column._id !== currentColumnID);
 
-  const filteredColumns = columns.filter(column => column.boardID === boardId);
   return (
     <ChangeWrapper>
       <ul>
@@ -26,7 +23,7 @@ export const ChangeColumnModal = props => {
             <ChangeButton
               type="button"
               onClick={() =>
-                dispatch(editTask({ taskId: Id, column: column._id }))
+                dispatch(changeColumnTask({ taskId: Id, columnID: column._id }))
               }
             >
               {column.title}
