@@ -26,11 +26,11 @@ import { deleteColumn } from 'redux/columns/operations';
 import { useTranslation } from 'react-i18next';
 
 Modal.setAppElement('#root');
+
 export const ColumnListItem = ({ column }) => {
   const { t } = useTranslation('global');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { _id } = column;
-
   const dispatch = useDispatch();
 
   const openModal = () => {
@@ -83,7 +83,7 @@ export const ColumnListItem = ({ column }) => {
         </EditBlock>
       </ColumnHeader>
 
-      <CardList tasks={column.tasks} />
+      <CardList tasks={column.tasks} columnID={_id} />
 
       <AddAnotherCard onClick={openModal} type="submit">
         <AddCardSvgContainer>

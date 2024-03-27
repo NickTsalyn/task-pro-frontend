@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'http://localhost:3232';
+axios.defaults.baseURL = 'https://task-pro-backend-a1c2.onrender.com';
 
 export const getAllColumns = createAsyncThunk(
   'columns/getAllColumns',

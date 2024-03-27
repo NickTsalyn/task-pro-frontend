@@ -2,8 +2,9 @@ import { CardListStyled } from './CardList.styled';
 import { useSelector } from 'react-redux';
 import { TaskCard } from 'components/TaskCard/TaskCard';
 import { selectFiltersPriority } from 'redux/filters/selectors';
+import { Droppable } from 'react-beautiful-dnd';
 
-export const CardList = ({ tasks }) => {
+export const CardList = ({ tasks, columnID }) => {
   const selectedPriority = useSelector(selectFiltersPriority);
   const formattedPriority = selectedPriority.map(
     priority => priority.charAt(0).toUpperCase() + priority.slice(1)
@@ -18,13 +19,19 @@ export const CardList = ({ tasks }) => {
 
   return (
     <>
-      {filteredTasks.length > 0 && (
-        <CardListStyled>
-          {filteredTasks.map(task => (
-            <TaskCard key={task._id} task={task} />
-          ))}
-        </CardListStyled>
-      )}
+      <Droppable droppableId={columnID}>
+        {provided => (
+          <CardListStyled
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            {filteredTasks.map((task, index) => (
+              <TaskCard key={task._id} task={task} index={index} />
+            ))}
+            {provided.placeholder}
+          </CardListStyled>
+        )}
+      </Droppable>
     </>
   );
 };

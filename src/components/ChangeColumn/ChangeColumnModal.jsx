@@ -8,13 +8,12 @@ import {
 } from './ChangeColumn.styled';
 
 import { changeColumnTask } from 'redux/tasks/operations';
-import { selectBoardById } from 'redux/boards/selectors';
+import { selectCurrBoardColumns } from 'redux/boards/selectors';
 
-export const ChangeColumnModal = props => {
+export const ChangeColumnModal = ({ Id, columnID: currentColumnID }) => {
   const dispatch = useDispatch();
-  const currentBoard = useSelector(selectBoardById);
-  const { Id, columnID: currentColumnID } = props;
-  const filteredColumns = currentBoard.columns.filter(column => column._id !== currentColumnID);
+  const columns = useSelector(selectCurrBoardColumns);
+  const filteredColumns = columns.filter(column => column._id !== currentColumnID);
 
   return (
     <ChangeWrapper>

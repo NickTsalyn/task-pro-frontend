@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'http://localhost:3232';
+axios.defaults.baseURL = 'https://task-pro-backend-a1c2.onrender.com';
 
 export const fetchTitle = createAsyncThunk(
   'tasks/fetchAll',
@@ -71,6 +71,25 @@ export const changeColumnTask = createAsyncThunk(
   async ({ taskId, columnID }, thunkAPI) => {
     try {
       const res = await axios.patch(`/api/tasks/${taskId}`, { columnID });
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const dndMovement = createAsyncThunk(
+  'tasks/dndMovement',
+  async (
+    { taskID, finishTaskIndex, startColumnID, finishColumnID },
+    thunkAPI
+  ) => {
+    try {
+      const res = await axios.patch(`/api/tasks/dnd/${taskID}`, {
+        finishTaskIndex,
+        startColumnID,
+        finishColumnID,
+      });
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

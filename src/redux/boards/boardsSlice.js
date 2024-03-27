@@ -11,13 +11,13 @@ import {
   addTask,
   changeColumnTask,
   deleteTask,
+  dndMovement,
   editTask,
 } from 'redux/tasks/operations';
 
 const handlePending = state => {
   state.isLoading = true;
 };
-
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
@@ -51,6 +51,7 @@ const boardsSlice = createSlice({
     [deleteTask.pending]: handlePending,
     [editTask.pending]: handlePending,
     [changeColumnTask.pending]: handlePending,
+    [dndMovement.pending]: handlePending,
 
     [fetchBoards.rejected]: handleRejected,
     [addBoard.rejected]: handleRejected,
@@ -64,6 +65,7 @@ const boardsSlice = createSlice({
     [deleteTask.rejected]: handleRejected,
     [editTask.rejected]: handleRejected,
     [changeColumnTask.rejected]: handleRejected,
+    [dndMovement.rejected]: handleRejected,
 
     [fetchBoards.fulfilled](state, action) {
       state.isLoading = false;
@@ -116,16 +118,18 @@ const boardsSlice = createSlice({
       state.isLoading = false;
       state.error = null;
 
-      state.currentBoard.columns.push(action.payload);
+      state.currentBoard.columns = [
+        ...state.currentBoard.columns,
+        action.payload,
+      ];
     },
     [deleteColumn.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
 
-      const columnIndex = state.currentBoard.columns.findIndex(
-        column => column._id === action.payload._id
+      state.currentBoard.columns = state.currentBoard.columns.filter(
+        item => item._id !== action.payload.id
       );
-      state.currentBoard.columns.splice(columnIndex, 1);
     },
     [editColumn.fulfilled](state, action) {
       state.isLoading = false;
@@ -145,7 +149,10 @@ const boardsSlice = createSlice({
       const columnIndex = state.currentBoard.columns.findIndex(
         column => column._id === action.payload.columnID
       );
-      state.currentBoard.columns[columnIndex].tasks.push(action.payload);
+      state.currentBoard.columns[columnIndex].tasks = [
+        ...state.currentBoard.columns[columnIndex].tasks,
+        action.payload,
+      ];
     },
     [deleteTask.fulfilled](state, action) {
       state.isLoading = false;
@@ -155,10 +162,9 @@ const boardsSlice = createSlice({
       const columnIndex = state.currentBoard.columns.findIndex(
         column => column._id === columnID
       );
-      const taskIndex = state.currentBoard.columns[columnIndex].tasks.findIndex(
-        task => task._id === id
-      );
-      state.currentBoard.columns[columnIndex].tasks.splice(taskIndex, 1);
+
+      state.currentBoard.columns[columnIndex].tasks =
+        state.currentBoard.columns[columnIndex].tasks.filter(task => task._id !== id);
     },
     [editTask.fulfilled](state, action) {
       state.isLoading = false;
@@ -179,23 +185,45 @@ const boardsSlice = createSlice({
       state.isLoading = false;
       state.error = null;
 
-      const { id, prevColumnID, newColumnID } = action.payload;
+      const { task, prevColumnID, newColumnID } = action.payload;
+
       const prevColumnIndex = state.currentBoard.columns.findIndex(
         column => column._id === prevColumnID
       );
+
       const newColumnIndex = state.currentBoard.columns.findIndex(
         column => column._id === newColumnID
       );
-      const taskIndex = state.currentBoard.columns[
-        prevColumnIndex
-      ].tasks.findIndex(task => task._id === id);
-      const deletedTask = state.currentBoard.columns[
-        prevColumnIndex
-      ].tasks.splice(taskIndex, 1);
-      state.currentBoard.columns[newColumnIndex].tasks = [
-        ...state.currentBoard.columns[newColumnIndex].tasks,
-        ...deletedTask,
-      ];
+
+      state.currentBoard.columns[prevColumnIndex].tasks =
+        state.currentBoard.columns[prevColumnIndex].tasks.filter(item => item._id !== task._id);
+      
+      state.currentBoard.columns[newColumnIndex].tasks =
+        [...state.currentBoard.columns[newColumnIndex].tasks, task];
+    },
+    [dndMovement.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+
+      const { task, finishTaskIndex, startColumnID, finishColumnID } =
+        action.payload;
+
+      const startColumnIndex = state.currentBoard.columns.findIndex(
+        column => column._id === startColumnID
+      );
+      const finishColumnIndex = state.currentBoard.columns.findIndex(
+        column => column._id === finishColumnID
+      );
+
+      state.currentBoard.columns[startColumnIndex].tasks =
+        state.currentBoard.columns[startColumnIndex].tasks.filter(elem => elem._id !== task._id);
+      
+      
+        state.currentBoard.columns[finishColumnIndex].tasks.splice(
+          finishTaskIndex,
+          0,
+          task,
+        );
     },
   },
 });
