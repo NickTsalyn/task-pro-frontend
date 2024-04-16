@@ -10,36 +10,51 @@ import { useDispatch } from 'react-redux';
 import { dndMovement } from 'redux/tasks/operations';
 import { useSelector } from 'react-redux';
 import { selectCurrBoardColumns } from 'redux/boards/selectors';
+import { useEffect, useState } from 'react';
+import { updateStatusLocalThunk } from 'redux/boards/operations';
 
 export const ColumnList = () => {
   const dispatch = useDispatch();
+  const [columnsBoard, setColumnsBoard] = useState(null);
   const columns = useSelector(selectCurrBoardColumns);
+
+  useEffect(() => {
+    if (columns) {
+      const initializedColumns = {};
+      columns.forEach(column => {
+        initializedColumns[column._id] = {
+          columnId: column._id,
+          items: column.tasks,
+        };
+      });
+      setColumnsBoard(initializedColumns);
+    }
+  }, [columns]);
 
   const onDragEnd = result => {
     const { destination, source } = result;
     if (!destination) return;
 
-    if (
-      destination.droppableId === source.droppableId &&
-      destination.index === source.index
-    ) {
-      return;
-    }
+    const startColumn = columnsBoard[source.droppableId];
+    const finishColumn = columnsBoard[destination.droppableId];
+    const draggableTask = startColumn.items[source.index];
 
-    const startColumn = columns.find(
-      column => column._id === source.droppableId
-    );
-    const finishColumn = columns.find(
-      column => column._id === destination.droppableId
-    );
-    const draggableTask = startColumn.tasks[source.index];
+    const data = {
+      task: draggableTask,
+      currentColumnId: startColumn.columnId,
+      newColumnId: finishColumn.columnId,
+      currentTaskIdx: source.index,
+      newTaskIdx: destination.index,
+    };
+
+    dispatch(updateStatusLocalThunk(data));
 
     dispatch(
       dndMovement({
         taskID: draggableTask._id,
         finishTaskIndex: destination.index,
-        startColumnID: startColumn._id,
-        finishColumnID: finishColumn._id,
+        startColumnID: startColumn.columnId,
+        finishColumnID: finishColumn.columnId,
       })
     );
   };
