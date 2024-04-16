@@ -69,3 +69,13 @@ export const getBoardById = createAsyncThunk(
     }
   }
 );
+export const updateStatusLocalThunk = createAsyncThunk(
+  'task/updateCardStatusLocal',
+  (data, thunkAPI) => {
+    try {
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
