@@ -20,6 +20,7 @@ import { useDispatch } from 'react-redux';
 
 import { login } from 'redux/auth/operations';
 import { useTranslation } from 'react-i18next';
+import { GoogleAuth } from 'components/GoogleBtn/GoogleAuth.jsx';
 
 const LogInSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email!').required('Email is required!'),
@@ -95,13 +96,14 @@ export const LogInForm = () => {
             </StyledInputContainer>
             <MessageError name="password" component="div" />
           </StyledLabel>
-        </InputContainer>
-        <LogInBtn type="submit">{t('welcomePage.login.button')}</LogInBtn>
-        <div>
           <StyledLink to="/auth/forgetPassword">
             {t('welcomePage.login.forgot')}
           </StyledLink>
-        </div>
+        </InputContainer>
+
+        <LogInBtn type="submit">{t('welcomePage.login.button')}</LogInBtn>
+
+        <GoogleAuth />
       </FormContainer>
     </Formik>
   );

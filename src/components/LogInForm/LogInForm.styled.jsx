@@ -99,7 +99,9 @@ export const MessageError = styled(ErrorMessage)`
   margin-top: 3px;
   padding-left: 14px;
   color: #c04d4d;
-  font-size: 12px;
+  font-size: 10px;
+  position: absolute;
+  top: 48px;
 `;
 
 export const StyledInputContainer = styled.div`
@@ -110,4 +112,12 @@ export const StyledInputContainer = styled.div`
 
 export const StyledLink = styled(NavLink)`
   color: ${p => p.theme.colors.lightGreen};
+  font-size: 12px;
+  margin-left: auto;
+`;
+
+export const LoginLinkWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;

@@ -20,6 +20,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
+import { GoogleAuth } from 'components/GoogleBtn/GoogleAuth.jsx';
 
 const RegisterSchema = Yup.object().shape({
   name: Yup.string()
@@ -113,9 +114,10 @@ const RegisterForm = () => {
             <MessageError name="password" component="div" />
           </StyledLabel>
         </InputContainer>
-        <RegisterInBtn type="submit">         
+        <RegisterInBtn type="submit">
           {t('welcomePage.registration.button')}
         </RegisterInBtn>
+        <GoogleAuth />
       </FormContainer>
     </Formik>
   );
